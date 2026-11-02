@@ -1235,6 +1235,24 @@
               </div>
             </div>
 
+            <!-- Petunjuk Masuk ke HP -->
+            <div style="background:var(--surface-raised);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;font-size:var(--step-small);color:var(--muted);line-height:1.5;">
+              <div style="font-weight:700;color:#ffffff;margin-bottom:6px;">
+                Cara Masuk (Login) ke Aplikasi di HP:
+              </div>
+              <p style="margin-bottom:8px;">
+                Akun Anda sudah resmi Pro di database Alight Creative. Sekarang tinggal masuk ke aplikasi di HP:
+              </p>
+              <ol style="padding-left:18px;margin-bottom:8px;display:flex;flex-direction:column;gap:4px;">
+                <li>Klik tombol <b>"Kirim Magic Link HP"</b> di bawah untuk mengirim link masuk baru.</li>
+                <li>Buka aplikasi <b>Gmail di HP</b> Anda dan cari email terbaru dari Alight Motion.</li>
+                <li><b>Tap langsung tombol "Sign in to Alight Motion"</b> di email &rarr; Aplikasi Alight Motion otomatis terbuka dan akun Anda langsung berstatus <b>MEMBER PRO</b>!</li>
+              </ol>
+              <div style="font-size:11.5px;color:var(--dim);">
+                Catatan: Jangan klik link pertama karena link tersebut sudah habis terpakai untuk aktivasi server.
+              </div>
+            </div>
+
             <div class="vip-actions-grid">
               <button class="btn btn-sm" id="btn-send-app-login">Kirim Magic Link HP</button>
               <button class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
@@ -1603,12 +1621,20 @@
     $('btn-close-drawer').onclick = closeDrawer;
     drawer.onclick = e => { if (e.target === drawer) closeDrawer(); };
 
+    function openAlightMotionApp() {
+      const isAndroid = /android/i.test(navigator.userAgent);
+      if (isAndroid) {
+        window.location.href = 'intent:#Intent;package=com.alightcreative.motion;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end';
+      } else {
+        window.location.href = 'alightmotion://';
+      }
+      showToast('Membuka Alight Motion...');
+    }
+
     // Drawer Quick Actions
     $('drawer-btn-open-app').onclick = () => {
       closeDrawer();
-      window.location.href = 'alightcreative.com/am://';
-      setTimeout(() => { window.location.href = 'alightmotion://'; }, 400);
-      showToast('Membuka Alight Motion...');
+      openAlightMotionApp();
     };
     $('drawer-btn-guide').onclick = () => {
       closeDrawer();
@@ -1842,8 +1868,8 @@
         });
         const data = await res.json();
         if (data.success) {
-          showMsg('msg-login-send', 'Tautan login aplikasi dikirim ke email!', 'ok');
-          showToast('Magic link login terkirim!');
+          showMsg('msg-login-send', 'Link baru berhasil dikirim ke ' + email + '! Sekarang buka aplikasi Gmail di HP Anda dan klik link tersebut untuk langsung login sebagai Pro.', 'ok');
+          showToast('Link login HP terkirim!');
         } else {
           showMsg('msg-login-send', data.error || 'Gagal mengirim link login.', 'err');
         }
@@ -1887,11 +1913,7 @@
       }
     };
 
-    $('btn-open-app').onclick = () => {
-      window.location.href = 'alightcreative.com/am://';
-      setTimeout(() => { window.location.href = 'alightmotion://'; }, 400);
-      showToast('Membuka Alight Motion...');
-    };
+    $('btn-open-app').onclick = openAlightMotionApp;
 
     $('btn-copy-token').onclick = () => {
       const list = getSavedAccounts();

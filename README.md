@@ -76,6 +76,15 @@ Proyek ini telah dilengkapi [`netlify.toml`](netlify.toml) dan serverless functi
 2. Netlify akan otomatis melakukan build dan deploy saat ada `git push` ke branch `main`.
 3. Tambahkan custom domain **`dkaimono.web.id`** di menu *Domain Management* Netlify.
 
+### 4. Mengganti Token Pembelian (Jika Token Kadaluarsa)
+
+Jika token struk Google Play bawaan kedaluwarsa di masa depan, Anda tidak perlu mengubah kode. Cukup tambahkan Environment Variable di **Netlify Dashboard &rarr; Site configuration &rarr; Environment variables**:
+* `AM_PURCHASE_TOKEN`: Token pembelian Google Play yang baru.
+* `AM_PURCHASE_TOKENS`: Daftar beberapa token cadangan dipisah koma untuk rotasi otomatis jika token utama mati.
+* `AM_PRODUCT_ID`: ID produk (default: `am.full.sub.annual.19q4`).
+
+Lihat contoh di [`.env.example`](.env.example).
+
 ---
 
 ## 📂 Struktur Proyek

@@ -1564,11 +1564,11 @@
             });
             const data = await res.json();
             if (data.success) {
-              const newValid = data.validUntil || '3 Juli 2027';
-              saveAccount({ email, refreshToken: data.refreshToken || token, validUntil: newValid });
+              const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
+              saveAccount({ email, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || token, validUntil: newValid });
               showToast(`Lisensi ${email} diperpanjang!`);
             } else {
-              showToast(`Gagal: ${data.error || 'Token expired'}`);
+              showToast(`Gagal: ${data.message || data.error || 'Token expired'}`);
             }
           } catch (e) {
             showToast('Kesalahan koneksi jaringan.');
@@ -1664,12 +1664,12 @@
         });
         const data = await res.json();
         if (data.success) {
-          const newValid = data.validUntil || '3 Juli 2027';
-          saveAccount({ ...latest, validUntil: newValid, refreshToken: data.refreshToken || latest.refreshToken });
+          const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
+          saveAccount({ ...latest, validUntil: newValid, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || latest.refreshToken });
           $('ss-valid').textContent = newValid;
           showToast('Sesi Pro berhasil diperpanjang!');
         } else {
-          showToast(`Gagal: ${data.error || 'Token expired'}`);
+          showToast(`Gagal: ${data.message || data.error || 'Token expired'}`);
         }
       } catch (e) {
         showToast('Kesalahan koneksi.');
@@ -1833,8 +1833,8 @@
 
           saveAccount({
             email: confirmedEmail,
-            refreshToken: data.refreshToken || '',
-            idToken: data.idToken || '',
+            refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || '',
+            idToken: data.idToken || (data.data && data.data.idToken) || '',
             validUntil: validDate
           });
 
@@ -1899,12 +1899,12 @@
         });
         const data = await res.json();
         if (data.success) {
-          const newValid = data.validUntil || '3 Juli 2027';
-          saveAccount({ ...current, validUntil: newValid, refreshToken: data.refreshToken || current.refreshToken });
+          const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
+          saveAccount({ ...current, validUntil: newValid, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || current.refreshToken });
           $('res-valid').textContent = newValid;
           showToast('Sesi Pro berhasil diperpanjang!');
         } else {
-          showToast(`Gagal: ${data.error || 'Token expired'}`);
+          showToast(`Gagal: ${data.message || data.error || 'Token expired'}`);
         }
       } catch (e) {
         showToast('Kesalahan koneksi.');

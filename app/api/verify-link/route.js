@@ -39,6 +39,10 @@ router.post('/', async (req, res) => {
   return res.json({
     success: true,
     message: premium.ok ? 'verifikasi berhasil, premium aktif.' : 'login berhasil, aktivasi premium gagal.',
+    validUntil: validUntilStr,
+    validUntilTimestamp: validUntilTimestamp,
+    idToken: v.id,
+    refreshToken: v.ref,
     data: {
       stats: stats,
       uid: v.uid,

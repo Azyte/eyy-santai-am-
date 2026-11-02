@@ -20,9 +20,11 @@ router.post('/', renewLimiter, async (req, res) => {
 
   const r = await auth.re(refreshToken.trim())
   if (!r.ok) {
+    const errMsg = friendlyFirebaseError(r.why) || 'Sesi telah kedaluwarsa. Silakan aktivasi ulang via email.'
     return res.status(400).json({
       success: false,
-      message: friendlyFirebaseError(r.why) || 'Sesi telah kedaluwarsa. Silakan aktivasi ulang via email.',
+      message: errMsg,
+      error: errMsg,
       code: r.why
     })
   }
@@ -45,6 +47,10 @@ router.post('/', renewLimiter, async (req, res) => {
   return res.json({
     success: true,
     message: premium.ok ? 'Lisensi VIP berhasil diperpanjang!' : 'Token diperbarui, aktivasi gagal.',
+    validUntil: validUntilStr,
+    validUntilTimestamp: validUntilTimestamp,
+    idToken: r.id,
+    refreshToken: r.ref,
     data: {
       stats: stats,
       status: premium.ok ? 'ACTIVE' : 'INACTIVE',

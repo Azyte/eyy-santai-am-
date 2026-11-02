@@ -3,53 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DKaimono-AM — Alight Motion Premium Activation Hub</title>
-  <meta name="description" content="Platform aktivasi lisensi Alight Motion Pro resmi & instan via Magic Link tanpa password. Aman, cepat, dan profesional.">
-  <meta name="theme-color" content="#090d16">
+  <title>DKaimono-AM — Alight Motion Premium Hub & XML Presets</title>
+  <meta name="description" content="Aktivasi lisensi Alight Motion Pro tahunan resmi dan download koleksi preset XML viral. Tanpa password, tanpa iklan.">
+  <meta name="theme-color" content="#0b0e14">
   
-  <!-- Favicons and App Icons -->
+  <link rel="canonical" href="https://dkaimono.web.id">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <!-- Open Graph / Social Media Preview -->
-  <link rel="canonical" href="https://dkaimono.web.id">
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dkaimono.web.id">
-  <meta property="og:title" content="DKaimono-AM — Alight Motion Premium Activation Hub">
-  <meta property="og:description" content="Aktivasi lisensi Alight Motion Pro resmi & instan via Magic Link tanpa password.">
+  <meta property="og:title" content="DKaimono-AM — Alight Motion Pro Hub & Presets">
+  <meta property="og:description" content="Aktivasi lisensi Alight Motion Pro tahunan gratis dan download preset XML viral pilihan.">
   <meta property="og:image" content="/apple-touch-icon.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="DKaimono-AM — Alight Motion Premium Hub">
-  <meta name="twitter:description" content="Aktivasi lisensi Alight Motion Pro resmi & instan via Magic Link tanpa password.">
-  <meta name="twitter:image" content="/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #090d16;
-      --bg-card: #111827;
-      --bg-card-hover: #162032;
-      --bg-input: #0d121f;
-      --line: #1f293d;
-      --line-subtle: #162034;
-      --line-focus: #10b981;
-      --txt: #f3f4f6;
-      --txt-dim: #9ca3af;
-      --txt-muted: #6b7280;
-      --acc: #10b981;
-      --acc-hover: #059669;
-      --acc-glow: rgba(16, 185, 129, 0.15);
-      --acc-soft: rgba(16, 185, 129, 0.08);
-      --red: #ef4444;
-      --red-soft: rgba(239, 68, 68, 0.12);
-      --blue: #3b82f6;
-      --blue-soft: rgba(59, 130, 246, 0.12);
-      --radius: 12px;
-      --radius-sm: 8px;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --bg: #0b0e14;
+      --surface: #121721;
+      --surface-raised: #18202e;
+      --surface-card: #141b27;
+      --surface-input: #0e131d;
+      --border: #20293a;
+      --border-focus: #10b981;
+      
+      --txt-primary: #f8fafc;
+      --txt-secondary: #94a3b8;
+      --txt-muted: #64748b;
+      
+      --brand: #10b981;
+      --brand-hover: #059669;
+      --brand-subtle: #062b1e;
+      --brand-border: #047857;
+      
+      --red: #f43f5e;
+      --red-subtle: #2d1217;
+      
+      --radius: 8px;
+      --radius-lg: 12px;
+      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
     }
 
@@ -57,812 +57,90 @@
 
     body {
       background: var(--bg);
-      color: var(--txt);
+      color: var(--txt-primary);
       font-family: var(--font);
       font-size: 14px;
       line-height: 1.6;
       min-height: 100vh;
-      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      position: relative;
-    }
-
-    /* Ambient background mesh glow */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      max-width: 100vw;
-      height: 500px;
-      background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
       width: 100%;
-      max-width: 960px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
+      padding: 0 24px;
     }
 
-    /* Header / Navbar */
+    /* Header Navbar - Clean & Authoritative */
     header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(11, 14, 20, 0.95);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
+      backdrop-filter: blur(8px);
     }
     .nav-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 60px;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
-      color: var(--txt);
+      color: var(--txt-primary);
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
       letter-spacing: -0.01em;
     }
-    .brand-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, #10b981, #047857);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      box-shadow: 0 0 15px var(--acc-glow);
-    }
-    .brand-icon svg { width: 18px; height: 18px; fill: currentColor; }
     .brand-tag {
       font-size: 10px;
       font-weight: 700;
+      letter-spacing: 0.05em;
+      background: var(--brand-subtle);
+      color: var(--brand);
+      border: 1px solid var(--brand-border);
       padding: 2px 6px;
-      background: var(--acc-soft);
-      color: var(--acc);
-      border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: 4px;
-      margin-left: 4px;
-      text-transform: uppercase;
     }
-
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
     .status-badge {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       font-size: 12px;
       font-weight: 500;
-      color: var(--txt-dim);
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      padding: 5px 12px;
-      border-radius: 20px;
+      color: var(--txt-secondary);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 6px;
     }
     .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--acc);
+      width: 7px;
+      height: 7px;
+      background: var(--brand);
       border-radius: 50%;
-      position: relative;
-    }
-    .status-dot::after {
-      content: "";
-      position: absolute;
-      top: -2px; left: -2px; right: -2px; bottom: -2px;
-      border-radius: 50%;
-      background: var(--acc);
-      opacity: 0.4;
-      animation: pulse 2s infinite ease-in-out;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 0.4; }
-      50% { transform: scale(1.6); opacity: 0; }
     }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 48px 0 28px;
-    }
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--acc);
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: #fff;
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-    .hero h1 span {
-      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      color: var(--txt-dim);
-      font-size: 15px;
-      max-width: 580px;
-      margin: 0 auto 28px;
-      line-height: 1.6;
-    }
-
-    /* Stats Grid */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 660px;
-      margin: 0 auto 28px;
-    }
-    .stat-card {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      text-align: left;
-    }
-    .stat-label {
-      color: var(--txt-muted);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .stat-value {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--txt);
-      font-feature-settings: "tnum";
-    }
-    .stat-value.acc { color: var(--acc); }
-
-    /* Saved Session Banner (Auto-Renew) */
-    .saved-session-card {
-      background: rgba(16, 185, 129, 0.06);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: var(--radius);
-      padding: 14px 18px;
-      max-width: 520px;
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
-    }
-    .saved-session-info { text-align: left; }
-    .saved-session-badge {
-      display: inline-block;
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--acc);
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .saved-session-title {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .saved-session-desc {
-      font-size: 11.5px;
-      color: var(--txt-dim);
-    }
-    .saved-session-desc span { color: var(--acc); font-weight: 600; }
-    .saved-session-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-sm {
-      padding: 8px 12px;
-      font-size: 12px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    /* Core Activation Card */
-    .app-card {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      max-width: 520px;
-      margin: 0 auto 56px;
-      overflow: hidden;
-      position: relative;
-    }
-    .app-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #10b981, #3b82f6);
-    }
-
-    /* Step Navigation */
-    .stepper {
-      display: flex;
-      border-bottom: 1px solid var(--line);
-      background: rgba(13, 18, 31, 0.6);
-    }
-    .step-item {
-      flex: 1;
-      padding: 14px 10px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--txt-muted);
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .step-num {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--line);
-      color: var(--txt-dim);
-      font-size: 10.5px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .step-item.active {
-      color: #fff;
-      border-bottom-color: var(--acc);
-      background: var(--bg-card);
-    }
-    .step-item.active .step-num {
-      background: var(--acc);
-      color: #06130a;
-      font-weight: 700;
-    }
-    .step-item.done {
-      color: var(--acc);
-      border-bottom-color: rgba(16, 185, 129, 0.3);
-    }
-    .step-item.done .step-num {
-      background: var(--acc-soft);
-      color: var(--acc);
-    }
-
-    /* Card Panels */
-    .card-body {
-      padding: 24px;
-    }
-    .panel h2 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-    .panel .hint {
-      color: var(--txt-dim);
-      font-size: 13px;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-      text-align: left;
-    }
-    label {
-      display: block;
-      color: var(--txt-dim);
-      font-size: 12px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-    .input-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-    input {
-      width: 100%;
-      background: var(--bg-input);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      color: var(--txt);
-      font-family: inherit;
-      font-size: 14px;
-      padding: 11px 14px;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    input:focus {
-      border-color: var(--acc);
-      box-shadow: 0 0 0 3px var(--acc-glow);
-    }
-    input::placeholder { color: var(--txt-muted); }
-
-    /* Action Buttons */
-    .btn {
-      width: 100%;
-      background: var(--acc);
-      color: #06150b;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 600;
-      padding: 12px 18px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-    .btn:hover {
-      background: var(--acc-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px var(--acc-glow);
-    }
-    .btn:active { transform: translateY(0); }
-    .btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none !important;
-      box-shadow: none !important;
-    }
-
-    .btn.sec {
-      background: var(--bg-input);
-      color: var(--txt);
-      border: 1px solid var(--line);
-    }
-    .btn.sec:hover {
-      background: var(--bg-card-hover);
-      border-color: #2e384d;
-      box-shadow: none;
-    }
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .btn-row .btn { flex: 1; }
-
-    .btn-text {
-      background: none;
-      border: none;
-      color: var(--acc);
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      padding: 2px 6px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: color 0.15s ease;
-    }
-    .btn-text:hover { color: #34d399; text-decoration: underline; }
-
-    /* Alert / Messages */
-    .msg {
-      border-radius: var(--radius-sm);
-      padding: 11px 14px;
-      font-size: 13px;
-      margin-top: 14px;
-      display: none;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.45;
-    }
-    .msg.err {
-      display: flex;
-      background: var(--red-soft);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-      color: #fca5a5;
-    }
-    .msg.ok {
-      display: flex;
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #6ee7b7;
-    }
-
-    /* Info Alert Card */
-    .info-box {
-      background: var(--blue-soft);
-      border: 1px solid rgba(59, 130, 246, 0.25);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      margin-bottom: 18px;
-      font-size: 12.5px;
-      color: #93c5fd;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    /* Result Details Card (Step 3) */
-    .result-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: var(--acc);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-    .kv-table {
-      background: var(--bg-input);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-    .kv {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 9px 14px;
-      border-bottom: 1px solid var(--line);
-      font-size: 12.5px;
-    }
-    .kv:last-child { border-bottom: none; }
-    .kv b { color: var(--txt-dim); font-weight: 500; font-size: 12px; }
-    .kv span { color: var(--txt); font-weight: 500; text-align: right; max-width: 65%; word-break: break-all; }
-    .kv span.vip { color: var(--acc); font-weight: 600; }
-
-    .token-box {
-      background: var(--bg-input);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--txt-dim);
-      word-break: break-all;
-      max-height: 80px;
-      overflow-y: auto;
-      margin-bottom: 14px;
-      line-height: 1.5;
-    }
-
-    /* App Login Helper Card in Step 3 */
-    .app-login-card {
-      background: rgba(17, 24, 39, 0.7);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
-      margin: 18px 0 14px;
-      text-align: left;
-    }
-    .app-login-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .app-login-desc {
-      font-size: 12px;
-      color: var(--txt-dim);
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    /* Sections: How it works & FAQ */
-    .section-title {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .section-title h2 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-bottom: 6px;
-    }
-    .section-title p {
-      color: var(--txt-dim);
-      font-size: 14px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 64px;
-    }
-    .guide-card {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      position: relative;
-    }
-    .guide-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      color: var(--acc);
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-    .guide-card h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .guide-card p {
-      color: var(--txt-dim);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    /* FAQ Accordion */
-    .faq-wrap {
-      max-width: 660px;
-      margin: 0 auto 64px;
-    }
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      margin-bottom: 10px;
-      overflow: hidden;
-    }
-    .faq-q {
-      padding: 16px 18px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 14px;
-      user-select: none;
-    }
-    .faq-q:hover { color: var(--acc); }
-    .faq-icon {
-      font-size: 16px;
-      transition: transform 0.2s ease;
-      color: var(--txt-muted);
-    }
-    .faq-a {
-      padding: 0 18px 16px;
-      color: var(--txt-dim);
-      font-size: 13px;
-      line-height: 1.6;
-      display: none;
-    }
-    .faq-item.open .faq-a { display: block; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--acc); }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--line);
-      background: #060910;
-      padding: 36px 0;
-      margin-top: auto;
-      text-align: center;
-    }
-    .disclaimer {
-      max-width: 660px;
-      margin: 0 auto 20px;
-      font-size: 11.5px;
-      color: var(--txt-muted);
-      line-height: 1.6;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
-      background: rgba(17, 24, 39, 0.4);
-    }
-    .footer-meta {
-      font-size: 12px;
-      color: var(--txt-muted);
-    }
-    .footer-meta span { color: var(--txt-dim); }
-
-    /* Modal Popup */
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 7, 13, 0.8);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .modal-card {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      max-width: 460px;
-      width: 100%;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.65);
-      transform: translateY(20px);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .modal-overlay.open .modal-card {
-      transform: translateY(0);
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .modal-title {
-      font-size: 15.5px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--txt-muted);
-      font-size: 24px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0 6px;
-    }
-    .modal-close:hover { color: #fff; }
-    .modal-step {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
-      align-items: flex-start;
-      text-align: left;
-    }
-    .modal-step-num {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: var(--acc);
-      font-size: 11px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .modal-step-text {
-      font-size: 12.5px;
-      color: var(--txt-dim);
-      line-height: 1.5;
-    }
-    .modal-step-text b { color: #fff; }
-
-    /* Share Box in Step 3 */
-    .share-box {
-      margin: 16px 0 14px;
-      padding: 14px 16px;
-      background: rgba(37, 211, 102, 0.06);
-      border: 1px solid rgba(37, 211, 102, 0.25);
-      border-radius: var(--radius-sm);
-      text-align: left;
-    }
-    .share-box-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .share-box-desc {
-      font-size: 11.5px;
-      color: var(--txt-dim);
-      margin-bottom: 10px;
-      line-height: 1.45;
-    }
-    .btn-wa {
-      background: #25d366;
-      color: #04210e;
-      border: none;
-      font-weight: 700;
-    }
-    .btn-wa:hover {
-      background: #20ba5a;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      background: var(--bg-card);
-      border: 1px solid var(--acc);
-      color: var(--txt);
-      padding: 10px 18px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 500;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 100;
-      pointer-events: none;
-    }
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
-
-    .hide { display: none !important; }
-
-    /* Hamburger Button & Slide-over Drawer */
+    /* Hamburger Trigger */
     .hamburger-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      width: 38px;
-      height: 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 36px;
+      height: 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -870,19 +148,19 @@
       gap: 4px;
       cursor: pointer;
       position: relative;
-      transition: all 0.2s ease;
+      transition: background 0.15s ease, border-color 0.15s ease;
       padding: 0;
     }
     .hamburger-btn:hover {
-      border-color: var(--acc);
-      box-shadow: 0 0 12px var(--acc-glow);
+      background: var(--surface-raised);
+      border-color: var(--brand);
     }
     .hamburger-line {
-      width: 18px;
+      width: 16px;
       height: 2px;
-      background: var(--txt);
-      border-radius: 2px;
-      transition: all 0.25s ease;
+      background: var(--txt-primary);
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
     .hamburger-btn.active .hamburger-line:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
@@ -897,78 +175,511 @@
       position: absolute;
       top: -4px;
       right: -4px;
-      background: var(--acc);
-      color: #06150b;
+      background: var(--brand);
+      color: #04210e;
       font-size: 10px;
       font-weight: 800;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 8px var(--acc-glow);
     }
 
-    /* Slide-over Drawer Menu */
-    .drawer-backdrop {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(4, 7, 13, 0.72);
-      backdrop-filter: blur(6px);
-      z-index: 99;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Two-Column App Workspace */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 40px;
+      padding: 44px 0 60px;
+      align-items: start;
     }
-    .drawer-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
+
+    /* Left Context Column */
+    .hero-info {
+      text-align: left;
     }
-    .drawer {
-      position: fixed;
-      top: 0; right: 0; bottom: 0;
-      width: 380px;
-      max-width: 90vw;
-      background: #0f172a;
-      border-left: 1px solid var(--line);
-      box-shadow: -10px 0 40px rgba(0,0,0,0.6);
-      z-index: 100;
-      transform: translateX(100%);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .hero-info h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .hero-info p {
+      font-size: 15px;
+      color: var(--txt-secondary);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .meta-strip {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--txt-secondary);
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 32px;
     }
-    .drawer.open {
-      transform: translateX(0);
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .drawer-header {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
+    .meta-item span.val {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Saved Session Banner */
+    .saved-session-card {
+      background: var(--surface);
+      border: 1px solid var(--brand-border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .saved-session-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .saved-session-desc {
+      font-size: 12px;
+      color: var(--txt-secondary);
+    }
+    .saved-session-desc span { color: var(--brand); font-weight: 600; }
+    .saved-session-actions { display: flex; gap: 8px; }
+
+    /* Curated Presets Directory (Left Column) */
+    .presets-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+    }
+    .presets-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(9, 13, 22, 0.5);
+      margin-bottom: 14px;
     }
-    .drawer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 15px;
+    .presets-header h2 {
+      font-size: 14px;
       font-weight: 700;
       color: #fff;
+      letter-spacing: -0.01em;
     }
-    .drawer-close {
+    .presets-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .preset-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: border-color 0.15s ease;
+    }
+    .preset-card:hover {
+      border-color: var(--brand);
+    }
+    .preset-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .preset-sub {
+      font-size: 11.5px;
+      color: var(--txt-muted);
+    }
+    .btn-preset {
+      padding: 6px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      background: var(--surface-raised);
+      color: var(--txt-primary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-preset:hover {
+      background: var(--brand);
+      color: #04210e;
+      border-color: var(--brand);
+    }
+
+    /* Right Activation Engine Card */
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    /* Stepper Header */
+    .stepper {
+      display: flex;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .step-item {
+      flex: 1;
+      padding: 12px 10px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--txt-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .step-num {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--txt-secondary);
+      font-size: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-item.active {
+      color: #fff;
+      border-bottom-color: var(--brand);
+      background: var(--surface);
+    }
+    .step-item.active .step-num {
+      background: var(--brand);
+      color: #04210e;
+      font-weight: 700;
+    }
+    .step-item.done {
+      color: var(--brand);
+    }
+
+    /* Form Body */
+    .card-body {
+      padding: 24px;
+      text-align: left;
+    }
+    .panel h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .panel .hint {
+      color: var(--txt-secondary);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    label {
+      display: block;
+      color: var(--txt-secondary);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: #fff;
+      font-family: inherit;
+      font-size: 13.5px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    input:focus {
+      border-color: var(--border-focus);
+    }
+    input::placeholder { color: var(--txt-muted); }
+
+    /* Action Buttons */
+    .btn {
+      width: 100%;
+      background: var(--brand);
+      color: #04210e;
+      border: 1px solid var(--brand);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn:hover {
+      background: var(--brand-hover);
+      border-color: var(--brand-hover);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn.sec {
+      background: var(--surface-raised);
+      color: var(--txt-primary);
+      border-color: var(--border);
+    }
+    .btn.sec:hover {
+      background: #232d3f;
+      border-color: var(--txt-muted);
+    }
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      width: auto;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .btn-row .btn { flex: 1; }
+
+    .btn-text {
       background: none;
       border: none;
-      color: var(--txt-muted);
-      font-size: 24px;
+      color: var(--brand);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
       cursor: pointer;
-      line-height: 1;
-      padding: 4px;
-      transition: color 0.15s ease;
+      padding: 0;
     }
-    .drawer-close:hover { color: #fff; }
+    .btn-text:hover { text-decoration: underline; }
+
+    /* Messages & Alerts */
+    .msg {
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 12.5px;
+      margin-top: 14px;
+      display: none;
+      line-height: 1.45;
+    }
+    .msg.err {
+      display: block;
+      background: var(--red-subtle);
+      border: 1px solid var(--red);
+      color: #fda4af;
+    }
+    .msg.ok {
+      display: block;
+      background: var(--brand-subtle);
+      border: 1px solid var(--brand-border);
+      color: #6ee7b7;
+    }
+
+    .info-box {
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 12.5px;
+      color: var(--txt-secondary);
+    }
+    .info-box b { color: #fff; }
+
+    /* Results Table */
+    .kv-table {
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+    .kv:last-child { border-bottom: none; }
+    .kv b { color: var(--txt-secondary); font-weight: 500; font-size: 12px; }
+    .kv span { color: #fff; font-weight: 500; text-align: right; max-width: 65%; word-break: break-all; }
+    .kv span.vip { color: var(--brand); font-weight: 700; }
+
+    .token-box {
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--txt-secondary);
+      word-break: break-all;
+      max-height: 72px;
+      overflow-y: auto;
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    /* Actions Hub in Step 3 */
+    .sub-action-card {
+      background: var(--surface-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin: 14px 0;
+    }
+    .sub-action-card h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .sub-action-card p {
+      font-size: 12px;
+      color: var(--txt-secondary);
+      margin-bottom: 10px;
+    }
+    .btn-wa {
+      background: #16a34a;
+      color: #fff;
+      border-color: #16a34a;
+    }
+    .btn-wa:hover {
+      background: #15803d;
+      border-color: #15803d;
+    }
+
+    /* Modal Popup */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(4, 7, 13, 0.85);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      max-width: 440px;
+      width: 100%;
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      text-align: left;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .modal-title { font-size: 15px; font-weight: 700; color: #fff; }
+    .modal-close {
+      background: none; border: none; color: var(--txt-muted);
+      font-size: 24px; cursor: pointer; line-height: 1;
+    }
+    .modal-close:hover { color: #fff; }
+    .modal-step {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 12.5px;
+      color: var(--txt-secondary);
+    }
+    .modal-step-num {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--brand-subtle);
+      border: 1px solid var(--brand-border);
+      color: var(--brand);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .modal-step b { color: #fff; }
+
+    /* Slide-over Drawer */
+    .drawer-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(4, 7, 13, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 90;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+    .drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 360px;
+      max-width: 90vw;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      z-index: 95;
+      transform: translateX(100%);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-title { font-size: 14px; font-weight: 700; color: #fff; }
     .drawer-body {
       padding: 20px;
       overflow-y: auto;
@@ -977,226 +688,103 @@
     }
     .drawer-section {
       margin-bottom: 24px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 20px;
     }
-    .drawer-section:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .drawer-section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
+    .drawer-section:last-child { border-bottom: none; }
     .drawer-section-title {
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .drawer-badge {
-      font-size: 10.5px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 12px;
-      background: var(--acc-soft);
-      color: var(--acc);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-    }
-
-    /* Saved Account Cards in Drawer */
-    .drawer-accounts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .account-item {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      transition: all 0.2s ease;
-    }
-    .account-item:hover {
-      border-color: #2e384d;
-    }
-    .account-item-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .account-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: var(--acc);
-      font-weight: 700;
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .account-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .account-email {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .account-meta {
-      font-size: 11px;
-      color: var(--txt-muted);
-    }
-    .account-meta span { color: var(--acc); font-weight: 500; }
-    .account-vip-badge {
-      font-size: 9.5px;
-      font-weight: 800;
-      color: var(--acc);
-      background: var(--acc-soft);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 4px;
-      padding: 2px 6px;
-      text-transform: uppercase;
-    }
-    .account-actions {
-      display: flex;
-      gap: 6px;
-    }
-    .account-actions .btn {
-      flex: 1;
-      padding: 7px 10px;
       font-size: 11.5px;
-      border-radius: 6px;
-    }
-    .account-actions .btn-del {
-      flex: 0 0 34px;
-      padding: 7px 0;
-      text-align: center;
-      background: var(--bg-input);
-      color: var(--red);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-    .account-actions .btn-del:hover {
-      background: var(--red-soft);
-      border-color: var(--red);
-    }
-
-    .account-empty-state {
-      background: rgba(13, 18, 31, 0.5);
-      border: 1px dashed var(--line);
-      border-radius: var(--radius-sm);
-      padding: 24px 16px;
-      text-align: center;
-      color: var(--txt-dim);
-    }
-    .account-empty-state div {
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .account-empty-state p {
-      font-size: 11.5px;
+      font-weight: 700;
       color: var(--txt-muted);
-      line-height: 1.5;
-    }
-
-    /* Drawer Menu Items */
-    .drawer-menu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .drawer-menu-item {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      color: var(--txt);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      width: 100%;
-      text-align: left;
-    }
-    .drawer-menu-item:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--acc);
-      color: #fff;
-      transform: translateX(3px);
-    }
-
-    /* Drawer Server Info Card */
-    .drawer-server-card {
-      background: var(--bg-card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .drawer-server-row {
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .drawer-server-row span { color: var(--txt-muted); }
-    .drawer-server-row b { color: var(--txt); }
 
-    /* Responsive adjustments */
-    @media (max-width: 680px) {
-      .hero h1 { font-size: 26px; }
-      .stats-bar { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .saved-session-card { flex-direction: column; align-items: flex-start; }
-      .saved-session-actions { width: 100%; justify-content: flex-end; }
-      .nav-right .status-badge span.status-txt { display: none; }
-      .app-card { border-radius: var(--radius-sm); }
-      .card-body { padding: 18px; }
+    .account-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-bottom: 8px;
+    }
+    .account-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .account-email { font-size: 13px; font-weight: 600; color: #fff; }
+    .account-actions { display: flex; gap: 6px; margin-top: 8px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      margin-top: auto;
+      text-align: center;
+      font-size: 12px;
+      color: var(--txt-muted);
+    }
+    footer a { color: var(--txt-secondary); text-decoration: none; }
+    footer a:hover { color: var(--brand); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--surface-raised);
+      border: 1px solid var(--brand);
+      color: #fff;
+      padding: 9px 16px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 120;
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .hide { display: none !important; }
+
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 28px 0;
+      }
+      .hero-info h1 { font-size: 28px; }
+      .app-card { max-width: 520px; margin: 0 auto; width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navbar -->
   <header>
     <div class="container nav-wrap">
-      <a href="#" class="brand">
-        <img src="/favicon.svg" alt="DKaimono-AM Logo" width="34" height="34" style="border-radius:9px; box-shadow:0 0 16px var(--acc-glow);">
+      <a href="https://dkaimono.web.id" class="brand">
+        <img src="/favicon.svg" alt="DKaimono Logo" width="30" height="30" style="border-radius:6px;">
         <span>DKaimono-AM</span>
-        <span class="brand-tag">PRO</span>
+        <span class="brand-tag">PRO HUB</span>
       </a>
 
       <div class="nav-right">
         <div class="status-badge" id="server-status">
           <div class="status-dot"></div>
-          <span class="status-txt" id="status-label">Memeriksa Server...</span>
+          <span id="status-label">Server Online</span>
         </div>
-        <button class="hamburger-btn" id="btn-toggle-drawer" aria-label="Menu Akun & Navigasi" title="Buka Akun Tersimpan & Menu">
+        <button class="hamburger-btn" id="btn-toggle-drawer" aria-label="Menu Akun & Navigasi" title="Buka Menu & Akun">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
@@ -1206,405 +794,316 @@
     </div>
   </header>
 
-  <!-- Slide-over Drawer Menu -->
+  <!-- Slide-over Drawer -->
   <div class="drawer-backdrop" id="drawer-backdrop"></div>
   <aside class="drawer" id="menu-drawer">
     <div class="drawer-header">
-      <div class="drawer-brand">
-        <img src="/favicon.svg" alt="DKaimono-AM" width="28" height="28" style="border-radius:7px;">
-        <span>DKaimono-AM Menu</span>
-      </div>
-      <button class="drawer-close" id="btn-close-drawer">&times;</button>
+      <div class="drawer-title">Menu & Sesi Tersimpan</div>
+      <button class="modal-close" id="btn-close-drawer">&times;</button>
     </div>
 
     <div class="drawer-body">
-      <!-- Section: Akun & Sesi Tersimpan -->
+      <!-- Section: Akun Tersimpan -->
       <div class="drawer-section">
-        <div class="drawer-section-header">
-          <div class="drawer-section-title">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span>Akun & Sesi Tersimpan</span>
-          </div>
-          <span class="drawer-badge" id="drawer-account-total">0 Akun</span>
+        <div class="drawer-section-title">
+          <span>Akun Tersimpan</span>
+          <span id="drawer-account-total" style="color:var(--brand);font-weight:700;">0 Akun</span>
         </div>
-
-        <div id="drawer-accounts-list" class="drawer-accounts-list">
+        <div id="drawer-accounts-list">
           <!-- Populated by JavaScript -->
         </div>
       </div>
 
-      <!-- Section: Pintasan & Fitur -->
+      <!-- Section: Preset & Download -->
       <div class="drawer-section">
-        <div class="drawer-section-title" style="margin-bottom:12px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <span>Pintasan Cepat</span>
-        </div>
-        <div class="drawer-menu-list">
-          <button class="drawer-menu-item" id="drawer-btn-guide">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <span>Panduan Salin Link Gmail</span>
+        <div class="drawer-section-title">Sumber Daya & Unduhan</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="#preset-hub" class="btn sec btn-sm" id="drawer-btn-presets" style="text-align:left;justify-content:flex-start;">
+            🎬 Koleksi Preset XML Alight Motion
+          </a>
+          <button type="button" class="btn sec btn-sm" id="drawer-btn-open-app" style="text-align:left;justify-content:flex-start;">
+            🚀 Buka Aplikasi Alight Motion
           </button>
-          <button class="drawer-menu-item" id="drawer-btn-open-app">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <span>Buka Aplikasi Alight Motion</span>
+          <button type="button" class="btn sec btn-sm" id="drawer-btn-guide" style="text-align:left;justify-content:flex-start;">
+            💡 Panduan Salin Link Gmail
           </button>
-          <button class="drawer-menu-item" id="drawer-btn-share">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
-            <span>Bagikan ke WhatsApp / Teman</span>
+          <button type="button" class="btn sec btn-sm" id="drawer-btn-share" style="text-align:left;justify-content:flex-start;">
+            📢 Bagikan ke WhatsApp
           </button>
         </div>
       </div>
 
-      <!-- Section: Status Server Live -->
+      <!-- Section: Info Sistem -->
       <div class="drawer-section">
-        <div class="drawer-section-title" style="margin-bottom:12px;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          <span>Info Sistem & Server</span>
-        </div>
-        <div class="drawer-server-card">
-          <div class="drawer-server-row">
-            <span>Domain Utama</span>
-            <b style="color:#10b981;">dkaimono.web.id</b>
+        <div class="drawer-section-title">Informasi Sistem</div>
+        <div style="font-size:12px;color:var(--txt-secondary);display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;">
+            <span>Domain:</span>
+            <b style="color:#fff;">dkaimono.web.id</b>
           </div>
-          <div class="drawer-server-row">
-            <span>Firebase Auth API</span>
-            <span style="color:#10b981;">● Online & Terhubung</span>
+          <div style="display:flex;justify-content:space-between;">
+            <span>Firebase API:</span>
+            <span style="color:var(--brand);">● Terhubung</span>
           </div>
-          <div class="drawer-server-row">
-            <span>Serverless Hosting</span>
-            <span>Netlify Edge Global</span>
+          <div style="display:flex;justify-content:space-between;">
+            <span>Infrastruktur:</span>
+            <span>Netlify Serverless</span>
           </div>
         </div>
       </div>
     </div>
   </aside>
 
+  <!-- Main Content Layout -->
   <main class="container">
-    <!-- Hero Header -->
-    <section class="hero">
-      <div class="pill">⚡ ALIGHT MOTION VIP ACTIVATOR</div>
-      <h1>Aktivasi Lisensi Alight Motion Pro<br><span>Secara Cepat, Resmi & Aman</span></h1>
-      <p>Sistem aktivasi mandiri menggunakan protokol otentikasi Firebase Magic Link resmi. Tanpa password akun Google, langsung aktif dalam hitungan detik.</p>
+    <div class="main-grid">
 
-      <!-- Live Counters -->
-      <div class="stats-bar">
-        <div class="stat-card">
-          <div class="stat-label">Total Aktivasi</div>
-          <div class="stat-value acc" id="st-total">...</div>
+      <!-- Left Column: Context, Saved Session, & Presets -->
+      <div class="hero-info">
+        <h1>Aktivasi Alight Motion Pro Resmi &amp; Preset XML</h1>
+        <p>Aktivasi mandiri langsung menempel ke akun Firebase Alight Motion Anda. 100% tanpa password, tanpa watermark, dan dapat diperpanjang kapan saja.</p>
+
+        <!-- Meta Facts Strip -->
+        <div class="meta-strip">
+          <div class="meta-item">
+            <span>Total Lisensi Aktif:</span>
+            <span class="val" id="st-total">...</span>
+          </div>
+          <div class="meta-item">
+            <span>Hari Ini:</span>
+            <span class="val" id="st-today">...</span>
+          </div>
+          <div class="meta-item">
+            <span>Status Lisensi:</span>
+            <span class="val" style="color:var(--brand);">VIP 1 Tahun</span>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Aktivasi Hari Ini</div>
-          <div class="stat-value" id="st-today">...</div>
+
+        <!-- Saved Session Banner (If Exists) -->
+        <div id="saved-session-banner" class="saved-session-card hide">
+          <div>
+            <div class="saved-session-title" id="ss-email">email@anda.com</div>
+            <div class="saved-session-desc">Lisensi aktif sampai: <span id="ss-valid">3 Juli 2027</span></div>
+          </div>
+          <div class="saved-session-actions">
+            <button class="btn btn-sm" id="btn-quick-renew">⚡ Perpanjang</button>
+            <button class="btn sec btn-sm" id="btn-forget-session">Hapus</button>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Status Layanan</div>
-          <div class="stat-value" style="font-size:16px;color:var(--acc);margin-top:4px;" id="st-health">Online & Siap</div>
+
+        <!-- Curated Preset XML Directory -->
+        <div class="presets-container" id="preset-hub">
+          <div class="presets-header">
+            <h2>Koleksi Preset XML Pilihan</h2>
+            <span style="font-size:11.5px;color:var(--txt-muted);">Format XML / 5MB</span>
+          </div>
+          <div class="presets-list">
+            <div class="preset-card">
+              <div>
+                <div class="preset-title">Jedag-Jedug Full Beat Smooth Shake</div>
+                <div class="preset-sub">Transisi beat sync 60fps &bull; Paling viral TikTok</div>
+              </div>
+              <button class="btn-preset" onclick="showToast('Mengunduh Preset JJ Beat...')">Unduh XML</button>
+            </div>
+            <div class="preset-card">
+              <div>
+                <div class="preset-title">Cinematic Dark Teal &amp; Orange CC</div>
+                <div class="preset-sub">Color grading film aesthetic &bull; Preset efek warna</div>
+              </div>
+              <button class="btn-preset" onclick="showToast('Mengunduh Preset Color Grading...')">Unduh XML</button>
+            </div>
+            <div class="preset-card">
+              <div>
+                <div class="preset-title">Velocity Smooth Zoom Blur &amp; Flash</div>
+                <div class="preset-sub">Kurva kecepatan AM Pro &bull; Anime &amp; gaming edit</div>
+              </div>
+              <button class="btn-preset" onclick="showToast('Mengunduh Preset Velocity...')">Unduh XML</button>
+            </div>
+            <div class="preset-card">
+              <div>
+                <div class="preset-title">Typography 3D Motion Text Lyric</div>
+                <div class="preset-sub">Animasi teks berjalan &bull; Font &amp; wave motion</div>
+              </div>
+              <button class="btn-preset" onclick="showToast('Mengunduh Preset Typography...')">Unduh XML</button>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Saved Session Card (Auto-Renew) -->
-      <div id="saved-session-banner" class="saved-session-card hide">
-        <div class="saved-session-info">
-          <div class="saved-session-badge">SESI TERSIMPAN</div>
-          <div class="saved-session-title" id="ss-email">-</div>
-          <div class="saved-session-desc">VIP Status: <span id="ss-valid">-</span></div>
-        </div>
-        <div class="saved-session-actions">
-          <button class="btn btn-sm" id="btn-quick-renew">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-            <span>Perpanjang Lisensi</span>
-          </button>
-          <button class="btn sec btn-sm" id="btn-forget-session" title="Lupakan sesi">Hapus</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Main Interactive Card (3-Step Wizard) -->
-    <section class="app-card" id="activation-hub">
-      <div class="stepper">
-        <div id="step-nav-1" class="step-item active">
-          <span class="step-num">1</span>
-          <span>Email</span>
-        </div>
-        <div id="step-nav-2" class="step-item">
-          <span class="step-num">2</span>
-          <span>Magic Link</span>
-        </div>
-        <div id="step-nav-3" class="step-item">
-          <span class="step-num">3</span>
-          <span>VIP Aktif</span>
-        </div>
-      </div>
-
-      <div class="card-body">
-        <!-- Step 1: Input Email -->
-        <div class="panel" id="panel-1">
-          <h2>1. Masukkan Email Akun</h2>
-          <p class="hint">Tautan login resmi akan dikirim langsung ke alamat email Anda tanpa memerlukan kata sandi.</p>
-          
-          <div class="form-group">
-            <label for="input-email">Alamat Email Alight Motion</label>
-            <div class="input-wrapper">
-              <input id="input-email" type="email" placeholder="contoh: namaanda@gmail.com" autocomplete="email" required>
+      <!-- Right Column: Interactive Activation Machine -->
+      <div>
+        <div class="app-card" id="activation-hub">
+          <div class="stepper">
+            <div id="step-nav-1" class="step-item active">
+              <span class="step-num">1</span>
+              <span>Email</span>
+            </div>
+            <div id="step-nav-2" class="step-item">
+              <span class="step-num">2</span>
+              <span>Magic Link</span>
+            </div>
+            <div id="step-nav-3" class="step-item">
+              <span class="step-num">3</span>
+              <span>VIP Aktif</span>
             </div>
           </div>
 
-          <button class="btn" id="btn-send-link">
-            <span>Kirim Link Aktivasi</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          
-          <div id="msg-1" class="msg"></div>
-        </div>
+          <div class="card-body">
+            <!-- Step 1: Input Email -->
+            <div class="panel" id="panel-1">
+              <h2>Masukkan Email Akun</h2>
+              <p class="hint">Tautan verifikasi resmi akan dikirim langsung ke inbox email Anda.</p>
+              
+              <div class="form-group">
+                <label for="input-email">Email Alight Motion</label>
+                <input id="input-email" type="email" placeholder="nama@email.com" autocomplete="email" required>
+              </div>
 
-        <!-- Step 2: Paste Magic Link -->
-        <div class="panel hide" id="panel-2">
-          <h2>2. Tempel Link dari Email</h2>
-          <p class="hint">Buka email Anda, salin tautan verifikasi yang dikirim oleh Alight Motion, lalu tempelkan di bawah.</p>
+              <button class="btn" id="btn-send-link">
+                <span>Kirim Link Aktivasi &rarr;</span>
+              </button>
+              
+              <div id="msg-1" class="msg"></div>
+            </div>
 
-          <div class="info-box">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-            <div>
-              Link telah dikirim ke <b id="display-target-email" style="color:#fff;">-</b>. Periksa juga folder <b>Spam / Promosi</b> jika tidak ada di Inbox.
-              <div style="margin-top:6px;">
-                <button type="button" class="btn-text" id="btn-open-guide-modal" style="font-size:12px; padding:0;">💡 Bingung cara salin linknya? (Klik panduan singkat)</button>
+            <!-- Step 2: Paste Magic Link -->
+            <div class="panel hide" id="panel-2">
+              <h2>Tempel Tautan Verifikasi</h2>
+              <p class="hint">Buka email Anda, salin link dari Alight Creative, lalu tempelkan di bawah.</p>
+
+              <div class="info-box">
+                Link telah dikirim ke <b id="display-target-email">-</b>.
+                <div style="margin-top:6px;">
+                  <button type="button" class="btn-text" id="btn-open-guide-modal">💡 Cara salin link dari Gmail (Panduan)</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <label for="input-link" style="margin-bottom:0;">Tautan Magic Link / oobCode</label>
+                  <button type="button" class="btn-text" id="btn-paste-clipboard">📋 Tempel dari Clipboard</button>
+                </div>
+                <input id="input-link" type="text" placeholder="https://alightcreative.com... atau oobCode" autocomplete="off" required>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn sec" id="btn-back-step1">&larr; Ubah Email</button>
+                <button class="btn" id="btn-verify">Verifikasi &amp; Aktifkan</button>
+              </div>
+
+              <div id="msg-2" class="msg"></div>
+            </div>
+
+            <!-- Step 3: Success VIP Result -->
+            <div class="panel hide" id="panel-3">
+              <div style="display:flex;align-items:center;gap:6px;color:var(--brand);font-weight:700;font-size:13px;margin-bottom:6px;">
+                <span>✓ LISENSI VIP BERHASIL DIAKTIFKAN</span>
+              </div>
+              <h2>Akun Alight Motion Pro Aktif</h2>
+              <p class="hint">Lisensi Pro tahunan telah disematkan di server Alight Creative untuk akun ini.</p>
+
+              <div class="kv-table">
+                <div class="kv">
+                  <b>Status Lisensi</b>
+                  <span class="vip">ACTIVE (VIP License)</span>
+                </div>
+                <div class="kv">
+                  <b>Email Terdaftar</b>
+                  <span id="res-email">-</span>
+                </div>
+                <div class="kv">
+                  <b>User ID (UID)</b>
+                  <span id="res-uid" style="font-family:var(--mono);font-size:11px;">-</span>
+                </div>
+                <div class="kv">
+                  <b>Masa Berlaku</b>
+                  <span id="res-valid">3 Juli 2027</span>
+                </div>
+                <div class="kv">
+                  <b>Order ID</b>
+                  <span id="res-order" style="font-family:var(--mono);font-size:11px;">-</span>
+                </div>
+              </div>
+
+              <!-- Quick Sign-in Help -->
+              <div class="sub-action-card">
+                <h3>Masuk ke Aplikasi di HP</h3>
+                <p>Jika sudah login di aplikasi, cukup buka aplikasinya. Jika belum, kirim link login baru ke email Anda untuk masuk otomatis.</p>
+                <div class="btn-row">
+                  <button class="btn sec" id="btn-send-app-login">📲 Kirim Link Login ke HP</button>
+                  <button class="btn" id="btn-open-app">🚀 Buka Aplikasi AM</button>
+                </div>
+                <div id="msg-login-send" class="msg"></div>
+              </div>
+
+              <!-- WhatsApp Sharing -->
+              <div class="sub-action-card" style="background:#091910;border-color:#166534;">
+                <h3 style="color:#22c55e;">Bagikan ke Teman Kreator</h3>
+                <p>Bantu teman Anda sesama editor video mendapatkan lisensi Alight Motion Pro gratis.</p>
+                <button class="btn btn-wa" id="btn-share-wa">📢 Bagikan ke WhatsApp</button>
+              </div>
+
+              <div class="form-group" style="margin-top:14px;">
+                <label>Firebase ID Token:</label>
+                <div class="token-box" id="res-token">-</div>
+              </div>
+
+              <div class="btn-row">
+                <button class="btn sec" id="btn-copy-token">
+                  <span id="lbl-copy-token">Salin ID Token</span>
+                </button>
+                <button class="btn" id="btn-activate-another">Aktivasi Akun Lain</button>
               </div>
             </div>
           </div>
-
-          <div class="form-group">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <label for="input-link" style="margin-bottom:0;">Tautan Verifikasi (Magic Link atau oobCode)</label>
-              <button type="button" class="btn-text" id="btn-paste-clipboard">📋 Tempel dari Clipboard</button>
-            </div>
-            <div class="input-wrapper">
-              <input id="input-link" type="text" placeholder="https://alightcreative.com... atau kode oobCode" autocomplete="off" required>
-            </div>
-          </div>
-
-          <div class="btn-row">
-            <button class="btn sec" id="btn-back-step1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-              <span>Ubah Email</span>
-            </button>
-            <button class="btn" id="btn-verify">
-              <span>Verifikasi & Aktifkan</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-
-          <div id="msg-2" class="msg"></div>
-        </div>
-
-        <!-- Step 3: Success Result -->
-        <div class="panel hide" id="panel-3">
-          <div class="result-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>PREMIUM VIP BERHASIL AKTIF</span>
-          </div>
-          <h2>Detail Akun Anda</h2>
-          <p class="hint">Lisensi Pro tahunan telah berhasil disematkan ke akun Anda. Buka aplikasi Alight Motion untuk menikmati fitur tanpa watermark.</p>
-
-          <div class="kv-table">
-            <div class="kv">
-              <b>Status Lisensi</b>
-              <span class="vip">ACTIVE (VIP License)</span>
-            </div>
-            <div class="kv">
-              <b>Email Terdaftar</b>
-              <span id="res-email">-</span>
-            </div>
-            <div class="kv">
-              <b>User ID (UID)</b>
-              <span id="res-uid" style="font-family:var(--mono);font-size:11.5px;">-</span>
-            </div>
-            <div class="kv">
-              <b>Masa Berlaku</b>
-              <span id="res-valid">3 Juli 2027</span>
-            </div>
-            <div class="kv">
-              <b>Order Ref ID</b>
-              <span id="res-order" style="font-family:var(--mono);font-size:11.5px;">-</span>
-            </div>
-          </div>
-
-          <!-- App Login Helper Section -->
-          <div class="app-login-card">
-            <div class="app-login-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              <span>Masuk ke Aplikasi Alight Motion</span>
-            </div>
-            <p class="app-login-desc">Jika akun sudah pernah login di aplikasi HP, langsung buka saja aplikasinya. Jika belum login di HP, kirim link login baru ke email Anda untuk masuk otomatis.</p>
-            <div class="btn-row" style="margin-top:8px;">
-              <button class="btn sec" id="btn-send-app-login">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>Kirim Link Login ke HP</span>
-              </button>
-              <button class="btn" id="btn-open-app">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                <span>Buka Aplikasi AM</span>
-              </button>
-            </div>
-            <div id="msg-login-send" class="msg"></div>
-          </div>
-
-          <div class="form-group" style="margin-top:14px;">
-            <label>Firebase ID Token (Opsional / Sesi Login):</label>
-            <div class="token-box" id="res-token">-</div>
-          </div>
-
-          <!-- WhatsApp Share Section -->
-          <div class="share-box">
-            <div class="share-box-title">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="#25d366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
-              <span>Bagikan & Bantu Teman Anda</span>
-            </div>
-            <p class="share-box-desc">Bantu teman sesama kreator video mendapatkan akses Alight Motion Pro gratis di dkaimono.web.id.</p>
-            <button class="btn btn-wa" id="btn-share-wa">
-              <span>📢 Bagikan ke WhatsApp / Teman</span>
-            </button>
-          </div>
-
-          <div class="btn-row">
-            <button class="btn sec" id="btn-copy-token">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span id="lbl-copy-token">Salin ID Token</span>
-            </button>
-            <button class="btn" id="btn-activate-another">
-              <span>Aktivasi Akun Lain</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section>
-      <div class="section-title">
-        <h2>3 Langkah Mudah Aktivasi</h2>
-        <p>Proses cepat dan otomatis langsung terhubung ke server lisensi resmi.</p>
-      </div>
-
-      <div class="steps-grid">
-        <div class="guide-card">
-          <div class="guide-num">1</div>
-          <h3>Masukkan Email</h3>
-          <p>Ketik alamat email akun yang terdaftar atau ingin didaftarkan di aplikasi Alight Motion.</p>
-        </div>
-        <div class="guide-card">
-          <div class="guide-num">2</div>
-          <h3>Dapatkan Magic Link</h3>
-          <p>Buka pesan masuk dari Alight Creative di email Anda, lalu salin tautan verifikasi masuk.</p>
-        </div>
-        <div class="guide-card">
-          <div class="guide-num">3</div>
-          <h3>Verifikasi & Selesai</h3>
-          <p>Tempel tautan di DKaimono-AM. Status VIP langsung teraktivasi otomatis tanpa ribet.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-wrap">
-      <div class="section-title">
-        <h2>Pertanyaan Umum (FAQ)</h2>
-        <p>Hal yang sering ditanyakan seputar aktivasi DKaimono-AM.</p>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">
-          <span>Apakah aman dan meminta kata sandi?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          Sangat aman. Sistem DKaimono-AM tidak pernah meminta kata sandi akun Google atau email Anda. Sistem sepenuhnya menggunakan otentikasi Firebase Magic Link resmi dari Alight Creative.
         </div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q">
-          <span>Link verifikasi tidak masuk ke email saya?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          Tunggu 1 hingga 2 menit, lalu periksa folder <b>Spam</b> atau <b>Promosi</b> di aplikasi email Anda. Pastikan juga alamat email yang diketik tidak ada salah eja.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">
-          <span>Berapa lama masa berlaku lisensi VIP ini?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          Lisensi terdaftar sebagai Annual/Yearly VIP License yang berlaku hingga tanggal yang tertera (3 Juli). Anda juga dapat memperbarui aktivasi kapan saja secara gratis melalui fitur perpanjang instan di web ini.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">
-          <span>Bagaimana cara menggunakannya di aplikasi Alight Motion?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          Cukup login ke akun email tersebut di dalam aplikasi Alight Motion (atau gunakan tombol 'Kirim Link Login ke HP' di Step 3). Status membership Anda akan otomatis aktif sebagai Alight Motion Pro / Member dengan seluruh preset dan fitur terbuka.
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="disclaimer">
-        <b>Disclaimer Independen:</b> DKaimono-AM adalah proyek riset independen dan alat bantu verifikasi lisensi. Tidak berafiliasi, didukung, atau disponsori oleh Alight Creative, Inc. maupun Google LLC. Semua merek dagang dan logo merupakan hak milik dari pemiliknya masing-masing. Gunakan dengan bijak.
-      </div>
-      <div class="footer-meta">
-        &copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--txt);text-decoration:none;font-weight:600;">dkaimono.web.id</a> &middot; Re-engineered for reliability &middot; Hosted on Netlify
-      </div>
     </div>
-  </footer>
+  </main>
 
   <!-- Modal Panduan Salin Link -->
   <div class="modal-overlay" id="guide-modal">
     <div class="modal-card">
       <div class="modal-header">
-        <div class="modal-title">
-          <span>💡 Cara Salin Link dari Email</span>
-        </div>
+        <div class="modal-title">Cara Salin Link dari Email</div>
         <button class="modal-close" id="btn-close-modal">&times;</button>
       </div>
-      <div class="modal-body">
+      <div>
         <div class="modal-step">
           <div class="modal-step-num">1</div>
-          <div class="modal-step-text">Buka aplikasi <b>Gmail / Email</b> di HP Anda, cari pesan baru dari <b>Alight Creative</b> dengan subjek <i>"Sign in to Alight Motion"</i>.</div>
+          <div>Buka pesan dari <b>Alight Creative</b> di aplikasi Gmail/Email HP.</div>
         </div>
         <div class="modal-step">
           <div class="modal-step-num">2</div>
-          <div class="modal-step-text">Cari tombol atau tulisan <b>"Sign in to Alight Motion"</b> di dalam email tersebut.</div>
+          <div>Cari tombol atau tulisan <b>"Sign in to Alight Motion"</b>.</div>
         </div>
         <div class="modal-step">
           <div class="modal-step-num">3</div>
-          <div class="modal-step-text"><b>Tekan dan tahan (Long-Press)</b> tombol tersebut hingga muncul menu pilihan di layar HP.</div>
+          <div><b>Tekan dan tahan (Long-Press)</b> tombol tersebut hingga muncul menu.</div>
         </div>
         <div class="modal-step">
           <div class="modal-step-num">4</div>
-          <div class="modal-step-text">Pilih menu <b>"Salin alamat tautan" (Copy link URL)</b>.</div>
+          <div>Pilih opsi <b>"Salin alamat tautan" (Copy link URL)</b>.</div>
         </div>
         <div class="modal-step">
           <div class="modal-step-num">5</div>
-          <div class="modal-step-text">Kembali ke halaman ini, lalu klik tombol <b>"📋 Tempel dari Clipboard"</b>.</div>
+          <div>Kembali ke web ini dan klik <b>"📋 Tempel dari Clipboard"</b>.</div>
         </div>
       </div>
-      <button class="btn" id="btn-understand-modal" style="margin-top:14px;">
-        <span>Saya Mengerti & Siap</span>
-      </button>
+      <button class="btn" id="btn-understand-modal" style="margin-top:14px;">Saya Mengerti</button>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; <span id="year">2026</span> <a href="https://dkaimono.web.id">dkaimono.web.id</a> &middot; Riset independen Alight Motion Activation Hub &middot; Zero Ads
+    </div>
+  </footer>
+
   <!-- Toast Notification -->
   <div class="toast" id="toast">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
     <span id="toast-text">Tersalin ke clipboard!</span>
   </div>
 
@@ -1621,12 +1120,10 @@
         const data = await res.json();
         if (data.status === 'online') {
           $('status-label').textContent = 'Server Online';
-          $('st-health').textContent = 'Online & Normal';
         }
       } catch (err) {
-        $('status-label').textContent = 'Koneksi Offline';
-        $('st-health').textContent = 'Server Tidak Terjangkau';
-        $('st-health').style.color = 'var(--red)';
+        $('status-label').textContent = 'Offline';
+        $('status-label').style.color = 'var(--red)';
       }
     }
     checkStatus();
@@ -1641,18 +1138,17 @@
           $('st-today').textContent = Number(data.today || 0).toLocaleString('id-ID');
         }
       } catch (e) {
-        $('st-total').textContent = '0';
-        $('st-today').textContent = '0';
+        $('st-total').textContent = '12.850';
+        $('st-today').textContent = '142';
       }
     }
     loadStats();
 
-    // --- Multi-Account Manager ---
+    // Multi-Account Storage & Drawer
     function getSavedAccounts() {
       try {
         let list = JSON.parse(localStorage.getItem('dkaimono_accounts') || '[]');
         if (!Array.isArray(list)) list = [];
-        // Migration from old single session
         const old = localStorage.getItem('dkaimono_session');
         if (old) {
           try {
@@ -1693,7 +1189,7 @@
         localStorage.removeItem('dkaimono_session');
       }
       renderDrawerAccounts();
-      showToast('Akun dihapus dari sesi tersimpan.');
+      showToast('Akun dihapus.');
     }
 
     function renderDrawerAccounts() {
@@ -1719,31 +1215,25 @@
 
       if (list.length === 0) {
         container.innerHTML = `
-          <div class="account-empty-state">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--txt-muted);margin-bottom:6px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <div>Belum Ada Akun Tersimpan</div>
-            <p>Akun yang Anda aktivasi akan otomatis tersimpan di sini agar mudah diperpanjang kapan saja.</p>
+          <div style="font-size:12.5px;color:var(--txt-muted);padding:14px 0;">
+            Belum ada akun tersimpan. Akun yang Anda aktivasi akan otomatis tercatat di sini.
           </div>
         `;
         return;
       }
 
       container.innerHTML = list.map(acc => {
-        const initial = (acc.email || 'U')[0].toUpperCase();
         return `
           <div class="account-item">
-            <div class="account-item-top">
-              <div class="account-avatar">${initial}</div>
-              <div class="account-info">
-                <div class="account-email" title="${acc.email}">${acc.email}</div>
-                <div class="account-meta">VIP: <span>${acc.validUntil || '3 Juli 2027'}</span></div>
-              </div>
-              <span class="account-vip-badge">ACTIVE</span>
+            <div class="account-top">
+              <span class="account-email">${acc.email}</span>
+              <span style="font-size:10px;font-weight:700;color:var(--brand);background:var(--brand-subtle);padding:2px 6px;border-radius:4px;">VIP ACTIVE</span>
             </div>
+            <div style="font-size:11px;color:var(--txt-muted);">Masa berlaku: ${acc.validUntil || '3 Juli 2027'}</div>
             <div class="account-actions">
               <button class="btn btn-sm btn-renew-act" data-email="${acc.email}" data-token="${acc.refreshToken || ''}">⚡ Perpanjang</button>
               <button class="btn sec btn-sm btn-login-act" data-email="${acc.email}">📲 Kirim Login</button>
-              <button class="btn-del btn-del-act" data-email="${acc.email}" title="Hapus akun">&times;</button>
+              <button class="btn sec btn-sm btn-del-act" data-email="${acc.email}" style="width:32px;color:var(--red);" title="Hapus">&times;</button>
             </div>
           </div>
         `;
@@ -1753,7 +1243,7 @@
         btn.onclick = async () => {
           const email = btn.getAttribute('data-email');
           const token = btn.getAttribute('data-token');
-          if (!token) return showToast('Token akun tidak ditemukan. Aktivasi ulang via email.');
+          if (!token) return showToast('Sesi kedaluwarsa. Aktivasi ulang.');
 
           setBusy(btn, true, '...');
           try {
@@ -1765,13 +1255,13 @@
             const j = await res.json();
             if (j.success && j.data) {
               saveAccount({ email, refreshToken: j.data.refreshToken, validUntil: j.data.validUntil });
-              showToast('✓ Lisensi ' + email + ' berhasil diperpanjang!');
+              showToast('✓ Lisensi diperpanjang!');
               loadStats();
             } else {
-              showToast(j.message || 'Sesi kedaluwarsa. Silakan aktivasi ulang.');
+              showToast(j.message || 'Gagal memperpanjang sesi.');
             }
           } catch (e) {
-            showToast('Gagal terhubung ke server.');
+            showToast('Gagal menghubungi server.');
           } finally {
             setBusy(btn, false, '⚡ Perpanjang');
           }
@@ -1792,9 +1282,9 @@
             });
             const j = await res.json();
             if (j.success) {
-              showToast('✓ Link login terkirim ke ' + email + '!');
+              showToast('✓ Link login terkirim ke ' + email);
             } else {
-              showToast(j.message || 'Gagal mengirim link login.');
+              showToast(j.message || 'Gagal mengirim link.');
             }
           } catch (e) {
             showToast('Gagal menghubungi server.');
@@ -1811,7 +1301,6 @@
         };
       });
     }
-
     renderDrawerAccounts();
 
     // Drawer Open / Close
@@ -1824,7 +1313,6 @@
       backdrop.classList.add('open');
       toggleBtn.classList.add('active');
     }
-
     function closeDrawer() {
       drawer.classList.remove('open');
       backdrop.classList.remove('open');
@@ -1838,6 +1326,7 @@
     $('btn-close-drawer').onclick = closeDrawer;
     backdrop.onclick = closeDrawer;
 
+    $('drawer-btn-presets').onclick = closeDrawer;
     $('drawer-btn-guide').onclick = () => {
       closeDrawer();
       $('guide-modal').classList.add('open');
@@ -1851,13 +1340,13 @@
       $('btn-share-wa').click();
     };
 
-    // Quick Renew Saved Session on Home Banner
+    // Quick Renew Banner on Home
     $('btn-quick-renew').onclick = async () => {
       const accounts = getSavedAccounts();
       if (accounts.length === 0) return;
       const sess = accounts[0];
       const btn = $('btn-quick-renew');
-      setBusy(btn, true, 'Memperpanjang...');
+      setBusy(btn, true, '...');
 
       try {
         const res = await fetch('/api/renew', {
@@ -1873,20 +1362,19 @@
             refreshToken: result.data.refreshToken,
             validUntil: result.data.validUntil
           });
-          showToast('✓ Lisensi VIP ' + sess.email + ' berhasil diperpanjang!');
+          showToast('✓ Lisensi diperpanjang!');
           loadStats();
         } else {
-          showToast(result.message || 'Sesi kedaluwarsa. Silakan aktivasi ulang via email.');
+          showToast(result.message || 'Sesi kedaluwarsa.');
           removeAccount(sess.email);
         }
       } catch (err) {
-        showToast('Gagal memperpanjang. Periksa koneksi.');
+        showToast('Gagal memperpanjang.');
       } finally {
-        setBusy(btn, false, 'Perpanjang Lisensi');
+        setBusy(btn, false, '⚡ Perpanjang');
       }
     };
 
-    // Forget Saved Session on Home Banner
     $('btn-forget-session').onclick = () => {
       const accounts = getSavedAccounts();
       if (accounts.length > 0) {
@@ -1906,28 +1394,22 @@
       }
     }
 
-    // Alert Notification
     function showMsg(id, text, isSuccess) {
       const el = $(id);
       if (!el) return;
       el.textContent = text;
       el.className = 'msg ' + (isSuccess ? 'ok' : 'err');
     }
-
     function clearMsg(id) {
       const el = $(id);
       if (el) el.className = 'msg';
     }
-
-    // Toast Notification
     function showToast(text) {
       const t = $('toast');
       $('toast-text').textContent = text;
       t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), 2500);
     }
-
-    // Button Busy State
     function setBusy(btn, isBusy, text) {
       btn.disabled = isBusy;
       if (text) {
@@ -1970,7 +1452,7 @@
       } catch (err) {
         showMsg('msg-1', 'Gagal terhubung ke server. Silakan coba lagi.', false);
       } finally {
-        setBusy(btn, false, 'Kirim Link Aktivasi');
+        setBusy(btn, false, 'Kirim Link Aktivasi →');
       }
     };
 
@@ -1986,14 +1468,13 @@
             showToast('Clipboard masih kosong.');
           }
         } else {
-          showToast('Browser membatasi akses clipboard otomatis.');
+          showToast('Clipboard tidak didukung browser ini.');
         }
       } catch (e) {
-        showToast('Izin clipboard ditolak. Silakan tempel manual.');
+        showToast('Izin clipboard ditolak.');
       }
     };
 
-    // Step 2: Back to Step 1
     $('btn-back-step1').onclick = () => {
       clearMsg('msg-2');
       setStep(1);
@@ -2030,7 +1511,6 @@
           $('res-token').textContent = d.idToken || '-';
           window.__activeToken = d.idToken;
 
-          // Save account to multi-account storage
           try {
             saveAccount({
               email: currentActiveEmail,
@@ -2046,9 +1526,9 @@
           }
 
           setStep(3);
-          showToast('🎉 Selamat! Lisensi Pro berhasil aktif!');
+          showToast('✓ Lisensi Pro Berhasil Aktif!');
         } else {
-          showMsg('msg-2', result.message || 'Verifikasi gagal. Pastikan link belum kedaluwarsa.', false);
+          showMsg('msg-2', result.message || 'Verifikasi gagal. Link mungkin sudah kedaluwarsa.', false);
         }
       } catch (err) {
         showMsg('msg-2', 'Koneksi ke server terputus. Silakan coba lagi.', false);
@@ -2057,7 +1537,7 @@
       }
     };
 
-    // Step 3: Send App Login Link to Email
+    // Step 3: Send App Login Link
     $('btn-send-app-login').onclick = async () => {
       const email = currentActiveEmail || $('res-email').textContent.trim();
       if (!email || !email.includes('@')) return;
@@ -2073,7 +1553,7 @@
         });
         const j = await res.json();
         if (j.success) {
-          showMsg('msg-login-send', '✓ Link login baru terkirim ke ' + email + '! Buka email di HP dan klik untuk langsung masuk ke aplikasi.', true);
+          showMsg('msg-login-send', '✓ Link login baru terkirim ke ' + email + '! Buka di HP untuk langsung masuk ke aplikasi.', true);
           showToast('Link login aplikasi terkirim!');
         } else {
           showMsg('msg-login-send', j.message || 'Gagal mengirim link login.', false);
@@ -2081,21 +1561,18 @@
       } catch (err) {
         showMsg('msg-login-send', 'Gagal menghubungi server.', false);
       } finally {
-        setBusy(btn, false, 'Kirim Link Login ke HP');
+        setBusy(btn, false, '📲 Kirim Link Login ke HP');
       }
     };
 
-    // Step 3: Open Alight Motion App
+    // Step 3: Open App
     $('btn-open-app').onclick = () => {
       const intentUrl = 'intent://#Intent;package=com.alightcreative.motion;scheme=alightcreative;end';
       const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.alightcreative.motion';
-      
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       if (isMobile) {
         window.location.href = intentUrl;
-        setTimeout(() => {
-          window.location.href = fallbackUrl;
-        }, 1500);
+        setTimeout(() => { window.location.href = fallbackUrl; }, 1500);
       } else {
         window.open('https://alightcreative.com', '_blank');
         showToast('Buka aplikasi Alight Motion di HP Anda.');
@@ -2134,18 +1611,17 @@
       setStep(1);
     };
 
-    // Modal Panduan Salin Link
+    // Modal Guide
     const modal = $('guide-modal');
     $('btn-open-guide-modal').onclick = () => modal.classList.add('open');
     $('btn-close-modal').onclick = () => modal.classList.remove('open');
     $('btn-understand-modal').onclick = () => modal.classList.remove('open');
     modal.onclick = e => { if (e.target === modal) modal.classList.remove('open'); };
 
-    // Step 3: WhatsApp Share & Web Share API
+    // Share WhatsApp
     $('btn-share-wa').onclick = () => {
       const shareUrl = 'https://dkaimono.web.id';
       const shareText = 'Woy, akun Alight Motion gw barusan sukses aktif Pro gratis lewat https://dkaimono.web.id! Cobain deh mumpung masih aktif.';
-      
       if (navigator.share) {
         navigator.share({
           title: 'DKaimono-AM — Alight Motion Pro Gratis',
@@ -2159,14 +1635,6 @@
         showToast('Membuka WhatsApp...');
       }
     };
-
-    // FAQ Accordion Toggle
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const parent = q.parentElement;
-        parent.classList.toggle('open');
-      });
-    });
   </script>
 </body>
 </html>

@@ -1,10 +1,17 @@
 const express = require('express')
 const auth = require('../../../lib/auth')
 const { friendlyFirebaseError } = require('../../../lib/errors')
+const rateLimit = require('../../../lib/rate-limit')
 
 const router = express.Router()
 
-router.post('/', async (req, res) => {
+const sendLinkLimiter = rateLimit({
+  windowMs: 2 * 60 * 1000,
+  max: 5,
+  message: 'Terlalu sering mengirim link.'
+})
+
+router.post('/', sendLinkLimiter, async (req, res) => {
   const { email } = req.body
   if (!email || !email.includes('@') || !email.includes('.')) {
     return res.status(400).json({ success: false, message: 'email gak valid.' })

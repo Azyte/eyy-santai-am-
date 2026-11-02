@@ -2,10 +2,17 @@ const express = require('express')
 const auth = require('../../../lib/auth')
 const { friendlyFirebaseError } = require('../../../lib/errors')
 const { incrementStats, getStats } = require('../../../lib/stats')
+const rateLimit = require('../../../lib/rate-limit')
 
 const router = express.Router()
 
-router.post('/', async (req, res) => {
+const renewLimiter = rateLimit({
+  windowMs: 2 * 60 * 1000,
+  max: 5,
+  message: 'Terlalu sering memperpanjang lisensi.'
+})
+
+router.post('/', renewLimiter, async (req, res) => {
   const { refreshToken } = req.body
   if (!refreshToken || !refreshToken.trim()) {
     return res.status(400).json({ success: false, message: 'Refresh token wajib disertakan.' })

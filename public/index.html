@@ -163,7 +163,7 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 48px 0 32px;
+      padding: 48px 0 28px;
     }
     .pill {
       display: inline-flex;
@@ -207,7 +207,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       max-width: 660px;
-      margin: 0 auto 36px;
+      margin: 0 auto 28px;
     }
     .stat-card {
       background: var(--bg-card);
@@ -231,6 +231,52 @@
       font-feature-settings: "tnum";
     }
     .stat-value.acc { color: var(--acc); }
+
+    /* Saved Session Banner (Auto-Renew) */
+    .saved-session-card {
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      max-width: 520px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+    .saved-session-info { text-align: left; }
+    .saved-session-badge {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--acc);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .saved-session-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .saved-session-desc {
+      font-size: 11.5px;
+      color: var(--txt-dim);
+    }
+    .saved-session-desc span { color: var(--acc); font-weight: 600; }
+    .saved-session-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-sm {
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
 
     /* Core Activation Card */
     .app-card {
@@ -352,7 +398,7 @@
     }
     input::placeholder { color: var(--txt-muted); }
 
-    /* Buttons */
+    /* Action Buttons */
     .btn {
       width: 100%;
       background: var(--acc);
@@ -399,6 +445,22 @@
       margin-top: 14px;
     }
     .btn-row .btn { flex: 1; }
+
+    .btn-text {
+      background: none;
+      border: none;
+      color: var(--acc);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 2px 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s ease;
+    }
+    .btn-text:hover { color: #34d399; text-decoration: underline; }
 
     /* Alert / Messages */
     .msg {
@@ -485,6 +547,31 @@
       overflow-y: auto;
       margin-bottom: 14px;
       line-height: 1.5;
+    }
+
+    /* App Login Helper Card in Step 3 */
+    .app-login-card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      margin: 18px 0 14px;
+      text-align: left;
+    }
+    .app-login-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .app-login-desc {
+      font-size: 12px;
+      color: var(--txt-dim);
+      line-height: 1.5;
+      margin-bottom: 10px;
     }
 
     /* Sections: How it works & FAQ */
@@ -638,6 +725,8 @@
       .hero h1 { font-size: 26px; }
       .stats-bar { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr; }
+      .saved-session-card { flex-direction: column; align-items: flex-start; }
+      .saved-session-actions { width: 100%; justify-content: flex-end; }
       .nav-right .status-badge span.status-txt { display: none; }
       .app-card { border-radius: var(--radius-sm); }
       .card-body { padding: 18px; }
@@ -686,6 +775,22 @@
         <div class="stat-card">
           <div class="stat-label">Status Layanan</div>
           <div class="stat-value" style="font-size:16px;color:var(--acc);margin-top:4px;" id="st-health">Online & Siap</div>
+        </div>
+      </div>
+
+      <!-- Saved Session Card (Auto-Renew) -->
+      <div id="saved-session-banner" class="saved-session-card hide">
+        <div class="saved-session-info">
+          <div class="saved-session-badge">SESI TERSIMPAN</div>
+          <div class="saved-session-title" id="ss-email">-</div>
+          <div class="saved-session-desc">VIP Status: <span id="ss-valid">-</span></div>
+        </div>
+        <div class="saved-session-actions">
+          <button class="btn btn-sm" id="btn-quick-renew">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Perpanjang Lisensi</span>
+          </button>
+          <button class="btn sec btn-sm" id="btn-forget-session" title="Lupakan sesi">Hapus</button>
         </div>
       </div>
     </section>
@@ -739,7 +844,10 @@
           </div>
 
           <div class="form-group">
-            <label for="input-link">Tautan Verifikasi (Magic Link atau oobCode)</label>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <label for="input-link" style="margin-bottom:0;">Tautan Verifikasi (Magic Link atau oobCode)</label>
+              <button type="button" class="btn-text" id="btn-paste-clipboard">📋 Tempel dari Clipboard</button>
+            </div>
             <div class="input-wrapper">
               <input id="input-link" type="text" placeholder="https://alightcreative.com... atau kode oobCode" autocomplete="off" required>
             </div>
@@ -783,7 +891,7 @@
             </div>
             <div class="kv">
               <b>Masa Berlaku</b>
-              <span id="res-valid">1 Tahun Penuh</span>
+              <span id="res-valid">3 Juli 2027</span>
             </div>
             <div class="kv">
               <b>Order Ref ID</b>
@@ -791,7 +899,27 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <!-- App Login Helper Section -->
+          <div class="app-login-card">
+            <div class="app-login-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>Masuk ke Aplikasi Alight Motion</span>
+            </div>
+            <p class="app-login-desc">Jika akun sudah pernah login di aplikasi HP, langsung buka saja aplikasinya. Jika belum login di HP, kirim link login baru ke email Anda untuk masuk otomatis.</p>
+            <div class="btn-row" style="margin-top:8px;">
+              <button class="btn sec" id="btn-send-app-login">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>Kirim Link Login ke HP</span>
+              </button>
+              <button class="btn" id="btn-open-app">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Buka Aplikasi AM</span>
+              </button>
+            </div>
+            <div id="msg-login-send" class="msg"></div>
+          </div>
+
+          <div class="form-group" style="margin-top:14px;">
             <label>Firebase ID Token (Opsional / Sesi Login):</label>
             <div class="token-box" id="res-token">-</div>
           </div>
@@ -868,7 +996,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Lisensi terdaftar sebagai Annual/Yearly VIP License yang berlaku selama 1 tahun penuh. Anda juga dapat memperbarui aktivasi kapan saja secara gratis jika masa aktif berakhir.
+          Lisensi terdaftar sebagai Annual/Yearly VIP License yang berlaku hingga tanggal yang tertera (3 Juli). Anda juga dapat memperbarui aktivasi kapan saja secara gratis melalui fitur perpanjang instan di web ini.
         </div>
       </div>
 
@@ -878,7 +1006,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-a">
-          Cukup login ke akun email tersebut di dalam aplikasi Alight Motion. Status membership Anda akan otomatis terdeteksi sebagai Alight Motion Pro / Member dengan seluruh preset dan fitur terbuka.
+          Cukup login ke akun email tersebut di dalam aplikasi Alight Motion (atau gunakan tombol 'Kirim Link Login ke HP' di Step 3). Status membership Anda akan otomatis aktif sebagai Alight Motion Pro / Member dengan seluruh preset dan fitur terbuka.
         </div>
       </div>
     </section>
@@ -905,6 +1033,8 @@
   <script>
     const $ = id => document.getElementById(id);
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    let currentActiveEmail = '';
 
     // Check Server Status
     async function checkStatus() {
@@ -938,6 +1068,63 @@
       }
     }
     loadStats();
+
+    // Check Saved Session (LocalStorage)
+    function checkSavedSession() {
+      try {
+        const raw = localStorage.getItem('dkaimono_session');
+        if (!raw) return;
+        const sess = JSON.parse(raw);
+        if (sess && sess.refreshToken && sess.email) {
+          $('ss-email').textContent = sess.email;
+          $('ss-valid').textContent = sess.validUntil || 'Aktif';
+          $('saved-session-banner').classList.remove('hide');
+        }
+      } catch (e) {}
+    }
+    checkSavedSession();
+
+    // Quick Renew Saved Session
+    $('btn-quick-renew').onclick = async () => {
+      try {
+        const raw = localStorage.getItem('dkaimono_session');
+        if (!raw) return;
+        const sess = JSON.parse(raw);
+        const btn = $('btn-quick-renew');
+        setBusy(btn, true, 'Memperpanjang...');
+
+        const res = await fetch('/api/renew', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ refreshToken: sess.refreshToken })
+        });
+        const result = await res.json();
+
+        if (result.success && result.data) {
+          sess.refreshToken = result.data.refreshToken;
+          sess.validUntil = result.data.validUntil;
+          localStorage.setItem('dkaimono_session', JSON.stringify(sess));
+          $('ss-valid').textContent = result.data.validUntil;
+          showToast('✓ Lisensi VIP berhasil diperpanjang!');
+          loadStats();
+        } else {
+          showToast('Sesi kedaluwarsa. Silakan aktivasi ulang via email.');
+          localStorage.removeItem('dkaimono_session');
+          $('saved-session-banner').classList.add('hide');
+        }
+        setBusy(btn, false, 'Perpanjang Lisensi');
+      } catch (err) {
+        showToast('Gagal memperpanjang. Periksa koneksi.');
+        setBusy($('btn-quick-renew'), false, 'Perpanjang Lisensi');
+      }
+    };
+
+    // Forget Saved Session
+    $('btn-forget-session').onclick = () => {
+      localStorage.removeItem('dkaimono_session');
+      $('saved-session-banner').classList.add('hide');
+      showToast('Sesi tersimpan dihapus.');
+    };
 
     // Wizard Step Navigation
     function setStep(step) {
@@ -1002,6 +1189,7 @@
         const data = await res.json();
 
         if (data.success) {
+          currentActiveEmail = email;
           $('display-target-email').textContent = email;
           showMsg('msg-1', data.message || 'Link berhasil dikirim! Silakan periksa email Anda.', true);
           setTimeout(() => {
@@ -1018,6 +1206,25 @@
       }
     };
 
+    // Step 2: Paste from Clipboard
+    $('btn-paste-clipboard').onclick = async () => {
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const text = await navigator.clipboard.readText();
+          if (text) {
+            $('input-link').value = text.trim();
+            showToast('Tautan berhasil ditempel!');
+          } else {
+            showToast('Clipboard masih kosong.');
+          }
+        } else {
+          showToast('Browser membatasi akses clipboard otomatis.');
+        }
+      } catch (e) {
+        showToast('Izin clipboard ditolak. Silakan tempel manual.');
+      }
+    };
+
     // Step 2: Back to Step 1
     $('btn-back-step1').onclick = () => {
       clearMsg('msg-2');
@@ -1027,7 +1234,7 @@
     // Step 2: Verify Magic Link
     $('btn-verify').onclick = async () => {
       const rawLink = $('input-link').value.trim();
-      const email = $('display-target-email').textContent.trim();
+      const email = $('display-target-email').textContent.trim() || currentActiveEmail;
 
       if (!rawLink) {
         return showMsg('msg-2', 'Silakan tempelkan link dari email Anda.', false);
@@ -1047,12 +1254,24 @@
 
         if (result.success && result.data) {
           const d = result.data;
-          $('res-email').textContent = d.email || email;
+          currentActiveEmail = d.email || email;
+          $('res-email').textContent = currentActiveEmail;
           $('res-uid').textContent = d.uid || '-';
           $('res-order').textContent = d.orderId || 'neo-auto-pro';
-          $('res-valid').textContent = d.validUntil || '1 Tahun Penuh';
+          $('res-valid').textContent = d.validUntil || '3 Juli 2027';
           $('res-token').textContent = d.idToken || '-';
           window.__activeToken = d.idToken;
+
+          // Save session to localStorage
+          try {
+            localStorage.setItem('dkaimono_session', JSON.stringify({
+              email: currentActiveEmail,
+              uid: d.uid,
+              refreshToken: d.refreshToken,
+              validUntil: d.validUntil || '3 Juli 2027'
+            }));
+            checkSavedSession();
+          } catch (e) {}
 
           if (d.stats) {
             $('st-total').textContent = Number(d.stats.total || 0).toLocaleString('id-ID');
@@ -1068,6 +1287,51 @@
         showMsg('msg-2', 'Koneksi ke server terputus. Silakan coba lagi.', false);
       } finally {
         setBusy(btn, false, 'Verifikasi & Aktifkan');
+      }
+    };
+
+    // Step 3: Send App Login Link to Email
+    $('btn-send-app-login').onclick = async () => {
+      const email = currentActiveEmail || $('res-email').textContent.trim();
+      if (!email || !email.includes('@')) return;
+
+      const btn = $('btn-send-app-login');
+      setBusy(btn, true, 'Mengirim...');
+
+      try {
+        const res = await fetch('/api/send-link', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const j = await res.json();
+        if (j.success) {
+          showMsg('msg-login-send', '✓ Link login baru terkirim ke ' + email + '! Buka email di HP dan klik untuk langsung masuk ke aplikasi.', true);
+          showToast('Link login aplikasi terkirim!');
+        } else {
+          showMsg('msg-login-send', j.message || 'Gagal mengirim link login.', false);
+        }
+      } catch (err) {
+        showMsg('msg-login-send', 'Gagal menghubungi server.', false);
+      } finally {
+        setBusy(btn, false, 'Kirim Link Login ke HP');
+      }
+    };
+
+    // Step 3: Open Alight Motion App
+    $('btn-open-app').onclick = () => {
+      const intentUrl = 'intent://#Intent;package=com.alightcreative.motion;scheme=alightcreative;end';
+      const fallbackUrl = 'https://play.google.com/store/apps/details?id=com.alightcreative.motion';
+      
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = intentUrl;
+        setTimeout(() => {
+          window.location.href = fallbackUrl;
+        }, 1500);
+      } else {
+        window.open('https://alightcreative.com', '_blank');
+        showToast('Buka aplikasi Alight Motion di HP Anda.');
       }
     };
 
@@ -1099,6 +1363,7 @@
       $('input-email').value = '';
       clearMsg('msg-1');
       clearMsg('msg-2');
+      clearMsg('msg-login-send');
       setStep(1);
     };
 

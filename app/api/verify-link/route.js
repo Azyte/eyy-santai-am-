@@ -25,8 +25,16 @@ router.post('/', async (req, res) => {
   const stats = premium.ok ? incrementStats() : getStats()
 
   const now = new Date()
-  const until = new Date()
-  until.setFullYear(until.getFullYear() + 1)
+  let validUntilStr = '3 Juli ' + (now.getMonth() >= 6 ? now.getFullYear() + 1 : now.getFullYear())
+  let validUntilTimestamp = new Date(now.getFullYear() + 1, 6, 3).getTime()
+
+  if (premium.r?.expiryTimeMillis) {
+    const d = new Date(Number(premium.r.expiryTimeMillis))
+    validUntilStr = d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })
+    validUntilTimestamp = d.getTime()
+  } else if (premium.r?.expiryDate) {
+    validUntilStr = premium.r.expiryDate
+  }
 
   return res.json({
     success: true,
@@ -47,8 +55,8 @@ router.post('/', async (req, res) => {
       subscriptionType: 'Yearly VIP License',
       orderId: premium.order || null,
       activatedAt: now.toISOString(),
-      validUntil: until.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }),
-      validUntilTimestamp: until.getTime(),
+      validUntil: validUntilStr,
+      validUntilTimestamp: validUntilTimestamp,
       tokenType: 'Bearer',
       idToken: v.id,
       refreshToken: v.ref,

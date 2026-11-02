@@ -18,6 +18,10 @@ async function runTests() {
     console.assert(homeHtml.includes('id="activation-hub"'), 'Index HTML contains activation-hub');
     console.assert(homeHtml.includes('id="btn-send-link"'), 'Index HTML contains btn-send-link');
     console.assert(homeHtml.includes('id="btn-verify"'), 'Index HTML contains btn-verify');
+    console.assert(homeHtml.includes('id="saved-session-banner"'), 'Index HTML contains saved-session-banner');
+    console.assert(homeHtml.includes('id="btn-paste-clipboard"'), 'Index HTML contains btn-paste-clipboard');
+    console.assert(homeHtml.includes('id="btn-send-app-login"'), 'Index HTML contains btn-send-app-login');
+    console.assert(homeHtml.includes('id="btn-open-app"'), 'Index HTML contains btn-open-app');
     console.log('✓ Test 1: Static HTML serving passed');
 
     // 2. Test /api/status
@@ -58,7 +62,18 @@ async function runTests() {
     console.assert(dataVerifyEmpty.success === false, 'Empty link returns success: false');
     console.log('✓ Test 5: /api/verify-link validation passed');
 
-    // 6. Test Netlify Function handler wrapper
+    // 6. Test /api/renew validation
+    const resRenewEmpty = await fetch(`${baseUrl}/api/renew`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ refreshToken: '' })
+    });
+    console.assert(resRenewEmpty.status === 400, 'Empty refresh token returns 400');
+    const dataRenewEmpty = await resRenewEmpty.json();
+    console.assert(dataRenewEmpty.success === false, 'Empty refresh token returns success: false');
+    console.log('✓ Test 6: /api/renew validation passed');
+
+    // 7. Test Netlify Function handler wrapper
     const mockEvent = {
       httpMethod: 'GET',
       path: '/api/status',
@@ -69,9 +84,9 @@ async function runTests() {
     console.assert(fnResult.statusCode === 200, `Netlify handler returned ${fnResult.statusCode}`);
     const fnBody = JSON.parse(fnResult.body);
     console.assert(fnBody.status === 'online', 'Netlify handler body has status online');
-    console.log('✓ Test 6: Netlify function handler execution passed');
+    console.log('✓ Test 7: Netlify function handler execution passed');
 
-    console.log('\nALL 6 VERIFICATION CHECKS PASSED SUCCESSFULLY!');
+    console.log('\nALL 7 VERIFICATION CHECKS PASSED SUCCESSFULLY!');
   } finally {
     server.close();
   }

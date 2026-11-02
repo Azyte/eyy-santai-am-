@@ -25,6 +25,9 @@ async function runTests() {
     console.assert(homeHtml.includes('dkaimono.web.id'), 'Index HTML contains dkaimono.web.id');
     console.assert(homeHtml.includes('id="btn-share-wa"'), 'Index HTML contains btn-share-wa');
     console.assert(homeHtml.includes('id="guide-modal"'), 'Index HTML contains guide-modal');
+    console.assert(homeHtml.includes('id="btn-toggle-drawer"'), 'Index HTML contains btn-toggle-drawer');
+    console.assert(homeHtml.includes('id="menu-drawer"'), 'Index HTML contains menu-drawer');
+    console.assert(homeHtml.includes('id="drawer-accounts-list"'), 'Index HTML contains drawer-accounts-list');
     console.log('✓ Test 1: Static HTML serving passed');
 
     // 2. Test /api/status

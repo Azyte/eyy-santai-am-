@@ -856,6 +856,317 @@
 
     .hide { display: none !important; }
 
+    /* Hamburger Button & Slide-over Drawer */
+    .hamburger-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      width: 38px;
+      height: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+    .hamburger-btn:hover {
+      border-color: var(--acc);
+      box-shadow: 0 0 12px var(--acc-glow);
+    }
+    .hamburger-line {
+      width: 18px;
+      height: 2px;
+      background: var(--txt);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    .hamburger-btn.active .hamburger-line:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .hamburger-btn.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.active .hamburger-line:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+    .menu-badge-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--acc);
+      color: #06150b;
+      font-size: 10px;
+      font-weight: 800;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px var(--acc-glow);
+    }
+
+    /* Slide-over Drawer Menu */
+    .drawer-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(4, 7, 13, 0.72);
+      backdrop-filter: blur(6px);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .drawer {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: 380px;
+      max-width: 90vw;
+      background: #0f172a;
+      border-left: 1px solid var(--line);
+      box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+      z-index: 100;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer.open {
+      transform: translateX(0);
+    }
+    .drawer-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(9, 13, 22, 0.5);
+    }
+    .drawer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .drawer-close {
+      background: none;
+      border: none;
+      color: var(--txt-muted);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+      transition: color 0.15s ease;
+    }
+    .drawer-close:hover { color: #fff; }
+    .drawer-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+      text-align: left;
+    }
+    .drawer-section {
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 20px;
+    }
+    .drawer-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .drawer-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .drawer-section-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .drawer-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: var(--acc-soft);
+      color: var(--acc);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    /* Saved Account Cards in Drawer */
+    .drawer-accounts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .account-item {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      transition: all 0.2s ease;
+    }
+    .account-item:hover {
+      border-color: #2e384d;
+    }
+    .account-item-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .account-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--acc-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--acc);
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .account-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .account-email {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .account-meta {
+      font-size: 11px;
+      color: var(--txt-muted);
+    }
+    .account-meta span { color: var(--acc); font-weight: 500; }
+    .account-vip-badge {
+      font-size: 9.5px;
+      font-weight: 800;
+      color: var(--acc);
+      background: var(--acc-soft);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 4px;
+      padding: 2px 6px;
+      text-transform: uppercase;
+    }
+    .account-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .account-actions .btn {
+      flex: 1;
+      padding: 7px 10px;
+      font-size: 11.5px;
+      border-radius: 6px;
+    }
+    .account-actions .btn-del {
+      flex: 0 0 34px;
+      padding: 7px 0;
+      text-align: center;
+      background: var(--bg-input);
+      color: var(--red);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+    .account-actions .btn-del:hover {
+      background: var(--red-soft);
+      border-color: var(--red);
+    }
+
+    .account-empty-state {
+      background: rgba(13, 18, 31, 0.5);
+      border: 1px dashed var(--line);
+      border-radius: var(--radius-sm);
+      padding: 24px 16px;
+      text-align: center;
+      color: var(--txt-dim);
+    }
+    .account-empty-state div {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .account-empty-state p {
+      font-size: 11.5px;
+      color: var(--txt-muted);
+      line-height: 1.5;
+    }
+
+    /* Drawer Menu Items */
+    .drawer-menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .drawer-menu-item {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--txt);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      width: 100%;
+      text-align: left;
+    }
+    .drawer-menu-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--acc);
+      color: #fff;
+      transform: translateX(3px);
+    }
+
+    /* Drawer Server Info Card */
+    .drawer-server-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .drawer-server-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .drawer-server-row span { color: var(--txt-muted); }
+    .drawer-server-row b { color: var(--txt); }
+
     /* Responsive adjustments */
     @media (max-width: 680px) {
       .hero h1 { font-size: 26px; }
@@ -885,9 +1196,88 @@
           <div class="status-dot"></div>
           <span class="status-txt" id="status-label">Memeriksa Server...</span>
         </div>
+        <button class="hamburger-btn" id="btn-toggle-drawer" aria-label="Menu Akun & Navigasi" title="Buka Akun Tersimpan & Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="menu-badge-count hide" id="menu-badge-count">0</span>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Slide-over Drawer Menu -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="menu-drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <img src="/favicon.svg" alt="DKaimono-AM" width="28" height="28" style="border-radius:7px;">
+        <span>DKaimono-AM Menu</span>
+      </div>
+      <button class="drawer-close" id="btn-close-drawer">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Section: Akun & Sesi Tersimpan -->
+      <div class="drawer-section">
+        <div class="drawer-section-header">
+          <div class="drawer-section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Akun & Sesi Tersimpan</span>
+          </div>
+          <span class="drawer-badge" id="drawer-account-total">0 Akun</span>
+        </div>
+
+        <div id="drawer-accounts-list" class="drawer-accounts-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Section: Pintasan & Fitur -->
+      <div class="drawer-section">
+        <div class="drawer-section-title" style="margin-bottom:12px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Pintasan Cepat</span>
+        </div>
+        <div class="drawer-menu-list">
+          <button class="drawer-menu-item" id="drawer-btn-guide">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span>Panduan Salin Link Gmail</span>
+          </button>
+          <button class="drawer-menu-item" id="drawer-btn-open-app">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Buka Aplikasi Alight Motion</span>
+          </button>
+          <button class="drawer-menu-item" id="drawer-btn-share">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/></svg>
+            <span>Bagikan ke WhatsApp / Teman</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Section: Status Server Live -->
+      <div class="drawer-section">
+        <div class="drawer-section-title" style="margin-bottom:12px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          <span>Info Sistem & Server</span>
+        </div>
+        <div class="drawer-server-card">
+          <div class="drawer-server-row">
+            <span>Domain Utama</span>
+            <b style="color:#10b981;">dkaimono.web.id</b>
+          </div>
+          <div class="drawer-server-row">
+            <span>Firebase Auth API</span>
+            <span style="color:#10b981;">● Online & Terhubung</span>
+          </div>
+          <div class="drawer-server-row">
+            <span>Serverless Hosting</span>
+            <span>Netlify Edge Global</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <main class="container">
     <!-- Hero Header -->
@@ -1257,30 +1647,219 @@
     }
     loadStats();
 
-    // Check Saved Session (LocalStorage)
-    function checkSavedSession() {
+    // --- Multi-Account Manager ---
+    function getSavedAccounts() {
       try {
-        const raw = localStorage.getItem('dkaimono_session');
-        if (!raw) return;
-        const sess = JSON.parse(raw);
-        if (sess && sess.refreshToken && sess.email) {
-          $('ss-email').textContent = sess.email;
-          $('ss-valid').textContent = sess.validUntil || 'Aktif';
-          $('saved-session-banner').classList.remove('hide');
+        let list = JSON.parse(localStorage.getItem('dkaimono_accounts') || '[]');
+        if (!Array.isArray(list)) list = [];
+        // Migration from old single session
+        const old = localStorage.getItem('dkaimono_session');
+        if (old) {
+          try {
+            const parsedOld = JSON.parse(old);
+            if (parsedOld && parsedOld.email && !list.some(a => a.email === parsedOld.email)) {
+              list.unshift(parsedOld);
+              localStorage.setItem('dkaimono_accounts', JSON.stringify(list));
+            }
+          } catch (e) {}
         }
-      } catch (e) {}
+        return list;
+      } catch (e) {
+        return [];
+      }
     }
-    checkSavedSession();
 
-    // Quick Renew Saved Session
+    function saveAccount(acc) {
+      if (!acc || !acc.email) return;
+      const list = getSavedAccounts();
+      const idx = list.findIndex(a => a.email === acc.email);
+      if (idx >= 0) {
+        list[idx] = { ...list[idx], ...acc, lastActive: Date.now() };
+      } else {
+        list.unshift({ ...acc, lastActive: Date.now() });
+      }
+      localStorage.setItem('dkaimono_accounts', JSON.stringify(list));
+      localStorage.setItem('dkaimono_session', JSON.stringify(list[0]));
+      renderDrawerAccounts();
+    }
+
+    function removeAccount(email) {
+      let list = getSavedAccounts();
+      list = list.filter(a => a.email !== email);
+      localStorage.setItem('dkaimono_accounts', JSON.stringify(list));
+      if (list.length > 0) {
+        localStorage.setItem('dkaimono_session', JSON.stringify(list[0]));
+      } else {
+        localStorage.removeItem('dkaimono_session');
+      }
+      renderDrawerAccounts();
+      showToast('Akun dihapus dari sesi tersimpan.');
+    }
+
+    function renderDrawerAccounts() {
+      const list = getSavedAccounts();
+      const container = $('drawer-accounts-list');
+      const totalBadge = $('drawer-account-total');
+      const menuBadge = $('menu-badge-count');
+      const homeBanner = $('saved-session-banner');
+
+      totalBadge.textContent = list.length + ' Akun';
+      if (list.length > 0) {
+        menuBadge.textContent = list.length;
+        menuBadge.classList.remove('hide');
+
+        const latest = list[0];
+        $('ss-email').textContent = latest.email;
+        $('ss-valid').textContent = latest.validUntil || '3 Juli 2027';
+        if (homeBanner) homeBanner.classList.remove('hide');
+      } else {
+        menuBadge.classList.add('hide');
+        if (homeBanner) homeBanner.classList.add('hide');
+      }
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="account-empty-state">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--txt-muted);margin-bottom:6px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div>Belum Ada Akun Tersimpan</div>
+            <p>Akun yang Anda aktivasi akan otomatis tersimpan di sini agar mudah diperpanjang kapan saja.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(acc => {
+        const initial = (acc.email || 'U')[0].toUpperCase();
+        return `
+          <div class="account-item">
+            <div class="account-item-top">
+              <div class="account-avatar">${initial}</div>
+              <div class="account-info">
+                <div class="account-email" title="${acc.email}">${acc.email}</div>
+                <div class="account-meta">VIP: <span>${acc.validUntil || '3 Juli 2027'}</span></div>
+              </div>
+              <span class="account-vip-badge">ACTIVE</span>
+            </div>
+            <div class="account-actions">
+              <button class="btn btn-sm btn-renew-act" data-email="${acc.email}" data-token="${acc.refreshToken || ''}">⚡ Perpanjang</button>
+              <button class="btn sec btn-sm btn-login-act" data-email="${acc.email}">📲 Kirim Login</button>
+              <button class="btn-del btn-del-act" data-email="${acc.email}" title="Hapus akun">&times;</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.querySelectorAll('.btn-renew-act').forEach(btn => {
+        btn.onclick = async () => {
+          const email = btn.getAttribute('data-email');
+          const token = btn.getAttribute('data-token');
+          if (!token) return showToast('Token akun tidak ditemukan. Aktivasi ulang via email.');
+
+          setBusy(btn, true, '...');
+          try {
+            const res = await fetch('/api/renew', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ refreshToken: token })
+            });
+            const j = await res.json();
+            if (j.success && j.data) {
+              saveAccount({ email, refreshToken: j.data.refreshToken, validUntil: j.data.validUntil });
+              showToast('✓ Lisensi ' + email + ' berhasil diperpanjang!');
+              loadStats();
+            } else {
+              showToast(j.message || 'Sesi kedaluwarsa. Silakan aktivasi ulang.');
+            }
+          } catch (e) {
+            showToast('Gagal terhubung ke server.');
+          } finally {
+            setBusy(btn, false, '⚡ Perpanjang');
+          }
+        };
+      });
+
+      container.querySelectorAll('.btn-login-act').forEach(btn => {
+        btn.onclick = async () => {
+          const email = btn.getAttribute('data-email');
+          if (!email) return;
+
+          setBusy(btn, true, 'Mengirim...');
+          try {
+            const res = await fetch('/api/send-link', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            });
+            const j = await res.json();
+            if (j.success) {
+              showToast('✓ Link login terkirim ke ' + email + '!');
+            } else {
+              showToast(j.message || 'Gagal mengirim link login.');
+            }
+          } catch (e) {
+            showToast('Gagal menghubungi server.');
+          } finally {
+            setBusy(btn, false, '📲 Kirim Login');
+          }
+        };
+      });
+
+      container.querySelectorAll('.btn-del-act').forEach(btn => {
+        btn.onclick = () => {
+          const email = btn.getAttribute('data-email');
+          removeAccount(email);
+        };
+      });
+    }
+
+    renderDrawerAccounts();
+
+    // Drawer Open / Close
+    const drawer = $('menu-drawer');
+    const backdrop = $('drawer-backdrop');
+    const toggleBtn = $('btn-toggle-drawer');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      toggleBtn.classList.add('active');
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      toggleBtn.classList.remove('active');
+    }
+
+    toggleBtn.onclick = () => {
+      if (drawer.classList.contains('open')) closeDrawer();
+      else openDrawer();
+    };
+    $('btn-close-drawer').onclick = closeDrawer;
+    backdrop.onclick = closeDrawer;
+
+    $('drawer-btn-guide').onclick = () => {
+      closeDrawer();
+      $('guide-modal').classList.add('open');
+    };
+    $('drawer-btn-open-app').onclick = () => {
+      closeDrawer();
+      $('btn-open-app').click();
+    };
+    $('drawer-btn-share').onclick = () => {
+      closeDrawer();
+      $('btn-share-wa').click();
+    };
+
+    // Quick Renew Saved Session on Home Banner
     $('btn-quick-renew').onclick = async () => {
-      try {
-        const raw = localStorage.getItem('dkaimono_session');
-        if (!raw) return;
-        const sess = JSON.parse(raw);
-        const btn = $('btn-quick-renew');
-        setBusy(btn, true, 'Memperpanjang...');
+      const accounts = getSavedAccounts();
+      if (accounts.length === 0) return;
+      const sess = accounts[0];
+      const btn = $('btn-quick-renew');
+      setBusy(btn, true, 'Memperpanjang...');
 
+      try {
         const res = await fetch('/api/renew', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -1289,29 +1868,30 @@
         const result = await res.json();
 
         if (result.success && result.data) {
-          sess.refreshToken = result.data.refreshToken;
-          sess.validUntil = result.data.validUntil;
-          localStorage.setItem('dkaimono_session', JSON.stringify(sess));
-          $('ss-valid').textContent = result.data.validUntil;
-          showToast('✓ Lisensi VIP berhasil diperpanjang!');
+          saveAccount({
+            email: sess.email,
+            refreshToken: result.data.refreshToken,
+            validUntil: result.data.validUntil
+          });
+          showToast('✓ Lisensi VIP ' + sess.email + ' berhasil diperpanjang!');
           loadStats();
         } else {
-          showToast('Sesi kedaluwarsa. Silakan aktivasi ulang via email.');
-          localStorage.removeItem('dkaimono_session');
-          $('saved-session-banner').classList.add('hide');
+          showToast(result.message || 'Sesi kedaluwarsa. Silakan aktivasi ulang via email.');
+          removeAccount(sess.email);
         }
-        setBusy(btn, false, 'Perpanjang Lisensi');
       } catch (err) {
         showToast('Gagal memperpanjang. Periksa koneksi.');
-        setBusy($('btn-quick-renew'), false, 'Perpanjang Lisensi');
+      } finally {
+        setBusy(btn, false, 'Perpanjang Lisensi');
       }
     };
 
-    // Forget Saved Session
+    // Forget Saved Session on Home Banner
     $('btn-forget-session').onclick = () => {
-      localStorage.removeItem('dkaimono_session');
-      $('saved-session-banner').classList.add('hide');
-      showToast('Sesi tersimpan dihapus.');
+      const accounts = getSavedAccounts();
+      if (accounts.length > 0) {
+        removeAccount(accounts[0].email);
+      }
     };
 
     // Wizard Step Navigation
@@ -1450,15 +2030,14 @@
           $('res-token').textContent = d.idToken || '-';
           window.__activeToken = d.idToken;
 
-          // Save session to localStorage
+          // Save account to multi-account storage
           try {
-            localStorage.setItem('dkaimono_session', JSON.stringify({
+            saveAccount({
               email: currentActiveEmail,
               uid: d.uid,
               refreshToken: d.refreshToken,
               validUntil: d.validUntil || '3 Juli 2027'
-            }));
-            checkSavedSession();
+            });
           } catch (e) {}
 
           if (d.stats) {

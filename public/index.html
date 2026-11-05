@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DKaimono-AM &middot; Alight Motion Pro Activation Studio</title>
-  <meta name="description" content="Aktivasi lisensi resmi Alight Motion Pro langsung ke akun Firebase Anda. Bebas watermark, tanpa password, dan terverifikasi tanda terima Google Play.">
-  <meta name="theme-color" content="#090b10">
-  
+  <title>DKaimono-AM &middot; Studio Aktivasi Alight Motion Pro</title>
+  <meta name="description" content="Aktivasi lisensi resmi Alight Motion Pro langsung ke akun Firebase Anda. Tanpa kata sandi, bebas watermark, dan terverifikasi tanda terima Google Play.">
+  <meta name="theme-color" content="#0b0e11">
+
   <link rel="canonical" href="https://dkaimono.web.id">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -17,1077 +17,1775 @@
   <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dkaimono.web.id">
-  <meta property="og:title" content="DKaimono-AM &middot; Alight Motion Pro Activation Studio">
-  <meta property="og:description" content="Aktivasi lisensi resmi Alight Motion Pro tahunan. Tanpa password, tanpa mod APK berbahaya, dan sinkron otomatis.">
+  <meta property="og:title" content="DKaimono-AM &middot; Studio Aktivasi Alight Motion Pro">
+  <meta property="og:description" content="Aktivasi lisensi resmi Alight Motion Pro tahunan langsung ke akun Anda. Tanpa kata sandi dan sinkron otomatis.">
   <meta property="og:image" content="/apple-touch-icon.png">
   <meta name="twitter:card" content="summary">
 
-  <!-- Switzer font from Fontshare (dealt by taste-skill) -->
+  <!-- Switzer from Fontshare -->
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #090b10;
-      --surface: #121622;
-      --surface-raised: #181e2e;
-      --surface-hover: #20283d;
-      --surface-input: #0c0f17;
-      
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --dim: #64748b;
-      
-      --accent: #10b981;
-      --accent-hover: #059669;
-      --accent-subtle: #09261a;
-      --accent-ink: #04210e;
-      
-      --danger: #f43f5e;
-      --danger-subtle: #2d1017;
-      
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
-      
-      --font: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
-      --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
-      --step-body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-      --step-lead: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem);
-      --step-head: clamp(1.85rem, 1.4rem + 2vw, 2.75rem);
+      /* =================================================================
+         60-30-10 COLOR ARCHITECTURE
+         60% Dominant  : Deep Studio Carbon (Canvas, Negative Space, Wells)
+         30% Secondary : Mineral Slate Surfaces & Chalk Ink Hierarchy
+         10% Accent    : Signal Studio Mint (Primary CTAs & Active States)
+         ================================================================= */
+
+      /* 60% Dominant Ground */
+      --c60-canvas: #0b0e11;
+      --c60-well: #0f1419;
+
+      /* 30% Secondary Structure & Surfaces */
+      --c30-band: #12181f;
+      --c30-surface: #171f28;
+      --c30-raised: #202b37;
+      --c30-hover: #293746;
+
+      /* Typography Ink Hierarchy (Part of 30% Structural Contrast) */
+      --ink-100: #f1f5f9;
+      --ink-70: #94a6b8;
+      --ink-50: #63768a;
+
+      /* 10% Focal Accent */
+      --c10-accent: #22e58a;
+      --c10-accent-hover: #19cc78;
+      --c10-accent-tint: #0d2b1e;
+      --c10-accent-ink: #042112;
+
+      /* Semantic Feedback */
+      --danger: #ff5a67;
+      --danger-tint: #2b1216;
+      --warn: #f4b740;
+
+      /* Geometry & Type Scale */
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+
+      --font: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --fs-xs: 0.75rem;
+      --fs-sm: clamp(0.8125rem, 0.79rem + 0.12vw, 0.875rem);
+      --fs-body: clamp(0.9375rem, 0.9rem + 0.18vw, 1.03125rem);
+      --fs-lead: clamp(1.125rem, 1.04rem + 0.35vw, 1.3125rem);
+      --fs-h2: clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
+      --fs-hero: clamp(1.95rem, 1.5rem + 2.1vw, 3rem);
+
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
+      background-color: var(--c60-canvas);
+      color: var(--ink-100);
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--c60-canvas);
+      color: var(--ink-100);
       font-family: var(--font);
-      font-size: var(--step-body);
+      font-size: var(--fs-body);
       line-height: 1.55;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
-    /* Layout Shell */
+    .hide {
+      display: none !important;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Container Shell */
     .shell {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 24px;
       width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 28px;
     }
 
-    /* Navigation Bar */
+    /* =================================================================
+       TOPBAR (60% Ground with 30% Controls & 10% Live Dot)
+       ================================================================= */
     header.topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: var(--bg);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
+      background-color: var(--c60-canvas);
+      border-bottom: 1px solid rgba(241, 245, 249, 0.07); /* taste-skill-ignore */
     }
-    .topbar-content {
-      height: 60px;
+
+    .topbar-inner {
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
     }
-    .brand-mark {
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      color: var(--ink-100);
+    }
+
+    .brand-mark-svg {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    .brand-text-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 16.5px;
+      letter-spacing: -0.025em;
+      color: var(--ink-100);
+    }
+
+    .brand-tag {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--ink-50);
+    }
+
+    .topbar-right {
       display: flex;
       align-items: center;
       gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-    }
-    .brand-mark svg {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-    .brand-name {
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: -0.02em;
     }
 
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .status-indicator {
-      display: flex;
+    .status-pill {
+      display: inline-flex;
       align-items: center;
       gap: 7px;
-      font-size: var(--step-small);
-      color: var(--muted);
+      background-color: var(--c30-surface);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      color: var(--ink-70);
     }
+
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--accent);
+      background-color: var(--c10-accent);
+      flex-shrink: 0;
     }
 
-    /* Menu Drawer Toggle Button */
-    .btn-toggle-menu {
-      background: var(--surface-raised);
+    .topbar-ghost-btn {
+      background-color: transparent;
       border: none;
-      border-radius: var(--radius-sm);
-      color: var(--text);
+      color: var(--ink-70);
       font-family: var(--font);
-      font-size: var(--step-small);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      padding: 7px 11px;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      transition: color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+    }
+
+    .topbar-ghost-btn:hover {
+      color: var(--ink-100);
+      background-color: var(--c30-surface);
+    }
+
+    .btn-vault-trigger {
+      background-color: var(--c30-surface);
+      border: none;
+      border-radius: var(--r-sm);
+      color: var(--ink-100);
+      font-family: var(--font);
+      font-size: var(--fs-sm);
       font-weight: 600;
-      padding: 6px 12px;
+      height: 38px;
+      padding: 0 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      transition: background-color 0.18s ease;
+      gap: 8px;
+      transition: background-color 0.18s var(--ease-out);
     }
-    .btn-toggle-menu:hover {
-      background: var(--surface-hover);
+
+    .btn-vault-trigger:hover {
+      background-color: var(--c30-raised);
     }
-    .badge-count {
-      background: var(--accent);
-      color: var(--accent-ink);
+
+    .btn-vault-trigger svg {
+      width: 16px;
+      height: 16px;
+      color: var(--ink-70);
+      flex-shrink: 0;
+    }
+
+    .vault-count-pill {
+      background-color: var(--c10-accent);
+      color: var(--c10-accent-ink);
       font-size: 11px;
       font-weight: 700;
-      padding: 1px 6px;
+      padding: 1px 7px;
       border-radius: 999px;
-    }
-    .badge-count.hide {
-      display: none;
+      line-height: 1.4;
     }
 
-    /* Main Container */
-    main {
-      flex: 1;
-      padding: 40px 0 64px;
+    /* =================================================================
+       HERO & WORKBENCH STAGE (60% Ground + 30% Workbench + 10% CTAs)
+       ================================================================= */
+    .stage-section {
+      padding: 52px 0 72px;
     }
 
-    /* Hero */
-    .hero-area {
-      text-align: left;
-      margin-bottom: 28px;
+    .stage-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6.5fr);
+      grid-template-areas:
+        "copy workbench"
+        "session workbench"
+        "telemetry workbench";
+      column-gap: 48px;
+      row-gap: 24px;
+      align-items: start;
     }
-    .hero-area h1 {
-      font-size: var(--step-head);
+
+    .area-copy {
+      grid-area: copy;
+    }
+
+    .area-session {
+      grid-area: session;
+    }
+
+    .area-telemetry {
+      grid-area: telemetry;
+    }
+
+    .area-workbench {
+      grid-area: workbench;
+      position: sticky;
+      top: 88px;
+    }
+
+    /* Hero Copy */
+    .hero-title {
+      font-size: var(--fs-hero);
       font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      margin-bottom: 12px;
-      max-width: 620px;
-    }
-    .hero-area p {
-      font-size: var(--step-body);
-      color: var(--muted);
-      max-width: 580px;
-      margin-bottom: 18px;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--ink-100);
+      margin-bottom: 16px;
     }
 
-    /* Live Telemetry Bar */
-    .telemetry-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px 28px;
-      font-size: var(--step-small);
-      color: var(--dim);
-      padding: 12px 0;
-    }
-    .telemetry-col {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .telemetry-val {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .telemetry-val.highlight {
-      color: var(--accent);
+    .hero-desc {
+      font-size: var(--fs-body);
+      color: var(--ink-70);
+      line-height: 1.6;
+      max-width: 46ch;
     }
 
-    /* Saved Session Banner */
-    .saved-session-banner {
-      background: var(--surface);
-      border: 1px solid var(--accent); /* taste-skill-ignore */
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      margin: 18px 0 24px;
+    /* Saved Session Quick Banner (30% Surface + 10% Left Bar) */
+    .saved-session-card {
+      background-color: var(--c30-surface);
+      border-left: 3px solid var(--c10-accent);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .saved-session-head {
+      display: flex;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
+      gap: 10px;
     }
-    .saved-session-banner.hide {
-      display: none !important;
-    }
+
     .saved-session-email {
-      font-size: var(--step-body);
+      font-size: var(--fs-body);
       font-weight: 600;
-      color: #ffffff;
+      color: var(--ink-100);
+      word-break: break-all;
     }
-    .saved-session-meta {
-      font-size: var(--step-small);
-      color: var(--muted);
+
+    .saved-session-sub {
+      font-size: var(--fs-xs);
+      color: var(--ink-70);
+      margin-top: 2px;
     }
-    .saved-session-meta b {
-      color: var(--accent);
+
+    .saved-session-sub b {
+      color: var(--ink-100);
+      font-weight: 600;
     }
-    .saved-session-actions {
+
+    .saved-session-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      background-color: var(--c10-accent-tint);
+      color: var(--c10-accent);
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .saved-session-btns {
       display: flex;
       gap: 8px;
     }
 
-    /* Interactive Interface Fragment (data-ui) */
-    [data-ui="studio-workbench"] {
-      background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-top: 12px;
+    /* Telemetry 2x2 Matrix (30% Secondary Surfaces) */
+    .telemetry-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
     }
 
-    /* Stepper Navigation */
-    .stepper-nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      background: #0d1018;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
+    .telemetry-tile {
+      background-color: var(--c30-surface);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .step-tab {
-      padding: 14px 12px;
-      text-align: center;
-      font-size: var(--step-small);
+
+    .telemetry-label {
+      font-size: var(--fs-xs);
       font-weight: 500;
-      color: var(--dim);
+      color: var(--ink-50);
+    }
+
+    .telemetry-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink-100);
+    }
+
+    .telemetry-value.accent-txt {
+      color: var(--c10-accent);
+    }
+
+    /* Quick Workflow Summary Rail (Desktop Context) */
+    .workflow-mini {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .workflow-mini-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+    }
+
+    .workflow-mini-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--c30-hover);
+      flex-shrink: 0;
+    }
+
+    /* =================================================================
+       INTERACTIVE WORKBENCH [data-ui="studio-workbench"] (30% Slate Stage)
+       ================================================================= */
+    [data-ui="studio-workbench"] {
+      background-color: var(--c30-surface);
+      border: 1px solid rgba(241, 245, 249, 0.09);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+
+    /* Stepper Header */
+    [data-ui="studio-workbench"] .stepper-bar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      background-color: var(--c60-well);
+      border-bottom: 1px solid rgba(241, 245, 249, 0.07);
+    }
+
+    [data-ui="studio-workbench"] .step-item {
+      padding: 15px 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      cursor: default;
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      color: var(--ink-50);
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      font-family: var(--font);
       user-select: none;
-      transition: color 0.18s ease, background-color 0.18s ease;
+      cursor: default;
+      transition: color 0.18s var(--ease-out), background-color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
     }
-    .step-tab.active {
-      color: #ffffff;
-      background: var(--surface);
+
+    [data-ui="studio-workbench"] .step-item.clickable {
+      cursor: pointer;
+    }
+
+    [data-ui="studio-workbench"] .step-item.clickable:hover {
+      color: var(--ink-100);
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    [data-ui="studio-workbench"] .step-item.active {
+      color: var(--ink-100);
       font-weight: 600;
-      border-bottom: 2px solid var(--accent);
+      background-color: var(--c30-surface);
+      border-bottom-color: var(--c10-accent);
     }
-    .step-tab.passed {
-      color: var(--accent);
+
+    [data-ui="studio-workbench"] .step-item.passed {
+      color: var(--ink-70);
     }
-    .step-num {
+
+    [data-ui="studio-workbench"] .step-badge {
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: var(--surface-raised);
+      background-color: var(--c30-raised);
+      color: var(--ink-70);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 700;
-    }
-    .step-tab.active .step-num {
-      background: var(--accent);
-      color: var(--accent-ink);
-    }
-    .step-tab.passed .step-num {
-      background: var(--accent-subtle);
-      color: var(--accent);
+      flex-shrink: 0;
+      transition: background-color 0.18s var(--ease-out), color 0.18s var(--ease-out);
     }
 
-    /* Step Panels */
-    .studio-content {
+    [data-ui="studio-workbench"] .step-item.active .step-badge {
+      background-color: var(--c10-accent);
+      color: var(--c10-accent-ink);
+    }
+
+    [data-ui="studio-workbench"] .step-item.passed .step-badge {
+      background-color: var(--c10-accent-tint);
+      color: var(--c10-accent);
+    }
+
+    /* Workbench Body */
+    .workbench-body {
       padding: 28px;
     }
+
     .panel {
       display: none;
     }
+
     .panel.active {
       display: block;
     }
 
-    .panel h2 {
-      font-size: var(--step-lead);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      margin-bottom: 6px;
-    }
-    .panel p.lead-hint {
-      font-size: var(--step-small);
-      color: var(--muted);
-      margin-bottom: 20px;
+    .panel-head {
+      margin-bottom: 22px;
     }
 
-    /* Form Fields */
-    .field-block {
-      margin-bottom: 18px;
+    .panel-title {
+      font-size: var(--fs-lead);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink-100);
+      margin-bottom: 6px;
     }
-    .field-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: var(--step-small);
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .input-box {
-      width: 100%;
-      background: var(--surface-input);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      font-size: var(--step-body);
-      font-family: var(--font);
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.18s ease;
-    }
-    .input-box:focus {
-      border-color: var(--accent);
-    }
-    .input-textarea {
-      min-height: 88px;
-      resize: vertical;
-      font-size: var(--step-small);
+
+    .panel-sub {
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
       line-height: 1.5;
     }
 
-    .domain-shortcuts {
+    /* Target Email Context Pill in Step 2 */
+    .target-email-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background-color: var(--c60-well);
+      padding: 10px 14px;
+      border-radius: var(--r-sm);
+      margin-bottom: 18px;
+      font-size: var(--fs-xs);
+      color: var(--ink-70);
+    }
+
+    .target-email-bar b {
+      color: var(--ink-100);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .link-inline-btn {
+      background: transparent;
+      border: none;
+      color: var(--c10-accent);
+      font-family: var(--font);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      padding: 2px 4px;
+    }
+
+    .link-inline-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* Form Controls */
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    .field-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .field-label {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--ink-100);
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      width: 18px;
+      height: 18px;
+      color: var(--ink-50);
+      pointer-events: none;
+    }
+
+    [data-ui="studio-workbench"] .input-control {
+      width: 100%;
+      height: 46px;
+      background-color: var(--c60-well);
+      border: 1px solid rgba(241, 245, 249, 0.13);
+      border-radius: var(--r-sm);
+      padding: 0 38px 0 42px;
+      font-family: var(--font);
+      font-size: var(--fs-body);
+      color: var(--ink-100);
+      outline: none;
+      transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+    }
+
+    [data-ui="studio-workbench"] .input-control::placeholder,
+    [data-ui="studio-workbench"] .textarea-control::placeholder {
+      color: var(--ink-50);
+    }
+
+    [data-ui="studio-workbench"] .input-control:focus,
+    [data-ui="studio-workbench"] .textarea-control:focus {
+      border-color: var(--c10-accent);
+      background-color: var(--c60-canvas);
+    }
+
+    .btn-clear-field {
+      position: absolute;
+      right: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: none;
+      background-color: var(--c30-raised);
+      color: var(--ink-70);
+      font-size: 15px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s var(--ease-out), background-color 0.15s var(--ease-out);
+    }
+
+    .btn-clear-field:hover {
+      background-color: var(--c30-hover);
+      color: var(--ink-100);
+    }
+
+    [data-ui="studio-workbench"] .textarea-control {
+      width: 100%;
+      min-height: 104px;
+      resize: vertical;
+      background-color: var(--c60-well);
+      border: 1px solid rgba(241, 245, 249, 0.13);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+      font-family: var(--font);
+      font-size: var(--fs-sm);
+      line-height: 1.5;
+      color: var(--ink-100);
+      outline: none;
+      transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+    }
+
+    /* Domain Quick Chips (30% Secondary Controls) */
+    .domain-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 8px;
-    }
-    .domain-chip {
-      background: var(--surface-raised);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 11px;
-      color: var(--muted);
-      cursor: pointer;
-      user-select: none;
-      transition: color 0.18s ease, background-color 0.18s ease;
-    }
-    .domain-chip:hover {
-      background: var(--surface-hover);
-      color: var(--text);
+      margin-top: 10px;
     }
 
-    /* Buttons */
+    .domain-chip {
+      background-color: var(--c30-raised);
+      border: none;
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-70);
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+    }
+
+    .domain-chip:hover {
+      background-color: var(--c30-hover);
+      color: var(--ink-100);
+    }
+
+    .link-hint {
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      margin-top: 8px;
+      display: none;
+    }
+
+    /* =================================================================
+       BUTTON SYSTEM (10% Accent Primary vs 30% Slate Secondary)
+       ================================================================= */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      height: 40px;
+      height: 44px;
       padding: 0 18px;
-      background: var(--accent);
-      color: var(--accent-ink);
+      background-color: var(--c10-accent);
+      color: var(--c10-accent-ink);
       font-family: var(--font);
-      font-size: var(--step-small);
-      font-weight: 600;
+      font-size: var(--fs-sm);
+      font-weight: 700;
       border: none;
-      border-radius: var(--radius-sm);
+      border-radius: var(--r-sm);
       cursor: pointer;
       text-decoration: none;
       user-select: none;
-      transition: background-color 0.18s ease;
+      white-space: nowrap;
+      transition: background-color 0.18s var(--ease-out), transform 0.12s var(--ease-out);
     }
+
     .btn:hover {
-      background: var(--accent-hover);
+      background-color: var(--c10-accent-hover);
     }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* 30% Slate Secondary Button */
     .btn.sec {
-      background: var(--surface-raised);
-      color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: var(--c30-raised);
+      color: var(--ink-100);
+      font-weight: 600;
     }
+
     .btn.sec:hover {
-      background: var(--surface-hover);
+      background-color: var(--c30-hover);
     }
+
     .btn.btn-sm {
-      height: 32px;
-      padding: 0 12px;
-      font-size: 12px;
+      height: 36px;
+      padding: 0 13px;
+      font-size: 12.5px;
     }
+
+    .btn.btn-xs {
+      height: 30px;
+      padding: 0 10px;
+      font-size: 11.5px;
+      border-radius: 6px;
+    }
+
     .btn.btn-full {
       width: 100%;
     }
+
     .btn:disabled {
-      opacity: 0.5;
+      opacity: 0.52;
       cursor: not-allowed;
+      transform: none;
     }
 
-    .btn-group {
-      display: flex;
+    .action-row {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
       gap: 10px;
-      margin-top: 20px;
-    }
-    .btn-group > * {
-      flex: 1;
+      margin-top: 22px;
     }
 
-    /* Feedback Box */
-    .feedback-box {
-      font-size: var(--step-small);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
+    /* Feedback Alert */
+    [data-ui="studio-workbench"] .feedback-box {
+      font-size: var(--fs-sm);
+      border-radius: var(--r-sm);
+      padding: 11px 14px;
       margin-top: 14px;
       display: none;
-    }
-    .feedback-box.show {
-      display: block;
-    }
-    .feedback-box.err {
-      background: var(--danger-subtle);
-      border: 1px solid rgba(244, 63, 94, 0.3);
-      color: #fca5a5;
-    }
-    .feedback-box.ok {
-      background: var(--accent-subtle);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      color: #a7f3d0;
+      line-height: 1.45;
     }
 
-    /* VIP Board (Step 3) */
-    .vip-board {
-      background: #0d1018;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      margin-bottom: 20px;
+    [data-ui="studio-workbench"] .feedback-box.show {
+      display: block;
     }
-    .vip-board-header {
+
+    [data-ui="studio-workbench"] .feedback-box.err {
+      background-color: var(--danger-tint);
+      border: 1px solid rgba(255, 90, 103, 0.32);
+      color: #fecdd3;
+    }
+
+    [data-ui="studio-workbench"] .feedback-box.ok {
+      background-color: var(--c10-accent-tint);
+      border: 1px solid rgba(34, 229, 138, 0.32);
+      color: #bbf7d0;
+    }
+
+    /* =================================================================
+       STEP 3: VIP ACTIVE DASHBOARD
+       ================================================================= */
+    [data-ui="studio-workbench"] .vip-card {
+      background-color: var(--c60-well);
+      border: 1px solid rgba(34, 229, 138, 0.25);
+      border-radius: var(--r-md);
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .vip-card-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
       margin-bottom: 14px;
     }
-    .vip-badge {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-subtle);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-    .vip-info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .vip-cell {
-      background: var(--surface);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-    }
-    .vip-cell-label {
-      font-size: 11px;
-      color: var(--dim);
-      margin-bottom: 2px;
-    }
-    .vip-cell-value {
-      font-size: var(--step-body);
-      font-weight: 700;
-      color: #ffffff;
-      word-break: break-all;
-    }
-    .vip-cell-value.highlight {
-      color: var(--accent);
-    }
 
-    .vip-features-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      font-size: var(--step-small);
-      color: var(--muted);
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
-    }
-    .feature-point {
-      display: flex;
+    .vip-verified-pill {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-    }
-    .feature-point span.check {
-      color: var(--accent);
+      font-size: 11px;
       font-weight: 700;
+      color: var(--c10-accent);
+      background-color: var(--c10-accent-tint);
+      padding: 4px 10px;
+      border-radius: 999px;
     }
 
-    .vip-actions-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    /* Bento Overview Section */
-    .bento-overview {
-      margin-top: 48px;
-    }
-    .bento-heading {
-      font-size: var(--step-lead);
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-    .bento-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .bento-card {
-      background: var(--surface);
-      border-radius: var(--radius-md);
-      padding: 20px;
-    }
-    .bento-card h3 {
-      font-size: var(--step-body);
+    .vip-days-pill {
+      font-size: 11.5px;
       font-weight: 600;
-      color: #ffffff;
+      color: var(--ink-70);
+    }
+
+    .vip-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .vip-meta-box {
+      background-color: var(--c30-surface);
+      border-radius: var(--r-sm);
+      padding: 11px 13px;
+    }
+
+    .vip-meta-lbl {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-50);
+      margin-bottom: 3px;
+    }
+
+    .vip-meta-val {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--ink-100);
+      word-break: break-all;
+    }
+
+    .vip-meta-val.accent {
+      color: var(--c10-accent);
+    }
+
+    [data-ui="studio-workbench"] .vip-perks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(241, 245, 249, 0.07);
+      font-size: 12.5px;
+      color: var(--ink-70);
+    }
+
+    .vip-perk-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .vip-perk-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--c10-accent);
+      flex-shrink: 0;
+    }
+
+    /* Mobile App Login Guide Box in Step 3 */
+    .mobile-login-guide {
+      background-color: var(--c60-well);
+      border-radius: var(--r-md);
+      padding: 15px 16px;
+      margin-bottom: 16px;
+      font-size: var(--fs-xs);
+      color: var(--ink-70);
+      line-height: 1.55;
+    }
+
+    .mobile-login-title {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--ink-100);
       margin-bottom: 6px;
     }
-    .bento-card p {
-      font-size: var(--step-small);
-      color: var(--muted);
-      line-height: 1.5;
+
+    .mobile-login-list {
+      padding-left: 18px;
+      margin: 8px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    /* Drawer: Slide-over Account Vault */
+    .mobile-login-list b {
+      color: var(--ink-100);
+    }
+
+    .mobile-login-note {
+      font-size: 11.5px;
+      color: var(--ink-50);
+    }
+
+    .vip-primary-cta {
+      margin-bottom: 10px;
+    }
+
+    .vip-sec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .vip-util-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    /* =================================================================
+       30% SECONDARY TONAL CHAPTER: ARCHITECTURE & FAQ
+       ================================================================= */
+    .chapter-band {
+      background-color: var(--c30-band);
+      padding: 72px 0;
+    }
+
+    .arch-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading {
+      font-size: var(--fs-h2);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--ink-100);
+    }
+
+    .section-sub {
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+      max-width: 44ch;
+    }
+
+    .arch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 64px;
+    }
+
+    .arch-tile {
+      background-color: var(--c30-surface);
+      border-radius: var(--r-md);
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .arch-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--r-sm);
+      background-color: var(--c30-raised);
+      color: var(--ink-100);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .arch-icon-box svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .arch-tile h3 {
+      font-size: var(--fs-body);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--ink-100);
+    }
+
+    .arch-tile p {
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+      line-height: 1.55;
+    }
+
+    /* FAQ Split Layout (Sticky Title + Filled Tiles Accordion) */
+    .faq-split {
+      display: grid;
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .faq-left {
+      position: sticky;
+      top: 92px;
+    }
+
+    .faq-left p {
+      margin-top: 10px;
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+      max-width: 34ch;
+    }
+
+    .faq-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-tile {
+      background-color: var(--c30-surface);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: background-color 0.18s var(--ease-out);
+    }
+
+    .faq-tile[open] {
+      background-color: var(--c30-raised);
+      border-left: 3px solid var(--c10-accent);
+    }
+
+    .faq-tile summary {
+      list-style: none;
+      padding: 18px 22px;
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--ink-100);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      user-select: none;
+    }
+
+    .faq-tile summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-plus {
+      position: relative;
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .faq-plus::before,
+    .faq-plus::after {
+      content: '';
+      position: absolute;
+      background-color: var(--ink-70);
+      border-radius: 2px;
+      transition: transform 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+    }
+
+    .faq-plus::before {
+      top: 6px;
+      left: 0;
+      width: 14px;
+      height: 2px;
+    }
+
+    .faq-plus::after {
+      top: 0;
+      left: 6px;
+      width: 2px;
+      height: 14px;
+    }
+
+    .faq-tile[open] .faq-plus::before,
+    .faq-tile[open] .faq-plus::after {
+      background-color: var(--c10-accent);
+    }
+
+    .faq-tile[open] .faq-plus::after {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer {
+      padding: 0 22px 20px;
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    /* =================================================================
+       SLIDE-OVER ACCOUNT VAULT DRAWER [data-ui="account-vault"]
+       ================================================================= */
     .drawer-scrim {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
+      background-color: rgba(5, 7, 10, 0.72);
       z-index: 100;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.22s ease, visibility 0.22s ease;
+      transition: opacity 0.22s var(--ease-out), visibility 0.22s var(--ease-out);
     }
+
     .drawer-scrim.open {
       opacity: 1;
       visibility: visible;
     }
-    .drawer-vault {
+
+    [data-ui="account-vault"].drawer-panel {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       width: 100%;
-      max-width: 360px;
-      background: var(--surface);
-      border-left: 1px solid rgba(255, 255, 255, 0.1); /* taste-skill-ignore */
+      max-width: 390px;
+      background-color: var(--c30-surface);
+      border-left: 1px solid rgba(241, 245, 249, 0.09);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
-      transition: transform 0.22s ease;
-      box-shadow: -8px 0 24px rgba(0, 0, 0, 0.5); /* taste-skill-ignore */
-    }
-    .drawer-scrim.open .drawer-vault {
-      transform: translateX(0);
-    }
-    .drawer-head {
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
-    }
-    .drawer-head h2 {
-      font-size: var(--step-body);
-      font-weight: 700;
-      color: #ffffff;
-    }
-    .drawer-close {
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      font-size: 20px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .drawer-close:hover {
-      color: #ffffff;
-    }
-    .drawer-content {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .drawer-subhead {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--dim);
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .account-card {
-      background: var(--bg);
-      border: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
-      border-radius: var(--radius-sm);
-      padding: 12px;
-      margin-bottom: 8px;
-    }
-    .account-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-    }
-    .account-card-email {
-      font-size: var(--step-small);
-      font-weight: 600;
-      color: #ffffff;
-      word-break: break-all;
-    }
-    .account-card-actions {
-      display: flex;
-      gap: 6px;
-      margin-top: 10px;
+      transition: transform 0.24s var(--ease-out);
+      box-shadow: -12px 0 36px rgba(0, 0, 0, 0.55);
     }
 
-    /* Modal: Panduan */
+    .drawer-scrim.open [data-ui="account-vault"].drawer-panel {
+      transform: translateX(0);
+    }
+
+    [data-ui="account-vault"] .drawer-head {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(241, 245, 249, 0.08);
+    }
+
+    [data-ui="account-vault"] .drawer-head h2 {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      color: var(--ink-100);
+    }
+
+    .icon-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--r-sm);
+      background-color: var(--c30-raised);
+      border: none;
+      color: var(--ink-70);
+      font-size: 18px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+    }
+
+    .icon-close-btn:hover {
+      background-color: var(--c30-hover);
+      color: var(--ink-100);
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .drawer-group-title {
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--ink-50);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    [data-ui="account-vault"] .vault-item {
+      background-color: var(--c60-canvas);
+      border: 1px solid rgba(241, 245, 249, 0.08);
+      border-radius: var(--r-md);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .vault-item-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .vault-item-email {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--ink-100);
+      word-break: break-all;
+      cursor: pointer;
+    }
+
+    .vault-item-email:hover {
+      color: var(--c10-accent);
+    }
+
+    .vault-pro-chip {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--c10-accent);
+      background-color: var(--c10-accent-tint);
+      padding: 2px 7px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .vault-item-meta {
+      font-size: 11.5px;
+      color: var(--ink-50);
+    }
+
+    .vault-item-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr 34px;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .drawer-quick-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .drawer-quick-list .btn {
+      justify-content: flex-start;
+    }
+
+    .sys-info-box {
+      background-color: var(--c60-canvas);
+      border-radius: var(--r-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink-50);
+    }
+
+    .sys-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sys-info-row b {
+      color: var(--ink-100);
+      font-weight: 600;
+    }
+
+    /* =================================================================
+       MODAL PANDUAN SALIN TAUTAN
+       ================================================================= */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 110;
+      background-color: rgba(5, 7, 10, 0.76);
+      z-index: 120;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.2s ease, visibility 0.2s ease;
+      transition: opacity 0.2s var(--ease-out), visibility 0.2s var(--ease-out);
     }
+
     .modal-backdrop.open {
       opacity: 1;
       visibility: visible;
     }
-    .modal-window {
+
+    .modal-dialog {
       width: 100%;
-      max-width: 440px;
-      background: var(--surface);
-      border-radius: var(--radius-lg);
+      max-width: 450px;
+      background-color: var(--c30-surface);
+      border-radius: var(--r-lg);
       padding: 24px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6); /* taste-skill-ignore */
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.65); /* taste-skill-ignore */
+      transform: translateY(10px) scale(0.98);
+      transition: transform 0.2s var(--ease-out);
     }
-    .modal-top {
+
+    .modal-backdrop.open .modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
-    .modal-top h2 {
-      font-size: var(--step-lead);
+
+    .modal-header h2 {
+      font-size: var(--fs-lead);
       font-weight: 700;
-      color: #ffffff;
+      color: var(--ink-100);
     }
-    .guide-step {
+
+    .guide-steps {
       display: flex;
+      flex-direction: column;
       gap: 12px;
-      margin-bottom: 12px;
-      font-size: var(--step-small);
-      color: var(--muted);
+      margin-bottom: 20px;
     }
-    .guide-step-index {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--surface-raised);
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
+
+    .guide-row {
       display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
+      line-height: 1.5;
+    }
+
+    .guide-row b {
+      color: var(--ink-100);
+    }
+
+    .guide-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--c30-raised);
+      color: var(--c10-accent);
+      font-size: 11.5px;
+      font-weight: 700;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
 
-    /* Toast Notification */
+    /* =================================================================
+       TOAST NOTIFICATION & QUIET FOOTER (60% Ground)
+       ================================================================= */
     .toast-msg {
       position: fixed;
       bottom: 24px;
       left: 50%;
-      transform: translateX(-50%) translateY(30px);
-      background: var(--surface-raised);
-      color: #ffffff;
+      transform: translateX(-50%) translateY(24px);
+      background-color: var(--c30-raised);
+      color: var(--ink-100);
       padding: 10px 18px;
       border-radius: 999px;
-      font-size: var(--step-small);
+      font-size: var(--fs-sm);
       font-weight: 600;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* taste-skill-ignore */
-      z-index: 150;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55); /* taste-skill-ignore */
+      z-index: 160;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s ease;
+      transition: transform 0.2s var(--ease-out), opacity 0.2s var(--ease-out), visibility 0.2s var(--ease-out);
     }
+
     .toast-msg.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
       visibility: visible;
     }
 
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08); /* taste-skill-ignore */
-      padding: 28px 0;
-      font-size: var(--step-small);
-      color: var(--dim);
-      text-align: center;
+    footer.quiet-footer {
+      margin-top: auto;
+      background-color: var(--c60-canvas);
+      padding: 32px 0;
+      font-size: var(--fs-sm);
+      color: var(--ink-50);
     }
-    footer a {
-      color: var(--muted);
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links a,
+    .footer-links button {
+      background: transparent;
+      border: none;
+      font-family: var(--font);
+      font-size: var(--fs-sm);
+      color: var(--ink-70);
       text-decoration: none;
+      cursor: pointer;
+      transition: color 0.16s var(--ease-out);
     }
-    footer a:hover {
-      color: var(--accent);
+
+    .footer-links a:hover,
+    .footer-links button:hover {
+      color: var(--c10-accent);
+    }
+
+    /* =================================================================
+       RESPONSIVE BREAKPOINTS (Tablet & Thumb-First Mobile UX)
+       ================================================================= */
+    @media (max-width: 960px) {
+      .stage-section {
+        padding: 32px 0 52px;
+      }
+
+      /* Reorder on Tablet/Mobile: Hero Copy -> Saved Session -> Workbench -> Telemetry */
+      .stage-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          "copy"
+          "session"
+          "workbench"
+          "telemetry";
+        row-gap: 20px;
+      }
+
+      .area-workbench {
+        position: static;
+      }
+
+      .workflow-mini {
+        display: none;
+      }
+
+      .arch-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .arch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 48px;
+      }
+
+      .faq-split {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .faq-left {
+        position: static;
+      }
     }
 
     @media (max-width: 640px) {
       .shell {
         padding: 0 16px;
       }
-      header.topbar {
-        height: 56px;
-      }
-      .topbar-content {
+
+      .topbar-inner {
         height: 56px;
         gap: 8px;
       }
-      .brand-name {
-        font-size: 15px;
+
+      .brand-tag,
+      .topbar-ghost-btn {
+        display: none;
       }
-      .status-indicator {
+
+      .brand-name {
+        font-size: 15.5px;
+      }
+
+      .status-pill {
+        padding: 5px 9px;
         font-size: 11px;
       }
-      .btn-toggle-menu {
-        padding: 6px 10px;
-        font-size: 12px;
+
+      .btn-vault-trigger {
+        height: 36px;
+        padding: 0 11px;
+        font-size: 12.5px;
       }
-      
-      main {
-        padding: 20px 0 44px;
+
+      .stage-section {
+        padding: 20px 0 40px;
       }
-      .hero-area {
-        margin-bottom: 18px;
-      }
-      .hero-area h1 {
-        font-size: 22px;
-        line-height: 1.25;
+
+      .hero-title {
+        font-size: 1.625rem;
+        line-height: 1.16;
         margin-bottom: 8px;
       }
-      .hero-area p {
-        font-size: 13.5px;
+
+      .hero-desc {
+        font-size: 0.875rem;
         line-height: 1.5;
-        margin-bottom: 14px;
       }
 
-      .telemetry-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        padding: 10px 12px;
-        background: var(--surface);
-        border-radius: var(--radius-sm);
-        margin-bottom: 14px;
-      }
-      .telemetry-col {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
-      }
-      .telemetry-col span:first-child {
-        font-size: 11px;
-      }
-      .telemetry-val {
-        font-size: 13px;
-      }
-
-      .saved-session-banner {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        padding: 12px;
-        margin: 12px 0 16px;
-      }
-      .saved-session-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .saved-session-actions .btn {
-        width: 100%;
-      }
-
-      [data-ui="studio-workbench"] {
-        border-radius: var(--radius-md);
-        margin-top: 8px;
-      }
-      .stepper-nav {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-      .step-tab {
-        padding: 10px 4px;
-        font-size: 11.5px;
-        gap: 5px;
-      }
-      .step-num {
-        width: 18px;
-        height: 18px;
-        font-size: 10px;
-      }
-      .studio-content {
-        padding: 18px 14px;
-      }
-      .panel h2 {
-        font-size: 16.5px;
-        line-height: 1.3;
-        margin-bottom: 4px;
-      }
-      .panel p.lead-hint {
-        font-size: 12.5px;
-        line-height: 1.45;
-        margin-bottom: 14px;
-      }
-
-      .field-block {
-        margin-bottom: 14px;
-      }
-      .field-label {
-        font-size: 12px;
-        margin-bottom: 6px;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .input-box {
-        height: 44px;
-        font-size: 14px;
-        padding: 10px 12px;
-      }
-      .input-textarea {
-        height: 96px;
-        min-height: 96px;
-        font-size: 12px;
-        line-height: 1.4;
-      }
-
-      .domain-shortcuts {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        margin-top: 8px;
-      }
-      .domain-chip {
-        text-align: center;
-        padding: 6px 2px;
-        font-size: 11px;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 14px;
-      }
-      .btn {
-        height: 42px;
-        font-size: 13.5px;
-        width: 100%;
-      }
-      .btn.btn-sm {
-        height: 34px;
-        font-size: 12px;
-      }
-
-      .vip-board {
-        padding: 14px 12px;
-        border-radius: var(--radius-sm);
-        margin-bottom: 14px;
-      }
-      .vip-info-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        margin-bottom: 12px;
-      }
-      .vip-cell {
-        padding: 8px 10px;
-      }
-      .vip-cell-label {
-        font-size: 10px;
-      }
-      .vip-cell-value {
-        font-size: 13.5px;
-      }
-      .vip-features-grid {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        padding-top: 10px;
-        font-size: 12px;
-      }
-      .vip-actions-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .bento-overview {
-        margin-top: 32px;
-      }
-      .bento-heading {
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
-      .bento-cards {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .bento-card {
+      .saved-session-card {
         padding: 14px;
       }
-      .bento-card h3 {
-        font-size: 14px;
-      }
-      .bento-card p {
-        font-size: 12px;
+
+      .saved-session-btns {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
       }
 
-      .drawer-vault {
-        max-width: 88vw;
-      }
-      .drawer-content {
-        padding: 16px;
-        gap: 16px;
-      }
-      .account-card-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr 32px;
+      /* Workbench Mobile Polish */
+      [data-ui="studio-workbench"] .step-item {
+        padding: 12px 6px;
+        font-size: 12px;
         gap: 6px;
       }
 
-      .modal-window {
-        padding: 18px 14px;
-        margin: 12px;
+      [data-ui="studio-workbench"] .step-badge {
+        width: 20px;
+        height: 20px;
+        font-size: 10.5px;
       }
-      .modal-top h2 {
+
+      .workbench-body {
+        padding: 20px 16px;
+      }
+
+      .panel-head {
+        margin-bottom: 16px;
+      }
+
+      .panel-title {
+        font-size: 1.0625rem;
+      }
+
+      /* 16px input font-size prevents iOS Safari auto-zoom on focus */
+      [data-ui="studio-workbench"] .input-control {
+        height: 48px;
         font-size: 16px;
       }
-      .guide-step {
-        font-size: 12px;
+
+      [data-ui="studio-workbench"] .textarea-control {
+        min-height: 100px;
+        font-size: 16px;
+      }
+
+      .domain-chips {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .domain-chip {
+        text-align: center;
+        padding: 7px 4px;
+        font-size: 11.5px;
+      }
+
+      .action-row {
+        grid-template-columns: 1fr;
         gap: 8px;
-        margin-bottom: 10px;
+        margin-top: 18px;
+      }
+
+      .btn {
+        height: 46px;
+        font-size: 14px;
+      }
+
+      .btn.btn-sm {
+        height: 38px;
+        font-size: 12.5px;
+      }
+
+      .vip-meta-grid,
+      [data-ui="studio-workbench"] .vip-perks,
+      .vip-sec-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .telemetry-matrix {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .telemetry-tile {
+        padding: 12px 14px;
+      }
+
+      .telemetry-value {
+        font-size: 1.05rem;
+      }
+
+      .chapter-band {
+        padding: 48px 0;
+      }
+
+      .arch-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .arch-tile {
+        padding: 16px;
+      }
+
+      .faq-tile summary {
+        padding: 15px 16px;
+        font-size: 0.9375rem;
+      }
+
+      .faq-answer {
+        padding: 0 16px 16px;
+      }
+
+      [data-ui="account-vault"].drawer-panel {
+        max-width: 90vw;
+      }
+
+      .modal-backdrop {
+        align-items: flex-end;
+        padding: 12px;
+      }
+
+      .modal-dialog {
+        max-width: 100%;
+        padding: 20px 16px;
+      }
+
+      .footer-grid {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
 
       .toast-msg {
         width: calc(100% - 32px);
-        max-width: 320px;
+        max-width: 340px;
         text-align: center;
-        justify-content: center;
-        font-size: 12px;
-        padding: 8px 14px;
         bottom: 16px;
+        font-size: 12.5px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Application Bar -->
+  <!-- =================================================================
+       STICKY TOPBAR (60% Canvas Ground)
+       ================================================================= -->
   <header class="topbar">
-    <div class="shell topbar-content">
-      <a href="/" class="brand-mark">
-        <svg viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="6" fill="#181e2e"/>
-          <path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="#10b981"/>
+    <div class="shell topbar-inner">
+      <a href="/" class="brand-link">
+        <svg class="brand-mark-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#171f28"/>
+          <path d="M17.5 5L7.5 17.5H15.5L14 27L24.5 14.5H16.5L17.5 5Z" fill="#22e58a"/>
         </svg>
-        <span class="brand-name">DKaimono-AM</span>
+        <div class="brand-text-wrap">
+          <span class="brand-name">DKaimono-AM</span>
+          <span class="brand-tag">Pro Licensing Studio</span>
+        </div>
       </a>
 
-      <div class="topbar-actions">
-        <div class="status-indicator">
-          <span class="status-dot"></span>
+      <div class="topbar-right">
+        <div class="status-pill" title="Status koneksi server &amp; latensi">
+          <span class="status-dot" id="status-dot-el"></span>
           <span id="status-label">Online</span>
+          <span class="tabular" id="topbar-ping" style="color:var(--ink-50);">&middot; 18ms</span>
         </div>
 
-        <button class="btn-toggle-menu" id="btn-toggle-drawer" aria-label="Buka Menu Akun">
+        <button type="button" class="topbar-ghost-btn" id="topbar-btn-guide">Panduan</button>
+
+        <button type="button" class="btn-vault-trigger" id="btn-toggle-drawer" aria-label="Buka Sesi Akun Tersimpan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
           <span>Sesi Akun</span>
-          <span class="badge-count hide" id="menu-badge-count">0</span>
+          <span class="vault-count-pill hide tabular" id="menu-badge-count">0</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Slide-Over Vault Drawer -->
-  <aside class="drawer-scrim" id="menu-drawer">
-    <div class="drawer-vault" data-ui="account-vault">
+  <!-- =================================================================
+       SLIDE-OVER MULTI-ACCOUNT VAULT DRAWER
+       ================================================================= -->
+  <aside class="drawer-scrim" id="menu-drawer" aria-hidden="true">
+    <div class="drawer-panel" data-ui="account-vault">
       <div class="drawer-head">
-        <h2>Manajemen Akun Tersimpan</h2>
-        <button class="drawer-close" id="btn-close-drawer">&times;</button>
+        <h2>Brankas Sesi Akun</h2>
+        <button type="button" class="icon-close-btn" id="btn-close-drawer" aria-label="Tutup panel">&times;</button>
       </div>
 
-      <div class="drawer-content">
+      <div class="drawer-body">
         <div>
-          <div class="drawer-subhead">
-            <span>Daftar Sesi Aktif</span>
-            <span id="drawer-account-total" style="color:var(--accent);">0 Akun</span>
+          <div class="drawer-group-title">
+            <span>Akun Tersimpan di Browser</span>
+            <span id="drawer-account-total" class="tabular" style="color:var(--c10-accent);">0 Akun</span>
           </div>
           <div id="drawer-accounts-list">
-            <!-- Populated via JavaScript -->
+            <!-- Diisi otomatis melalui JavaScript -->
           </div>
         </div>
 
         <div>
-          <div class="drawer-subhead">Aksi Cepat</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <button type="button" class="btn sec btn-sm hide" id="btn-install-pwa" style="justify-content:flex-start;">
-              Pasang Aplikasi di HP
+          <div class="drawer-group-title">
+            <span>Pintasan Cepat</span>
+          </div>
+          <div class="drawer-quick-list">
+            <button type="button" class="btn btn-sm hide" id="btn-install-pwa">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Pasang Aplikasi Web di HP
             </button>
-            <button type="button" class="btn sec btn-sm" id="drawer-btn-open-app" style="justify-content:flex-start;">
+            <button type="button" class="btn sec btn-sm" id="drawer-btn-open-app">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               Buka Aplikasi Alight Motion
             </button>
-            <button type="button" class="btn sec btn-sm" id="drawer-btn-guide" style="justify-content:flex-start;">
-              Panduan Salin Link Gmail
+            <button type="button" class="btn sec btn-sm" id="drawer-btn-guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Cara Salin Magic Link Gmail
             </button>
-            <button type="button" class="btn sec btn-sm" id="drawer-btn-share" style="justify-content:flex-start;">
+            <button type="button" class="btn sec btn-sm" id="drawer-btn-share">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
               Bagikan ke WhatsApp
             </button>
           </div>
         </div>
 
         <div>
-          <div class="drawer-subhead">Informasi Sistem</div>
-          <div style="font-size:12px;color:var(--dim);display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;justify-content:space-between;">
-              <span>Domain:</span>
-              <span style="color:#ffffff;">dkaimono.web.id</span>
+          <div class="drawer-group-title">
+            <span>Status Infrastruktur</span>
+          </div>
+          <div class="sys-info-box">
+            <div class="sys-info-row">
+              <span>Node Utama</span>
+              <b>dkaimono.web.id</b>
             </div>
-            <div style="display:flex;justify-content:space-between;">
-              <span>Firebase API:</span>
-              <span style="color:var(--accent);">Terhubung</span>
+            <div class="sys-info-row">
+              <span>Otentikasi</span>
+              <b style="color:var(--c10-accent);">Firebase Magic Link</b>
             </div>
-            <div style="display:flex;justify-content:space-between;">
-              <span>Platform:</span>
-              <span>Netlify Functions</span>
+            <div class="sys-info-row">
+              <span>Validasi Struk</span>
+              <b>Google Play Receipt</b>
             </div>
           </div>
         </div>
@@ -1095,277 +1793,468 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- =================================================================
+       MAIN CONTENT
+       ================================================================= -->
   <main>
-    <div class="shell">
 
-      <!-- Hero Header -->
-      <section class="hero-area">
-        <h1>Aktivasi Lisensi Resmi Alight Motion Pro</h1>
-        <p>Aktivasi mandiri langsung menempel ke akun Firebase Anda. Bebas watermark, tanpa password, dan diverifikasi melalui struk pembelian Google Play resmi.</p>
+    <!-- CHAPTER 1: 60% DOMINANT GROUND + ASYMMETRIC STUDIO WORKBENCH -->
+    <section class="stage-section">
+      <div class="shell stage-grid">
 
-        <!-- Live Telemetry Row -->
-        <div class="telemetry-row">
-          <div class="telemetry-col">
-            <span>Total Lisensi:</span>
-            <span class="telemetry-val" id="st-total">...</span>
-          </div>
-          <div class="telemetry-col">
-            <span>Hari Ini:</span>
-            <span class="telemetry-val" id="st-today">...</span>
-          </div>
-          <div class="telemetry-col">
-            <span>Paket:</span>
-            <span class="telemetry-val highlight">VIP 1 Tahun</span>
-          </div>
-          <div class="telemetry-col">
-            <span>Latensi API:</span>
-            <span class="telemetry-val" id="st-ping">18ms</span>
+        <!-- Left Area 1: Hero Statement -->
+        <div class="area-copy">
+          <h1 class="hero-title">Aktivasi Lisensi Resmi Alight Motion Pro</h1>
+          <p class="hero-desc">
+            Tautkan langganan tahunan langsung ke akun Alight Motion Anda melalui Google Firebase Auth resmi. Tanpa kata sandi, bebas watermark, dan tanpa APK modifikasi.
+          </p>
+
+          <div class="workflow-mini">
+            <div class="workflow-mini-row">
+              <span class="workflow-mini-dot"></span>
+              <span>Kirim tautan masuk resmi ke alamat email akun Anda</span>
+            </div>
+            <div class="workflow-mini-row">
+              <span class="workflow-mini-dot"></span>
+              <span>Tempel tautan untuk sinkronisasi struk Google Play di server</span>
+            </div>
+            <div class="workflow-mini-row">
+              <span class="workflow-mini-dot"></span>
+              <span>Kirim magic link baru untuk masuk langsung ke aplikasi HP</span>
+            </div>
           </div>
         </div>
 
-        <!-- Saved Session Persistent Banner -->
-        <div id="saved-session-banner" class="saved-session-banner hide">
-          <div>
-            <div class="saved-session-email" id="ss-email">email@anda.com</div>
-            <div class="saved-session-meta">Lisensi Pro aktif sampai: <b id="ss-valid">3 Juli 2027</b></div>
+        <!-- Left Area 2: Persistent Saved Session Quick-Renew Banner -->
+        <div class="area-session saved-session-card hide" id="saved-session-banner">
+          <div class="saved-session-head">
+            <div>
+              <div class="saved-session-email" id="ss-email">nama@email.com</div>
+              <div class="saved-session-sub">Masa aktif Pro hingga <b id="ss-valid">3 Juli 2027</b></div>
+            </div>
+            <span class="saved-session-tag" id="ss-days-tag">PRO AKTIF</span>
           </div>
-          <div class="saved-session-actions">
-            <button class="btn btn-sm" id="btn-quick-renew">Perpanjang Sesi</button>
-            <button class="btn sec btn-sm" id="btn-forget-session">Hapus</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Center Activation Studio (data-ui) -->
-      <section data-ui="studio-workbench" id="activation-hub">
-        <!-- Stepper Navigation -->
-        <div class="stepper-nav">
-          <div id="step-nav-1" class="step-tab active">
-            <span class="step-num">1</span>
-            <span>Email</span>
-          </div>
-          <div id="step-nav-2" class="step-tab">
-            <span class="step-num">2</span>
-            <span>Magic Link</span>
-          </div>
-          <div id="step-nav-3" class="step-tab">
-            <span class="step-num">3</span>
-            <span>VIP Aktif</span>
+          <div class="saved-session-btns">
+            <button type="button" class="btn btn-sm" id="btn-quick-renew">Perpanjang Sesi</button>
+            <button type="button" class="btn sec btn-sm" id="btn-forget-session">Hapus Sesi</button>
           </div>
         </div>
 
-        <div class="studio-content">
-          <!-- Step 1: Input Email -->
-          <div class="panel active" id="panel-1">
-            <h2>Langkah 1: Masukkan Alamat Email</h2>
-            <p class="lead-hint">Tautan verifikasi resmi akan dikirim oleh Google Firebase langsung ke inbox email Anda.</p>
-
-            <div class="field-block">
-              <label class="field-label" for="input-email">
-                <span>Alamat Email Akun</span>
-              </label>
-              <input class="input-box" id="input-email" type="email" placeholder="nama@email.com" autocomplete="email" required>
-              <div class="domain-shortcuts">
-                <span class="domain-chip" data-domain="@gmail.com">+ @gmail.com</span>
-                <span class="domain-chip" data-domain="@yahoo.com">+ @yahoo.com</span>
-                <span class="domain-chip" data-domain="@hotmail.com">+ @hotmail.com</span>
-              </div>
-            </div>
-
-            <div class="btn-group">
-              <button class="btn" id="btn-send-link">Kirim Magic Link</button>
-              <a href="googlegmail://" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">Buka Gmail</a>
-            </div>
-
-            <div class="feedback-box" id="msg-1"></div>
+        <!-- Left Area 3: 30% Slate Live Telemetry Matrix -->
+        <div class="area-telemetry telemetry-matrix">
+          <div class="telemetry-tile">
+            <span class="telemetry-label">Total Aktivasi</span>
+            <span class="telemetry-value tabular" id="st-total">...</span>
           </div>
-
-          <!-- Step 2: Paste Magic Link -->
-          <div class="panel" id="panel-2">
-            <h2>Langkah 2: Verifikasi &amp; Pasang Lisensi</h2>
-            <p class="lead-hint">Buka pesan masuk dari Alight Creative, tekan tahan tombol "Sign in to Alight Motion", salin tautannya, lalu tempel di bawah.</p>
-
-            <div class="field-block">
-              <div class="field-label">
-                <span>Tautan Masuk (Magic Link)</span>
-                <button type="button" id="btn-paste-clipboard" class="btn sec btn-sm" style="height:26px;padding:0 8px;font-size:11px;">
-                  Tempel dari Clipboard
-                </button>
-              </div>
-              <textarea class="input-box input-textarea" id="input-link" placeholder="https://alightcreative.com/am/?apiKey=..."></textarea>
-              <div id="link-hint-status" style="font-size:11.5px;margin-top:6px;display:none;"></div>
-            </div>
-
-            <div class="btn-group">
-              <button class="btn" id="btn-verify">Aktifkan Lisensi Pro</button>
-              <button class="btn sec" id="btn-open-guide-modal">Panduan Salin</button>
-            </div>
-
-            <div class="feedback-box" id="msg-2"></div>
+          <div class="telemetry-tile">
+            <span class="telemetry-label">Aktif Hari Ini</span>
+            <span class="telemetry-value tabular" id="st-today">...</span>
           </div>
+          <div class="telemetry-tile">
+            <span class="telemetry-label">Tipe Lisensi</span>
+            <span class="telemetry-value accent-txt">VIP 1 Tahun</span>
+          </div>
+          <div class="telemetry-tile">
+            <span class="telemetry-label">Respon API</span>
+            <span class="telemetry-value tabular" id="st-ping">18ms</span>
+          </div>
+        </div>
 
-          <!-- Step 3: VIP Pro Active Dashboard -->
-          <div class="panel" id="panel-3">
-            <h2>Lisensi Alight Motion Pro Berhasil Aktif</h2>
-            <p class="lead-hint">Tanda terima resmi Google Play telah diproses ke server Alight Creative.</p>
+        <!-- Right Area: Interactive 3-Step Activation Workbench (30% Slate + 10% Accent) -->
+        <div class="area-workbench">
+          <section data-ui="studio-workbench" id="activation-hub" aria-label="Panel Aktivasi Lisensi">
 
-            <div class="vip-board">
-              <div class="vip-board-header">
-                <span class="vip-badge">VIP PRO TERVERIFIKASI</span>
-                <span id="active-user-badge" style="font-size:12px;color:var(--muted);">Status Aktif</span>
-              </div>
-
-              <div class="vip-info-grid">
-                <div class="vip-cell">
-                  <div class="vip-cell-label">EMAIL TERDAFTAR</div>
-                  <div class="vip-cell-value" id="res-email">-</div>
-                </div>
-                <div class="vip-cell">
-                  <div class="vip-cell-label">MASA AKTIF HINGGA</div>
-                  <div class="vip-cell-value highlight" id="res-valid">3 Juli 2027</div>
-                </div>
-              </div>
-
-              <div class="vip-features-grid">
-                <div class="feature-point"><span class="check">&#10003;</span> Bebas Watermark</div>
-                <div class="feature-point"><span class="check">&#10003;</span> Ekspor Video 4K 60FPS</div>
-                <div class="feature-point"><span class="check">&#10003;</span> Akses Semua Efek VIP</div>
-                <div class="feature-point"><span class="check">&#10003;</span> Import Proyek Tanpa Batas</div>
-              </div>
-            </div>
-
-            <!-- Petunjuk Masuk ke HP -->
-            <div style="background:var(--surface-raised);border-radius:var(--radius-sm);padding:14px;margin-bottom:16px;font-size:var(--step-small);color:var(--muted);line-height:1.5;">
-              <div style="font-weight:700;color:#ffffff;margin-bottom:6px;">
-                Cara Masuk (Login) ke Aplikasi di HP:
-              </div>
-              <p style="margin-bottom:8px;">
-                Akun Anda sudah resmi Pro di database Alight Creative. Sekarang tinggal masuk ke aplikasi di HP:
-              </p>
-              <ol style="padding-left:18px;margin-bottom:8px;display:flex;flex-direction:column;gap:4px;">
-                <li>Klik tombol <b>"Kirim Magic Link HP"</b> di bawah untuk mengirim link masuk baru.</li>
-                <li>Buka aplikasi <b>Gmail di HP</b> Anda dan cari email terbaru dari Alight Motion.</li>
-                <li><b>Tap langsung tombol "Sign in to Alight Motion"</b> di email &rarr; Aplikasi Alight Motion otomatis terbuka dan akun Anda langsung berstatus <b>MEMBER PRO</b>!</li>
-              </ol>
-              <div style="font-size:11.5px;color:var(--dim);">
-                Catatan: Jangan klik link pertama karena link tersebut sudah habis terpakai untuk aktivasi server.
-              </div>
-            </div>
-
-            <div class="vip-actions-grid">
-              <button class="btn btn-sm" id="btn-send-app-login">Kirim Magic Link HP</button>
-              <button class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
-              <button class="btn sec btn-sm" id="btn-open-app">Buka Alight Motion</button>
-              <button class="btn sec btn-sm" id="btn-share-wa">Bagikan ke WhatsApp</button>
-            </div>
-
-            <div class="btn-group" style="margin-top:12px;">
-              <button class="btn sec btn-sm" id="btn-copy-token">
-                <span id="lbl-copy-token">Salin ID Token</span>
+            <!-- Stepper Bar -->
+            <div class="stepper-bar" role="tablist">
+              <button type="button" id="step-nav-1" class="step-item active" role="tab" aria-selected="true">
+                <span class="step-badge" id="step-badge-1">1</span>
+                <span>Email Akun</span>
               </button>
-              <button class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
+              <button type="button" id="step-nav-2" class="step-item" role="tab" aria-selected="false">
+                <span class="step-badge" id="step-badge-2">2</span>
+                <span>Verifikasi Link</span>
+              </button>
+              <button type="button" id="step-nav-3" class="step-item" role="tab" aria-selected="false">
+                <span class="step-badge" id="step-badge-3">3</span>
+                <span>VIP Aktif</span>
+              </button>
             </div>
 
-            <div class="feedback-box" id="msg-login-send"></div>
+            <div class="workbench-body">
+
+              <!-- STEP 1: INPUT EMAIL -->
+              <div class="panel active" id="panel-1">
+                <div class="panel-head">
+                  <h2 class="panel-title">Langkah 1: Masukkan Email Akun</h2>
+                  <p class="panel-sub">Tautan masuk sekali pakai akan dikirim langsung oleh server Google Firebase Alight Creative ke inbox Anda.</p>
+                </div>
+
+                <div class="field-group">
+                  <div class="field-top">
+                    <label class="field-label" for="input-email">Alamat Email</label>
+                  </div>
+                  <div class="input-wrap">
+                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="2" y="4" width="20" height="16" rx="3"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    <input class="input-control" id="input-email" type="email" inputmode="email" placeholder="nama@gmail.com" autocomplete="email" required>
+                    <button type="button" class="btn-clear-field hide" id="btn-clear-email" aria-label="Bersihkan email">&times;</button>
+                  </div>
+
+                  <div class="domain-chips" aria-label="Pintasan domain email">
+                    <button type="button" class="domain-chip" data-domain="@gmail.com">@gmail.com</button>
+                    <button type="button" class="domain-chip" data-domain="@icloud.com">@icloud.com</button>
+                    <button type="button" class="domain-chip" data-domain="@outlook.com">@outlook.com</button>
+                    <button type="button" class="domain-chip" data-domain="@yahoo.com">@yahoo.com</button>
+                  </div>
+                </div>
+
+                <div class="action-row">
+                  <button type="button" class="btn" id="btn-send-link">
+                    <span>Kirim Magic Link</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12"/>
+                      <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                  </button>
+                  <a href="https://mail.google.com" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">
+                    Buka Gmail
+                  </a>
+                </div>
+
+                <div class="feedback-box" id="msg-1" role="status"></div>
+              </div>
+
+              <!-- STEP 2: PASTE MAGIC LINK -->
+              <div class="panel" id="panel-2">
+                <div class="panel-head">
+                  <h2 class="panel-title">Langkah 2: Tempel &amp; Aktifkan Pro</h2>
+                  <p class="panel-sub">Buka email dari Alight Creative, tekan tahan tombol <b>"Sign in to Alight Motion"</b>, salin tautannya, lalu tempel di bawah.</p>
+                </div>
+
+                <div class="target-email-bar">
+                  <span>Tautan dikirim ke: <b id="step2-target-email">-</b></span>
+                  <button type="button" class="link-inline-btn" id="btn-change-email">Ganti Email</button>
+                </div>
+
+                <div class="field-group">
+                  <div class="field-top">
+                    <label class="field-label" for="input-link">Tautan Masuk (Magic Link)</label>
+                    <button type="button" id="btn-paste-clipboard" class="btn sec btn-xs">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                      </svg>
+                      <span>Tempel Clipboard</span>
+                    </button>
+                  </div>
+                  <textarea class="textarea-control" id="input-link" placeholder="https://alightcreative.com/am/?link=...&amp;apiKey=..."></textarea>
+                  <div id="link-hint-status" class="link-hint"></div>
+                </div>
+
+                <div class="action-row">
+                  <button type="button" class="btn" id="btn-verify">
+                    <span>Aktifkan Lisensi Pro</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  </button>
+                  <button type="button" class="btn sec" id="btn-open-guide-modal">
+                    Cara Salin Link
+                  </button>
+                </div>
+
+                <div class="feedback-box" id="msg-2" role="status"></div>
+              </div>
+
+              <!-- STEP 3: VIP PRO ACTIVE DASHBOARD -->
+              <div class="panel" id="panel-3">
+                <div class="panel-head">
+                  <h2 class="panel-title">Lisensi Alight Motion Pro Aktif</h2>
+                  <p class="panel-sub">Tanda terima pembelian resmi telah disinkronkan ke akun Alight Creative Anda.</p>
+                </div>
+
+                <div class="vip-card">
+                  <div class="vip-card-top">
+                    <span class="vip-verified-pill">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                      VIP PRO TERVERIFIKASI
+                    </span>
+                    <span class="vip-days-pill tabular" id="res-days-badge">Status Aktif</span>
+                  </div>
+
+                  <div class="vip-meta-grid">
+                    <div class="vip-meta-box">
+                      <div class="vip-meta-lbl">Akun Terdaftar</div>
+                      <div class="vip-meta-val" id="res-email">-</div>
+                    </div>
+                    <div class="vip-meta-box">
+                      <div class="vip-meta-lbl">Berlaku Hingga</div>
+                      <div class="vip-meta-val accent" id="res-valid">3 Juli 2027</div>
+                    </div>
+                  </div>
+
+                  <div class="vip-perks">
+                    <div class="vip-perk-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Tanpa Watermark Ekspor</span>
+                    </div>
+                    <div class="vip-perk-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Render 4K 60FPS Penuh</span>
+                    </div>
+                    <div class="vip-perk-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Seluruh Efek &amp; Asset VIP</span>
+                    </div>
+                    <div class="vip-perk-item">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Sinkron Cloud Multi-Perangkat</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Panduan Masuk Aplikasi HP -->
+                <div class="mobile-login-guide">
+                  <div class="mobile-login-title">Cara Masuk ke Aplikasi Alight Motion di HP:</div>
+                  <ol class="mobile-login-list">
+                    <li>Tekan tombol <b>"Kirim Magic Link HP"</b> di bawah untuk membuat tautan login baru.</li>
+                    <li>Buka aplikasi <b>Gmail di HP</b> lalu buka email paling baru dari Alight Creative.</li>
+                    <li>Ketuk langsung tombol <b>"Sign in to Alight Motion"</b> di dalam email agar aplikasi terbuka otomatis sebagai Member Pro.</li>
+                  </ol>
+                  <div class="mobile-login-note">
+                    Catatan: Tautan pertama sudah terpakai untuk aktivasi lisensi di server sehingga tidak dapat diklik ulang.
+                  </div>
+                </div>
+
+                <!-- Primary 10% CTA in Step 3 -->
+                <div class="vip-primary-cta">
+                  <button type="button" class="btn btn-full" id="btn-send-app-login">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                      <line x1="12" y1="18" x2="12.01" y2="18"/>
+                    </svg>
+                    <span>Kirim Magic Link HP</span>
+                  </button>
+                </div>
+
+                <div class="vip-sec-grid">
+                  <button type="button" class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
+                  <button type="button" class="btn sec btn-sm" id="btn-open-app">Buka Alight Motion</button>
+                  <button type="button" class="btn sec btn-sm" id="btn-share-wa">Bagikan WhatsApp</button>
+                </div>
+
+                <div class="vip-util-row">
+                  <button type="button" class="btn sec btn-sm" id="btn-copy-token">
+                    <span id="lbl-copy-token">Salin ID Token</span>
+                  </button>
+                  <button type="button" class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
+                </div>
+
+                <div class="feedback-box" id="msg-login-send" role="status"></div>
+              </div>
+
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: 30% SECONDARY TONAL BAND (ARCHITECTURE & FAQ) -->
+    <section class="chapter-band">
+      <div class="shell">
+
+        <div class="arch-header">
+          <h2 class="section-heading">Keamanan &amp; Arsitektur Sistem</h2>
+          <p class="section-sub">Dirancang dengan standar otentikasi resmi tanpa menyimpan kredensial sensitif milik pengguna.</p>
+        </div>
+
+        <div class="arch-grid">
+          <article class="arch-tile">
+            <div class="arch-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+            <h3>Tanpa Kata Sandi</h3>
+            <p>Sistem tidak pernah meminta password email Anda. Seluruh proses masuk ditangani oleh tautan resmi Google Firebase Auth.</p>
+          </article>
+
+          <article class="arch-tile">
+            <div class="arch-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3>Validasi Struk Resmi</h3>
+            <p>Status langganan Pro diverifikasi langsung melalui endpoint tanda terima resmi server Alight Creative tanpa modifikasi aplikasi.</p>
+          </article>
+
+          <article class="arch-tile">
+            <div class="arch-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
+            </div>
+            <h3>Brankas Lokal Privat</h3>
+            <p>Kelola banyak sesi akun Alight Motion sekaligus. Token pembaruan tersimpan terisolasi hanya di penyimpanan lokal browser Anda.</p>
+          </article>
+
+          <article class="arch-tile">
+            <div class="arch-icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </div>
+            <h3>Sinkronisasi 1 Klik</h3>
+            <p>Perpanjang masa aktif sesi kapan saja secara instan menggunakan refresh token resmi tanpa perlu membuka ulang kotak masuk email.</p>
+          </article>
+        </div>
+
+        <!-- Interactive FAQ Accordion -->
+        <div class="faq-split">
+          <div class="faq-left">
+            <h2 class="section-heading">Pertanyaan Umum</h2>
+            <p>Solusi cepat untuk kendala penyalinan tautan Gmail dan cara masuk ke aplikasi di perangkat seluler.</p>
+          </div>
+
+          <div class="faq-stack">
+            <details class="faq-tile" name="dkaimono-faq" open>
+              <summary>
+                <span>Mengapa tautan di email tidak bisa diklik dua kali untuk masuk ke HP?</span>
+                <span class="faq-plus" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                Setiap magic link dari Google Firebase bersifat sekali pakai (single-use code). Tautan pertama yang Anda tempel di Langkah 2 telah digunakan server untuk mengaktifkan lisensi Pro. Untuk masuk ke aplikasi Alight Motion di HP, cukup tekan tombol <b>"Kirim Magic Link HP"</b> di Langkah 3 lalu ketuk tautan baru yang masuk ke Gmail Anda.
+              </div>
+            </details>
+
+            <details class="faq-tile" name="dkaimono-faq">
+              <summary>
+                <span>Apakah harus menggunakan aplikasi Alight Motion versi Play Store / App Store?</span>
+                <span class="faq-plus" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                Ya, sangat disarankan menggunakan aplikasi resmi dari Google Play Store atau Apple App Store. Karena lisensi langsung tertaut pada akun email Anda, aplikasi modifikasi tidak diperlukan dan fitur login resmi akan berjalan jauh lebih stabil.
+              </div>
+            </details>
+
+            <details class="faq-tile" name="dkaimono-faq">
+              <summary>
+                <span>Bagaimana jika suatu saat status Pro di aplikasi kembali menjadi akun biasa?</span>
+                <span class="faq-plus" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                Buka kembali halaman ini, lalu klik tombol <b>"Perpanjang Sesi"</b> pada kartu sesi di halaman utama atau melalui menu <b>Sesi Akun</b> di kanan atas. Server akan menyegarkan kembali tanda terima lisensi Anda dalam satu klik tanpa perlu verifikasi email ulang.
+              </div>
+            </details>
+
+            <details class="faq-tile" name="dkaimono-faq">
+              <summary>
+                <span>Apakah bisa mengaktifkan lebih dari satu akun email?</span>
+                <span class="faq-plus" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-answer">
+                Bisa. Setelah aktivasi selesai, tekan <b>"Aktivasi Akun Lain"</b>. Seluruh akun yang pernah Anda aktifkan akan tersimpan rapi di dalam panel <b>Sesi Akun</b> lengkap dengan sisa hari aktif dan tombol perpanjangan masing-masing.
+              </div>
+            </details>
           </div>
         </div>
-      </section>
 
-      <!-- Bento Overview Section -->
-      <section class="bento-overview">
-        <h2 class="bento-heading">Keamanan &amp; Arsitektur Sistem</h2>
-        <div class="bento-cards">
-          <div class="bento-card">
-            <h3>Autentikasi Tanpa Password</h3>
-            <p>Tidak ada penyimpanan password akun. Sistem memanfaatkan Google Firebase Auth Magic Link resmi dari Alight Creative.</p>
-          </div>
-          <div class="bento-card">
-            <h3>Verifikasi Struk Resmi</h3>
-            <p>Lisensi Pro disahkan via token receipt pembelian terverifikasi langsung ke server verifyPurchase Alight Creative.</p>
-          </div>
-          <div class="bento-card">
-            <h3>Multi-Session Local Vault</h3>
-            <p>Simpan banyak akun Alight Motion sekaligus secara privat di local storage browser Anda tanpa batas.</p>
-          </div>
-          <div class="bento-card">
-            <h3>Perpanjangan Otomatis</h3>
-            <p>Sinkronkan masa aktif Pro kapan saja dalam 1 klik menggunakan refresh token resmi tanpa perlu login berulang.</p>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-    </div>
   </main>
 
-  <!-- Modal Panduan Salin Link -->
-  <div class="modal-backdrop" id="guide-modal">
-    <div class="modal-window">
-      <div class="modal-top">
-        <h2>Panduan Salin Tautan</h2>
-        <button class="drawer-close" id="btn-close-modal">&times;</button>
+  <!-- =================================================================
+       MODAL PANDUAN SALIN MAGIC LINK
+       ================================================================= -->
+  <div class="modal-backdrop" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="guide-modal-title">Cara Salin Magic Link dari Gmail</h2>
+        <button type="button" class="icon-close-btn" id="btn-close-modal" aria-label="Tutup panduan">&times;</button>
       </div>
-      <div>
-        <div class="guide-step">
-          <div class="guide-step-index">1</div>
-          <div>Buka pesan masuk dari <b>Alight Creative</b> di aplikasi Gmail atau Email HP Anda.</div>
+
+      <div class="guide-steps">
+        <div class="guide-row">
+          <span class="guide-num">1</span>
+          <div>Buka email terbaru dari <b>Alight Creative</b> di aplikasi Gmail atau browser Anda (cek folder Spam bila belum terlihat).</div>
         </div>
-        <div class="guide-step">
-          <div class="guide-step-index">2</div>
-          <div>Cari tombol bertuliskan <b>"Sign in to Alight Motion"</b>.</div>
+        <div class="guide-row">
+          <span class="guide-num">2</span>
+          <div>Temukan tombol berwarna hijau/hitam bertuliskan <b>"Sign in to Alight Motion"</b>. Jangan diketuk biasa agar kode tidak hangus.</div>
         </div>
-        <div class="guide-step">
-          <div class="guide-step-index">3</div>
-          <div><b>Tekan &amp; tahan (Long-Press)</b> tombol tersebut hingga muncul menu opsi popup.</div>
+        <div class="guide-row">
+          <span class="guide-num">3</span>
+          <div><b>Tekan dan tahan (Long-Press)</b> tombol tersebut di HP, atau <b>Klik Kanan</b> jika di laptop/PC.</div>
         </div>
-        <div class="guide-step">
-          <div class="guide-step-index">4</div>
-          <div>Pilih opsi <b>"Salin alamat tautan" (Copy link URL)</b>.</div>
+        <div class="guide-row">
+          <span class="guide-num">4</span>
+          <div>Pilih menu <b>"Salin URL"</b> atau <b>"Copy link address"</b>.</div>
         </div>
-        <div class="guide-step">
-          <div class="guide-step-index">5</div>
-          <div>Kembali ke halaman ini lalu klik tombol <b>"Tempel dari Clipboard"</b>.</div>
+        <div class="guide-row">
+          <span class="guide-num">5</span>
+          <div>Kembali ke halaman ini lalu tekan tombol <b>"Tempel Clipboard"</b> pada Langkah 2.</div>
         </div>
       </div>
-      <button class="btn btn-full" id="btn-understand-modal" style="margin-top:16px;">Saya Mengerti</button>
+
+      <button type="button" class="btn btn-full" id="btn-understand-modal">Saya Mengerti</button>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div class="toast-msg" id="toast">
+  <div class="toast-msg" id="toast" role="status" aria-live="polite">
     <span id="toast-text">Tersalin ke clipboard!</span>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="shell">
-      &copy; <span id="year">2026</span> <a href="https://dkaimono.web.id">dkaimono.web.id</a> &middot; Alight Motion Pro Engine &middot; Google Play Receipt Verified
+  <!-- =================================================================
+       QUIET SINGLE-LINE FOOTER (60% Dominant Ground)
+       ================================================================= -->
+  <footer class="quiet-footer">
+    <div class="shell footer-grid">
+      <div>&copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--ink-100);text-decoration:none;font-weight:600;">dkaimono.web.id</a> &middot; Alight Motion Pro Studio</div>
+      <div class="footer-links">
+        <button type="button" id="footer-btn-guide">Panduan Salin</button>
+        <button type="button" id="footer-btn-vault">Sesi Tersimpan</button>
+        <a href="https://dkaimono.web.id">Status Server</a>
+      </div>
     </div>
   </footer>
 
   <script>
     const $ = id => document.getElementById(id);
-    document.getElementById('year').textContent = new Date().getFullYear();
+    $('year').textContent = new Date().getFullYear();
 
     let currentActiveEmail = '';
+    let toastTimer = null;
 
-    // Notification Toast
+    // Toast Helper
     function showToast(text) {
       const toast = $('toast');
       $('toast-text').textContent = text;
       toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2600);
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    // Button Busy State
+    // Button Loading State
     function setBusy(btn, isBusy, text) {
       if (!btn) return;
       btn.disabled = isBusy;
       if (isBusy) {
-        btn.dataset.origText = btn.innerHTML;
+        if (!btn.dataset.origHtml) btn.dataset.origHtml = btn.innerHTML;
         btn.textContent = text || 'Memproses...';
-      } else if (btn.dataset.origText) {
-        btn.innerHTML = btn.dataset.origText;
+      } else if (btn.dataset.origHtml) {
+        btn.innerHTML = btn.dataset.origHtml;
       }
     }
 
@@ -1384,42 +2273,104 @@
       }
     }
 
-    // Step Switching
+    // Remaining Days Parser
+    function getDaysRemaining(validUntil) {
+      if (!validUntil) return null;
+      const match = validUntil.match(/(\d+)\s+([A-Za-z]+)\s+(\d{4})/);
+      if (!match) return null;
+      const day = parseInt(match[1], 10);
+      const monthStr = match[2].toLowerCase();
+      const year = parseInt(match[3], 10);
+      const monthMap = {
+        'januari': 0, 'februari': 1, 'maret': 2, 'april': 3, 'mei': 4, 'juni': 5,
+        'juli': 6, 'agustus': 7, 'september': 8, 'oktober': 9, 'november': 10, 'desember': 11
+      };
+      const month = monthMap[monthStr] !== undefined ? monthMap[monthStr] : 6;
+      const targetDate = new Date(year, month, day);
+      return Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24));
+    }
+
+    // Stepper State Controller
+    const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px;"><polyline points="20 6 9 17 4 12"/></svg>';
+
     function setStep(step) {
       for (let i = 1; i <= 3; i++) {
         const tab = $(`step-nav-${i}`);
+        const badge = $(`step-badge-${i}`);
         const panel = $(`panel-${i}`);
+
         if (tab) {
-          tab.classList.remove('active', 'passed');
-          if (i === step) tab.classList.add('active');
-          else if (i < step) tab.classList.add('passed');
+          tab.classList.remove('active', 'passed', 'clickable');
+          tab.setAttribute('aria-selected', i === step ? 'true' : 'false');
+          if (i === step) {
+            tab.classList.add('active');
+            if (badge) badge.textContent = String(i);
+          } else if (i < step) {
+            tab.classList.add('passed');
+            if (step === 2 && i === 1) tab.classList.add('clickable');
+            if (badge) badge.innerHTML = checkSvg;
+          } else {
+            if (badge) badge.textContent = String(i);
+          }
         }
         if (panel) {
-          if (i === step) panel.classList.add('active');
-          else panel.classList.remove('active');
+          panel.classList.toggle('active', i === step);
         }
+      }
+
+      if (step === 2) {
+        const emailVal = currentActiveEmail || $('input-email').value.trim() || '-';
+        $('step2-target-email').textContent = emailVal;
       }
     }
 
-    // Server Status Check
+    // Allow clicking Step 1 tab or "Ganti Email" when in Step 2
+    $('step-nav-1').onclick = () => {
+      if ($('panel-2').classList.contains('active')) {
+        setStep(1);
+        $('input-email').focus();
+      }
+    };
+    $('btn-change-email').onclick = () => {
+      setStep(1);
+      $('input-email').focus();
+    };
+
+    // Email Input Clear Button
+    const emailInput = $('input-email');
+    const clearEmailBtn = $('btn-clear-email');
+    function syncClearEmailBtn() {
+      clearEmailBtn.classList.toggle('hide', !emailInput.value);
+    }
+    emailInput.addEventListener('input', syncClearEmailBtn);
+    clearEmailBtn.onclick = () => {
+      emailInput.value = '';
+      syncClearEmailBtn();
+      emailInput.focus();
+    };
+
+    // Server Status & Latency Check
     async function checkStatus() {
       const start = performance.now();
       try {
         const res = await fetch('/api/status');
         const data = await res.json();
-        const ping = Math.round(performance.now() - start);
+        const ping = Math.max(1, Math.round(performance.now() - start));
         $('st-ping').textContent = ping + 'ms';
+        $('topbar-ping').textContent = '\u00B7 ' + ping + 'ms';
         if (data.status === 'online') {
           $('status-label').textContent = 'Online';
+          $('status-dot-el').style.backgroundColor = 'var(--c10-accent)';
         }
       } catch (err) {
         $('status-label').textContent = 'Offline';
         $('status-label').style.color = 'var(--danger)';
+        $('status-dot-el').style.backgroundColor = 'var(--danger)';
       }
     }
     checkStatus();
 
-    // Stats Counter
+    // Live Stats Counter
     async function loadStats() {
       try {
         const res = await fetch('/api/stats');
@@ -1435,7 +2386,7 @@
     }
     loadStats();
 
-    // Multi-Account Storage & Drawer
+    // Multi-Account Local Vault
     function getSavedAccounts() {
       try {
         let list = JSON.parse(localStorage.getItem('dkaimono_accounts') || '[]');
@@ -1480,24 +2431,19 @@
         localStorage.removeItem('dkaimono_session');
       }
       renderDrawerAccounts();
-      showToast('Akun berhasil dihapus.');
+      showToast('Sesi akun dihapus.');
     }
 
-    function getDaysRemaining(validUntil) {
-      if (!validUntil) return null;
-      const match = validUntil.match(/(\d+)\s+([A-Za-z]+)\s+(\d{4})/);
-      if (!match) return null;
-      const day = parseInt(match[1]);
-      const monthStr = match[2].toLowerCase();
-      const year = parseInt(match[3]);
-      const monthMap = {
-        'januari': 0, 'februari': 1, 'maret': 2, 'april': 3, 'mei': 4, 'juni': 5,
-        'juli': 6, 'agustus': 7, 'september': 8, 'oktober': 9, 'november': 10, 'desember': 11
-      };
-      const month = monthMap[monthStr] !== undefined ? monthMap[monthStr] : 6;
-      const targetDate = new Date(year, month, day);
-      const diff = Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24));
-      return diff;
+    function openAccountInDashboard(acc) {
+      if (!acc || !acc.email) return;
+      currentActiveEmail = acc.email;
+      const validDate = acc.validUntil || '3 Juli 2027';
+      $('res-email').textContent = acc.email;
+      $('res-valid').textContent = validDate;
+      const days = getDaysRemaining(validDate);
+      $('res-days-badge').textContent = (days !== null && days > 0) ? `Sisa ${days} hari` : 'Status Aktif';
+      clearMsg('msg-login-send');
+      setStep(3);
     }
 
     function renderDrawerAccounts() {
@@ -1513,8 +2459,11 @@
         menuBadge.classList.remove('hide');
 
         const latest = list[0];
+        const validStr = latest.validUntil || '3 Juli 2027';
+        const latestDays = getDaysRemaining(validStr);
         $('ss-email').textContent = latest.email;
-        $('ss-valid').textContent = latest.validUntil || '3 Juli 2027';
+        $('ss-valid').textContent = validStr;
+        $('ss-days-tag').textContent = (latestDays !== null && latestDays > 0) ? `SISA ${latestDays} HARI` : 'PRO AKTIF';
         if (homeBanner) homeBanner.classList.remove('hide');
       } else {
         menuBadge.classList.add('hide');
@@ -1523,31 +2472,41 @@
 
       if (list.length === 0) {
         container.innerHTML = `
-          <div style="font-size:12px;color:var(--dim);padding:14px 0;">
-            Belum ada akun tersimpan. Sesi akun yang Anda verifikasi otomatis tercatat di sini.
+          <div style="font-size:12.5px;color:var(--ink-50);background:var(--c60-canvas);border-radius:var(--r-md);padding:16px;line-height:1.5;">
+            Belum ada sesi tersimpan. Setiap akun yang berhasil Anda aktifkan akan otomatis tercatat di brankas ini.
           </div>
         `;
         return;
       }
 
-      container.innerHTML = list.map(acc => {
+      container.innerHTML = list.map((acc, idx) => {
         const days = getDaysRemaining(acc.validUntil);
         const daysLabel = (days !== null && days > 0) ? ` &bull; Sisa ${days} hari` : '';
         return `
-          <div class="account-card">
-            <div class="account-card-top">
-              <span class="account-card-email">${acc.email}</span>
-              <span style="font-size:10px;font-weight:700;color:var(--accent);background:var(--accent-subtle);padding:2px 6px;border-radius:4px;">PRO</span>
+          <div class="vault-item">
+            <div class="vault-item-head">
+              <span class="vault-item-email" data-idx="${idx}" title="Klik untuk membuka detail akun">${acc.email}</span>
+              <span class="vault-pro-chip">PRO</span>
             </div>
-            <div style="font-size:11px;color:var(--dim);">Aktif hingga: ${acc.validUntil || '3 Juli 2027'}${daysLabel}</div>
-            <div class="account-card-actions">
-              <button class="btn btn-sm btn-renew-act" data-email="${acc.email}" data-token="${acc.refreshToken || ''}">Perpanjang</button>
-              <button class="btn sec btn-sm btn-login-act" data-email="${acc.email}">Kirim Login</button>
-              <button class="btn sec btn-sm btn-del-act" data-email="${acc.email}" style="width:30px;color:var(--danger);" title="Hapus">&times;</button>
+            <div class="vault-item-meta">Aktif hingga ${acc.validUntil || '3 Juli 2027'}${daysLabel}</div>
+            <div class="vault-item-actions">
+              <button type="button" class="btn btn-xs btn-renew-act" data-email="${acc.email}" data-token="${acc.refreshToken || ''}">Perpanjang</button>
+              <button type="button" class="btn sec btn-xs btn-login-act" data-email="${acc.email}">Login HP</button>
+              <button type="button" class="btn sec btn-xs btn-del-act" data-email="${acc.email}" style="color:var(--danger);padding:0;" title="Hapus sesi">&times;</button>
             </div>
           </div>
         `;
       }).join('');
+
+      container.querySelectorAll('.vault-item-email').forEach(el => {
+        el.onclick = () => {
+          const idx = Number(el.getAttribute('data-idx'));
+          if (list[idx]) {
+            openAccountInDashboard(list[idx]);
+            closeDrawer();
+          }
+        };
+      });
 
       container.querySelectorAll('.btn-renew-act').forEach(btn => {
         btn.onclick = async () => {
@@ -1565,7 +2524,11 @@
             const data = await res.json();
             if (data.success) {
               const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
-              saveAccount({ email, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || token, validUntil: newValid });
+              saveAccount({
+                email,
+                refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || token,
+                validUntil: newValid
+              });
               showToast(`Lisensi ${email} diperpanjang!`);
             } else {
               showToast(`Gagal: ${data.message || data.error || 'Token expired'}`);
@@ -1613,14 +2576,38 @@
     }
     renderDrawerAccounts();
 
-    // Drawer Toggle Logic
+    // Drawer & Modal Controls
     const drawer = $('menu-drawer');
-    const openDrawer = () => drawer.classList.add('open');
-    const closeDrawer = () => drawer.classList.remove('open');
+    const modal = $('guide-modal');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+    function openModal() {
+      modal.classList.add('open');
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+    }
+
     $('btn-toggle-drawer').onclick = openDrawer;
+    $('footer-btn-vault').onclick = openDrawer;
     $('btn-close-drawer').onclick = closeDrawer;
     drawer.onclick = e => { if (e.target === drawer) closeDrawer(); };
 
+    $('btn-open-guide-modal').onclick = openModal;
+    $('topbar-btn-guide').onclick = openModal;
+    $('footer-btn-guide').onclick = openModal;
+    $('btn-close-modal').onclick = closeModal;
+    $('btn-understand-modal').onclick = closeModal;
+    modal.onclick = e => { if (e.target === modal) closeModal(); };
+
+    // Launch Alight Motion App Safely
     function openAlightMotionApp() {
       const isAndroid = /android/i.test(navigator.userAgent);
       if (isAndroid) {
@@ -1631,21 +2618,20 @@
       showToast('Membuka Alight Motion...');
     }
 
-    // Drawer Quick Actions
     $('drawer-btn-open-app').onclick = () => {
       closeDrawer();
       openAlightMotionApp();
     };
     $('drawer-btn-guide').onclick = () => {
       closeDrawer();
-      $('guide-modal').classList.add('open');
+      openModal();
     };
     $('drawer-btn-share').onclick = () => {
       closeDrawer();
       $('btn-share-wa').click();
     };
 
-    // Quick Renew from Home Banner
+    // Quick Renew from Persistent Session Card
     $('btn-quick-renew').onclick = async () => {
       const list = getSavedAccounts();
       if (!list || list.length === 0) return;
@@ -1665,7 +2651,11 @@
         const data = await res.json();
         if (data.success) {
           const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
-          saveAccount({ ...latest, validUntil: newValid, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || latest.refreshToken });
+          saveAccount({
+            ...latest,
+            validUntil: newValid,
+            refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || latest.refreshToken
+          });
           $('ss-valid').textContent = newValid;
           showToast('Sesi Pro berhasil diperpanjang!');
         } else {
@@ -1683,33 +2673,48 @@
       if (list.length > 0) removeAccount(list[0].email);
     };
 
-    // Domain Shortcuts
+    // Domain Shortcut Chips
     document.querySelectorAll('.domain-chip').forEach(chip => {
       chip.onclick = () => {
         const domain = chip.getAttribute('data-domain');
-        const input = $('input-email');
-        const val = input.value.trim();
+        const val = emailInput.value.trim();
         if (!val) {
-          input.value = domain.replace('@', '');
+          emailInput.value = '';
+          emailInput.placeholder = 'nama' + domain;
         } else if (!val.includes('@')) {
-          input.value = val + domain;
+          emailInput.value = val + domain;
         } else {
-          input.value = val.split('@')[0] + domain;
+          emailInput.value = val.split('@')[0] + domain;
         }
-        input.focus();
+        syncClearEmailBtn();
+        emailInput.focus();
       };
     });
 
-    // Step 1: Send Link
+    // Smart Gmail Opener (Android/iOS/Desktop Friendly)
+    $('btn-open-mail').onclick = e => {
+      const isAndroid = /android/i.test(navigator.userAgent);
+      const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+      if (isAndroid) {
+        e.preventDefault();
+        window.location.href = 'intent:#Intent;package=com.google.android.gm;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;end';
+      } else if (isIOS) {
+        e.preventDefault();
+        window.location.href = 'googlegmail://';
+      }
+    };
+
+    // Step 1: Send Magic Link
     $('btn-send-link').onclick = async () => {
       clearMsg('msg-1');
-      const email = $('input-email').value.trim();
-      if (!email || !email.includes('@')) {
-        showMsg('msg-1', 'Masukkan alamat email yang valid.', 'err');
+      const email = emailInput.value.trim();
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        showMsg('msg-1', 'Masukkan alamat email yang valid terlebih dahulu.', 'err');
+        emailInput.focus();
         return;
       }
 
-      setBusy($('btn-send-link'), true, 'Mengirim Link...');
+      setBusy($('btn-send-link'), true, 'Mengirim Tautan...');
       try {
         const res = await fetch('/api/send-link', {
           method: 'POST',
@@ -1719,13 +2724,13 @@
         const data = await res.json();
         if (data.success) {
           currentActiveEmail = email;
-          showMsg('msg-1', 'Tautan berhasil dikirim! Silakan periksa inbox Gmail Anda.', 'ok');
+          showMsg('msg-1', 'Tautan masuk berhasil dikirim! Periksa kotak masuk Gmail Anda.', 'ok');
           setTimeout(() => {
             setStep(2);
             $('input-link').focus();
-          }, 650);
+          }, 550);
         } else {
-          showMsg('msg-1', data.error || 'Gagal mengirim email.', 'err');
+          showMsg('msg-1', data.error || 'Gagal mengirim email verifikasi.', 'err');
         }
       } catch (err) {
         showMsg('msg-1', 'Kesalahan koneksi ke server.', 'err');
@@ -1734,7 +2739,7 @@
       }
     };
 
-    // Smart Magic Link Validator & Parser
+    // Smart Magic Link Validator & Auto-URL Extractor
     function validateMagicLinkInput(val) {
       const hintEl = $('link-hint-status');
       if (!hintEl) return;
@@ -1746,16 +2751,16 @@
       const isAmLink = text.includes('alightcreative.com') || text.includes('apiKey=') || text.includes('oobCode=');
       if (isAmLink) {
         hintEl.style.display = 'block';
-        hintEl.style.color = 'var(--accent)';
-        hintEl.textContent = 'Format magic link Alight Motion terverifikasi.';
+        hintEl.style.color = 'var(--c10-accent)';
+        hintEl.textContent = 'Format magic link Alight Creative valid dan siap diaktifkan.';
       } else if (text.startsWith('http://') || text.startsWith('https://')) {
         hintEl.style.display = 'block';
-        hintEl.style.color = '#fbbf24';
-        hintEl.textContent = 'Perhatian: Tautan ini tidak tampak seperti magic link resmi Alight Creative.';
+        hintEl.style.color = 'var(--warn)';
+        hintEl.textContent = 'Tautan terdeteksi, namun pastikan berasal dari tombol Sign in to Alight Motion.';
       } else {
         hintEl.style.display = 'block';
         hintEl.style.color = 'var(--danger)';
-        hintEl.textContent = 'Format teks belum valid. Salin tautan lengkap dari email Anda.';
+        hintEl.textContent = 'Format belum sesuai. Salin tautan URL lengkap dari tombol di dalam email.';
       }
     }
 
@@ -1766,7 +2771,7 @@
         const match = val.match(/https?:\/\/[^\s"'<>]+/);
         if (match && match[0] !== val) {
           $('input-link').value = match[0];
-          showToast('Tautan otomatis dirapikan.');
+          showToast('URL otomatis diekstrak dari teks.');
         }
         validateMagicLinkInput($('input-link').value);
       }, 40);
@@ -1776,47 +2781,48 @@
     $('btn-paste-clipboard').onclick = async () => {
       try {
         if (!navigator.clipboard) {
-          showToast('Clipboard API tidak didukung browser ini.');
+          showToast('Fitur clipboard tidak didukung browser ini.');
           return;
         }
         const text = await navigator.clipboard.readText();
         if (!text) {
-          showToast('Clipboard kosong.');
+          showToast('Clipboard masih kosong.');
           return;
         }
         const match = text.match(/https?:\/\/[^\s"'<>]+/);
         if (match) {
           $('input-link').value = match[0];
           validateMagicLinkInput(match[0]);
-          showToast('Tautan berhasil ditempel!');
+          showToast('Magic link berhasil ditempel!');
           $('btn-verify').focus();
         } else {
           $('input-link').value = text.trim();
           validateMagicLinkInput(text.trim());
-          showToast('Teks ditempel.');
+          showToast('Teks ditempel dari clipboard.');
         }
       } catch (e) {
-        showToast('Izin akses clipboard ditolak.');
+        showToast('Izinkan akses clipboard atau tempel manual.');
       }
     };
 
-    // Step 2: Verify Link
+    // Step 2: Verify Link & Activate Pro
     $('btn-verify').onclick = async () => {
       clearMsg('msg-2');
       const magicLink = $('input-link').value.trim();
-      const email = currentActiveEmail || $('input-email').value.trim();
+      const email = currentActiveEmail || emailInput.value.trim();
 
       if (!magicLink) {
-        showMsg('msg-2', 'Silakan tempel tautan yang disalin dari email.', 'err');
+        showMsg('msg-2', 'Tempel tautan magic link dari email Anda terlebih dahulu.', 'err');
+        $('input-link').focus();
         return;
       }
 
       if (!magicLink.includes('apiKey=') && !magicLink.includes('oobCode=') && !magicLink.includes('alightcreative.com')) {
-        showMsg('msg-2', 'Tautan ini tidak terlihat seperti magic link Alight Creative resmi. Pastikan Anda menyalin tautan dari tombol "Sign in to Alight Motion" di email.', 'err');
+        showMsg('msg-2', 'Tautan tidak dikenali sebagai magic link resmi Alight Creative. Salin tautan dari tombol "Sign in to Alight Motion".', 'err');
         return;
       }
 
-      setBusy($('btn-verify'), true, 'Memverifikasi Struk...');
+      setBusy($('btn-verify'), true, 'Memvalidasi Struk...');
       try {
         const res = await fetch('/api/verify-link', {
           method: 'POST',
@@ -1828,36 +2834,34 @@
           const confirmedEmail = data.email || email;
           const validDate = data.validUntil || '3 Juli 2027';
 
-          $('res-email').textContent = confirmedEmail;
-          $('res-valid').textContent = validDate;
-
-          saveAccount({
+          const accRecord = {
             email: confirmedEmail,
             refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || '',
             idToken: data.idToken || (data.data && data.data.idToken) || '',
             validUntil: validDate
-          });
+          };
 
+          saveAccount(accRecord);
+          openAccountInDashboard(accRecord);
           loadStats();
-          setStep(3);
-          showToast('Lisensi VIP Pro Berhasil Aktif!');
+          showToast('Lisensi VIP Pro berhasil diaktifkan!');
         } else {
-          showMsg('msg-2', data.error || 'Verifikasi gagal. Pastikan link masih baru.', 'err');
+          showMsg('msg-2', data.error || 'Verifikasi gagal. Pastikan tautan belum pernah diklik sebelumnya.', 'err');
         }
       } catch (err) {
-        showMsg('msg-2', 'Kesalahan koneksi verifikasi.', 'err');
+        showMsg('msg-2', 'Kesalahan jaringan saat menghubungi server verifikasi.', 'err');
       } finally {
         setBusy($('btn-verify'), false);
       }
     };
 
-    // Step 3 Actions
+    // Step 3: Send Fresh Mobile App Login Link
     $('btn-send-app-login').onclick = async () => {
       const email = $('res-email').textContent;
       if (!email || email === '-') return;
 
       const btn = $('btn-send-app-login');
-      setBusy(btn, true, 'Mengirim...');
+      setBusy(btn, true, 'Mengirim Link HP...');
       clearMsg('msg-login-send');
 
       try {
@@ -1868,10 +2872,10 @@
         });
         const data = await res.json();
         if (data.success) {
-          showMsg('msg-login-send', 'Link baru berhasil dikirim ke ' + email + '! Sekarang buka aplikasi Gmail di HP Anda dan klik link tersebut untuk langsung login sebagai Pro.', 'ok');
-          showToast('Link login HP terkirim!');
+          showMsg('msg-login-send', 'Tautan login baru telah dikirim ke ' + email + '. Buka Gmail di HP Anda lalu ketuk tombol di dalam email untuk masuk sebagai Pro.', 'ok');
+          showToast('Magic link HP terkirim!');
         } else {
-          showMsg('msg-login-send', data.error || 'Gagal mengirim link login.', 'err');
+          showMsg('msg-login-send', data.error || 'Gagal mengirim tautan login.', 'err');
         }
       } catch (e) {
         showMsg('msg-login-send', 'Gagal terhubung ke server.', 'err');
@@ -1880,12 +2884,13 @@
       }
     };
 
+    // Step 3: Renew Session
     $('btn-renew-session').onclick = async () => {
       const email = $('res-email').textContent;
       const list = getSavedAccounts();
       const current = list.find(a => a.email === email) || list[0];
       if (!current || !current.refreshToken) {
-        showToast('Refresh token tidak tersedia.');
+        showToast('Refresh token tidak tersedia untuk sesi ini.');
         return;
       }
 
@@ -1900,8 +2905,13 @@
         const data = await res.json();
         if (data.success) {
           const newValid = data.validUntil || (data.data && data.data.validUntil) || '3 Juli 2027';
-          saveAccount({ ...current, validUntil: newValid, refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || current.refreshToken });
-          $('res-valid').textContent = newValid;
+          const updated = {
+            ...current,
+            validUntil: newValid,
+            refreshToken: data.refreshToken || (data.data && data.data.refreshToken) || current.refreshToken
+          };
+          saveAccount(updated);
+          openAccountInDashboard(updated);
           showToast('Sesi Pro berhasil diperpanjang!');
         } else {
           showToast(`Gagal: ${data.message || data.error || 'Token expired'}`);
@@ -1916,8 +2926,10 @@
     $('btn-open-app').onclick = openAlightMotionApp;
 
     $('btn-copy-token').onclick = () => {
+      const email = $('res-email').textContent;
       const list = getSavedAccounts();
-      const token = (list[0] && list[0].idToken) ? list[0].idToken : 'demo-token';
+      const current = list.find(a => a.email === email) || list[0];
+      const token = (current && current.idToken) ? current.idToken : 'demo-token';
       if (navigator.clipboard) {
         navigator.clipboard.writeText(token).then(() => {
           showToast('ID Token berhasil disalin!');
@@ -1927,31 +2939,27 @@
 
     $('btn-activate-another').onclick = () => {
       $('input-link').value = '';
-      $('input-email').value = '';
+      emailInput.value = '';
+      syncClearEmailBtn();
+      const hintEl = $('link-hint-status');
+      if (hintEl) hintEl.style.display = 'none';
       clearMsg('msg-1');
       clearMsg('msg-2');
       clearMsg('msg-login-send');
       setStep(1);
+      emailInput.focus();
     };
 
-    // Modal Guide
-    const modal = $('guide-modal');
-    $('btn-open-guide-modal').onclick = () => modal.classList.add('open');
-    $('btn-close-modal').onclick = () => modal.classList.remove('open');
-    $('btn-understand-modal').onclick = () => modal.classList.remove('open');
-    modal.onclick = e => { if (e.target === modal) modal.classList.remove('open'); };
-
-    // Share WhatsApp
+    // Share WhatsApp / Web Share API
     $('btn-share-wa').onclick = () => {
       const shareUrl = 'https://dkaimono.web.id';
-      const shareText = 'Halo! Akun Alight Motion gw barusan berhasil aktif Pro resmi via https://dkaimono.web.id. Cobain deh mumpung servernya lagi online!';
+      const shareText = 'Akun Alight Motion barusan aktif Pro tahunan resmi lewat https://dkaimono.web.id tanpa password. Cobain mumpung servernya online!';
       if (navigator.share) {
         navigator.share({
           title: 'DKaimono-AM · Alight Motion Pro Studio',
           text: shareText,
           url: shareUrl
-        }).then(() => showToast('Berhasil dibagikan!'))
-        .catch(() => {});
+        }).then(() => showToast('Berhasil dibagikan!')).catch(() => {});
       } else {
         const waUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText);
         window.open(waUrl, '_blank');
@@ -1963,17 +2971,16 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         closeDrawer();
-        modal.classList.remove('open');
+        closeModal();
       } else if (e.key === 'Enter') {
-        const activePanel = document.querySelector('.panel.active');
-        if (activePanel && activePanel.id === 'panel-1' && document.activeElement === $('input-email')) {
+        if ($('panel-1').classList.contains('active') && document.activeElement === emailInput) {
           e.preventDefault();
           $('btn-send-link').click();
         }
       }
     });
 
-    // PWA & Service Worker
+    // Service Worker & Installable PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch(() => {});

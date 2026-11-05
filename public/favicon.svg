@@ -1,61 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090d16"/>
-      <stop offset="50%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#04121a"/>
-    </linearGradient>
-
-    <!-- Emerald-Mint Lightning Gradient -->
-    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="45%" stop-color="#10b981"/>
-      <stop offset="100%" stop-color="#059669"/>
-    </linearGradient>
-
-    <!-- Glow Gradient -->
-    <linearGradient id="glowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0.9"/>
-    </linearGradient>
-
-    <!-- Outer Border Glow -->
-    <radialGradient id="ambientGlow" cx="50%" cy="30%" r="65%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-    </radialGradient>
-    
-    <filter id="shadowFilter" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#10b981" flood-opacity="0.45"/>
-    </filter>
-  </defs>
-
-  <!-- Base Rounded Squircle -->
-  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
-  <rect width="512" height="512" rx="128" fill="url(#ambientGlow)"/>
-  
-  <!-- Subtle Border Stroke -->
-  <rect x="4" y="4" width="504" height="504" rx="124" fill="none" stroke="#10b981" stroke-width="8" stroke-opacity="0.35"/>
-
-  <!-- Motion Wave Ribbons (Alight Motion Inspired) -->
-  <path d="M110 370 C 170 300, 210 420, 290 350 C 340 300, 380 320, 410 270" 
-        fill="none" stroke="url(#glowGrad)" stroke-width="20" stroke-linecap="round" opacity="0.4"/>
-  <path d="M90 330 C 160 250, 200 370, 280 300 C 330 250, 370 270, 420 220" 
-        fill="none" stroke="url(#glowGrad)" stroke-width="12" stroke-linecap="round" opacity="0.25"/>
-
-  <!-- Central Emblem: Dynamic Diamond / Lightning Bolt of DKaimono-AM -->
-  <g filter="url(#shadowFilter)">
-    <!-- High Voltage Bolt -->
-    <polygon points="280,64 160,264 260,264 220,448 370,224 265,224" fill="url(#boltGrad)"/>
-    <!-- Inner Accent Shard -->
-    <polygon points="275,100 195,250 260,250 240,360 330,234 268,234" fill="#a7f3d0" opacity="0.5"/>
-  </g>
-
-  <!-- Brand Micro Badge (DK) -->
-  <g transform="translate(108, 100)">
-    <circle cx="28" cy="28" r="24" fill="#111827" stroke="#10b981" stroke-width="4"/>
-    <text x="28" y="36" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" 
-          font-size="20" font-weight="900" fill="#34d399" text-anchor="middle" letter-spacing="-0.5">DK</text>
-  </g>
+  <!-- 60% Dominant Studio Carbon Base -->
+  <rect width="512" height="512" rx="120" fill="#0b0e11"/>
+  <!-- 30% Secondary Mineral Slate Stage -->
+  <rect x="36" y="36" width="440" height="440" rx="92" fill="#171f28"/>
+  <!-- 10% Signal Studio Mint Bolt -->
+  <path d="M282 88L128 280H248L222 424L384 232H264L282 88Z" fill="#22e58a"/>
 </svg>

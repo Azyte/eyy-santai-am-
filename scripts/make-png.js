@@ -82,7 +82,7 @@ function renderPixel(x, y, w, h) {
 
   // Border glow
   if (cornerDist > 0.95) {
-    return [16, 185, 129, 200]; // Emerald border
+    return [42, 41, 39, 255]; // Carbon border (#2A2927)
   }
 
   // Center lightning bolt check
@@ -98,17 +98,16 @@ function renderPixel(x, y, w, h) {
   );
 
   if (inBolt) {
-    // Gradient mint to emerald
-    const g = Math.floor(220 + (1 - v) * 35);
-    return [52, g, 153, 255];
+    // Signal Vermilion Orange (#FF4F18)
+    return [255, 79, 24, 255];
   }
 
-  // Ambient glow in center
+  // Ambient center
   if (dist < 0.6) {
-    return [15, 23, 42, 255]; // Deep slate with glow
+    return [26, 25, 24, 255]; // Deep carbon
   }
 
-  return [9, 13, 22, 255]; // Deep dark bg
+  return [20, 20, 19, 255]; // Base carbon (#141413)
 }
 
 const favicon32 = createPng(32, 32, renderPixel);

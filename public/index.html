@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DKaimono-AM &middot; Studio Aktivasi Alight Motion Pro</title>
+  <title>DKaimono-AM &middot; Aktivasi Alight Motion Pro</title>
   <meta name="description" content="Aktivasi lisensi resmi Alight Motion Pro langsung ke akun Firebase Anda. Tanpa kata sandi, bebas watermark, dan terverifikasi tanda terima Google Play.">
-  <meta name="theme-color" content="#0b0e11">
+  <meta name="theme-color" content="#F5F4F0">
 
   <link rel="canonical" href="https://dkaimono.web.id">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -14,69 +14,58 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
 
-  <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dkaimono.web.id">
-  <meta property="og:title" content="DKaimono-AM &middot; Studio Aktivasi Alight Motion Pro">
+  <meta property="og:title" content="DKaimono-AM &middot; Aktivasi Alight Motion Pro">
   <meta property="og:description" content="Aktivasi lisensi resmi Alight Motion Pro tahunan langsung ke akun Anda. Tanpa kata sandi dan sinkron otomatis.">
   <meta property="og:image" content="/apple-touch-icon.png">
   <meta name="twitter:card" content="summary">
 
-  <!-- Switzer from Fontshare -->
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* =================================================================
-         60-30-10 COLOR ARCHITECTURE
-         60% Dominant  : Deep Studio Carbon (Canvas, Negative Space, Wells)
-         30% Secondary : Mineral Slate Surfaces & Chalk Ink Hierarchy
-         10% Accent    : Signal Studio Mint (Primary CTAs & Active States)
-         ================================================================= */
+      /* 60% DOMINANT — Warm Stone & Pure Paper */
+      --bg-canvas: #F5F4F0;
+      --bg-surface: #FFFFFF;
+      --bg-well: #EFECE6;
+      --bg-well-hover: #E5E1D8;
 
-      /* 60% Dominant Ground */
-      --c60-canvas: #0b0e11;
-      --c60-well: #0f1419;
+      /* 30% SECONDARY — Carbon Ink, Obsidian & Hairline Borders */
+      --carbon-900: #141413;
+      --carbon-800: #222120;
+      --carbon-700: #33312F;
+      --ink-primary: #141413;
+      --ink-secondary: #57544E;
+      --ink-muted: #8A867E;
+      --border-hairline: #E0DDD5;
+      --border-strong: #C8C4BA;
 
-      /* 30% Secondary Structure & Surfaces */
-      --c30-band: #12181f;
-      --c30-surface: #171f28;
-      --c30-raised: #202b37;
-      --c30-hover: #293746;
+      /* 10% ACCENT — Signal Vermilion Orange */
+      --accent: #FF4F18;
+      --accent-hover: #E03E0B;
+      --accent-soft: #FFF0EB;
+      --accent-border: #FFC4B0;
 
-      /* Typography Ink Hierarchy (Part of 30% Structural Contrast) */
-      --ink-100: #f1f5f9;
-      --ink-70: #94a6b8;
-      --ink-50: #63768a;
+      /* Functional Semantic Tokens */
+      --ok: #12804A;
+      --ok-bg: #EBF7F0;
+      --ok-border: #B4E2C8;
+      --danger: #D92D20;
+      --danger-bg: #FEF1F0;
+      --danger-border: #F9C6C2;
+      --warn: #B54708;
 
-      /* 10% Focal Accent */
-      --c10-accent: #22e58a;
-      --c10-accent-hover: #19cc78;
-      --c10-accent-tint: #0d2b1e;
-      --c10-accent-ink: #042112;
+      --r-xs: 6px;
+      --r-sm: 10px;
+      --r-md: 14px;
+      --r-lg: 18px;
 
-      /* Semantic Feedback */
-      --danger: #ff5a67;
-      --danger-tint: #2b1216;
-      --warn: #f4b740;
-
-      /* Geometry & Type Scale */
-      --r-sm: 8px;
-      --r-md: 12px;
-      --r-lg: 16px;
-
-      --font: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-      --fs-xs: 0.75rem;
-      --fs-sm: clamp(0.8125rem, 0.79rem + 0.12vw, 0.875rem);
-      --fs-body: clamp(0.9375rem, 0.9rem + 0.18vw, 1.03125rem);
-      --fs-lead: clamp(1.125rem, 1.04rem + 0.35vw, 1.3125rem);
-      --fs-h2: clamp(1.45rem, 1.25rem + 0.9vw, 2rem);
-      --fs-hero: clamp(1.95rem, 1.5rem + 2.1vw, 3rem);
-
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     *, *::before, *::after {
@@ -87,15 +76,15 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--c60-canvas);
-      color: var(--ink-100);
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
     }
 
     body {
-      background-color: var(--c60-canvas);
-      color: var(--ink-100);
-      font-family: var(--font);
-      font-size: var(--fs-body);
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
       line-height: 1.55;
       min-height: 100dvh;
       display: flex;
@@ -110,393 +99,366 @@
     }
 
     .tabular {
+      font-family: var(--font-mono);
       font-variant-numeric: tabular-nums;
     }
 
-    /* Container Shell */
-    .shell {
+    /* =================================================================
+       LAYOUT CONTAINERS
+       ================================================================= */
+    .topbar-shell {
       width: 100%;
-      max-width: 1140px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 20px;
+    }
+
+    .studio-shell {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 18px;
     }
 
     /* =================================================================
-       TOPBAR (60% Ground with 30% Controls & 10% Live Dot)
+       TOPBAR
        ================================================================= */
     header.topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      background-color: var(--c60-canvas);
-      border-bottom: 1px solid rgba(241, 245, 249, 0.07); /* taste-skill-ignore */
+      background-color: rgba(245, 244, 240, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
     .topbar-inner {
-      height: 64px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
     }
 
     .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       text-decoration: none;
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .brand-mark-svg {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       flex-shrink: 0;
     }
 
     .brand-text-wrap {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 8px;
     }
 
     .brand-name {
       font-weight: 700;
-      font-size: 16.5px;
+      font-size: 16px;
       letter-spacing: -0.025em;
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .brand-tag {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--ink-50);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-secondary);
+      background-color: var(--bg-well);
+      padding: 2px 7px;
+      border-radius: 4px;
     }
 
     .topbar-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background-color: var(--c30-surface);
-      padding: 6px 12px;
+      gap: 6px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 5px 10px;
       border-radius: 999px;
-      font-size: var(--fs-xs);
-      font-weight: 500;
-      color: var(--ink-70);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-primary);
     }
 
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: var(--c10-accent);
+      background-color: var(--ok);
       flex-shrink: 0;
     }
 
     .topbar-ghost-btn {
       background-color: transparent;
-      border: none;
-      color: var(--ink-70);
-      font-family: var(--font);
-      font-size: var(--fs-sm);
-      font-weight: 500;
-      padding: 7px 11px;
-      border-radius: var(--r-sm);
+      border: 1px solid transparent;
+      color: var(--ink-secondary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      height: 34px;
+      padding: 0 11px;
+      border-radius: var(--r-xs);
       cursor: pointer;
-      transition: color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
     .topbar-ghost-btn:hover {
-      color: var(--ink-100);
-      background-color: var(--c30-surface);
+      color: var(--ink-primary);
+      background-color: var(--bg-well);
     }
 
     .btn-vault-trigger {
-      background-color: var(--c30-surface);
-      border: none;
-      border-radius: var(--r-sm);
-      color: var(--ink-100);
-      font-family: var(--font);
-      font-size: var(--fs-sm);
+      background-color: var(--carbon-900);
+      border: 1px solid var(--carbon-900);
+      border-radius: var(--r-xs);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 13px;
       font-weight: 600;
-      height: 38px;
-      padding: 0 13px;
+      height: 34px;
+      padding: 0 12px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: background-color 0.18s var(--ease-out);
+      gap: 7px;
+      transition: background-color 0.16s var(--ease);
     }
 
     .btn-vault-trigger:hover {
-      background-color: var(--c30-raised);
+      background-color: var(--carbon-700);
     }
 
     .btn-vault-trigger svg {
-      width: 16px;
-      height: 16px;
-      color: var(--ink-70);
+      width: 14px;
+      height: 14px;
+      color: #A8A49C;
       flex-shrink: 0;
     }
 
     .vault-count-pill {
-      background-color: var(--c10-accent);
-      color: var(--c10-accent-ink);
+      background-color: var(--accent);
+      color: #FFFFFF;
       font-size: 11px;
       font-weight: 700;
-      padding: 1px 7px;
+      padding: 1px 6px;
       border-radius: 999px;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     /* =================================================================
-       HERO & WORKBENCH STAGE (60% Ground + 30% Workbench + 10% CTAs)
+       CENTERED APP STAGE
        ================================================================= */
-    .stage-section {
-      padding: 52px 0 72px;
+    .app-stage {
+      padding: 36px 0 64px;
     }
 
-    .stage-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 5fr) minmax(0, 6.5fr);
-      grid-template-areas:
-        "copy workbench"
-        "session workbench"
-        "telemetry workbench";
-      column-gap: 48px;
-      row-gap: 24px;
-      align-items: start;
+    /* Compact Studio Intro */
+    .hero-head {
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    .area-copy {
-      grid-area: copy;
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      background-color: var(--accent-soft);
+      border: 1px solid var(--accent-border);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
     }
 
-    .area-session {
-      grid-area: session;
-    }
-
-    .area-telemetry {
-      grid-area: telemetry;
-    }
-
-    .area-workbench {
-      grid-area: workbench;
-      position: sticky;
-      top: 88px;
-    }
-
-    /* Hero Copy */
     .hero-title {
-      font-size: var(--fs-hero);
+      font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.15rem);
       font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.035em;
-      color: var(--ink-100);
-      margin-bottom: 16px;
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      color: var(--ink-primary);
+      margin-bottom: 8px;
     }
 
     .hero-desc {
-      font-size: var(--fs-body);
-      color: var(--ink-70);
-      line-height: 1.6;
-      max-width: 46ch;
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      max-width: 50ch;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
-    /* Saved Session Quick Banner (30% Surface + 10% Left Bar) */
+    /* =================================================================
+       DOCKED SAVED SESSION BANNER (30% Secondary Carbon Block)
+       ================================================================= */
     .saved-session-card {
-      background-color: var(--c30-surface);
-      border-left: 3px solid var(--c10-accent);
+      background-color: var(--carbon-900);
+      color: #FFFFFF;
       border-radius: var(--r-md);
-      padding: 16px 18px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .saved-session-head {
-      display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 14px;
+      box-shadow: 0 6px 20px rgba(20, 20, 19, 0.08);
     }
 
-    .saved-session-email {
-      font-size: var(--fs-body);
-      font-weight: 600;
-      color: var(--ink-100);
-      word-break: break-all;
+    .saved-session-left {
+      min-width: 0;
     }
 
-    .saved-session-sub {
-      font-size: var(--fs-xs);
-      color: var(--ink-70);
-      margin-top: 2px;
-    }
-
-    .saved-session-sub b {
-      color: var(--ink-100);
-      font-weight: 600;
+    .saved-session-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
     }
 
     .saved-session-tag {
-      font-size: 10.5px;
-      font-weight: 700;
-      background-color: var(--c10-accent-tint);
-      color: var(--c10-accent);
-      padding: 3px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
       flex-shrink: 0;
+    }
+
+    .saved-session-email {
+      font-size: 14px;
+      font-weight: 600;
+      color: #FFFFFF;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .saved-session-sub {
+      font-size: 12px;
+      color: #A6A29A;
+    }
+
+    .saved-session-sub b {
+      color: #FFFFFF;
+      font-weight: 600;
     }
 
     .saved-session-btns {
       display: flex;
-      gap: 8px;
-    }
-
-    /* Telemetry 2x2 Matrix (30% Secondary Surfaces) */
-    .telemetry-matrix {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .telemetry-tile {
-      background-color: var(--c30-surface);
-      border-radius: var(--r-md);
-      padding: 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .telemetry-label {
-      font-size: var(--fs-xs);
-      font-weight: 500;
-      color: var(--ink-50);
-    }
-
-    .telemetry-value {
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink-100);
-    }
-
-    .telemetry-value.accent-txt {
-      color: var(--c10-accent);
-    }
-
-    /* Quick Workflow Summary Rail (Desktop Context) */
-    .workflow-mini {
-      margin-top: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .workflow-mini-row {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-    }
-
-    .workflow-mini-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--c30-hover);
+      gap: 6px;
       flex-shrink: 0;
     }
 
     /* =================================================================
-       INTERACTIVE WORKBENCH [data-ui="studio-workbench"] (30% Slate Stage)
+       MAIN ACTIVATION WORKBENCH (Pure Paper Card + Carbon Controls)
        ================================================================= */
-    [data-ui="studio-workbench"] {
-      background-color: var(--c30-surface);
-      border: 1px solid rgba(241, 245, 249, 0.09);
+    .workbench-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
       border-radius: var(--r-lg);
+      box-shadow: 0 12px 32px -12px rgba(20, 20, 19, 0.07);
       overflow: hidden;
     }
 
-    /* Stepper Header */
-    [data-ui="studio-workbench"] .stepper-bar {
+    /* 3-Step Segmented Header */
+    .stepper-bar {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      background-color: var(--c60-well);
-      border-bottom: 1px solid rgba(241, 245, 249, 0.07);
+      background-color: var(--bg-well);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 6px;
+      gap: 6px;
     }
 
-    [data-ui="studio-workbench"] .step-item {
-      padding: 15px 12px;
+    .step-item {
+      padding: 10px 8px;
+      border-radius: var(--r-sm);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      font-size: var(--fs-sm);
-      font-weight: 500;
-      color: var(--ink-50);
-      border: none;
-      border-bottom: 2px solid transparent;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      border: 1px solid transparent;
       background: transparent;
-      font-family: var(--font);
       user-select: none;
       cursor: default;
-      transition: color 0.18s var(--ease-out), background-color 0.18s var(--ease-out), border-color 0.18s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
-    [data-ui="studio-workbench"] .step-item.clickable {
+    .step-item.clickable {
       cursor: pointer;
     }
 
-    [data-ui="studio-workbench"] .step-item.clickable:hover {
-      color: var(--ink-100);
-      background-color: rgba(255, 255, 255, 0.02);
+    .step-item.clickable:hover {
+      color: var(--ink-primary);
+      background-color: rgba(255, 255, 255, 0.55);
     }
 
-    [data-ui="studio-workbench"] .step-item.active {
-      color: var(--ink-100);
-      font-weight: 600;
-      background-color: var(--c30-surface);
-      border-bottom-color: var(--c10-accent);
+    .step-item.active {
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      border-color: var(--border-hairline);
+      box-shadow: 0 2px 6px rgba(20, 20, 19, 0.05);
     }
 
-    [data-ui="studio-workbench"] .step-item.passed {
-      color: var(--ink-70);
+    .step-item.passed {
+      color: var(--ink-secondary);
     }
 
-    [data-ui="studio-workbench"] .step-badge {
-      width: 22px;
-      height: 22px;
+    .step-badge {
+      width: 21px;
+      height: 21px;
       border-radius: 50%;
-      background-color: var(--c30-raised);
-      color: var(--ink-70);
+      background-color: var(--bg-well-hover);
+      color: var(--ink-secondary);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 11.5px;
-      font-weight: 700;
       flex-shrink: 0;
-      transition: background-color 0.18s var(--ease-out), color 0.18s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
-    [data-ui="studio-workbench"] .step-item.active .step-badge {
-      background-color: var(--c10-accent);
-      color: var(--c10-accent-ink);
+    .step-item.active .step-badge {
+      background-color: var(--accent);
+      color: #FFFFFF;
     }
 
-    [data-ui="studio-workbench"] .step-item.passed .step-badge {
-      background-color: var(--c10-accent-tint);
-      color: var(--c10-accent);
+    .step-item.passed .step-badge {
+      background-color: var(--carbon-900);
+      color: #FFFFFF;
     }
 
     /* Workbench Body */
@@ -513,39 +475,40 @@
     }
 
     .panel-head {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .panel-title {
-      font-size: var(--fs-lead);
+      font-size: 18px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--ink-100);
-      margin-bottom: 6px;
+      color: var(--ink-primary);
+      margin-bottom: 4px;
     }
 
     .panel-sub {
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
+      font-size: 13.5px;
+      color: var(--ink-secondary);
       line-height: 1.5;
     }
 
-    /* Target Email Context Pill in Step 2 */
+    /* Step 2 Context Bar */
     .target-email-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      background-color: var(--c60-well);
-      padding: 10px 14px;
-      border-radius: var(--r-sm);
+      background-color: var(--bg-well);
+      border: 1px solid var(--border-hairline);
+      padding: 9px 13px;
+      border-radius: var(--r-xs);
       margin-bottom: 18px;
-      font-size: var(--fs-xs);
-      color: var(--ink-70);
+      font-size: 12.5px;
+      color: var(--ink-secondary);
     }
 
     .target-email-bar b {
-      color: var(--ink-100);
+      color: var(--ink-primary);
       font-weight: 600;
       word-break: break-all;
     }
@@ -553,10 +516,10 @@
     .link-inline-btn {
       background: transparent;
       border: none;
-      color: var(--c10-accent);
-      font-family: var(--font);
-      font-size: var(--fs-xs);
-      font-weight: 600;
+      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
       padding: 2px 4px;
@@ -580,9 +543,9 @@
     }
 
     .field-label {
-      font-size: var(--fs-sm);
+      font-size: 13px;
       font-weight: 600;
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .input-wrap {
@@ -594,112 +557,116 @@
     .input-icon {
       position: absolute;
       left: 14px;
-      width: 18px;
-      height: 18px;
-      color: var(--ink-50);
+      width: 17px;
+      height: 17px;
+      color: var(--ink-muted);
       pointer-events: none;
     }
 
-    [data-ui="studio-workbench"] .input-control {
+    .input-control {
       width: 100%;
       height: 46px;
-      background-color: var(--c60-well);
-      border: 1px solid rgba(241, 245, 249, 0.13);
+      background-color: var(--bg-well);
+      border: 1.5px solid var(--border-hairline);
       border-radius: var(--r-sm);
-      padding: 0 38px 0 42px;
-      font-family: var(--font);
-      font-size: var(--fs-body);
-      color: var(--ink-100);
+      padding: 0 38px 0 40px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink-primary);
       outline: none;
-      transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
-    [data-ui="studio-workbench"] .input-control::placeholder,
-    [data-ui="studio-workbench"] .textarea-control::placeholder {
-      color: var(--ink-50);
+    .input-control::placeholder,
+    .textarea-control::placeholder {
+      color: var(--ink-muted);
+      font-weight: 400;
     }
 
-    [data-ui="studio-workbench"] .input-control:focus,
-    [data-ui="studio-workbench"] .textarea-control:focus {
-      border-color: var(--c10-accent);
-      background-color: var(--c60-canvas);
+    .input-control:focus,
+    .textarea-control:focus {
+      background-color: var(--bg-surface);
+      border-color: var(--carbon-900);
+      box-shadow: 0 0 0 3px rgba(20, 20, 19, 0.06);
     }
 
     .btn-clear-field {
       position: absolute;
       right: 10px;
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       border: none;
-      background-color: var(--c30-raised);
-      color: var(--ink-70);
-      font-size: 15px;
+      background-color: var(--border-strong);
+      color: var(--ink-primary);
+      font-size: 14px;
       line-height: 1;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: color 0.15s var(--ease-out), background-color 0.15s var(--ease-out);
+      transition: background-color 0.15s var(--ease);
     }
 
     .btn-clear-field:hover {
-      background-color: var(--c30-hover);
-      color: var(--ink-100);
+      background-color: var(--ink-muted);
+      color: #FFFFFF;
     }
 
-    [data-ui="studio-workbench"] .textarea-control {
+    .textarea-control {
       width: 100%;
-      min-height: 104px;
+      min-height: 100px;
       resize: vertical;
-      background-color: var(--c60-well);
-      border: 1px solid rgba(241, 245, 249, 0.13);
+      background-color: var(--bg-well);
+      border: 1.5px solid var(--border-hairline);
       border-radius: var(--r-sm);
       padding: 12px 14px;
-      font-family: var(--font);
-      font-size: var(--fs-sm);
-      line-height: 1.5;
-      color: var(--ink-100);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--ink-primary);
       outline: none;
-      transition: border-color 0.18s var(--ease-out), background-color 0.18s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
-    /* Domain Quick Chips (30% Secondary Controls) */
+    /* Domain Quick Chips */
     .domain-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 10px;
+      margin-top: 9px;
     }
 
     .domain-chip {
-      background-color: var(--c30-raised);
-      border: none;
-      border-radius: 6px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--r-xs);
       padding: 5px 10px;
-      font-family: var(--font);
-      font-size: 12px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
       font-weight: 500;
-      color: var(--ink-70);
+      color: var(--ink-secondary);
       cursor: pointer;
       user-select: none;
-      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+      transition: all 0.14s var(--ease);
     }
 
     .domain-chip:hover {
-      background-color: var(--c30-hover);
-      color: var(--ink-100);
+      border-color: var(--carbon-900);
+      color: var(--ink-primary);
+      background-color: var(--bg-well);
     }
 
     .link-hint {
-      font-size: var(--fs-xs);
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: 600;
       margin-top: 8px;
       display: none;
     }
 
     /* =================================================================
-       BUTTON SYSTEM (10% Accent Primary vs 30% Slate Secondary)
+       BUTTON SYSTEM (10% Signal Orange Primary vs 30% Secondary)
        ================================================================= */
     .btn {
       display: inline-flex;
@@ -708,22 +675,23 @@
       gap: 8px;
       height: 44px;
       padding: 0 18px;
-      background-color: var(--c10-accent);
-      color: var(--c10-accent-ink);
-      font-family: var(--font);
-      font-size: var(--fs-sm);
-      font-weight: 700;
-      border: none;
+      background-color: var(--accent);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid var(--accent);
       border-radius: var(--r-sm);
       cursor: pointer;
       text-decoration: none;
       user-select: none;
       white-space: nowrap;
-      transition: background-color 0.18s var(--ease-out), transform 0.12s var(--ease-out);
+      transition: all 0.16s var(--ease);
     }
 
     .btn:hover {
-      background-color: var(--c10-accent-hover);
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
     }
 
     .btn:active {
@@ -736,28 +704,42 @@
       flex-shrink: 0;
     }
 
-    /* 30% Slate Secondary Button */
+    /* Secondary Button (Tactile Stone/Carbon) */
     .btn.sec {
-      background-color: var(--c30-raised);
-      color: var(--ink-100);
+      background-color: var(--bg-well);
+      color: var(--ink-primary);
+      border: 1px solid var(--border-hairline);
       font-weight: 600;
     }
 
     .btn.sec:hover {
-      background-color: var(--c30-hover);
+      background-color: var(--bg-well-hover);
+      border-color: var(--border-strong);
+    }
+
+    /* Dark Surface Secondary Button (Inside Dark Cards) */
+    .btn.dark-sec {
+      background-color: var(--carbon-800);
+      color: #FFFFFF;
+      border: 1px solid var(--carbon-700);
+    }
+
+    .btn.dark-sec:hover {
+      background-color: var(--carbon-700);
     }
 
     .btn.btn-sm {
       height: 36px;
-      padding: 0 13px;
+      padding: 0 12px;
       font-size: 12.5px;
+      border-radius: var(--r-xs);
     }
 
     .btn.btn-xs {
       height: 30px;
       padding: 0 10px;
       font-size: 11.5px;
-      border-radius: 6px;
+      border-radius: var(--r-xs);
     }
 
     .btn.btn-full {
@@ -765,53 +747,56 @@
     }
 
     .btn:disabled {
-      opacity: 0.52;
+      opacity: 0.55;
       cursor: not-allowed;
       transform: none;
     }
 
     .action-row {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
+      grid-template-columns: 1.45fr 1fr;
       gap: 10px;
-      margin-top: 22px;
+      margin-top: 20px;
     }
 
     /* Feedback Alert */
-    [data-ui="studio-workbench"] .feedback-box {
-      font-size: var(--fs-sm);
-      border-radius: var(--r-sm);
+    .feedback-box {
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: var(--r-xs);
       padding: 11px 14px;
       margin-top: 14px;
       display: none;
       line-height: 1.45;
     }
 
-    [data-ui="studio-workbench"] .feedback-box.show {
+    .feedback-box.show {
       display: block;
     }
 
-    [data-ui="studio-workbench"] .feedback-box.err {
-      background-color: var(--danger-tint);
-      border: 1px solid rgba(255, 90, 103, 0.32);
-      color: #fecdd3;
+    .feedback-box.err {
+      background-color: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
     }
 
-    [data-ui="studio-workbench"] .feedback-box.ok {
-      background-color: var(--c10-accent-tint);
-      border: 1px solid rgba(34, 229, 138, 0.32);
-      color: #bbf7d0;
+    .feedback-box.ok {
+      background-color: var(--ok-bg);
+      border: 1px solid var(--ok-border);
+      color: var(--ok);
     }
 
     /* =================================================================
-       STEP 3: VIP ACTIVE DASHBOARD
+       STEP 3: DARK CARBON MEMBERSHIP PASS + CLEAN ACTIONS
        ================================================================= */
-    [data-ui="studio-workbench"] .vip-card {
-      background-color: var(--c60-well);
-      border: 1px solid rgba(34, 229, 138, 0.25);
+    .vip-pass-card {
+      background-color: var(--carbon-900);
+      color: #FFFFFF;
       border-radius: var(--r-md);
-      padding: 18px;
+      padding: 20px;
       margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
     }
 
     .vip-card-top {
@@ -819,226 +804,219 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .vip-verified-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
-      color: var(--c10-accent);
-      background-color: var(--c10-accent-tint);
+      font-weight: 600;
+      color: #FFFFFF;
+      background-color: var(--accent);
       padding: 4px 10px;
       border-radius: 999px;
+      letter-spacing: 0.02em;
     }
 
     .vip-days-pill {
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 600;
-      color: var(--ink-70);
+      color: #A6A29A;
     }
 
     .vip-meta-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1.25fr 1fr;
       gap: 10px;
       margin-bottom: 14px;
     }
 
     .vip-meta-box {
-      background-color: var(--c30-surface);
-      border-radius: var(--r-sm);
+      background-color: var(--carbon-800);
+      border: 1px solid var(--carbon-700);
+      border-radius: var(--r-xs);
       padding: 11px 13px;
     }
 
     .vip-meta-lbl {
       font-size: 11px;
       font-weight: 500;
-      color: var(--ink-50);
+      color: #9E9A91;
       margin-bottom: 3px;
     }
 
     .vip-meta-val {
-      font-size: var(--fs-sm);
+      font-size: 13.5px;
       font-weight: 700;
-      color: var(--ink-100);
+      color: #FFFFFF;
       word-break: break-all;
     }
 
     .vip-meta-val.accent {
-      color: var(--c10-accent);
+      color: #FF784E;
     }
 
-    [data-ui="studio-workbench"] .vip-perks {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(241, 245, 249, 0.07);
-      font-size: 12.5px;
-      color: var(--ink-70);
-    }
-
-    .vip-perk-item {
+    .vip-pass-footer {
       display: flex;
       align-items: center;
-      gap: 7px;
+      justify-content: space-between;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--carbon-700);
+      font-size: 12px;
+      color: #A6A29A;
     }
 
-    .vip-perk-item svg {
-      width: 14px;
-      height: 14px;
-      color: var(--c10-accent);
-      flex-shrink: 0;
+    .vip-perks-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
     }
 
-    /* Mobile App Login Guide Box in Step 3 */
-    .mobile-login-guide {
-      background-color: var(--c60-well);
+    .vip-perks-inline span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .vip-perks-inline span::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--accent);
+    }
+
+    .btn-token-chip {
+      background-color: var(--carbon-800);
+      border: 1px solid var(--carbon-700);
+      color: #E6E3DC;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.15s var(--ease);
+    }
+
+    .btn-token-chip:hover {
+      background-color: var(--carbon-700);
+      color: #FFFFFF;
+    }
+
+    /* Mobile App Login Action Box */
+    .mobile-login-box {
+      background-color: var(--bg-well);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--r-md);
-      padding: 15px 16px;
-      margin-bottom: 16px;
-      font-size: var(--fs-xs);
-      color: var(--ink-70);
-      line-height: 1.55;
+      padding: 16px;
+      margin-bottom: 14px;
     }
 
     .mobile-login-title {
-      font-size: var(--fs-sm);
+      font-size: 13.5px;
       font-weight: 700;
-      color: var(--ink-100);
+      color: var(--ink-primary);
       margin-bottom: 6px;
     }
 
     .mobile-login-list {
       padding-left: 18px;
-      margin: 8px 0;
+      margin: 0 0 14px;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      font-size: 12.5px;
+      color: var(--ink-secondary);
     }
 
     .mobile-login-list b {
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
-    .mobile-login-note {
-      font-size: 11.5px;
-      color: var(--ink-50);
-    }
-
-    .vip-primary-cta {
-      margin-bottom: 10px;
-    }
-
-    .vip-sec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .vip-util-row {
+    /* Clean 2x2 Utility Row in Step 3 */
+    .vip-actions-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
-      margin-top: 8px;
     }
 
     /* =================================================================
-       30% SECONDARY TONAL CHAPTER: ARCHITECTURE & FAQ
+       COMPACT TELEMETRY TICKER BAR
        ================================================================= */
-    .chapter-band {
-      background-color: var(--c30-band);
-      padding: 72px 0;
-    }
-
-    .arch-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 28px;
-    }
-
-    .section-heading {
-      font-size: var(--fs-h2);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      color: var(--ink-100);
-    }
-
-    .section-sub {
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-      max-width: 44ch;
-    }
-
-    .arch-grid {
+    .telemetry-strip {
+      margin-top: 14px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--r-md);
+      padding: 12px 16px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
-      margin-bottom: 64px;
     }
 
-    .arch-tile {
-      background-color: var(--c30-surface);
-      border-radius: var(--r-md);
-      padding: 22px 20px;
+    .telemetry-cell {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 2px;
+      border-right: 1px solid var(--border-hairline);
+      padding-right: 10px;
     }
 
-    .arch-icon-box {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--r-sm);
-      background-color: var(--c30-raised);
-      color: var(--ink-100);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .telemetry-cell:last-child {
+      border-right: none;
+      padding-right: 0;
     }
 
-    .arch-icon-box svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .arch-tile h3 {
-      font-size: var(--fs-body);
+    .telemetry-label {
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: -0.015em;
-      color: var(--ink-100);
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
-    .arch-tile p {
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-      line-height: 1.55;
+    .telemetry-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-primary);
     }
 
-    /* FAQ Split Layout (Sticky Title + Filled Tiles Accordion) */
-    .faq-split {
-      display: grid;
-      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-      gap: 40px;
-      align-items: start;
+    .telemetry-value.accent-txt {
+      color: var(--accent);
     }
 
-    .faq-left {
-      position: sticky;
-      top: 92px;
+    /* =================================================================
+       CLEAN FAQ ACCORDION SECTION
+       ================================================================= */
+    .faq-section {
+      margin-top: 44px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-hairline);
     }
 
-    .faq-left p {
-      margin-top: 10px;
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-      max-width: 34ch;
+    .faq-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .faq-head h2 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink-primary);
+    }
+
+    .faq-head span {
+      font-size: 12.5px;
+      color: var(--ink-muted);
     }
 
     .faq-stack {
@@ -1048,28 +1026,28 @@
     }
 
     .faq-tile {
-      background-color: var(--c30-surface);
-      border-radius: var(--r-md);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--r-sm);
       overflow: hidden;
-      transition: background-color 0.18s var(--ease-out);
+      transition: border-color 0.16s var(--ease);
     }
 
     .faq-tile[open] {
-      background-color: var(--c30-raised);
-      border-left: 3px solid var(--c10-accent);
+      border-color: var(--carbon-900);
     }
 
     .faq-tile summary {
       list-style: none;
-      padding: 18px 22px;
-      font-size: var(--fs-body);
+      padding: 14px 16px;
+      font-size: 14px;
       font-weight: 600;
-      color: var(--ink-100);
+      color: var(--ink-primary);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
       user-select: none;
     }
 
@@ -1079,8 +1057,8 @@
 
     .faq-plus {
       position: relative;
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       flex-shrink: 0;
     }
 
@@ -1088,28 +1066,28 @@
     .faq-plus::after {
       content: '';
       position: absolute;
-      background-color: var(--ink-70);
+      background-color: var(--ink-muted);
       border-radius: 2px;
-      transition: transform 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
+      transition: transform 0.18s var(--ease), background-color 0.18s var(--ease);
     }
 
     .faq-plus::before {
-      top: 6px;
+      top: 5px;
       left: 0;
-      width: 14px;
+      width: 12px;
       height: 2px;
     }
 
     .faq-plus::after {
       top: 0;
-      left: 6px;
+      left: 5px;
       width: 2px;
-      height: 14px;
+      height: 12px;
     }
 
     .faq-tile[open] .faq-plus::before,
     .faq-tile[open] .faq-plus::after {
-      background-color: var(--c10-accent);
+      background-color: var(--accent);
     }
 
     .faq-tile[open] .faq-plus::after {
@@ -1117,24 +1095,24 @@
     }
 
     .faq-answer {
-      padding: 0 22px 20px;
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-      line-height: 1.6;
-      max-width: 60ch;
+      padding: 0 16px 15px;
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+      line-height: 1.55;
     }
 
     /* =================================================================
-       SLIDE-OVER ACCOUNT VAULT DRAWER [data-ui="account-vault"]
+       SLIDE-OVER ACCOUNT VAULT DRAWER
        ================================================================= */
     .drawer-scrim {
       position: fixed;
       inset: 0;
-      background-color: rgba(5, 7, 10, 0.72);
+      background-color: rgba(20, 20, 19, 0.45);
+      backdrop-filter: blur(2px);
       z-index: 100;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.22s var(--ease-out), visibility 0.22s var(--ease-out);
+      transition: opacity 0.2s var(--ease), visibility 0.2s var(--ease);
     }
 
     .drawer-scrim.open {
@@ -1142,85 +1120,88 @@
       visibility: visible;
     }
 
-    [data-ui="account-vault"].drawer-panel {
+    .drawer-panel {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
       width: 100%;
-      max-width: 390px;
-      background-color: var(--c30-surface);
-      border-left: 1px solid rgba(241, 245, 249, 0.09);
+      max-width: 380px;
+      background-color: var(--bg-surface);
+      border-left: 1px solid var(--border-strong);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
-      transition: transform 0.24s var(--ease-out);
-      box-shadow: -12px 0 36px rgba(0, 0, 0, 0.55);
+      transition: transform 0.22s var(--ease);
+      box-shadow: -12px 0 32px rgba(20, 20, 19, 0.12);
     }
 
-    .drawer-scrim.open [data-ui="account-vault"].drawer-panel {
+    .drawer-scrim.open .drawer-panel {
       transform: translateX(0);
     }
 
-    [data-ui="account-vault"] .drawer-head {
-      padding: 18px 22px;
+    .drawer-head {
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(241, 245, 249, 0.08);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    [data-ui="account-vault"] .drawer-head h2 {
-      font-size: var(--fs-body);
+    .drawer-head h2 {
+      font-size: 15px;
       font-weight: 700;
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .icon-close-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--r-sm);
-      background-color: var(--c30-raised);
-      border: none;
-      color: var(--ink-70);
-      font-size: 18px;
+      width: 30px;
+      height: 30px;
+      border-radius: var(--r-xs);
+      background-color: var(--bg-well);
+      border: 1px solid var(--border-hairline);
+      color: var(--ink-secondary);
+      font-size: 17px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+      transition: all 0.15s var(--ease);
     }
 
     .icon-close-btn:hover {
-      background-color: var(--c30-hover);
-      color: var(--ink-100);
+      background-color: var(--carbon-900);
+      border-color: var(--carbon-900);
+      color: #FFFFFF;
     }
 
     .drawer-body {
       flex: 1;
       overflow-y: auto;
-      padding: 20px 22px;
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
 
     .drawer-group-title {
-      font-size: var(--fs-xs);
-      font-weight: 600;
-      color: var(--ink-50);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-muted);
       margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    [data-ui="account-vault"] .vault-item {
-      background-color: var(--c60-canvas);
-      border: 1px solid rgba(241, 245, 249, 0.08);
-      border-radius: var(--r-md);
-      padding: 14px;
-      margin-bottom: 10px;
+    .vault-item {
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--r-sm);
+      padding: 13px;
+      margin-bottom: 8px;
     }
 
     .vault-item-head {
@@ -1228,73 +1209,52 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .vault-item-email {
-      font-size: var(--fs-sm);
-      font-weight: 600;
-      color: var(--ink-100);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--ink-primary);
       word-break: break-all;
       cursor: pointer;
     }
 
     .vault-item-email:hover {
-      color: var(--c10-accent);
+      color: var(--accent);
     }
 
     .vault-pro-chip {
+      font-family: var(--font-mono);
       font-size: 10px;
       font-weight: 700;
-      color: var(--c10-accent);
-      background-color: var(--c10-accent-tint);
-      padding: 2px 7px;
-      border-radius: 999px;
+      color: #FFFFFF;
+      background-color: var(--carbon-900);
+      padding: 2px 6px;
+      border-radius: 4px;
       flex-shrink: 0;
     }
 
     .vault-item-meta {
       font-size: 11.5px;
-      color: var(--ink-50);
+      color: var(--ink-secondary);
     }
 
     .vault-item-actions {
       display: grid;
-      grid-template-columns: 1fr 1fr 34px;
+      grid-template-columns: 1fr 1fr 32px;
       gap: 6px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
 
     .drawer-quick-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
     }
 
     .drawer-quick-list .btn {
       justify-content: flex-start;
-    }
-
-    .sys-info-box {
-      background-color: var(--c60-canvas);
-      border-radius: var(--r-md);
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--ink-50);
-    }
-
-    .sys-info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sys-info-row b {
-      color: var(--ink-100);
-      font-weight: 600;
     }
 
     /* =================================================================
@@ -1303,15 +1263,16 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background-color: rgba(5, 7, 10, 0.76);
+      background-color: rgba(20, 20, 19, 0.5);
+      backdrop-filter: blur(2px);
       z-index: 120;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 18px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.2s var(--ease-out), visibility 0.2s var(--ease-out);
+      transition: opacity 0.18s var(--ease), visibility 0.18s var(--ease);
     }
 
     .modal-backdrop.open {
@@ -1321,13 +1282,14 @@
 
     .modal-dialog {
       width: 100%;
-      max-width: 450px;
-      background-color: var(--c30-surface);
+      max-width: 440px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-strong);
       border-radius: var(--r-lg);
-      padding: 24px;
-      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.65); /* taste-skill-ignore */
-      transform: translateY(10px) scale(0.98);
-      transition: transform 0.2s var(--ease-out);
+      padding: 22px;
+      box-shadow: 0 20px 40px rgba(20, 20, 19, 0.18);
+      transform: translateY(8px) scale(0.98);
+      transition: transform 0.18s var(--ease);
     }
 
     .modal-backdrop.open .modal-dialog {
@@ -1338,68 +1300,70 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .modal-header h2 {
-      font-size: var(--fs-lead);
+      font-size: 16px;
       font-weight: 700;
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .guide-steps {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 11px;
+      margin-bottom: 18px;
     }
 
     .guide-row {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
-      line-height: 1.5;
+      gap: 11px;
+      font-size: 13.5px;
+      color: var(--ink-secondary);
+      line-height: 1.48;
     }
 
     .guide-row b {
-      color: var(--ink-100);
+      color: var(--ink-primary);
     }
 
     .guide-num {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background-color: var(--c30-raised);
-      color: var(--c10-accent);
-      font-size: 11.5px;
-      font-weight: 700;
+      background-color: var(--carbon-900);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
     /* =================================================================
-       TOAST NOTIFICATION & QUIET FOOTER (60% Ground)
+       TOAST & FOOTER
        ================================================================= */
     .toast-msg {
       position: fixed;
-      bottom: 24px;
+      bottom: 22px;
       left: 50%;
-      transform: translateX(-50%) translateY(24px);
-      background-color: var(--c30-raised);
-      color: var(--ink-100);
-      padding: 10px 18px;
+      transform: translateX(-50%) translateY(20px);
+      background-color: var(--carbon-900);
+      color: #FFFFFF;
+      padding: 10px 16px;
       border-radius: 999px;
-      font-size: var(--fs-sm);
+      font-size: 13px;
       font-weight: 600;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55); /* taste-skill-ignore */
+      box-shadow: 0 10px 24px rgba(20, 20, 19, 0.22);
       z-index: 160;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.2s var(--ease-out), opacity 0.2s var(--ease-out), visibility 0.2s var(--ease-out);
+      transition: all 0.18s var(--ease);
     }
 
     .toast-msg.show {
@@ -1410,10 +1374,10 @@
 
     footer.quiet-footer {
       margin-top: auto;
-      background-color: var(--c60-canvas);
-      padding: 32px 0;
-      font-size: var(--fs-sm);
-      color: var(--ink-50);
+      border-top: 1px solid var(--border-hairline);
+      padding: 24px 0;
+      font-size: 13px;
+      color: var(--ink-muted);
     }
 
     .footer-grid {
@@ -1427,82 +1391,33 @@
     .footer-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
     .footer-links a,
     .footer-links button {
       background: transparent;
       border: none;
-      font-family: var(--font);
-      font-size: var(--fs-sm);
-      color: var(--ink-70);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-secondary);
       text-decoration: none;
       cursor: pointer;
-      transition: color 0.16s var(--ease-out);
     }
 
     .footer-links a:hover,
     .footer-links button:hover {
-      color: var(--c10-accent);
+      color: var(--accent);
     }
 
     /* =================================================================
-       RESPONSIVE BREAKPOINTS (Tablet & Thumb-First Mobile UX)
+       RESPONSIVE MOBILE POLISH
        ================================================================= */
-    @media (max-width: 960px) {
-      .stage-section {
-        padding: 32px 0 52px;
-      }
-
-      /* Reorder on Tablet/Mobile: Hero Copy -> Saved Session -> Workbench -> Telemetry */
-      .stage-grid {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-          "copy"
-          "session"
-          "workbench"
-          "telemetry";
-        row-gap: 20px;
-      }
-
-      .area-workbench {
-        position: static;
-      }
-
-      .workflow-mini {
-        display: none;
-      }
-
-      .arch-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .arch-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        margin-bottom: 48px;
-      }
-
-      .faq-split {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 20px;
-      }
-
-      .faq-left {
-        position: static;
-      }
-    }
-
     @media (max-width: 640px) {
-      .shell {
-        padding: 0 16px;
-      }
-
-      .topbar-inner {
-        height: 56px;
-        gap: 8px;
+      .topbar-shell,
+      .studio-shell {
+        padding: 0 14px;
       }
 
       .brand-tag,
@@ -1510,38 +1425,14 @@
         display: none;
       }
 
-      .brand-name {
-        font-size: 15.5px;
-      }
-
-      .status-pill {
-        padding: 5px 9px;
-        font-size: 11px;
-      }
-
-      .btn-vault-trigger {
-        height: 36px;
-        padding: 0 11px;
-        font-size: 12.5px;
-      }
-
-      .stage-section {
-        padding: 20px 0 40px;
-      }
-
-      .hero-title {
-        font-size: 1.625rem;
-        line-height: 1.16;
-        margin-bottom: 8px;
-      }
-
-      .hero-desc {
-        font-size: 0.875rem;
-        line-height: 1.5;
+      .app-stage {
+        padding: 22px 0 44px;
       }
 
       .saved-session-card {
-        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
       }
 
       .saved-session-btns {
@@ -1549,138 +1440,59 @@
         grid-template-columns: 1.3fr 1fr;
       }
 
-      /* Workbench Mobile Polish */
-      [data-ui="studio-workbench"] .step-item {
-        padding: 12px 6px;
+      .step-item {
+        padding: 9px 4px;
         font-size: 12px;
-        gap: 6px;
-      }
-
-      [data-ui="studio-workbench"] .step-badge {
-        width: 20px;
-        height: 20px;
-        font-size: 10.5px;
+        gap: 5px;
       }
 
       .workbench-body {
         padding: 20px 16px;
       }
 
-      .panel-head {
-        margin-bottom: 16px;
-      }
-
-      .panel-title {
-        font-size: 1.0625rem;
-      }
-
-      /* 16px input font-size prevents iOS Safari auto-zoom on focus */
-      [data-ui="studio-workbench"] .input-control {
-        height: 48px;
-        font-size: 16px;
-      }
-
-      [data-ui="studio-workbench"] .textarea-control {
-        min-height: 100px;
+      .input-control,
+      .textarea-control {
         font-size: 16px;
       }
 
       .domain-chips {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 6px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
 
       .domain-chip {
         text-align: center;
-        padding: 7px 4px;
-        font-size: 11.5px;
+        padding: 6px 2px;
+        font-size: 11px;
       }
 
       .action-row {
         grid-template-columns: 1fr;
         gap: 8px;
-        margin-top: 18px;
-      }
-
-      .btn {
-        height: 46px;
-        font-size: 14px;
-      }
-
-      .btn.btn-sm {
-        height: 38px;
-        font-size: 12.5px;
       }
 
       .vip-meta-grid,
-      [data-ui="studio-workbench"] .vip-perks,
-      .vip-sec-grid {
+      .vip-actions-grid {
         grid-template-columns: 1fr;
       }
 
-      .telemetry-matrix {
+      .vip-pass-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .telemetry-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .telemetry-tile {
-        padding: 12px 14px;
-      }
-
-      .telemetry-value {
-        font-size: 1.05rem;
-      }
-
-      .chapter-band {
-        padding: 48px 0;
-      }
-
-      .arch-grid {
-        grid-template-columns: 1fr;
         gap: 10px;
-        margin-bottom: 36px;
       }
 
-      .arch-tile {
-        padding: 16px;
-      }
-
-      .faq-tile summary {
-        padding: 15px 16px;
-        font-size: 0.9375rem;
-      }
-
-      .faq-answer {
-        padding: 0 16px 16px;
-      }
-
-      [data-ui="account-vault"].drawer-panel {
-        max-width: 90vw;
-      }
-
-      .modal-backdrop {
-        align-items: flex-end;
-        padding: 12px;
-      }
-
-      .modal-dialog {
-        max-width: 100%;
-        padding: 20px 16px;
+      .telemetry-cell:nth-child(2) {
+        border-right: none;
       }
 
       .footer-grid {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
-      }
-
-      .toast-msg {
-        width: calc(100% - 32px);
-        max-width: 340px;
-        text-align: center;
-        bottom: 16px;
-        font-size: 12.5px;
       }
     }
   </style>
@@ -1688,18 +1500,18 @@
 <body>
 
   <!-- =================================================================
-       STICKY TOPBAR (60% Canvas Ground)
+       TOPBAR
        ================================================================= -->
   <header class="topbar">
-    <div class="shell topbar-inner">
+    <div class="topbar-shell topbar-inner">
       <a href="/" class="brand-link">
         <svg class="brand-mark-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="#171f28"/>
-          <path d="M17.5 5L7.5 17.5H15.5L14 27L24.5 14.5H16.5L17.5 5Z" fill="#22e58a"/>
+          <rect width="32" height="32" rx="8" fill="#141413"/>
+          <path d="M17.8 5L7.8 17.5H15.5L13.8 27L24.2 14.5H16.5L17.8 5Z" fill="#FF4F18"/>
         </svg>
         <div class="brand-text-wrap">
           <span class="brand-name">DKaimono-AM</span>
-          <span class="brand-tag">Pro Licensing Studio</span>
+          <span class="brand-tag">PRO UTILITY</span>
         </div>
       </a>
 
@@ -1707,16 +1519,17 @@
         <div class="status-pill" title="Status koneksi server &amp; latensi">
           <span class="status-dot" id="status-dot-el"></span>
           <span id="status-label">Online</span>
-          <span class="tabular" id="topbar-ping" style="color:var(--ink-50);">&middot; 18ms</span>
+          <span class="tabular" id="topbar-ping" style="color:var(--ink-muted);">&middot; 18ms</span>
         </div>
 
         <button type="button" class="topbar-ghost-btn" id="topbar-btn-guide">Panduan</button>
 
         <button type="button" class="btn-vault-trigger" id="btn-toggle-drawer" aria-label="Buka Sesi Akun Tersimpan">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <line x1="7" y1="8" x2="17" y2="8"/>
+            <line x1="7" y1="12" x2="17" y2="12"/>
+            <line x1="7" y1="16" x2="12" y2="16"/>
           </svg>
           <span>Sesi Akun</span>
           <span class="vault-count-pill hide tabular" id="menu-badge-count">0</span>
@@ -1726,29 +1539,27 @@
   </header>
 
   <!-- =================================================================
-       SLIDE-OVER MULTI-ACCOUNT VAULT DRAWER
+       SLIDE-OVER ACCOUNT VAULT DRAWER
        ================================================================= -->
   <aside class="drawer-scrim" id="menu-drawer" aria-hidden="true">
     <div class="drawer-panel" data-ui="account-vault">
       <div class="drawer-head">
-        <h2>Brankas Sesi Akun</h2>
+        <h2>Sesi Akun Tersimpan</h2>
         <button type="button" class="icon-close-btn" id="btn-close-drawer" aria-label="Tutup panel">&times;</button>
       </div>
 
       <div class="drawer-body">
         <div>
           <div class="drawer-group-title">
-            <span>Akun Tersimpan di Browser</span>
-            <span id="drawer-account-total" class="tabular" style="color:var(--c10-accent);">0 Akun</span>
+            <span>Tersimpan di Browser</span>
+            <span id="drawer-account-total" class="tabular" style="color:var(--accent);">0 Akun</span>
           </div>
-          <div id="drawer-accounts-list">
-            <!-- Diisi otomatis melalui JavaScript -->
-          </div>
+          <div id="drawer-accounts-list"></div>
         </div>
 
         <div>
           <div class="drawer-group-title">
-            <span>Pintasan Cepat</span>
+            <span>Pintasan</span>
           </div>
           <div class="drawer-quick-list">
             <button type="button" class="btn btn-sm hide" id="btn-install-pwa">
@@ -1769,409 +1580,279 @@
             </button>
           </div>
         </div>
-
-        <div>
-          <div class="drawer-group-title">
-            <span>Status Infrastruktur</span>
-          </div>
-          <div class="sys-info-box">
-            <div class="sys-info-row">
-              <span>Node Utama</span>
-              <b>dkaimono.web.id</b>
-            </div>
-            <div class="sys-info-row">
-              <span>Otentikasi</span>
-              <b style="color:var(--c10-accent);">Firebase Magic Link</b>
-            </div>
-            <div class="sys-info-row">
-              <span>Validasi Struk</span>
-              <b>Google Play Receipt</b>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </aside>
 
   <!-- =================================================================
-       MAIN CONTENT
+       CENTERED MAIN STAGE
        ================================================================= -->
-  <main>
+  <main class="app-stage">
+    <div class="studio-shell">
 
-    <!-- CHAPTER 1: 60% DOMINANT GROUND + ASYMMETRIC STUDIO WORKBENCH -->
-    <section class="stage-section">
-      <div class="shell stage-grid">
+      <!-- Compact Header -->
+      <div class="hero-head">
+        <div class="hero-kicker">FIREBASE AUTH &middot; GOOGLE PLAY RECEIPT</div>
+        <h1 class="hero-title">Aktivasi Alight Motion Pro</h1>
+        <p class="hero-desc">
+          Sinkronisasi lisensi tahunan resmi langsung ke akun email Anda tanpa kata sandi dan tanpa aplikasi modifikasi.
+        </p>
+      </div>
 
-        <!-- Left Area 1: Hero Statement -->
-        <div class="area-copy">
-          <h1 class="hero-title">Aktivasi Lisensi Resmi Alight Motion Pro</h1>
-          <p class="hero-desc">
-            Tautkan langganan tahunan langsung ke akun Alight Motion Anda melalui Google Firebase Auth resmi. Tanpa kata sandi, bebas watermark, dan tanpa APK modifikasi.
-          </p>
-
-          <div class="workflow-mini">
-            <div class="workflow-mini-row">
-              <span class="workflow-mini-dot"></span>
-              <span>Kirim tautan masuk resmi ke alamat email akun Anda</span>
-            </div>
-            <div class="workflow-mini-row">
-              <span class="workflow-mini-dot"></span>
-              <span>Tempel tautan untuk sinkronisasi struk Google Play di server</span>
-            </div>
-            <div class="workflow-mini-row">
-              <span class="workflow-mini-dot"></span>
-              <span>Kirim magic link baru untuk masuk langsung ke aplikasi HP</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Left Area 2: Persistent Saved Session Quick-Renew Banner -->
-        <div class="area-session saved-session-card hide" id="saved-session-banner">
-          <div class="saved-session-head">
-            <div>
-              <div class="saved-session-email" id="ss-email">nama@email.com</div>
-              <div class="saved-session-sub">Masa aktif Pro hingga <b id="ss-valid">3 Juli 2027</b></div>
-            </div>
+      <!-- Docked Saved Session Banner (30% Secondary Carbon Block) -->
+      <div class="saved-session-card hide" id="saved-session-banner">
+        <div class="saved-session-left">
+          <div class="saved-session-top">
             <span class="saved-session-tag" id="ss-days-tag">PRO AKTIF</span>
+            <div class="saved-session-email" id="ss-email">nama@email.com</div>
           </div>
-          <div class="saved-session-btns">
-            <button type="button" class="btn btn-sm" id="btn-quick-renew">Perpanjang Sesi</button>
-            <button type="button" class="btn sec btn-sm" id="btn-forget-session">Hapus Sesi</button>
-          </div>
+          <div class="saved-session-sub">Berlaku hingga <b id="ss-valid">3 Juli 2027</b></div>
         </div>
-
-        <!-- Left Area 3: 30% Slate Live Telemetry Matrix -->
-        <div class="area-telemetry telemetry-matrix">
-          <div class="telemetry-tile">
-            <span class="telemetry-label">Total Aktivasi</span>
-            <span class="telemetry-value tabular" id="st-total">...</span>
-          </div>
-          <div class="telemetry-tile">
-            <span class="telemetry-label">Aktif Hari Ini</span>
-            <span class="telemetry-value tabular" id="st-today">...</span>
-          </div>
-          <div class="telemetry-tile">
-            <span class="telemetry-label">Tipe Lisensi</span>
-            <span class="telemetry-value accent-txt">VIP 1 Tahun</span>
-          </div>
-          <div class="telemetry-tile">
-            <span class="telemetry-label">Respon API</span>
-            <span class="telemetry-value tabular" id="st-ping">18ms</span>
-          </div>
+        <div class="saved-session-btns">
+          <button type="button" class="btn btn-xs" id="btn-quick-renew">Perpanjang Sesi</button>
+          <button type="button" class="btn dark-sec btn-xs" id="btn-forget-session">Hapus</button>
         </div>
-
-        <!-- Right Area: Interactive 3-Step Activation Workbench (30% Slate + 10% Accent) -->
-        <div class="area-workbench">
-          <section data-ui="studio-workbench" id="activation-hub" aria-label="Panel Aktivasi Lisensi">
-
-            <!-- Stepper Bar -->
-            <div class="stepper-bar" role="tablist">
-              <button type="button" id="step-nav-1" class="step-item active" role="tab" aria-selected="true">
-                <span class="step-badge" id="step-badge-1">1</span>
-                <span>Email Akun</span>
-              </button>
-              <button type="button" id="step-nav-2" class="step-item" role="tab" aria-selected="false">
-                <span class="step-badge" id="step-badge-2">2</span>
-                <span>Verifikasi Link</span>
-              </button>
-              <button type="button" id="step-nav-3" class="step-item" role="tab" aria-selected="false">
-                <span class="step-badge" id="step-badge-3">3</span>
-                <span>VIP Aktif</span>
-              </button>
-            </div>
-
-            <div class="workbench-body">
-
-              <!-- STEP 1: INPUT EMAIL -->
-              <div class="panel active" id="panel-1">
-                <div class="panel-head">
-                  <h2 class="panel-title">Langkah 1: Masukkan Email Akun</h2>
-                  <p class="panel-sub">Tautan masuk sekali pakai akan dikirim langsung oleh server Google Firebase Alight Creative ke inbox Anda.</p>
-                </div>
-
-                <div class="field-group">
-                  <div class="field-top">
-                    <label class="field-label" for="input-email">Alamat Email</label>
-                  </div>
-                  <div class="input-wrap">
-                    <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect x="2" y="4" width="20" height="16" rx="3"/>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                    </svg>
-                    <input class="input-control" id="input-email" type="email" inputmode="email" placeholder="nama@gmail.com" autocomplete="email" required>
-                    <button type="button" class="btn-clear-field hide" id="btn-clear-email" aria-label="Bersihkan email">&times;</button>
-                  </div>
-
-                  <div class="domain-chips" aria-label="Pintasan domain email">
-                    <button type="button" class="domain-chip" data-domain="@gmail.com">@gmail.com</button>
-                    <button type="button" class="domain-chip" data-domain="@icloud.com">@icloud.com</button>
-                    <button type="button" class="domain-chip" data-domain="@outlook.com">@outlook.com</button>
-                    <button type="button" class="domain-chip" data-domain="@yahoo.com">@yahoo.com</button>
-                  </div>
-                </div>
-
-                <div class="action-row">
-                  <button type="button" class="btn" id="btn-send-link">
-                    <span>Kirim Magic Link</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <line x1="5" y1="12" x2="19" y2="12"/>
-                      <polyline points="12 5 19 12 12 19"/>
-                    </svg>
-                  </button>
-                  <a href="https://mail.google.com" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">
-                    Buka Gmail
-                  </a>
-                </div>
-
-                <div class="feedback-box" id="msg-1" role="status"></div>
-              </div>
-
-              <!-- STEP 2: PASTE MAGIC LINK -->
-              <div class="panel" id="panel-2">
-                <div class="panel-head">
-                  <h2 class="panel-title">Langkah 2: Tempel &amp; Aktifkan Pro</h2>
-                  <p class="panel-sub">Buka email dari Alight Creative, tekan tahan tombol <b>"Sign in to Alight Motion"</b>, salin tautannya, lalu tempel di bawah.</p>
-                </div>
-
-                <div class="target-email-bar">
-                  <span>Tautan dikirim ke: <b id="step2-target-email">-</b></span>
-                  <button type="button" class="link-inline-btn" id="btn-change-email">Ganti Email</button>
-                </div>
-
-                <div class="field-group">
-                  <div class="field-top">
-                    <label class="field-label" for="input-link">Tautan Masuk (Magic Link)</label>
-                    <button type="button" id="btn-paste-clipboard" class="btn sec btn-xs">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                      </svg>
-                      <span>Tempel Clipboard</span>
-                    </button>
-                  </div>
-                  <textarea class="textarea-control" id="input-link" placeholder="https://alightcreative.com/am/?link=...&amp;apiKey=..."></textarea>
-                  <div id="link-hint-status" class="link-hint"></div>
-                </div>
-
-                <div class="action-row">
-                  <button type="button" class="btn" id="btn-verify">
-                    <span>Aktifkan Lisensi Pro</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                  </button>
-                  <button type="button" class="btn sec" id="btn-open-guide-modal">
-                    Cara Salin Link
-                  </button>
-                </div>
-
-                <div class="feedback-box" id="msg-2" role="status"></div>
-              </div>
-
-              <!-- STEP 3: VIP PRO ACTIVE DASHBOARD -->
-              <div class="panel" id="panel-3">
-                <div class="panel-head">
-                  <h2 class="panel-title">Lisensi Alight Motion Pro Aktif</h2>
-                  <p class="panel-sub">Tanda terima pembelian resmi telah disinkronkan ke akun Alight Creative Anda.</p>
-                </div>
-
-                <div class="vip-card">
-                  <div class="vip-card-top">
-                    <span class="vip-verified-pill">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
-                        <polyline points="20 6 9 17 4 12"/>
-                      </svg>
-                      VIP PRO TERVERIFIKASI
-                    </span>
-                    <span class="vip-days-pill tabular" id="res-days-badge">Status Aktif</span>
-                  </div>
-
-                  <div class="vip-meta-grid">
-                    <div class="vip-meta-box">
-                      <div class="vip-meta-lbl">Akun Terdaftar</div>
-                      <div class="vip-meta-val" id="res-email">-</div>
-                    </div>
-                    <div class="vip-meta-box">
-                      <div class="vip-meta-lbl">Berlaku Hingga</div>
-                      <div class="vip-meta-val accent" id="res-valid">3 Juli 2027</div>
-                    </div>
-                  </div>
-
-                  <div class="vip-perks">
-                    <div class="vip-perk-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>Tanpa Watermark Ekspor</span>
-                    </div>
-                    <div class="vip-perk-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>Render 4K 60FPS Penuh</span>
-                    </div>
-                    <div class="vip-perk-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>Seluruh Efek &amp; Asset VIP</span>
-                    </div>
-                    <div class="vip-perk-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      <span>Sinkron Cloud Multi-Perangkat</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Panduan Masuk Aplikasi HP -->
-                <div class="mobile-login-guide">
-                  <div class="mobile-login-title">Cara Masuk ke Aplikasi Alight Motion di HP:</div>
-                  <ol class="mobile-login-list">
-                    <li>Tekan tombol <b>"Kirim Magic Link HP"</b> di bawah untuk membuat tautan login baru.</li>
-                    <li>Buka aplikasi <b>Gmail di HP</b> lalu buka email paling baru dari Alight Creative.</li>
-                    <li>Ketuk langsung tombol <b>"Sign in to Alight Motion"</b> di dalam email agar aplikasi terbuka otomatis sebagai Member Pro.</li>
-                  </ol>
-                  <div class="mobile-login-note">
-                    Catatan: Tautan pertama sudah terpakai untuk aktivasi lisensi di server sehingga tidak dapat diklik ulang.
-                  </div>
-                </div>
-
-                <!-- Primary 10% CTA in Step 3 -->
-                <div class="vip-primary-cta">
-                  <button type="button" class="btn btn-full" id="btn-send-app-login">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                      <line x1="12" y1="18" x2="12.01" y2="18"/>
-                    </svg>
-                    <span>Kirim Magic Link HP</span>
-                  </button>
-                </div>
-
-                <div class="vip-sec-grid">
-                  <button type="button" class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
-                  <button type="button" class="btn sec btn-sm" id="btn-open-app">Buka Alight Motion</button>
-                  <button type="button" class="btn sec btn-sm" id="btn-share-wa">Bagikan WhatsApp</button>
-                </div>
-
-                <div class="vip-util-row">
-                  <button type="button" class="btn sec btn-sm" id="btn-copy-token">
-                    <span id="lbl-copy-token">Salin ID Token</span>
-                  </button>
-                  <button type="button" class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
-                </div>
-
-                <div class="feedback-box" id="msg-login-send" role="status"></div>
-              </div>
-
-            </div>
-          </section>
-        </div>
-
       </div>
-    </section>
 
-    <!-- CHAPTER 2: 30% SECONDARY TONAL BAND (ARCHITECTURE & FAQ) -->
-    <section class="chapter-band">
-      <div class="shell">
+      <!-- Main Interactive Workbench Card -->
+      <section class="workbench-card" data-ui="studio-workbench" id="activation-hub" aria-label="Panel Aktivasi Lisensi">
 
-        <div class="arch-header">
-          <h2 class="section-heading">Keamanan &amp; Arsitektur Sistem</h2>
-          <p class="section-sub">Dirancang dengan standar otentikasi resmi tanpa menyimpan kredensial sensitif milik pengguna.</p>
+        <!-- 3-Step Segmented Bar -->
+        <div class="stepper-bar" role="tablist">
+          <button type="button" id="step-nav-1" class="step-item active" role="tab" aria-selected="true">
+            <span class="step-badge" id="step-badge-1">1</span>
+            <span>Email Akun</span>
+          </button>
+          <button type="button" id="step-nav-2" class="step-item" role="tab" aria-selected="false">
+            <span class="step-badge" id="step-badge-2">2</span>
+            <span>Verifikasi Link</span>
+          </button>
+          <button type="button" id="step-nav-3" class="step-item" role="tab" aria-selected="false">
+            <span class="step-badge" id="step-badge-3">3</span>
+            <span>Status Pro</span>
+          </button>
         </div>
 
-        <div class="arch-grid">
-          <article class="arch-tile">
-            <div class="arch-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-            </div>
-            <h3>Tanpa Kata Sandi</h3>
-            <p>Sistem tidak pernah meminta password email Anda. Seluruh proses masuk ditangani oleh tautan resmi Google Firebase Auth.</p>
-          </article>
+        <div class="workbench-body">
 
-          <article class="arch-tile">
-            <div class="arch-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <polyline points="9 12 11 14 15 10"/>
-              </svg>
+          <!-- STEP 1: INPUT EMAIL -->
+          <div class="panel active" id="panel-1">
+            <div class="panel-head">
+              <h2 class="panel-title">Masukkan Email Akun Alight Motion</h2>
+              <p class="panel-sub">Server resmi Alight Creative akan mengirimkan tautan masuk sekali pakai ke kotak masuk Anda.</p>
             </div>
-            <h3>Validasi Struk Resmi</h3>
-            <p>Status langganan Pro diverifikasi langsung melalui endpoint tanda terima resmi server Alight Creative tanpa modifikasi aplikasi.</p>
-          </article>
 
-          <article class="arch-tile">
-            <div class="arch-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              </svg>
+            <div class="field-group">
+              <div class="field-top">
+                <label class="field-label" for="input-email">Alamat Email</label>
+              </div>
+              <div class="input-wrap">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="3"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <input class="input-control" id="input-email" type="email" inputmode="email" placeholder="nama@gmail.com" autocomplete="email" required>
+                <button type="button" class="btn-clear-field hide" id="btn-clear-email" aria-label="Bersihkan email">&times;</button>
+              </div>
+
+              <div class="domain-chips" aria-label="Pintasan domain email">
+                <button type="button" class="domain-chip" data-domain="@gmail.com">@gmail.com</button>
+                <button type="button" class="domain-chip" data-domain="@icloud.com">@icloud.com</button>
+                <button type="button" class="domain-chip" data-domain="@outlook.com">@outlook.com</button>
+                <button type="button" class="domain-chip" data-domain="@yahoo.com">@yahoo.com</button>
+              </div>
             </div>
-            <h3>Brankas Lokal Privat</h3>
-            <p>Kelola banyak sesi akun Alight Motion sekaligus. Token pembaruan tersimpan terisolasi hanya di penyimpanan lokal browser Anda.</p>
-          </article>
 
-          <article class="arch-tile">
-            <div class="arch-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 4 23 10 17 10"/>
-                <polyline points="1 20 1 14 7 14"/>
-                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-              </svg>
+            <div class="action-row">
+              <button type="button" class="btn" id="btn-send-link">
+                <span>Kirim Magic Link</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+              <a href="https://mail.google.com" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">
+                Buka Gmail
+              </a>
             </div>
-            <h3>Sinkronisasi 1 Klik</h3>
-            <p>Perpanjang masa aktif sesi kapan saja secara instan menggunakan refresh token resmi tanpa perlu membuka ulang kotak masuk email.</p>
-          </article>
-        </div>
 
-        <!-- Interactive FAQ Accordion -->
-        <div class="faq-split">
-          <div class="faq-left">
-            <h2 class="section-heading">Pertanyaan Umum</h2>
-            <p>Solusi cepat untuk kendala penyalinan tautan Gmail dan cara masuk ke aplikasi di perangkat seluler.</p>
+            <div class="feedback-box" id="msg-1" role="status"></div>
           </div>
 
-          <div class="faq-stack">
-            <details class="faq-tile" name="dkaimono-faq" open>
-              <summary>
-                <span>Mengapa tautan di email tidak bisa diklik dua kali untuk masuk ke HP?</span>
-                <span class="faq-plus" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                Setiap magic link dari Google Firebase bersifat sekali pakai (single-use code). Tautan pertama yang Anda tempel di Langkah 2 telah digunakan server untuk mengaktifkan lisensi Pro. Untuk masuk ke aplikasi Alight Motion di HP, cukup tekan tombol <b>"Kirim Magic Link HP"</b> di Langkah 3 lalu ketuk tautan baru yang masuk ke Gmail Anda.
-              </div>
-            </details>
+          <!-- STEP 2: PASTE MAGIC LINK -->
+          <div class="panel" id="panel-2">
+            <div class="panel-head">
+              <h2 class="panel-title">Tempel Tautan &amp; Aktifkan Pro</h2>
+              <p class="panel-sub">Buka email dari Alight Creative, <b>tekan &amp; tahan</b> tombol <b>"Sign in to Alight Motion"</b>, salin URL-nya, lalu tempel di bawah.</p>
+            </div>
 
-            <details class="faq-tile" name="dkaimono-faq">
-              <summary>
-                <span>Apakah harus menggunakan aplikasi Alight Motion versi Play Store / App Store?</span>
-                <span class="faq-plus" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                Ya, sangat disarankan menggunakan aplikasi resmi dari Google Play Store atau Apple App Store. Karena lisensi langsung tertaut pada akun email Anda, aplikasi modifikasi tidak diperlukan dan fitur login resmi akan berjalan jauh lebih stabil.
-              </div>
-            </details>
+            <div class="target-email-bar">
+              <span>Target email: <b id="step2-target-email">-</b></span>
+              <button type="button" class="link-inline-btn" id="btn-change-email">Ubah Email</button>
+            </div>
 
-            <details class="faq-tile" name="dkaimono-faq">
-              <summary>
-                <span>Bagaimana jika suatu saat status Pro di aplikasi kembali menjadi akun biasa?</span>
-                <span class="faq-plus" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                Buka kembali halaman ini, lalu klik tombol <b>"Perpanjang Sesi"</b> pada kartu sesi di halaman utama atau melalui menu <b>Sesi Akun</b> di kanan atas. Server akan menyegarkan kembali tanda terima lisensi Anda dalam satu klik tanpa perlu verifikasi email ulang.
+            <div class="field-group">
+              <div class="field-top">
+                <label class="field-label" for="input-link">URL Magic Link</label>
+                <button type="button" id="btn-paste-clipboard" class="btn sec btn-xs">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                  <span>Tempel Otomatis</span>
+                </button>
               </div>
-            </details>
+              <textarea class="textarea-control" id="input-link" placeholder="https://alightcreative.com/am/?link=...&amp;apiKey=..."></textarea>
+              <div id="link-hint-status" class="link-hint"></div>
+            </div>
 
-            <details class="faq-tile" name="dkaimono-faq">
-              <summary>
-                <span>Apakah bisa mengaktifkan lebih dari satu akun email?</span>
-                <span class="faq-plus" aria-hidden="true"></span>
-              </summary>
-              <div class="faq-answer">
-                Bisa. Setelah aktivasi selesai, tekan <b>"Aktivasi Akun Lain"</b>. Seluruh akun yang pernah Anda aktifkan akan tersimpan rapi di dalam panel <b>Sesi Akun</b> lengkap dengan sisa hari aktif dan tombol perpanjangan masing-masing.
-              </div>
-            </details>
+            <div class="action-row">
+              <button type="button" class="btn" id="btn-verify">
+                <span>Aktifkan Lisensi Pro</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </button>
+              <button type="button" class="btn sec" id="btn-open-guide-modal">
+                Cara Salin Link
+              </button>
+            </div>
+
+            <div class="feedback-box" id="msg-2" role="status"></div>
           </div>
-        </div>
 
+          <!-- STEP 3: VIP PRO ACTIVE DASHBOARD -->
+          <div class="panel" id="panel-3">
+            <div class="panel-head">
+              <h2 class="panel-title">Lisensi Pro Berhasil Diaktifkan</h2>
+              <p class="panel-sub">Tanda terima langganan tahunan telah terhubung ke akun Alight Creative Anda.</p>
+            </div>
+
+            <!-- 30% Carbon Membership Pass Card -->
+            <div class="vip-pass-card">
+              <div class="vip-card-top">
+                <span class="vip-verified-pill">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  PRO PASS AKTIF
+                </span>
+                <span class="vip-days-pill tabular" id="res-days-badge">Status Aktif</span>
+              </div>
+
+              <div class="vip-meta-grid">
+                <div class="vip-meta-box">
+                  <div class="vip-meta-lbl">Akun Terdaftar</div>
+                  <div class="vip-meta-val" id="res-email">-</div>
+                </div>
+                <div class="vip-meta-box">
+                  <div class="vip-meta-lbl">Masa Berlaku</div>
+                  <div class="vip-meta-val accent" id="res-valid">3 Juli 2027</div>
+                </div>
+              </div>
+
+              <div class="vip-pass-footer">
+                <div class="vip-perks-inline">
+                  <span>Tanpa Watermark</span>
+                  <span>Ekspor 4K 60fps</span>
+                  <span>Efek VIP</span>
+                </div>
+                <button type="button" class="btn-token-chip" id="btn-copy-token">
+                  <span id="lbl-copy-token">Salin Token</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mobile App Login Box -->
+            <div class="mobile-login-box">
+              <div class="mobile-login-title">Masuk ke Aplikasi Alight Motion di HP:</div>
+              <ol class="mobile-login-list">
+                <li>Klik <b>"Kirim Magic Link HP"</b> di bawah untuk membuat link login baru.</li>
+                <li>Buka email terbaru di <b>Gmail HP</b> lalu ketuk langsung tombol <b>"Sign in to Alight Motion"</b>.</li>
+              </ol>
+              <button type="button" class="btn btn-full" id="btn-send-app-login">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                  <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
+                <span>Kirim Magic Link HP</span>
+              </button>
+            </div>
+
+            <div class="vip-actions-grid">
+              <button type="button" class="btn sec btn-sm" id="btn-open-app">Buka Aplikasi AM</button>
+              <button type="button" class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
+              <button type="button" class="btn sec btn-sm" id="btn-share-wa">Bagikan ke WhatsApp</button>
+              <button type="button" class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
+            </div>
+
+            <div class="feedback-box" id="msg-login-send" role="status"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Compact Telemetry Bar -->
+      <div class="telemetry-strip" aria-label="Statistik Server">
+        <div class="telemetry-cell">
+          <span class="telemetry-label">Total Aktivasi</span>
+          <span class="telemetry-value tabular" id="st-total">...</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-label">Hari Ini</span>
+          <span class="telemetry-value tabular" id="st-today">...</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-label">Tipe Lisensi</span>
+          <span class="telemetry-value accent-txt">Pro Tahunan</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="telemetry-label">Latensi API</span>
+          <span class="telemetry-value tabular" id="st-ping">18ms</span>
+        </div>
       </div>
-    </section>
 
+      <!-- Focused FAQ Section -->
+      <section class="faq-section" aria-label="Pertanyaan Umum">
+        <div class="faq-head">
+          <h2>Pertanyaan Umum</h2>
+          <span>Panduan singkat kendala aktivasi</span>
+        </div>
+
+        <div class="faq-stack">
+          <details class="faq-tile" name="dkaimono-faq" open>
+            <summary>
+              <span>Mengapa link pertama di email tidak bisa diklik lagi untuk login di HP?</span>
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              Tautan dari Google Firebase hanya berlaku untuk 1 kali pakai. Link pertama yang Anda tempel di Langkah 2 sudah terpakai oleh server untuk mengaktifkan status Pro. Untuk login ke aplikasi HP, tekan tombol <b>"Kirim Magic Link HP"</b> di Langkah 3 lalu ketuk link baru yang masuk ke Gmail Anda.
+            </div>
+          </details>
+
+          <details class="faq-tile" name="dkaimono-faq">
+            <summary>
+              <span>Apakah wajib memakai Alight Motion resmi dari Play Store / App Store?</span>
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              Ya. Gunakan aplikasi resmi dari Google Play Store atau App Store agar fitur login Firebase berjalan normal dan bebas dari risiko aplikasi modifikasi.
+            </div>
+          </details>
+
+          <details class="faq-tile" name="dkaimono-faq">
+            <summary>
+              <span>Bagaimana cara memperpanjang masa aktif atau mengelola banyak akun?</span>
+              <span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-answer">
+              Semua akun yang Anda aktifkan otomatis tersimpan di menu <b>Sesi Akun</b> (kanan atas). Anda bisa memperpanjang masa aktif dalam sekali klik kapan saja tanpa perlu verifikasi ulang.
+            </div>
+          </details>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <!-- =================================================================
@@ -2187,27 +1868,27 @@
       <div class="guide-steps">
         <div class="guide-row">
           <span class="guide-num">1</span>
-          <div>Buka email terbaru dari <b>Alight Creative</b> di aplikasi Gmail atau browser Anda (cek folder Spam bila belum terlihat).</div>
+          <div>Buka email terbaru dari <b>Alight Creative</b> di Gmail (cek folder Spam bila belum masuk).</div>
         </div>
         <div class="guide-row">
           <span class="guide-num">2</span>
-          <div>Temukan tombol berwarna hijau/hitam bertuliskan <b>"Sign in to Alight Motion"</b>. Jangan diketuk biasa agar kode tidak hangus.</div>
+          <div>Cari tombol bertuliskan <b>"Sign in to Alight Motion"</b>. Jangan diklik biasa agar kodenya tidak hangus.</div>
         </div>
         <div class="guide-row">
           <span class="guide-num">3</span>
-          <div><b>Tekan dan tahan (Long-Press)</b> tombol tersebut di HP, atau <b>Klik Kanan</b> jika di laptop/PC.</div>
+          <div><b>Tekan &amp; tahan (Long-Press)</b> tombol tersebut di HP, atau <b>Klik Kanan</b> di PC/Laptop.</div>
         </div>
         <div class="guide-row">
           <span class="guide-num">4</span>
-          <div>Pilih menu <b>"Salin URL"</b> atau <b>"Copy link address"</b>.</div>
+          <div>Pilih <b>"Salin URL"</b> atau <b>"Copy link address"</b>.</div>
         </div>
         <div class="guide-row">
           <span class="guide-num">5</span>
-          <div>Kembali ke halaman ini lalu tekan tombol <b>"Tempel Clipboard"</b> pada Langkah 2.</div>
+          <div>Kembali ke web ini lalu klik <b>"Tempel Otomatis"</b> pada Langkah 2.</div>
         </div>
       </div>
 
-      <button type="button" class="btn btn-full" id="btn-understand-modal">Saya Mengerti</button>
+      <button type="button" class="btn btn-full" id="btn-understand-modal">Mengerti</button>
     </div>
   </div>
 
@@ -2217,11 +1898,11 @@
   </div>
 
   <!-- =================================================================
-       QUIET SINGLE-LINE FOOTER (60% Dominant Ground)
+       QUIET FOOTER
        ================================================================= -->
   <footer class="quiet-footer">
-    <div class="shell footer-grid">
-      <div>&copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--ink-100);text-decoration:none;font-weight:600;">dkaimono.web.id</a> &middot; Alight Motion Pro Studio</div>
+    <div class="topbar-shell footer-grid">
+      <div>&copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--ink-primary);text-decoration:none;font-weight:700;">dkaimono.web.id</a> &middot; DKaimono-AM Studio</div>
       <div class="footer-links">
         <button type="button" id="footer-btn-guide">Panduan Salin</button>
         <button type="button" id="footer-btn-vault">Sesi Tersimpan</button>
@@ -2237,7 +1918,6 @@
     let currentActiveEmail = '';
     let toastTimer = null;
 
-    // Toast Helper
     function showToast(text) {
       const toast = $('toast');
       $('toast-text').textContent = text;
@@ -2246,7 +1926,6 @@
       toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
     }
 
-    // Button Loading State
     function setBusy(btn, isBusy, text) {
       if (!btn) return;
       btn.disabled = isBusy;
@@ -2273,7 +1952,6 @@
       }
     }
 
-    // Remaining Days Parser
     function getDaysRemaining(validUntil) {
       if (!validUntil) return null;
       const match = validUntil.match(/(\d+)\s+([A-Za-z]+)\s+(\d{4})/);
@@ -2290,7 +1968,6 @@
       return Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24));
     }
 
-    // Stepper State Controller
     const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px;"><polyline points="20 6 9 17 4 12"/></svg>';
 
     function setStep(step) {
@@ -2324,7 +2001,6 @@
       }
     }
 
-    // Allow clicking Step 1 tab or "Ganti Email" when in Step 2
     $('step-nav-1').onclick = () => {
       if ($('panel-2').classList.contains('active')) {
         setStep(1);
@@ -2336,7 +2012,6 @@
       $('input-email').focus();
     };
 
-    // Email Input Clear Button
     const emailInput = $('input-email');
     const clearEmailBtn = $('btn-clear-email');
     function syncClearEmailBtn() {
@@ -2349,7 +2024,6 @@
       emailInput.focus();
     };
 
-    // Server Status & Latency Check
     async function checkStatus() {
       const start = performance.now();
       try {
@@ -2360,7 +2034,7 @@
         $('topbar-ping').textContent = '\u00B7 ' + ping + 'ms';
         if (data.status === 'online') {
           $('status-label').textContent = 'Online';
-          $('status-dot-el').style.backgroundColor = 'var(--c10-accent)';
+          $('status-dot-el').style.backgroundColor = 'var(--ok)';
         }
       } catch (err) {
         $('status-label').textContent = 'Offline';
@@ -2370,7 +2044,6 @@
     }
     checkStatus();
 
-    // Live Stats Counter
     async function loadStats() {
       try {
         const res = await fetch('/api/stats');
@@ -2386,7 +2059,6 @@
     }
     loadStats();
 
-    // Multi-Account Local Vault
     function getSavedAccounts() {
       try {
         let list = JSON.parse(localStorage.getItem('dkaimono_accounts') || '[]');
@@ -2472,8 +2144,8 @@
 
       if (list.length === 0) {
         container.innerHTML = `
-          <div style="font-size:12.5px;color:var(--ink-50);background:var(--c60-canvas);border-radius:var(--r-md);padding:16px;line-height:1.5;">
-            Belum ada sesi tersimpan. Setiap akun yang berhasil Anda aktifkan akan otomatis tercatat di brankas ini.
+          <div style="font-size:12.5px;color:var(--ink-secondary);background:var(--bg-canvas);border:1px solid var(--border-hairline);border-radius:var(--r-sm);padding:14px;line-height:1.5;">
+            Belum ada sesi tersimpan. Setiap akun yang berhasil diaktifkan akan tercatat otomatis di sini.
           </div>
         `;
         return;
@@ -2576,7 +2248,6 @@
     }
     renderDrawerAccounts();
 
-    // Drawer & Modal Controls
     const drawer = $('menu-drawer');
     const modal = $('guide-modal');
 
@@ -2607,7 +2278,6 @@
     $('btn-understand-modal').onclick = closeModal;
     modal.onclick = e => { if (e.target === modal) closeModal(); };
 
-    // Launch Alight Motion App Safely
     function openAlightMotionApp() {
       const isAndroid = /android/i.test(navigator.userAgent);
       if (isAndroid) {
@@ -2631,7 +2301,6 @@
       $('btn-share-wa').click();
     };
 
-    // Quick Renew from Persistent Session Card
     $('btn-quick-renew').onclick = async () => {
       const list = getSavedAccounts();
       if (!list || list.length === 0) return;
@@ -2673,7 +2342,6 @@
       if (list.length > 0) removeAccount(list[0].email);
     };
 
-    // Domain Shortcut Chips
     document.querySelectorAll('.domain-chip').forEach(chip => {
       chip.onclick = () => {
         const domain = chip.getAttribute('data-domain');
@@ -2691,7 +2359,6 @@
       };
     });
 
-    // Smart Gmail Opener (Android/iOS/Desktop Friendly)
     $('btn-open-mail').onclick = e => {
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
@@ -2704,7 +2371,6 @@
       }
     };
 
-    // Step 1: Send Magic Link
     $('btn-send-link').onclick = async () => {
       clearMsg('msg-1');
       const email = emailInput.value.trim();
@@ -2739,7 +2405,6 @@
       }
     };
 
-    // Smart Magic Link Validator & Auto-URL Extractor
     function validateMagicLinkInput(val) {
       const hintEl = $('link-hint-status');
       if (!hintEl) return;
@@ -2751,12 +2416,12 @@
       const isAmLink = text.includes('alightcreative.com') || text.includes('apiKey=') || text.includes('oobCode=');
       if (isAmLink) {
         hintEl.style.display = 'block';
-        hintEl.style.color = 'var(--c10-accent)';
+        hintEl.style.color = 'var(--ok)';
         hintEl.textContent = 'Format magic link Alight Creative valid dan siap diaktifkan.';
       } else if (text.startsWith('http://') || text.startsWith('https://')) {
         hintEl.style.display = 'block';
         hintEl.style.color = 'var(--warn)';
-        hintEl.textContent = 'Tautan terdeteksi, namun pastikan berasal dari tombol Sign in to Alight Motion.';
+        hintEl.textContent = 'Tautan terdeteksi, pastikan berasal dari tombol Sign in to Alight Motion.';
       } else {
         hintEl.style.display = 'block';
         hintEl.style.color = 'var(--danger)';
@@ -2777,7 +2442,6 @@
       }, 40);
     });
 
-    // Step 2: Paste from Clipboard
     $('btn-paste-clipboard').onclick = async () => {
       try {
         if (!navigator.clipboard) {
@@ -2805,7 +2469,6 @@
       }
     };
 
-    // Step 2: Verify Link & Activate Pro
     $('btn-verify').onclick = async () => {
       clearMsg('msg-2');
       const magicLink = $('input-link').value.trim();
@@ -2855,7 +2518,6 @@
       }
     };
 
-    // Step 3: Send Fresh Mobile App Login Link
     $('btn-send-app-login').onclick = async () => {
       const email = $('res-email').textContent;
       if (!email || email === '-') return;
@@ -2884,7 +2546,6 @@
       }
     };
 
-    // Step 3: Renew Session
     $('btn-renew-session').onclick = async () => {
       const email = $('res-email').textContent;
       const list = getSavedAccounts();
@@ -2950,7 +2611,6 @@
       emailInput.focus();
     };
 
-    // Share WhatsApp / Web Share API
     $('btn-share-wa').onclick = () => {
       const shareUrl = 'https://dkaimono.web.id';
       const shareText = 'Akun Alight Motion barusan aktif Pro tahunan resmi lewat https://dkaimono.web.id tanpa password. Cobain mumpung servernya online!';
@@ -2967,7 +2627,6 @@
       }
     };
 
-    // Keyboard Shortcuts
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         closeDrawer();
@@ -2980,7 +2639,6 @@
       }
     });
 
-    // Service Worker & Installable PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch(() => {});

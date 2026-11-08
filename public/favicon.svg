@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- 60% Dominant Studio Carbon Base -->
-  <rect width="512" height="512" rx="120" fill="#0b0e11"/>
-  <!-- 30% Secondary Mineral Slate Stage -->
-  <rect x="36" y="36" width="440" height="440" rx="92" fill="#171f28"/>
-  <!-- 10% Signal Studio Mint Bolt -->
-  <path d="M282 88L128 280H248L222 424L384 232H264L282 88Z" fill="#22e58a"/>
+  <rect width="512" height="512" rx="116" fill="#141413"/>
+  <rect x="32" y="32" width="448" height="448" rx="88" fill="none" stroke="#2A2927" stroke-width="8"/>
+  <path d="M286 84L132 276H246L218 428L380 236H266L286 84Z" fill="#FF4F18"/>
 </svg>

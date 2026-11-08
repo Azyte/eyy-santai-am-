@@ -1838,7 +1838,7 @@
       </div>
 
       <!-- ===============================================================
-           QUOTA, TIER & VOUCHER BAR (FREE vs PREMIUM / BULK)
+           ACCOUNT (1 DEVICE 1 AKUN), QUOTA & SECRET VOUCHER BAR
            =============================================================== -->
       <div class="quota-bar" id="quota-bar">
         <div class="quota-top">
@@ -1849,21 +1849,22 @@
           </div>
 
           <div class="quota-right">
-            <button type="button" class="btn sec btn-xs" id="btn-toggle-voucher-input">Pakai Voucher</button>
-            <button type="button" class="btn btn-xs" id="btn-open-upgrade-modal">Beli Voucher</button>
+            <button type="button" class="btn sec btn-xs" id="btn-toggle-voucher-input">Klaim Voucher</button>
+            <button type="button" class="btn btn-xs" id="btn-open-auth-modal">Login / Daftar</button>
+            <button type="button" class="btn sec btn-xs hide" id="btn-logout-account">Keluar</button>
           </div>
         </div>
 
-        <!-- Collapsible Voucher Input Row -->
+        <!-- Collapsible Secret Voucher Input Row (Masked Password Type) -->
         <div class="voucher-drawer-row hide" id="voucher-input-row">
-          <input type="text" class="voucher-input" id="input-voucher-code" placeholder="Masukkan Kode Voucher (cth: DK-PRO-2026)">
+          <input type="password" class="voucher-input" id="input-voucher-code" placeholder="Masukkan Kode Voucher Rahasia..." autocomplete="off" spellcheck="false" style="text-transform:none;">
+          <button type="button" class="btn sec btn-xs" id="btn-toggle-voucher-eye" title="Tampilkan/Sembunyikan">Lihat</button>
           <button type="button" class="btn btn-xs" id="btn-apply-voucher">Aktifkan</button>
-          <button type="button" class="btn sec btn-xs hide" id="btn-clear-voucher">Lepas</button>
         </div>
 
         <div class="fp-shield-meta">
-          <span id="fp-device-label">Shield: Fingerprint + Subnet /24 Aktif</span>
-          <span id="active-voucher-label" style="color:var(--c10-cyan);">Mode Gratis</span>
+          <span id="fp-device-label">Hardware Lock: 1 Device 1 Akun</span>
+          <span id="active-voucher-label" style="color:var(--c10-cyan);">Belum Login</span>
         </div>
       </div>
 
@@ -2137,11 +2138,11 @@
         <div class="faq-stack">
           <details class="faq-tile" name="dkaimono-faq" open>
             <summary>
-              <span>Apa perbedaan Mode Gratis (Free) dan Kode Voucher Premium?</span>
+              <span>Bagaimana aturan Login 1 Device 1 Akun &amp; Voucher Premium Pass?</span>
               <span class="faq-plus" aria-hidden="true"></span>
             </summary>
             <div class="faq-answer">
-              Pengguna <b>Gratis</b> mendapat kuota <b>3x aktivasi/hari</b> per perangkat &amp; jaringan (subnet /24) dengan jeda cooldown 10 menit antar aktivasi. Pengguna <b>Kode Voucher Premium / Reseller</b> mendapat kuota <b>10–25 akun/hari tanpa jeda waktu</b> serta akses fitur <b>Bulk Activation (Grosir)</b>.
+              Setiap perangkat dikunci secara permanen ke <b>1 Akun (1 Device = 1 Akun)</b> melalui *Hardware Fingerprint* &amp; *Subnet /24*. Pengguna <b>Free Tier</b> mendapat kuota <b>3x aktivasi/hari</b> dengan jeda 10 menit. Setelah login dan mengklaim <b>Kode Voucher Premium Pass (1 Bulan)</b>, akun Anda mendapat kuota <b>10x aktivasi/hari tanpa jeda waktu</b> serta akses <b>Bulk Activation (Grosir)</b>.
             </div>
           </details>
 
@@ -2208,42 +2209,40 @@
   </div>
 
   <!-- =================================================================
-       MODAL 2: BELI VOUCHER PREMIUM / BULK (QRIS INSTANT CHECKOUT)
+       MODAL 2: SISTEM LOGIN & DAFTAR AKUN (1 DEVICE = 1 AKUN)
        ================================================================= -->
-  <div class="modal-backdrop" id="upgrade-modal" role="dialog" aria-modal="true" aria-labelledby="upgrade-modal-title">
+  <div class="modal-backdrop" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
     <div class="modal-dialog">
       <div class="modal-header">
-        <h2 id="upgrade-modal-title">Beli Kode Voucher Akses</h2>
-        <button type="button" class="icon-close-btn" id="btn-close-upgrade" aria-label="Tutup modal">&times;</button>
+        <h2 id="auth-modal-title">Akun DKaimono-AM (1 Device 1 Akun)</h2>
+        <button type="button" class="icon-close-btn" id="btn-close-auth" aria-label="Tutup modal">&times;</button>
       </div>
 
-      <p style="font-size:13px;color:var(--txt-70);margin-bottom:14px;">
-        Tanpa perlu daftar akun atau password. Pilih paket voucher untuk membuka kuota harian besar, bebas cooldown 10 menit, dan fitur Bulk Activation:
+      <div class="mode-tabs" style="border-radius:var(--r-sm);border:1px solid var(--c30-border);margin-bottom:14px;">
+        <button type="button" class="mode-tab-btn active" id="tab-auth-login">Masuk (Login)</button>
+        <button type="button" class="mode-tab-btn" id="tab-auth-register">Daftar Akun Baru</button>
+      </div>
+
+      <p style="font-size:12.5px;color:var(--txt-70);margin-bottom:14px;line-height:1.5;">
+        <b style="color:var(--c10-cyan);">Hardware Lock Aktif:</b> 1 Perangkat hanya dapat mendaftar dan masuk ke 1 Akun. Gunakan akun ini untuk klaim Voucher Premium Pass 1 Bulan.
       </p>
 
-      <div class="plan-grid">
-        <div class="plan-card selected" data-plan="premium" id="plan-card-premium">
-          <div class="plan-name">Premium Pass</div>
-          <div class="plan-price">Rp 15.000</div>
-          <div class="plan-desc">10 Akun / Hari &bull; Tanpa Cooldown &bull; Aktif 30 Hari</div>
+      <div class="field-group" style="margin-bottom:12px;">
+        <div class="field-top">
+          <label class="field-label" for="auth-input-email">Email Akun</label>
         </div>
-        <div class="plan-card" data-plan="reseller" id="plan-card-reseller">
-          <div class="plan-name">Reseller / Grosir</div>
-          <div class="plan-price">Rp 35.000</div>
-          <div class="plan-desc">25 Akun / Hari &bull; Mode Bulk Grosir &bull; Aktif 30 Hari</div>
-        </div>
+        <input class="input-control" id="auth-input-email" type="email" placeholder="nama@email.com" autocomplete="username" style="padding:0 14px;height:42px;">
       </div>
 
-      <div id="qris-checkout-stage" class="hide">
-        <div class="qris-box">
-          <div style="font-size:11.5px;color:var(--txt-70);margin-bottom:4px;">Invoice QRIS (<span id="qris-inv-code" class="tabular">-</span>)</div>
-          <div style="font-size:16px;font-weight:800;color:var(--c10-cyan);margin-bottom:8px;" id="qris-inv-amount">Rp 15.000</div>
-          <div style="font-family:var(--font-mono);font-size:10.5px;color:var(--txt-50);word-break:break-all;background:var(--c60-void);padding:8px;border-radius:6px;margin-bottom:10px;" id="qris-payload-preview">QRIS</div>
-          <button type="button" class="btn btn-sm btn-full" id="btn-confirm-qris">Simulasi / Konfirmasi Pembayaran QRIS</button>
+      <div class="field-group" style="margin-bottom:16px;">
+        <div class="field-top">
+          <label class="field-label" for="auth-input-password">Password (min. 6 karakter)</label>
         </div>
+        <input class="input-control" id="auth-input-password" type="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="current-password" style="padding:0 14px;height:42px;">
       </div>
 
-      <button type="button" class="btn btn-full" id="btn-create-qris">Buat QRIS Pembayaran</button>
+      <button type="button" class="btn btn-full" id="btn-submit-auth">Masuk ke Akun</button>
+      <div class="feedback-box" id="msg-auth" role="status"></div>
     </div>
   </div>
 
@@ -2274,8 +2273,9 @@
     let toastTimer = null;
     let cooldownInterval = null;
     let deviceFingerprint = localStorage.getItem('dkaimono_fp') || '';
-    let activeVoucherCode = localStorage.getItem('dkaimono_voucher') || '';
-    let currentQuotaState = { tier: 'free', isPremium: false, canBulk: false, remaining: 3, limit: 3, cooldownSeconds: 0 };
+    let authToken = localStorage.getItem('dkaimono_auth_token') || '';
+    localStorage.removeItem('dkaimono_voucher');
+    let currentQuotaState = { loggedIn: false, tier: 'free', isPremium: false, canBulk: false, remaining: 3, limit: 3, cooldownSeconds: 0 };
 
     // =================================================================
     // 1. DEVICE FINGERPRINT GENERATOR (Canvas + WebGL + Audio/UA Hash)
@@ -2328,14 +2328,14 @@
         'Content-Type': 'application/json',
         'x-device-fingerprint': deviceFingerprint
       };
-      if (activeVoucherCode) {
-        h['x-voucher-code'] = activeVoucherCode;
+      if (authToken) {
+        h['x-auth-token'] = authToken;
       }
       return h;
     }
 
     // =================================================================
-    // 2. QUOTA, COOLDOWN & VOUCHER MANAGEMENT
+    // 2. ACCOUNT (1 DEVICE 1 AKUN), QUOTA & SECRET VOUCHER MANAGEMENT
     // =================================================================
     function formatMMSS(sec) {
       const m = Math.floor(sec / 60);
@@ -2373,20 +2373,33 @@
       const summary = $('quota-summary-txt');
       const voucherLbl = $('active-voucher-label');
       const fpLabel = $('fp-device-label');
-      const clearBtn = $('btn-clear-voucher');
+      const btnAuth = $('btn-open-auth-modal');
+      const btnLogout = $('btn-logout-account');
       const bulkLock = $('bulk-lock-chip');
 
       if (q.fingerprint) {
-        fpLabel.textContent = `Shield: ${q.fingerprint.slice(0, 11)} · Subnet ${q.ipSubnet || '/24'}`;
+        fpLabel.textContent = `1 Device 1 Akun · ID ${q.fingerprint.slice(0, 10)} · Subnet ${q.ipSubnet || '/24'}`;
+      }
+
+      if (q.loggedIn) {
+        btnAuth.classList.add('hide');
+        btnLogout.classList.remove('hide');
+      } else {
+        btnAuth.classList.remove('hide');
+        btnLogout.classList.add('hide');
       }
 
       if (q.isPremium) {
         bar.classList.add('premium-active');
         badge.className = 'tier-badge pro';
-        badge.textContent = q.tier === 'reseller' ? 'RESELLER BULK' : 'PREMIUM PASS';
-        summary.textContent = `Sisa Kuota Hari Ini: ${q.remaining}/${q.limit} · Tanpa Cooldown`;
-        voucherLbl.textContent = `Voucher: ${q.voucherCode}`;
-        clearBtn.classList.remove('hide');
+        badge.textContent = 'PREMIUM PASS · 1 BULAN';
+        summary.textContent = `Kuota Hari Ini: ${q.remaining}/${q.limit} · Tanpa Cooldown`;
+        let expText = 'Aktif 30 Hari';
+        if (q.premiumUntil) {
+          const d = new Date(q.premiumUntil);
+          expText = 'Aktif s/d ' + d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+        voucherLbl.textContent = q.accountEmail ? `${q.accountEmail} (${expText})` : expText;
         bulkLock.textContent = 'AKTIF';
         startCooldownTicker(0);
       } else {
@@ -2394,9 +2407,10 @@
         badge.className = 'tier-badge';
         badge.textContent = 'FREE TIER';
         summary.textContent = `Kuota Gratis: ${q.remaining}/${q.limit} Hari Ini · Jeda 10m`;
-        voucherLbl.textContent = 'Mode Gratis (3x/Hari)';
-        clearBtn.classList.add('hide');
-        bulkLock.textContent = 'VOUCHER';
+        voucherLbl.textContent = q.loggedIn && q.accountEmail
+          ? `Login: ${q.accountEmail} (Free)`
+          : 'Belum Login (Mode Gratis)';
+        bulkLock.textContent = 'PREMIUM';
         startCooldownTicker(q.cooldownSeconds || 0);
       }
     }
@@ -2407,9 +2421,9 @@
         const res = await fetch('/api/quota', { headers: apiHeaders() });
         const data = await res.json();
         if (data.success && data.quota) {
-          if (activeVoucherCode && data.quota.voucherValid === false) {
-            activeVoucherCode = '';
-            localStorage.removeItem('dkaimono_voucher');
+          if (authToken && !data.quota.loggedIn) {
+            authToken = '';
+            localStorage.removeItem('dkaimono_auth_token');
           }
           renderQuotaBar(data.quota);
         }
@@ -2417,49 +2431,70 @@
     }
     syncQuotaStatus();
 
+    $('btn-toggle-voucher-eye').onclick = () => {
+      const inp = $('input-voucher-code');
+      const isPw = inp.type === 'password';
+      inp.type = isPw ? 'text' : 'password';
+      $('btn-toggle-voucher-eye').textContent = isPw ? 'Sembunyi' : 'Lihat';
+    };
+
     $('btn-toggle-voucher-input').onclick = () => {
+      if (!currentQuotaState.loggedIn) {
+        openAuthModal('login');
+        showToast('Silakan Login / Daftar Akun (1 Device 1 Akun) sebelum mengklaim Voucher!');
+        return;
+      }
       const row = $('voucher-input-row');
       row.classList.toggle('hide');
       if (!row.classList.contains('hide')) {
-        $('input-voucher-code').value = activeVoucherCode || '';
+        $('input-voucher-code').value = '';
+        $('input-voucher-code').type = 'password';
+        $('btn-toggle-voucher-eye').textContent = 'Lihat';
         $('input-voucher-code').focus();
       }
     };
 
     $('btn-apply-voucher').onclick = async () => {
-      const code = $('input-voucher-code').value.trim().toUpperCase();
+      if (!currentQuotaState.loggedIn) {
+        openAuthModal('login');
+        return showToast('Login terlebih dahulu sebelum mengaktifkan voucher.');
+      }
+      const code = $('input-voucher-code').value.trim();
       if (!code) return showToast('Masukkan kode voucher terlebih dahulu.');
-      setBusy($('btn-apply-voucher'), true, 'Mengecek...');
+      setBusy($('btn-apply-voucher'), true, 'Memverifikasi...');
       try {
         const res = await fetch('/api/quota/voucher', {
           method: 'POST',
-          headers: { ...apiHeaders(), 'x-voucher-code': code },
-          body: JSON.stringify({ voucherCode: code, fingerprint: deviceFingerprint })
+          headers: apiHeaders(),
+          body: JSON.stringify({ voucherCode: code, fingerprint: deviceFingerprint, authToken })
         });
         const data = await res.json();
+        // Always wipe input immediately so code never lingers in DOM
+        $('input-voucher-code').value = '';
+        $('input-voucher-code').type = 'password';
         if (data.success && data.quota) {
-          activeVoucherCode = data.quota.voucherCode;
-          localStorage.setItem('dkaimono_voucher', activeVoucherCode);
           renderQuotaBar(data.quota);
           $('voucher-input-row').classList.add('hide');
-          showToast(data.message || 'Kode Voucher diaktifkan!');
+          showToast(data.message || 'Premium Pass 1 Bulan berhasil diaktifkan!');
         } else {
+          if (data.requireLogin) openAuthModal('login');
           showToast(data.message || 'Kode Voucher tidak valid.');
         }
       } catch (e) {
+        $('input-voucher-code').value = '';
         showToast('Gagal memvalidasi voucher.');
       } finally {
         setBusy($('btn-apply-voucher'), false);
       }
     };
 
-    $('btn-clear-voucher').onclick = () => {
-      activeVoucherCode = '';
-      localStorage.removeItem('dkaimono_voucher');
-      $('input-voucher-code').value = '';
-      syncQuotaStatus();
+    $('btn-logout-account').onclick = () => {
+      authToken = '';
+      localStorage.removeItem('dkaimono_auth_token');
+      $('voucher-input-row').classList.add('hide');
       switchMode('single');
-      showToast('Kembali ke Mode Gratis.');
+      syncQuotaStatus();
+      showToast('Anda telah keluar dari sesi akun.');
     };
 
     // =================================================================
@@ -2468,9 +2503,14 @@
     function switchMode(mode) {
       const isBulk = mode === 'bulk';
       if (isBulk && !currentQuotaState.isPremium) {
-        $('voucher-input-row').classList.remove('hide');
-        $('input-voucher-code').focus();
-        showToast('Masukkan Kode Voucher Premium/Reseller untuk membuka fitur Bulk Activation!');
+        if (!currentQuotaState.loggedIn) {
+          openAuthModal('login');
+          showToast('Login & aktifkan Voucher Premium Pass untuk membuka Bulk Activation!');
+        } else {
+          $('voucher-input-row').classList.remove('hide');
+          $('input-voucher-code').focus();
+          showToast('Klaim Kode Voucher Premium Pass untuk membuka fitur Bulk Activation!');
+        }
         return;
       }
       $('tab-mode-single').classList.toggle('active', !isBulk);
@@ -2495,7 +2535,7 @@
         const res = await fetch('/api/bulk', {
           method: 'POST',
           headers: apiHeaders(),
-          body: JSON.stringify({ action: 'send-links', emails, fingerprint: deviceFingerprint, voucherCode: activeVoucherCode })
+          body: JSON.stringify({ action: 'send-links', emails, fingerprint: deviceFingerprint, authToken })
         });
         const data = await res.json();
         if (data.success) {
@@ -2536,7 +2576,7 @@
         const res = await fetch('/api/bulk', {
           method: 'POST',
           headers: apiHeaders(),
-          body: JSON.stringify({ action: 'verify-links', items, fingerprint: deviceFingerprint, voucherCode: activeVoucherCode })
+          body: JSON.stringify({ action: 'verify-links', items, fingerprint: deviceFingerprint, authToken })
         });
         const data = await res.json();
         if (data.success) {
@@ -2566,75 +2606,68 @@
     };
 
     // =================================================================
-    // 4. QRIS VOUCHER CHECKOUT MODAL
+    // 4. LOGIN & REGISTER MODAL (1 DEVICE = 1 ACCOUNT)
     // =================================================================
-    const upgradeModal = $('upgrade-modal');
-    let selectedPlan = 'premium';
-    let activeInvoiceCode = '';
+    const authModal = $('auth-modal');
+    let authMode = 'login';
 
-    $('btn-open-upgrade-modal').onclick = () => {
-      $('qris-checkout-stage').classList.add('hide');
-      $('btn-create-qris').classList.remove('hide');
-      upgradeModal.classList.add('open');
-    };
-    $('btn-close-upgrade').onclick = () => upgradeModal.classList.remove('open');
-    upgradeModal.onclick = e => { if (e.target === upgradeModal) upgradeModal.classList.remove('open'); };
+    function setAuthMode(mode) {
+      authMode = mode === 'register' ? 'register' : 'login';
+      $('tab-auth-login').classList.toggle('active', authMode === 'login');
+      $('tab-auth-register').classList.toggle('active', authMode === 'register');
+      $('btn-submit-auth').textContent = authMode === 'login' ? 'Masuk ke Akun' : 'Daftar & Kunci Perangkat';
+      clearMsg('msg-auth');
+    }
 
-    document.querySelectorAll('.plan-card').forEach(card => {
-      card.onclick = () => {
-        document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        selectedPlan = card.getAttribute('data-plan');
-      };
-    });
+    function openAuthModal(defaultMode = 'login') {
+      setAuthMode(defaultMode);
+      authModal.classList.add('open');
+      setTimeout(() => $('auth-input-email').focus(), 60);
+    }
 
-    $('btn-create-qris').onclick = async () => {
-      setBusy($('btn-create-qris'), true, 'Membuat Invoice QRIS...');
-      try {
-        const res = await fetch('/api/quota/checkout', {
-          method: 'POST',
-          headers: apiHeaders(),
-          body: JSON.stringify({ plan: selectedPlan })
-        });
-        const data = await res.json();
-        if (data.success && data.invoice) {
-          activeInvoiceCode = data.invoice.invoiceCode;
-          $('qris-inv-code').textContent = data.invoice.invoiceCode;
-          $('qris-inv-amount').textContent = 'Rp ' + Number(data.invoice.amount).toLocaleString('id-ID');
-          $('qris-payload-preview').textContent = data.invoice.qrisPayload;
-          $('qris-checkout-stage').classList.remove('hide');
-          $('btn-create-qris').classList.add('hide');
-        }
-      } catch (e) {
-        showToast('Gagal membuat invoice QRIS.');
-      } finally {
-        setBusy($('btn-create-qris'), false);
+    $('btn-open-auth-modal').onclick = () => openAuthModal('login');
+    $('btn-close-auth').onclick = () => authModal.classList.remove('open');
+    authModal.onclick = e => { if (e.target === authModal) authModal.classList.remove('open'); };
+    $('tab-auth-login').onclick = () => setAuthMode('login');
+    $('tab-auth-register').onclick = () => setAuthMode('register');
+
+    $('btn-submit-auth').onclick = async () => {
+      clearMsg('msg-auth');
+      await computeDeviceFingerprint();
+      const email = $('auth-input-email').value.trim();
+      const password = $('auth-input-password').value;
+
+      if (!email || !email.includes('@')) {
+        return showMsg('msg-auth', 'Masukkan alamat email yang valid.', 'err');
       }
-    };
+      if (!password || password.length < 6) {
+        return showMsg('msg-auth', 'Password minimal 6 karakter.', 'err');
+      }
 
-    $('btn-confirm-qris').onclick = async () => {
-      if (!activeInvoiceCode) return;
-      setBusy($('btn-confirm-qris'), true, 'Memverifikasi Pembayaran...');
+      const endpoint = authMode === 'register' ? '/api/quota/register' : '/api/quota/login';
+      setBusy($('btn-submit-auth'), true, 'Memverifikasi Perangkat...');
+
       try {
-        const res = await fetch('/api/quota/confirm', {
+        const res = await fetch(endpoint, {
           method: 'POST',
           headers: apiHeaders(),
-          body: JSON.stringify({ invoiceCode: activeInvoiceCode, fingerprint: deviceFingerprint })
+          body: JSON.stringify({ email, password, fingerprint: deviceFingerprint })
         });
         const data = await res.json();
-        if (data.success && data.voucherCode) {
-          activeVoucherCode = data.voucherCode;
-          localStorage.setItem('dkaimono_voucher', activeVoucherCode);
+        if (data.success && data.token) {
+          authToken = data.token;
+          localStorage.setItem('dkaimono_auth_token', authToken);
+          $('auth-input-password').value = '';
           if (data.quota) renderQuotaBar(data.quota);
-          upgradeModal.classList.remove('open');
-          showToast(`Voucher ${data.voucherCode} aktif otomatis!`);
+          authModal.classList.remove('open');
+          showToast(data.message || 'Berhasil masuk!');
         } else {
-          showToast(data.message || 'Gagal konfirmasi pembayaran.');
+          showMsg('msg-auth', data.message || 'Gagal memproses autentikasi.', 'err');
         }
       } catch (e) {
-        showToast('Kesalahan jaringan.');
+        showMsg('msg-auth', 'Kesalahan koneksi ke server.', 'err');
       } finally {
-        setBusy($('btn-confirm-qris'), false);
+        setBusy($('btn-submit-auth'), false);
       }
     };
 
@@ -3218,7 +3251,7 @@
             email,
             magicLink,
             fingerprint: deviceFingerprint,
-            voucherCode: activeVoucherCode
+            authToken
           })
         });
         const data = await res.json();
@@ -3361,7 +3394,7 @@
       if (e.key === 'Escape') {
         closeDrawer();
         closeModal();
-        upgradeModal.classList.remove('open');
+        authModal.classList.remove('open');
       } else if (e.key === 'Enter') {
         if ($('panel-1').classList.contains('active') && document.activeElement === emailInput) {
           e.preventDefault();

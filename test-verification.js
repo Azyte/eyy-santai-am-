@@ -94,24 +94,42 @@ async function runTests() {
     console.assert(fnBody.status === 'online', 'Netlify handler body has status online');
     console.log('✓ Test 7: Netlify function handler execution passed');
 
-    // 8. Test /api/quota (Free tier + Seeded Neon Voucher DK-PRO-2026)
-    const resQuotaFree = await fetch(`${baseUrl}/api/quota`, {
-      headers: { 'x-device-fingerprint': 'fp_test_verification_01' }
-    });
-    const dataQuotaFree = await resQuotaFree.json();
-    console.assert(resQuotaFree.status === 200, 'Quota endpoint returns 200');
-    console.assert(dataQuotaFree.success === true, 'Quota response success is true');
-    console.assert(dataQuotaFree.quota.tier === 'free', 'Default quota tier is free');
+    // 8. Test /api/quota & 1 Device 1 Account Lock (Register & Login)
+    const testFp = 'fp_unit_test_hwlock_99';
+    const testEmail1 = 'unittest_hw1@dkaimono.web.id';
+    const testEmail2 = 'unittest_hw2@dkaimono.web.id';
+    const { getSql } = require('./lib/db');
+    const sql = getSql();
+    await sql`DELETE FROM app_users WHERE device_fingerprint = ${testFp} OR email IN (${testEmail1}, ${testEmail2})`;
 
-    const resVoucher = await fetch(`${baseUrl}/api/quota/voucher`, {
+    // Register 1st account on testFp -> must succeed
+    const resReg1 = await fetch(`${baseUrl}/api/quota/register`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ voucherCode: 'DK-PRO-2026', fingerprint: 'fp_test_verification_01' })
+      headers: { 'Content-Type': 'application/json', 'x-device-fingerprint': testFp },
+      body: JSON.stringify({ email: testEmail1, password: 'password123', fingerprint: testFp })
     });
-    const dataVoucher = await resVoucher.json();
-    console.assert(resVoucher.status === 200, 'Valid voucher returns 200');
-    console.assert(dataVoucher.quota.isPremium === true, 'Voucher activates premium tier');
-    console.log('✓ Test 8: /api/quota & Neon PostgreSQL voucher validation passed');
+    const dataReg1 = await resReg1.json();
+    console.assert(resReg1.status === 200 && dataReg1.success === true, 'First account registration on device succeeds');
+
+    // Register 2nd account on SAME testFp -> must fail with 403 (1 Device 1 Account)
+    const resReg2 = await fetch(`${baseUrl}/api/quota/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-device-fingerprint': testFp },
+      body: JSON.stringify({ email: testEmail2, password: 'password123', fingerprint: testFp })
+    });
+    console.assert(resReg2.status === 403, 'Second account on same device blocked with 403');
+
+    // Login to 1st account from DIFFERENT device fingerprint -> must fail with 403 (1 Account 1 Device)
+    const resLoginOtherDevice = await fetch(`${baseUrl}/api/quota/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-device-fingerprint': 'fp_other_device_88' },
+      body: JSON.stringify({ email: testEmail1, password: 'password123', fingerprint: 'fp_other_device_88' })
+    });
+    console.assert(resLoginOtherDevice.status === 403, 'Login from different device blocked with 403');
+
+    // Cleanup test user
+    await sql`DELETE FROM app_users WHERE device_fingerprint = ${testFp} OR email IN (${testEmail1}, ${testEmail2})`;
+    console.log('✓ Test 8: 1 Device = 1 Account hardware lock passed');
 
     // 9. Test /api/bulk protection (Free tier blocked 403)
     const resBulkFree = await fetch(`${baseUrl}/api/bulk`, {

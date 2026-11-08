@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DKaimono-AM &middot; Aktivasi Alight Motion Pro</title>
   <meta name="description" content="Aktivasi lisensi resmi Alight Motion Pro langsung ke akun Firebase Anda. Tanpa kata sandi, bebas watermark, dan terverifikasi tanda terima Google Play.">
-  <meta name="theme-color" content="#F5F4F0">
+  <meta name="theme-color" content="#060913">
 
   <link rel="canonical" href="https://dkaimono.web.id">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -23,47 +23,58 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* 60% DOMINANT — Warm Stone & Pure Paper */
-      --bg-canvas: #F5F4F0;
-      --bg-surface: #FFFFFF;
-      --bg-well: #EFECE6;
-      --bg-well-hover: #E5E1D8;
+      /* =================================================================
+         SEAMLESS GRADIENT 60-30-10 COLOR HARMONY (ANALOGOUS SPECTRUM)
+         60% Dominant  : Deep Midnight Cosmos (#060913 -> #090E1E)
+         30% Secondary : Midnight Indigo Glass (#0F162B -> #172240)
+         10% Accent    : Luminous Indigo-to-Cyan Gradient (#6366F1 -> #06B6D4)
+         ================================================================= */
 
-      /* 30% SECONDARY — Carbon Ink, Obsidian & Hairline Borders */
-      --carbon-900: #141413;
-      --carbon-800: #222120;
-      --carbon-700: #33312F;
-      --ink-primary: #141413;
-      --ink-secondary: #57544E;
-      --ink-muted: #8A867E;
-      --border-hairline: #E0DDD5;
-      --border-strong: #C8C4BA;
+      /* 60% Dominant Base */
+      --c60-void: #060913;
+      --c60-deep: #080D1B;
+      --c60-well: #0A1022;
 
-      /* 10% ACCENT — Signal Vermilion Orange */
-      --accent: #FF4F18;
-      --accent-hover: #E03E0B;
-      --accent-soft: #FFF0EB;
-      --accent-border: #FFC4B0;
+      /* 30% Secondary Blended Indigo Surfaces */
+      --c30-card: rgba(15, 23, 44, 0.82);
+      --c30-card-solid: #10182E;
+      --c30-raised: #16213E;
+      --c30-hover: #1D2B50;
+      --c30-border: rgba(129, 140, 248, 0.15);
+      --c30-border-strong: rgba(56, 189, 248, 0.32);
 
-      /* Functional Semantic Tokens */
-      --ok: #12804A;
-      --ok-bg: #EBF7F0;
-      --ok-border: #B4E2C8;
-      --danger: #D92D20;
-      --danger-bg: #FEF1F0;
-      --danger-border: #F9C6C2;
-      --warn: #B54708;
+      /* Typography Hierarchy (Blended Silver-Indigo Tones) */
+      --txt-100: #F2F6FF;
+      --txt-70: #96A7C8;
+      --txt-50: #5E7196;
 
-      --r-xs: 6px;
-      --r-sm: 10px;
-      --r-md: 14px;
-      --r-lg: 18px;
+      /* 10% Luminous Neon Gradient Accent */
+      --c10-grad: linear-gradient(135deg, #6366F1 0%, #3B82F6 50%, #06B6D4 100%);
+      --c10-grad-hover: linear-gradient(135deg, #4F46E5 0%, #2563EB 50%, #0891B2 100%);
+      --c10-cyan: #22D3EE;
+      --c10-indigo: #818CF8;
+      --c10-glow: rgba(56, 189, 248, 0.24);
+      --c10-tint: rgba(59, 130, 246, 0.13);
 
-      --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      /* Semantic Status */
+      --ok: #34D399;
+      --ok-bg: rgba(16, 185, 129, 0.12);
+      --ok-border: rgba(52, 211, 153, 0.3);
+      --danger: #FB7185;
+      --danger-bg: rgba(244, 63, 94, 0.12);
+      --danger-border: rgba(251, 113, 133, 0.3);
+      --warn: #FBBF24;
+
+      --r-xs: 8px;
+      --r-sm: 11px;
+      --r-md: 15px;
+      --r-lg: 20px;
+
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -76,13 +87,18 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-canvas);
-      color: var(--ink-primary);
+      background-color: var(--c60-void);
+      color: var(--txt-100);
     }
 
     body {
-      background-color: var(--bg-canvas);
-      color: var(--ink-primary);
+      background-color: var(--c60-void);
+      background-image:
+        radial-gradient(ellipse 85% 50% at 50% -12%, rgba(99, 102, 241, 0.24), rgba(6, 182, 212, 0.08) 55%, transparent 80%),
+        radial-gradient(circle at 85% 25%, rgba(6, 182, 212, 0.07), transparent 45%),
+        linear-gradient(180deg, #060913 0%, #080D1C 50%, #060913 100%);
+      background-attachment: fixed;
+      color: var(--txt-100);
       font-family: var(--font-sans);
       font-size: 15px;
       line-height: 1.55;
@@ -104,20 +120,20 @@
     }
 
     /* =================================================================
-       LAYOUT CONTAINERS
+       CONTAINERS
        ================================================================= */
     .topbar-shell {
       width: 100%;
-      max-width: 980px;
+      max-width: 1020px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .studio-shell {
       width: 100%;
-      max-width: 640px;
+      max-width: 660px;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 0 16px;
     }
 
     /* =================================================================
@@ -127,14 +143,14 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background-color: rgba(245, 244, 240, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-hairline);
+      background: rgba(6, 9, 19, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c30-border);
     }
 
     .topbar-inner {
-      height: 60px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -146,13 +162,14 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .brand-mark-svg {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       flex-shrink: 0;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.35));
     }
 
     .brand-text-wrap {
@@ -162,22 +179,25 @@
     }
 
     .brand-name {
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: 800;
+      font-size: 16.5px;
       letter-spacing: -0.025em;
-      color: var(--ink-primary);
+      background: linear-gradient(90deg, #FFFFFF 0%, #BAE6FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .brand-tag {
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--ink-secondary);
-      background-color: var(--bg-well);
+      letter-spacing: 0.05em;
+      color: var(--c10-cyan);
+      background: var(--c10-tint);
+      border: 1px solid rgba(56, 189, 248, 0.22);
       padding: 2px 7px;
-      border-radius: 4px;
+      border-radius: 999px;
     }
 
     .topbar-right {
@@ -190,31 +210,32 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 5px 10px;
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border);
+      padding: 5px 11px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
-      color: var(--ink-primary);
+      color: var(--txt-70);
     }
 
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: var(--ok);
+      background-color: var(--c10-cyan);
+      box-shadow: 0 0 8px var(--c10-cyan);
       flex-shrink: 0;
     }
 
     .topbar-ghost-btn {
-      background-color: transparent;
+      background: transparent;
       border: 1px solid transparent;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
       font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 600;
-      height: 34px;
+      height: 36px;
       padding: 0 11px;
       border-radius: var(--r-xs);
       cursor: pointer;
@@ -222,40 +243,42 @@
     }
 
     .topbar-ghost-btn:hover {
-      color: var(--ink-primary);
-      background-color: var(--bg-well);
+      color: var(--txt-100);
+      background: var(--c30-raised);
+      border-color: var(--c30-border);
     }
 
     .btn-vault-trigger {
-      background-color: var(--carbon-900);
-      border: 1px solid var(--carbon-900);
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border-strong);
       border-radius: var(--r-xs);
-      color: #FFFFFF;
+      color: var(--txt-100);
       font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 600;
-      height: 34px;
+      height: 36px;
       padding: 0 12px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      transition: background-color 0.16s var(--ease);
+      transition: all 0.16s var(--ease);
     }
 
     .btn-vault-trigger:hover {
-      background-color: var(--carbon-700);
+      background: var(--c30-hover);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.15);
     }
 
     .btn-vault-trigger svg {
       width: 14px;
       height: 14px;
-      color: #A8A49C;
+      color: var(--c10-cyan);
       flex-shrink: 0;
     }
 
     .vault-count-pill {
-      background-color: var(--accent);
+      background: var(--c10-grad);
       color: #FFFFFF;
       font-size: 11px;
       font-weight: 700;
@@ -265,16 +288,15 @@
     }
 
     /* =================================================================
-       CENTERED APP STAGE
+       CENTERED MAIN STAGE
        ================================================================= */
     .app-stage {
-      padding: 36px 0 64px;
+      padding: 32px 0 64px;
     }
 
-    /* Compact Studio Intro */
     .hero-head {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .hero-kicker {
@@ -285,46 +307,160 @@
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      background-color: var(--accent-soft);
-      border: 1px solid var(--accent-border);
-      padding: 4px 10px;
+      letter-spacing: 0.06em;
+      color: var(--c10-cyan);
+      background: var(--c10-tint);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 4px 12px;
       border-radius: 999px;
       margin-bottom: 12px;
     }
 
     .hero-title {
-      font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.15rem);
-      font-weight: 700;
-      line-height: 1.14;
+      font-size: clamp(1.65rem, 1.35rem + 1.25vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.15;
       letter-spacing: -0.03em;
-      color: var(--ink-primary);
+      background: linear-gradient(135deg, #FFFFFF 20%, #A5B4FC 65%, #38BDF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 8px;
     }
 
     .hero-desc {
-      font-size: 14.5px;
-      color: var(--ink-secondary);
-      max-width: 50ch;
+      font-size: 14px;
+      color: var(--txt-70);
+      max-width: 52ch;
       margin: 0 auto;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* =================================================================
-       DOCKED SAVED SESSION BANNER (30% Secondary Carbon Block)
+       TIER, QUOTA & VOUCHER STATUS BAR (FREE vs PREMIUM / BULK)
        ================================================================= */
-    .saved-session-card {
-      background-color: var(--carbon-900);
-      color: #FFFFFF;
+    .quota-bar {
+      background: linear-gradient(135deg, rgba(16, 24, 46, 0.92) 0%, rgba(22, 33, 62, 0.85) 100%);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-md);
-      padding: 14px 18px;
-      margin-bottom: 14px;
+      padding: 13px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      backdrop-filter: blur(12px);
+    }
+
+    .quota-bar.premium-active {
+      border-color: var(--c30-border-strong);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
+    }
+
+    .quota-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      box-shadow: 0 6px 20px rgba(20, 20, 19, 0.08);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .quota-left {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tier-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--c30-raised);
+      color: var(--txt-70);
+      border: 1px solid var(--c30-border);
+    }
+
+    .tier-badge.pro {
+      background: var(--c10-grad);
+      color: #FFFFFF;
+      border-color: transparent;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+    }
+
+    .quota-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--txt-100);
+    }
+
+    .cooldown-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--warn);
+      background: rgba(251, 191, 36, 0.12);
+      border: 1px solid rgba(251, 191, 36, 0.28);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .quota-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .voucher-drawer-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--c30-border);
+    }
+
+    .voucher-input {
+      flex: 1;
+      height: 36px;
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
+      border-radius: var(--r-xs);
+      padding: 0 12px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--txt-100);
+      text-transform: uppercase;
+      outline: none;
+    }
+
+    .voucher-input:focus {
+      border-color: var(--c10-cyan);
+    }
+
+    .fp-shield-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--txt-50);
+      font-family: var(--font-mono);
+    }
+
+    /* =================================================================
+       DOCKED SAVED SESSION BANNER
+       ================================================================= */
+    .saved-session-card {
+      background: linear-gradient(135deg, rgba(22, 33, 62, 0.92) 0%, rgba(15, 23, 44, 0.92) 100%);
+      border: 1px solid var(--c30-border-strong);
+      border-radius: var(--r-md);
+      padding: 13px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .saved-session-left {
@@ -341,19 +477,18 @@
     .saved-session-tag {
       font-family: var(--font-mono);
       font-size: 10px;
-      font-weight: 600;
-      background-color: var(--accent);
+      font-weight: 700;
+      background: var(--c10-grad);
       color: #FFFFFF;
-      padding: 2px 6px;
+      padding: 2px 7px;
       border-radius: 4px;
-      letter-spacing: 0.03em;
       flex-shrink: 0;
     }
 
     .saved-session-email {
-      font-size: 14px;
-      font-weight: 600;
-      color: #FFFFFF;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--txt-100);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -361,11 +496,11 @@
 
     .saved-session-sub {
       font-size: 12px;
-      color: #A6A29A;
+      color: var(--txt-70);
     }
 
     .saved-session-sub b {
-      color: #FFFFFF;
+      color: var(--c10-cyan);
       font-weight: 600;
     }
 
@@ -377,22 +512,68 @@
     }
 
     /* =================================================================
-       MAIN ACTIVATION WORKBENCH (Pure Paper Card + Carbon Controls)
+       MAIN WORKBENCH CARD (30% Indigo Glass + 10% Neon Accents)
        ================================================================= */
     .workbench-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-strong);
+      background: linear-gradient(180deg, rgba(17, 25, 48, 0.9) 0%, rgba(11, 17, 34, 0.95) 100%);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-lg);
-      box-shadow: 0 12px 32px -12px rgba(20, 20, 19, 0.07);
+      box-shadow:
+        0 20px 50px -15px rgba(2, 4, 10, 0.75),
+        0 0 1px 1px rgba(129, 140, 248, 0.08);
+      backdrop-filter: blur(16px);
       overflow: hidden;
+    }
+
+    /* Mode Switcher: Single vs Bulk Activation */
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--c60-deep);
+      border-bottom: 1px solid var(--c30-border);
+      padding: 5px;
+      gap: 5px;
+    }
+
+    .mode-tab-btn {
+      height: 36px;
+      border: 1px solid transparent;
+      border-radius: var(--r-xs);
+      background: transparent;
+      color: var(--txt-70);
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.16s var(--ease);
+    }
+
+    .mode-tab-btn.active {
+      background: var(--c30-raised);
+      color: var(--txt-100);
+      border-color: var(--c30-border-strong);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.12);
+    }
+
+    .mode-lock-chip {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: rgba(129, 140, 248, 0.16);
+      color: var(--c10-indigo);
     }
 
     /* 3-Step Segmented Header */
     .stepper-bar {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      background-color: var(--bg-well);
-      border-bottom: 1px solid var(--border-hairline);
+      background: rgba(9, 14, 28, 0.75);
+      border-bottom: 1px solid var(--c30-border);
       padding: 6px;
       gap: 6px;
     }
@@ -407,7 +588,7 @@
       font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 600;
-      color: var(--ink-muted);
+      color: var(--txt-50);
       border: 1px solid transparent;
       background: transparent;
       user-select: none;
@@ -420,30 +601,29 @@
     }
 
     .step-item.clickable:hover {
-      color: var(--ink-primary);
-      background-color: rgba(255, 255, 255, 0.55);
+      color: var(--txt-100);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .step-item.active {
-      background-color: var(--bg-surface);
-      color: var(--ink-primary);
-      border-color: var(--border-hairline);
-      box-shadow: 0 2px 6px rgba(20, 20, 19, 0.05);
+      background: var(--c30-raised);
+      color: var(--txt-100);
+      border-color: var(--c30-border);
     }
 
     .step-item.passed {
-      color: var(--ink-secondary);
+      color: var(--txt-70);
     }
 
     .step-badge {
       width: 21px;
       height: 21px;
       border-radius: 50%;
-      background-color: var(--bg-well-hover);
-      color: var(--ink-secondary);
+      background: var(--c60-well);
+      color: var(--txt-70);
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -452,18 +632,20 @@
     }
 
     .step-item.active .step-badge {
-      background-color: var(--accent);
+      background: var(--c10-grad);
       color: #FFFFFF;
+      box-shadow: 0 0 10px var(--c10-glow);
     }
 
     .step-item.passed .step-badge {
-      background-color: var(--carbon-900);
-      color: #FFFFFF;
+      background: var(--c10-tint);
+      color: var(--c10-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.35);
     }
 
     /* Workbench Body */
     .workbench-body {
-      padding: 28px;
+      padding: 26px;
     }
 
     .panel {
@@ -482,13 +664,13 @@
       font-size: 18px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       margin-bottom: 4px;
     }
 
     .panel-sub {
       font-size: 13.5px;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
       line-height: 1.5;
     }
 
@@ -498,17 +680,17 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      background-color: var(--bg-well);
-      border: 1px solid var(--border-hairline);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
       padding: 9px 13px;
       border-radius: var(--r-xs);
       margin-bottom: 18px;
       font-size: 12.5px;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
     }
 
     .target-email-bar b {
-      color: var(--ink-primary);
+      color: var(--txt-100);
       font-weight: 600;
       word-break: break-all;
     }
@@ -516,7 +698,7 @@
     .link-inline-btn {
       background: transparent;
       border: none;
-      color: var(--accent);
+      color: var(--c10-cyan);
       font-family: var(--font-sans);
       font-size: 12.5px;
       font-weight: 700;
@@ -531,7 +713,7 @@
 
     /* Form Controls */
     .field-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .field-top {
@@ -545,7 +727,7 @@
     .field-label {
       font-size: 13px;
       font-weight: 600;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .input-wrap {
@@ -559,36 +741,36 @@
       left: 14px;
       width: 17px;
       height: 17px;
-      color: var(--ink-muted);
+      color: var(--txt-50);
       pointer-events: none;
     }
 
     .input-control {
       width: 100%;
       height: 46px;
-      background-color: var(--bg-well);
-      border: 1.5px solid var(--border-hairline);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-sm);
       padding: 0 38px 0 40px;
       font-family: var(--font-sans);
       font-size: 15px;
       font-weight: 500;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       outline: none;
       transition: all 0.16s var(--ease);
     }
 
     .input-control::placeholder,
     .textarea-control::placeholder {
-      color: var(--ink-muted);
+      color: var(--txt-50);
       font-weight: 400;
     }
 
     .input-control:focus,
     .textarea-control:focus {
-      background-color: var(--bg-surface);
-      border-color: var(--carbon-900);
-      box-shadow: 0 0 0 3px rgba(20, 20, 19, 0.06);
+      background: var(--c60-void);
+      border-color: var(--c10-cyan);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
     }
 
     .btn-clear-field {
@@ -598,34 +780,33 @@
       height: 24px;
       border-radius: 50%;
       border: none;
-      background-color: var(--border-strong);
-      color: var(--ink-primary);
+      background: var(--c30-raised);
+      color: var(--txt-70);
       font-size: 14px;
       line-height: 1;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.15s var(--ease);
     }
 
     .btn-clear-field:hover {
-      background-color: var(--ink-muted);
-      color: #FFFFFF;
+      background: var(--c30-hover);
+      color: var(--txt-100);
     }
 
     .textarea-control {
       width: 100%;
       min-height: 100px;
       resize: vertical;
-      background-color: var(--bg-well);
-      border: 1.5px solid var(--border-hairline);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-sm);
       padding: 12px 14px;
       font-family: var(--font-mono);
       font-size: 12.5px;
       line-height: 1.55;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       outline: none;
       transition: all 0.16s var(--ease);
     }
@@ -639,23 +820,23 @@
     }
 
     .domain-chip {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-xs);
       padding: 5px 10px;
       font-family: var(--font-mono);
       font-size: 11.5px;
       font-weight: 500;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
       cursor: pointer;
       user-select: none;
       transition: all 0.14s var(--ease);
     }
 
     .domain-chip:hover {
-      border-color: var(--carbon-900);
-      color: var(--ink-primary);
-      background-color: var(--bg-well);
+      border-color: var(--c10-cyan);
+      color: var(--txt-100);
+      background: var(--c30-hover);
     }
 
     .link-hint {
@@ -666,7 +847,7 @@
     }
 
     /* =================================================================
-       BUTTON SYSTEM (10% Signal Orange Primary vs 30% Secondary)
+       BUTTON SYSTEM (10% Luminous Gradient Primary vs 30% Glass Secondary)
        ================================================================= */
     .btn {
       display: inline-flex;
@@ -675,23 +856,24 @@
       gap: 8px;
       height: 44px;
       padding: 0 18px;
-      background-color: var(--accent);
+      background: var(--c10-grad);
       color: #FFFFFF;
       font-family: var(--font-sans);
       font-size: 14px;
-      font-weight: 600;
-      border: 1px solid var(--accent);
+      font-weight: 700;
+      border: none;
       border-radius: var(--r-sm);
       cursor: pointer;
       text-decoration: none;
       user-select: none;
       white-space: nowrap;
+      box-shadow: 0 6px 20px -4px rgba(59, 130, 246, 0.45);
       transition: all 0.16s var(--ease);
     }
 
     .btn:hover {
-      background-color: var(--accent-hover);
-      border-color: var(--accent-hover);
+      background: var(--c10-grad-hover);
+      box-shadow: 0 8px 24px -3px rgba(6, 182, 212, 0.55);
     }
 
     .btn:active {
@@ -704,28 +886,18 @@
       flex-shrink: 0;
     }
 
-    /* Secondary Button (Tactile Stone/Carbon) */
     .btn.sec {
-      background-color: var(--bg-well);
-      color: var(--ink-primary);
-      border: 1px solid var(--border-hairline);
+      background: var(--c30-raised);
+      color: var(--txt-100);
+      border: 1px solid var(--c30-border);
+      box-shadow: none;
       font-weight: 600;
     }
 
     .btn.sec:hover {
-      background-color: var(--bg-well-hover);
-      border-color: var(--border-strong);
-    }
-
-    /* Dark Surface Secondary Button (Inside Dark Cards) */
-    .btn.dark-sec {
-      background-color: var(--carbon-800);
-      color: #FFFFFF;
-      border: 1px solid var(--carbon-700);
-    }
-
-    .btn.dark-sec:hover {
-      background-color: var(--carbon-700);
+      background: var(--c30-hover);
+      border-color: var(--c30-border-strong);
+      box-shadow: none;
     }
 
     .btn.btn-sm {
@@ -747,7 +919,7 @@
     }
 
     .btn:disabled {
-      opacity: 0.55;
+      opacity: 0.5;
       cursor: not-allowed;
       transform: none;
     }
@@ -775,28 +947,27 @@
     }
 
     .feedback-box.err {
-      background-color: var(--danger-bg);
+      background: var(--danger-bg);
       border: 1px solid var(--danger-border);
-      color: var(--danger);
+      color: #FECDD3;
     }
 
     .feedback-box.ok {
-      background-color: var(--ok-bg);
+      background: var(--ok-bg);
       border: 1px solid var(--ok-border);
-      color: var(--ok);
+      color: #A7F3D0;
     }
 
     /* =================================================================
-       STEP 3: DARK CARBON MEMBERSHIP PASS + CLEAN ACTIONS
+       STEP 3: VIP PRO PASS CARD
        ================================================================= */
     .vip-pass-card {
-      background-color: var(--carbon-900);
-      color: #FFFFFF;
+      background: linear-gradient(135deg, rgba(30, 41, 82, 0.7) 0%, rgba(10, 16, 34, 0.95) 100%);
+      border: 1px solid var(--c30-border-strong);
       border-radius: var(--r-md);
       padding: 20px;
       margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .vip-card-top {
@@ -813,18 +984,17 @@
       gap: 6px;
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       color: #FFFFFF;
-      background-color: var(--accent);
+      background: var(--c10-grad);
       padding: 4px 10px;
       border-radius: 999px;
-      letter-spacing: 0.02em;
     }
 
     .vip-days-pill {
       font-size: 12px;
       font-weight: 600;
-      color: #A6A29A;
+      color: var(--c10-cyan);
     }
 
     .vip-meta-grid {
@@ -835,8 +1005,8 @@
     }
 
     .vip-meta-box {
-      background-color: var(--carbon-800);
-      border: 1px solid var(--carbon-700);
+      background: rgba(6, 9, 19, 0.65);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-xs);
       padding: 11px 13px;
     }
@@ -844,19 +1014,19 @@
     .vip-meta-lbl {
       font-size: 11px;
       font-weight: 500;
-      color: #9E9A91;
+      color: var(--txt-50);
       margin-bottom: 3px;
     }
 
     .vip-meta-val {
       font-size: 13.5px;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--txt-100);
       word-break: break-all;
     }
 
     .vip-meta-val.accent {
-      color: #FF784E;
+      color: var(--c10-cyan);
     }
 
     .vip-pass-footer {
@@ -865,9 +1035,9 @@
       justify-content: space-between;
       gap: 10px;
       padding-top: 12px;
-      border-top: 1px solid var(--carbon-700);
+      border-top: 1px solid var(--c30-border);
       font-size: 12px;
-      color: #A6A29A;
+      color: var(--txt-70);
     }
 
     .vip-perks-inline {
@@ -887,13 +1057,13 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: var(--accent);
+      background: var(--c10-cyan);
     }
 
     .btn-token-chip {
-      background-color: var(--carbon-800);
-      border: 1px solid var(--carbon-700);
-      color: #E6E3DC;
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border);
+      color: var(--txt-100);
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 600;
@@ -901,18 +1071,15 @@
       border-radius: 6px;
       cursor: pointer;
       white-space: nowrap;
-      transition: background-color 0.15s var(--ease);
     }
 
     .btn-token-chip:hover {
-      background-color: var(--carbon-700);
-      color: #FFFFFF;
+      border-color: var(--c10-cyan);
     }
 
-    /* Mobile App Login Action Box */
     .mobile-login-box {
-      background-color: var(--bg-well);
-      border: 1px solid var(--border-hairline);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-md);
       padding: 16px;
       margin-bottom: 14px;
@@ -921,7 +1088,7 @@
     .mobile-login-title {
       font-size: 13.5px;
       font-weight: 700;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       margin-bottom: 6px;
     }
 
@@ -932,14 +1099,13 @@
       flex-direction: column;
       gap: 4px;
       font-size: 12.5px;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
     }
 
     .mobile-login-list b {
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
-    /* Clean 2x2 Utility Row in Step 3 */
     .vip-actions-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -947,24 +1113,49 @@
     }
 
     /* =================================================================
+       BULK ACTIVATION (GROSIR / RESELLER) PANEL
+       ================================================================= */
+    .bulk-results-list {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .bulk-res-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--r-xs);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
+      font-size: 12px;
+    }
+
+    /* =================================================================
        COMPACT TELEMETRY TICKER BAR
        ================================================================= */
     .telemetry-strip {
       margin-top: 14px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
+      background: var(--c30-card);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-md);
       padding: 12px 16px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
+      backdrop-filter: blur(12px);
     }
 
     .telemetry-cell {
       display: flex;
       flex-direction: column;
       gap: 2px;
-      border-right: 1px solid var(--border-hairline);
+      border-right: 1px solid var(--c30-border);
       padding-right: 10px;
     }
 
@@ -974,30 +1165,30 @@
     }
 
     .telemetry-label {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
-      color: var(--ink-muted);
+      color: var(--txt-50);
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
     }
 
     .telemetry-value {
       font-size: 14px;
       font-weight: 700;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .telemetry-value.accent-txt {
-      color: var(--accent);
+      color: var(--c10-cyan);
     }
 
     /* =================================================================
-       CLEAN FAQ ACCORDION SECTION
+       FAQ ACCORDION
        ================================================================= */
     .faq-section {
-      margin-top: 44px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border-hairline);
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--c30-border);
     }
 
     .faq-head {
@@ -1010,13 +1201,12 @@
     .faq-head h2 {
       font-size: 16px;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .faq-head span {
       font-size: 12.5px;
-      color: var(--ink-muted);
+      color: var(--txt-50);
     }
 
     .faq-stack {
@@ -1026,23 +1216,22 @@
     }
 
     .faq-tile {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
+      background: var(--c30-card);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-sm);
       overflow: hidden;
-      transition: border-color 0.16s var(--ease);
     }
 
     .faq-tile[open] {
-      border-color: var(--carbon-900);
+      border-color: var(--c30-border-strong);
     }
 
     .faq-tile summary {
       list-style: none;
       padding: 14px 16px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -1066,7 +1255,7 @@
     .faq-plus::after {
       content: '';
       position: absolute;
-      background-color: var(--ink-muted);
+      background-color: var(--txt-70);
       border-radius: 2px;
       transition: transform 0.18s var(--ease), background-color 0.18s var(--ease);
     }
@@ -1087,7 +1276,7 @@
 
     .faq-tile[open] .faq-plus::before,
     .faq-tile[open] .faq-plus::after {
-      background-color: var(--accent);
+      background-color: var(--c10-cyan);
     }
 
     .faq-tile[open] .faq-plus::after {
@@ -1096,19 +1285,19 @@
 
     .faq-answer {
       padding: 0 16px 15px;
-      font-size: 13.5px;
-      color: var(--ink-secondary);
+      font-size: 13px;
+      color: var(--txt-70);
       line-height: 1.55;
     }
 
     /* =================================================================
-       SLIDE-OVER ACCOUNT VAULT DRAWER
+       SLIDE-OVER ACCOUNT VAULT DRAWER & MODALS
        ================================================================= */
     .drawer-scrim {
       position: fixed;
       inset: 0;
-      background-color: rgba(20, 20, 19, 0.45);
-      backdrop-filter: blur(2px);
+      background: rgba(3, 5, 12, 0.72);
+      backdrop-filter: blur(4px);
       z-index: 100;
       opacity: 0;
       visibility: hidden;
@@ -1127,13 +1316,13 @@
       bottom: 0;
       width: 100%;
       max-width: 380px;
-      background-color: var(--bg-surface);
-      border-left: 1px solid var(--border-strong);
+      background: var(--c30-card-solid);
+      border-left: 1px solid var(--c30-border-strong);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
       transition: transform 0.22s var(--ease);
-      box-shadow: -12px 0 32px rgba(20, 20, 19, 0.12);
+      box-shadow: -16px 0 40px rgba(0, 0, 0, 0.65);
     }
 
     .drawer-scrim.open .drawer-panel {
@@ -1145,34 +1334,32 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid var(--border-hairline);
+      border-bottom: 1px solid var(--c30-border);
     }
 
     .drawer-head h2 {
       font-size: 15px;
       font-weight: 700;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .icon-close-btn {
       width: 30px;
       height: 30px;
       border-radius: var(--r-xs);
-      background-color: var(--bg-well);
-      border: 1px solid var(--border-hairline);
-      color: var(--ink-secondary);
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border);
+      color: var(--txt-70);
       font-size: 17px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.15s var(--ease);
     }
 
     .icon-close-btn:hover {
-      background-color: var(--carbon-900);
-      border-color: var(--carbon-900);
-      color: #FFFFFF;
+      background: var(--c30-hover);
+      color: var(--txt-100);
     }
 
     .drawer-body {
@@ -1185,11 +1372,11 @@
     }
 
     .drawer-group-title {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      color: var(--txt-50);
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -1197,8 +1384,8 @@
     }
 
     .vault-item {
-      background-color: var(--bg-canvas);
-      border: 1px solid var(--border-hairline);
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
       border-radius: var(--r-sm);
       padding: 13px;
       margin-bottom: 8px;
@@ -1215,13 +1402,13 @@
     .vault-item-email {
       font-size: 13.5px;
       font-weight: 700;
-      color: var(--ink-primary);
+      color: var(--txt-100);
       word-break: break-all;
       cursor: pointer;
     }
 
     .vault-item-email:hover {
-      color: var(--accent);
+      color: var(--c10-cyan);
     }
 
     .vault-pro-chip {
@@ -1229,7 +1416,7 @@
       font-size: 10px;
       font-weight: 700;
       color: #FFFFFF;
-      background-color: var(--carbon-900);
+      background: var(--c10-grad);
       padding: 2px 6px;
       border-radius: 4px;
       flex-shrink: 0;
@@ -1237,7 +1424,7 @@
 
     .vault-item-meta {
       font-size: 11.5px;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
     }
 
     .vault-item-actions {
@@ -1257,14 +1444,12 @@
       justify-content: flex-start;
     }
 
-    /* =================================================================
-       MODAL PANDUAN SALIN TAUTAN
-       ================================================================= */
+    /* Modals */
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background-color: rgba(20, 20, 19, 0.5);
-      backdrop-filter: blur(2px);
+      background: rgba(3, 5, 12, 0.76);
+      backdrop-filter: blur(4px);
       z-index: 120;
       display: flex;
       align-items: center;
@@ -1282,12 +1467,12 @@
 
     .modal-dialog {
       width: 100%;
-      max-width: 440px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-strong);
+      max-width: 450px;
+      background: var(--c30-card-solid);
+      border: 1px solid var(--c30-border-strong);
       border-radius: var(--r-lg);
       padding: 22px;
-      box-shadow: 0 20px 40px rgba(20, 20, 19, 0.18);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.7);
       transform: translateY(8px) scale(0.98);
       transition: transform 0.18s var(--ease);
     }
@@ -1306,7 +1491,7 @@
     .modal-header h2 {
       font-size: 16px;
       font-weight: 700;
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .guide-steps {
@@ -1321,23 +1506,23 @@
       align-items: flex-start;
       gap: 11px;
       font-size: 13.5px;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
       line-height: 1.48;
     }
 
     .guide-row b {
-      color: var(--ink-primary);
+      color: var(--txt-100);
     }
 
     .guide-num {
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background-color: var(--carbon-900);
+      background: var(--c10-grad);
       color: #FFFFFF;
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1345,21 +1530,72 @@
       margin-top: 1px;
     }
 
-    /* =================================================================
-       TOAST & FOOTER
-       ================================================================= */
+    /* Plan Cards in QRIS Upgrade Modal */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .plan-card {
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border);
+      border-radius: var(--r-sm);
+      padding: 13px;
+      cursor: pointer;
+      transition: all 0.15s var(--ease);
+    }
+
+    .plan-card.selected {
+      border-color: var(--c10-cyan);
+      background: rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.14);
+    }
+
+    .plan-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--txt-100);
+    }
+
+    .plan-price {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--c10-cyan);
+      margin: 4px 0;
+    }
+
+    .plan-desc {
+      font-size: 11.5px;
+      color: var(--txt-70);
+      line-height: 1.4;
+    }
+
+    .qris-box {
+      background: var(--c60-well);
+      border: 1px solid var(--c30-border-strong);
+      border-radius: var(--r-sm);
+      padding: 14px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    /* Toast & Footer */
     .toast-msg {
       position: fixed;
       bottom: 22px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
-      background-color: var(--carbon-900);
-      color: #FFFFFF;
-      padding: 10px 16px;
+      background: var(--c30-raised);
+      border: 1px solid var(--c30-border-strong);
+      color: var(--txt-100);
+      padding: 10px 18px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
-      box-shadow: 0 10px 24px rgba(20, 20, 19, 0.22);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
       z-index: 160;
       opacity: 0;
       visibility: hidden;
@@ -1374,10 +1610,10 @@
 
     footer.quiet-footer {
       margin-top: auto;
-      border-top: 1px solid var(--border-hairline);
+      border-top: 1px solid var(--c30-border);
       padding: 24px 0;
       font-size: 13px;
-      color: var(--ink-muted);
+      color: var(--txt-50);
     }
 
     .footer-grid {
@@ -1401,19 +1637,16 @@
       font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 500;
-      color: var(--ink-secondary);
+      color: var(--txt-70);
       text-decoration: none;
       cursor: pointer;
     }
 
     .footer-links a:hover,
     .footer-links button:hover {
-      color: var(--accent);
+      color: var(--c10-cyan);
     }
 
-    /* =================================================================
-       RESPONSIVE MOBILE POLISH
-       ================================================================= */
     @media (max-width: 640px) {
       .topbar-shell,
       .studio-shell {
@@ -1426,7 +1659,7 @@
       }
 
       .app-stage {
-        padding: 22px 0 44px;
+        padding: 20px 0 44px;
       }
 
       .saved-session-card {
@@ -1447,7 +1680,7 @@
       }
 
       .workbench-body {
-        padding: 20px 16px;
+        padding: 20px 15px;
       }
 
       .input-control,
@@ -1466,14 +1699,12 @@
         font-size: 11px;
       }
 
-      .action-row {
+      .action-row,
+      .vip-meta-grid,
+      .vip-actions-grid,
+      .plan-grid {
         grid-template-columns: 1fr;
         gap: 8px;
-      }
-
-      .vip-meta-grid,
-      .vip-actions-grid {
-        grid-template-columns: 1fr;
       }
 
       .vip-pass-footer {
@@ -1506,12 +1737,19 @@
     <div class="topbar-shell topbar-inner">
       <a href="/" class="brand-link">
         <svg class="brand-mark-svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="#141413"/>
-          <path d="M17.8 5L7.8 17.5H15.5L13.8 27L24.2 14.5H16.5L17.8 5Z" fill="#FF4F18"/>
+          <defs>
+            <linearGradient id="topBolt" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#818CF8"/>
+              <stop offset="50%" stop-color="#3B82F6"/>
+              <stop offset="100%" stop-color="#06B6D4"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="8" fill="#10182E" stroke="rgba(129,140,248,0.28)"/>
+          <path d="M17.8 5L7.8 17.5H15.5L13.8 27L24.2 14.5H16.5L17.8 5Z" fill="url(#topBolt)"/>
         </svg>
         <div class="brand-text-wrap">
           <span class="brand-name">DKaimono-AM</span>
-          <span class="brand-tag">PRO UTILITY</span>
+          <span class="brand-tag">PRO STUDIO</span>
         </div>
       </a>
 
@@ -1519,7 +1757,7 @@
         <div class="status-pill" title="Status koneksi server &amp; latensi">
           <span class="status-dot" id="status-dot-el"></span>
           <span id="status-label">Online</span>
-          <span class="tabular" id="topbar-ping" style="color:var(--ink-muted);">&middot; 18ms</span>
+          <span class="tabular" id="topbar-ping" style="color:var(--txt-50);">&middot; 18ms</span>
         </div>
 
         <button type="button" class="topbar-ghost-btn" id="topbar-btn-guide">Panduan</button>
@@ -1552,7 +1790,7 @@
         <div>
           <div class="drawer-group-title">
             <span>Tersimpan di Browser</span>
-            <span id="drawer-account-total" class="tabular" style="color:var(--accent);">0 Akun</span>
+            <span id="drawer-account-total" class="tabular" style="color:var(--c10-cyan);">0 Akun</span>
           </div>
           <div id="drawer-accounts-list"></div>
         </div>
@@ -1585,21 +1823,51 @@
   </aside>
 
   <!-- =================================================================
-       CENTERED MAIN STAGE
+       MAIN CENTERED STAGE
        ================================================================= -->
   <main class="app-stage">
     <div class="studio-shell">
 
-      <!-- Compact Header -->
+      <!-- Compact Hero Header -->
       <div class="hero-head">
         <div class="hero-kicker">FIREBASE AUTH &middot; GOOGLE PLAY RECEIPT</div>
         <h1 class="hero-title">Aktivasi Alight Motion Pro</h1>
         <p class="hero-desc">
-          Sinkronisasi lisensi tahunan resmi langsung ke akun email Anda tanpa kata sandi dan tanpa aplikasi modifikasi.
+          Sinkronisasi lisensi Pro tahunan resmi langsung ke akun email Anda tanpa password dan tanpa APK modifikasi.
         </p>
       </div>
 
-      <!-- Docked Saved Session Banner (30% Secondary Carbon Block) -->
+      <!-- ===============================================================
+           QUOTA, TIER & VOUCHER BAR (FREE vs PREMIUM / BULK)
+           =============================================================== -->
+      <div class="quota-bar" id="quota-bar">
+        <div class="quota-top">
+          <div class="quota-left">
+            <span class="tier-badge" id="quota-tier-badge">FREE TIER</span>
+            <span class="quota-text tabular" id="quota-summary-txt">Kuota Hari Ini: 3/3 &middot; Jeda 10m</span>
+            <span class="cooldown-pill hide tabular" id="cooldown-pill">Cooldown 10:00</span>
+          </div>
+
+          <div class="quota-right">
+            <button type="button" class="btn sec btn-xs" id="btn-toggle-voucher-input">Pakai Voucher</button>
+            <button type="button" class="btn btn-xs" id="btn-open-upgrade-modal">Beli Voucher</button>
+          </div>
+        </div>
+
+        <!-- Collapsible Voucher Input Row -->
+        <div class="voucher-drawer-row hide" id="voucher-input-row">
+          <input type="text" class="voucher-input" id="input-voucher-code" placeholder="Masukkan Kode Voucher (cth: DK-PRO-2026)">
+          <button type="button" class="btn btn-xs" id="btn-apply-voucher">Aktifkan</button>
+          <button type="button" class="btn sec btn-xs hide" id="btn-clear-voucher">Lepas</button>
+        </div>
+
+        <div class="fp-shield-meta">
+          <span id="fp-device-label">Shield: Fingerprint + Subnet /24 Aktif</span>
+          <span id="active-voucher-label" style="color:var(--c10-cyan);">Mode Gratis</span>
+        </div>
+      </div>
+
+      <!-- Docked Saved Session Banner -->
       <div class="saved-session-card hide" id="saved-session-banner">
         <div class="saved-session-left">
           <div class="saved-session-top">
@@ -1610,186 +1878,233 @@
         </div>
         <div class="saved-session-btns">
           <button type="button" class="btn btn-xs" id="btn-quick-renew">Perpanjang Sesi</button>
-          <button type="button" class="btn dark-sec btn-xs" id="btn-forget-session">Hapus</button>
+          <button type="button" class="btn sec btn-xs" id="btn-forget-session">Hapus</button>
         </div>
       </div>
 
-      <!-- Main Interactive Workbench Card -->
+      <!-- ===============================================================
+           MAIN INTERACTIVE WORKBENCH CARD
+           =============================================================== -->
       <section class="workbench-card" data-ui="studio-workbench" id="activation-hub" aria-label="Panel Aktivasi Lisensi">
 
-        <!-- 3-Step Segmented Bar -->
-        <div class="stepper-bar" role="tablist">
-          <button type="button" id="step-nav-1" class="step-item active" role="tab" aria-selected="true">
-            <span class="step-badge" id="step-badge-1">1</span>
-            <span>Email Akun</span>
+        <!-- Mode Switcher: Single Activation vs Bulk (Grosir) -->
+        <div class="mode-tabs">
+          <button type="button" class="mode-tab-btn active" id="tab-mode-single">
+            <span>Aktivasi Satuan</span>
           </button>
-          <button type="button" id="step-nav-2" class="step-item" role="tab" aria-selected="false">
-            <span class="step-badge" id="step-badge-2">2</span>
-            <span>Verifikasi Link</span>
-          </button>
-          <button type="button" id="step-nav-3" class="step-item" role="tab" aria-selected="false">
-            <span class="step-badge" id="step-badge-3">3</span>
-            <span>Status Pro</span>
+          <button type="button" class="mode-tab-btn" id="tab-mode-bulk">
+            <span>Bulk Grosir (Multi-Akun)</span>
+            <span class="mode-lock-chip" id="bulk-lock-chip">VOUCHER</span>
           </button>
         </div>
 
-        <div class="workbench-body">
-
-          <!-- STEP 1: INPUT EMAIL -->
-          <div class="panel active" id="panel-1">
-            <div class="panel-head">
-              <h2 class="panel-title">Masukkan Email Akun Alight Motion</h2>
-              <p class="panel-sub">Server resmi Alight Creative akan mengirimkan tautan masuk sekali pakai ke kotak masuk Anda.</p>
-            </div>
-
-            <div class="field-group">
-              <div class="field-top">
-                <label class="field-label" for="input-email">Alamat Email</label>
-              </div>
-              <div class="input-wrap">
-                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="4" width="20" height="16" rx="3"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                <input class="input-control" id="input-email" type="email" inputmode="email" placeholder="nama@gmail.com" autocomplete="email" required>
-                <button type="button" class="btn-clear-field hide" id="btn-clear-email" aria-label="Bersihkan email">&times;</button>
-              </div>
-
-              <div class="domain-chips" aria-label="Pintasan domain email">
-                <button type="button" class="domain-chip" data-domain="@gmail.com">@gmail.com</button>
-                <button type="button" class="domain-chip" data-domain="@icloud.com">@icloud.com</button>
-                <button type="button" class="domain-chip" data-domain="@outlook.com">@outlook.com</button>
-                <button type="button" class="domain-chip" data-domain="@yahoo.com">@yahoo.com</button>
-              </div>
-            </div>
-
-            <div class="action-row">
-              <button type="button" class="btn" id="btn-send-link">
-                <span>Kirim Magic Link</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                  <polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </button>
-              <a href="https://mail.google.com" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">
-                Buka Gmail
-              </a>
-            </div>
-
-            <div class="feedback-box" id="msg-1" role="status"></div>
+        <!-- SINGLE MODE VIEW -->
+        <div id="view-single-mode">
+          <!-- 3-Step Segmented Bar -->
+          <div class="stepper-bar" role="tablist">
+            <button type="button" id="step-nav-1" class="step-item active" role="tab" aria-selected="true">
+              <span class="step-badge" id="step-badge-1">1</span>
+              <span>Email Akun</span>
+            </button>
+            <button type="button" id="step-nav-2" class="step-item" role="tab" aria-selected="false">
+              <span class="step-badge" id="step-badge-2">2</span>
+              <span>Verifikasi Link</span>
+            </button>
+            <button type="button" id="step-nav-3" class="step-item" role="tab" aria-selected="false">
+              <span class="step-badge" id="step-badge-3">3</span>
+              <span>Status Pro</span>
+            </button>
           </div>
 
-          <!-- STEP 2: PASTE MAGIC LINK -->
-          <div class="panel" id="panel-2">
-            <div class="panel-head">
-              <h2 class="panel-title">Tempel Tautan &amp; Aktifkan Pro</h2>
-              <p class="panel-sub">Buka email dari Alight Creative, <b>tekan &amp; tahan</b> tombol <b>"Sign in to Alight Motion"</b>, salin URL-nya, lalu tempel di bawah.</p>
-            </div>
+          <div class="workbench-body">
 
-            <div class="target-email-bar">
-              <span>Target email: <b id="step2-target-email">-</b></span>
-              <button type="button" class="link-inline-btn" id="btn-change-email">Ubah Email</button>
-            </div>
+            <!-- STEP 1: INPUT EMAIL -->
+            <div class="panel active" id="panel-1">
+              <div class="panel-head">
+                <h2 class="panel-title">Masukkan Email Akun Alight Motion</h2>
+                <p class="panel-sub">Server resmi Alight Creative akan mengirimkan tautan login sekali pakai ke inbox Anda.</p>
+              </div>
 
-            <div class="field-group">
-              <div class="field-top">
-                <label class="field-label" for="input-link">URL Magic Link</label>
-                <button type="button" id="btn-paste-clipboard" class="btn sec btn-xs">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              <div class="field-group">
+                <div class="field-top">
+                  <label class="field-label" for="input-email">Alamat Email</label>
+                </div>
+                <div class="input-wrap">
+                  <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="4" width="20" height="16" rx="3"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                   </svg>
-                  <span>Tempel Otomatis</span>
-                </button>
+                  <input class="input-control" id="input-email" type="email" inputmode="email" placeholder="nama@gmail.com" autocomplete="email" required>
+                  <button type="button" class="btn-clear-field hide" id="btn-clear-email" aria-label="Bersihkan email">&times;</button>
+                </div>
+
+                <div class="domain-chips" aria-label="Pintasan domain email">
+                  <button type="button" class="domain-chip" data-domain="@gmail.com">@gmail.com</button>
+                  <button type="button" class="domain-chip" data-domain="@icloud.com">@icloud.com</button>
+                  <button type="button" class="domain-chip" data-domain="@outlook.com">@outlook.com</button>
+                  <button type="button" class="domain-chip" data-domain="@yahoo.com">@yahoo.com</button>
+                </div>
               </div>
-              <textarea class="textarea-control" id="input-link" placeholder="https://alightcreative.com/am/?link=...&amp;apiKey=..."></textarea>
-              <div id="link-hint-status" class="link-hint"></div>
+
+              <div class="action-row">
+                <button type="button" class="btn" id="btn-send-link">
+                  <span>Kirim Magic Link</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+                <a href="https://mail.google.com" class="btn sec" id="btn-open-mail" target="_blank" rel="noopener">
+                  Buka Gmail
+                </a>
+              </div>
+
+              <div class="feedback-box" id="msg-1" role="status"></div>
             </div>
 
-            <div class="action-row">
-              <button type="button" class="btn" id="btn-verify">
-                <span>Aktifkan Lisensi Pro</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </button>
-              <button type="button" class="btn sec" id="btn-open-guide-modal">
-                Cara Salin Link
-              </button>
-            </div>
+            <!-- STEP 2: PASTE MAGIC LINK -->
+            <div class="panel" id="panel-2">
+              <div class="panel-head">
+                <h2 class="panel-title">Tempel Tautan &amp; Aktifkan Pro</h2>
+                <p class="panel-sub">Buka email dari Alight Creative, <b>tekan &amp; tahan</b> tombol <b>"Sign in to Alight Motion"</b>, salin URL-nya, lalu tempel di bawah.</p>
+              </div>
 
-            <div class="feedback-box" id="msg-2" role="status"></div>
-          </div>
+              <div class="target-email-bar">
+                <span>Target email: <b id="step2-target-email">-</b></span>
+                <button type="button" class="link-inline-btn" id="btn-change-email">Ubah Email</button>
+              </div>
 
-          <!-- STEP 3: VIP PRO ACTIVE DASHBOARD -->
-          <div class="panel" id="panel-3">
-            <div class="panel-head">
-              <h2 class="panel-title">Lisensi Pro Berhasil Diaktifkan</h2>
-              <p class="panel-sub">Tanda terima langganan tahunan telah terhubung ke akun Alight Creative Anda.</p>
-            </div>
+              <div class="field-group">
+                <div class="field-top">
+                  <label class="field-label" for="input-link">URL Magic Link</label>
+                  <button type="button" id="btn-paste-clipboard" class="btn sec btn-xs">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    <span>Tempel Otomatis</span>
+                  </button>
+                </div>
+                <textarea class="textarea-control" id="input-link" placeholder="https://alightcreative.com/am/?link=...&amp;apiKey=..."></textarea>
+                <div id="link-hint-status" class="link-hint"></div>
+              </div>
 
-            <!-- 30% Carbon Membership Pass Card -->
-            <div class="vip-pass-card">
-              <div class="vip-card-top">
-                <span class="vip-verified-pill">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;">
+              <div class="action-row">
+                <button type="button" class="btn" id="btn-verify">
+                  <span>Aktifkan Lisensi Pro</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
-                  PRO PASS AKTIF
-                </span>
-                <span class="vip-days-pill tabular" id="res-days-badge">Status Aktif</span>
-              </div>
-
-              <div class="vip-meta-grid">
-                <div class="vip-meta-box">
-                  <div class="vip-meta-lbl">Akun Terdaftar</div>
-                  <div class="vip-meta-val" id="res-email">-</div>
-                </div>
-                <div class="vip-meta-box">
-                  <div class="vip-meta-lbl">Masa Berlaku</div>
-                  <div class="vip-meta-val accent" id="res-valid">3 Juli 2027</div>
-                </div>
-              </div>
-
-              <div class="vip-pass-footer">
-                <div class="vip-perks-inline">
-                  <span>Tanpa Watermark</span>
-                  <span>Ekspor 4K 60fps</span>
-                  <span>Efek VIP</span>
-                </div>
-                <button type="button" class="btn-token-chip" id="btn-copy-token">
-                  <span id="lbl-copy-token">Salin Token</span>
+                </button>
+                <button type="button" class="btn sec" id="btn-open-guide-modal">
+                  Cara Salin Link
                 </button>
               </div>
+
+              <div class="feedback-box" id="msg-2" role="status"></div>
             </div>
 
-            <!-- Mobile App Login Box -->
-            <div class="mobile-login-box">
-              <div class="mobile-login-title">Masuk ke Aplikasi Alight Motion di HP:</div>
-              <ol class="mobile-login-list">
-                <li>Klik <b>"Kirim Magic Link HP"</b> di bawah untuk membuat link login baru.</li>
-                <li>Buka email terbaru di <b>Gmail HP</b> lalu ketuk langsung tombol <b>"Sign in to Alight Motion"</b>.</li>
-              </ol>
-              <button type="button" class="btn btn-full" id="btn-send-app-login">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                  <line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
-                <span>Kirim Magic Link HP</span>
-              </button>
+            <!-- STEP 3: VIP PRO ACTIVE DASHBOARD -->
+            <div class="panel" id="panel-3">
+              <div class="panel-head">
+                <h2 class="panel-title">Lisensi Pro Berhasil Diaktifkan</h2>
+                <p class="panel-sub">Tanda terima langganan tahunan telah terhubung ke akun Alight Creative Anda.</p>
+              </div>
+
+              <div class="vip-pass-card">
+                <div class="vip-card-top">
+                  <span class="vip-verified-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px;">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    PRO PASS AKTIF
+                  </span>
+                  <span class="vip-days-pill tabular" id="res-days-badge">Status Aktif</span>
+                </div>
+
+                <div class="vip-meta-grid">
+                  <div class="vip-meta-box">
+                    <div class="vip-meta-lbl">Akun Terdaftar</div>
+                    <div class="vip-meta-val" id="res-email">-</div>
+                  </div>
+                  <div class="vip-meta-box">
+                    <div class="vip-meta-lbl">Masa Berlaku</div>
+                    <div class="vip-meta-val accent" id="res-valid">3 Juli 2027</div>
+                  </div>
+                </div>
+
+                <div class="vip-pass-footer">
+                  <div class="vip-perks-inline">
+                    <span>Tanpa Watermark</span>
+                    <span>Ekspor 4K 60fps</span>
+                    <span>Efek VIP</span>
+                  </div>
+                  <button type="button" class="btn-token-chip" id="btn-copy-token">
+                    <span id="lbl-copy-token">Salin Token</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mobile-login-box">
+                <div class="mobile-login-title">Masuk ke Aplikasi Alight Motion di HP:</div>
+                <ol class="mobile-login-list">
+                  <li>Klik <b>"Kirim Magic Link HP"</b> di bawah untuk membuat link login baru.</li>
+                  <li>Buka email terbaru di <b>Gmail HP</b> lalu ketuk langsung tombol <b>"Sign in to Alight Motion"</b>.</li>
+                </ol>
+                <button type="button" class="btn btn-full" id="btn-send-app-login">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                  </svg>
+                  <span>Kirim Magic Link HP</span>
+                </button>
+              </div>
+
+              <div class="vip-actions-grid">
+                <button type="button" class="btn sec btn-sm" id="btn-open-app">Buka Aplikasi AM</button>
+                <button type="button" class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
+                <button type="button" class="btn sec btn-sm" id="btn-share-wa">Bagikan ke WhatsApp</button>
+                <button type="button" class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
+              </div>
+
+              <div class="feedback-box" id="msg-login-send" role="status"></div>
             </div>
 
-            <div class="vip-actions-grid">
-              <button type="button" class="btn sec btn-sm" id="btn-open-app">Buka Aplikasi AM</button>
-              <button type="button" class="btn sec btn-sm" id="btn-renew-session">Perpanjang Sesi</button>
-              <button type="button" class="btn sec btn-sm" id="btn-share-wa">Bagikan ke WhatsApp</button>
-              <button type="button" class="btn sec btn-sm" id="btn-activate-another">Aktivasi Akun Lain</button>
-            </div>
-
-            <div class="feedback-box" id="msg-login-send" role="status"></div>
           </div>
-
         </div>
+
+        <!-- BULK ACTIVATION (GROSIR / RESELLER) VIEW -->
+        <div id="view-bulk-mode" class="hide">
+          <div class="workbench-body">
+            <div class="panel-head">
+              <h2 class="panel-title">Bulk Activation (Mode Grosir / Reseller)</h2>
+              <p class="panel-sub">Kirim dan aktifkan hingga 10 akun Alight Motion sekaligus tanpa jeda cooldown menggunakan kuota Voucher Anda.</p>
+            </div>
+
+            <div class="field-group">
+              <div class="field-top">
+                <label class="field-label" for="bulk-emails-input">1. Daftar Email (1 baris 1 email, maks 10)</label>
+                <button type="button" class="btn sec btn-xs" id="btn-bulk-send">Kirim Semua Magic Link</button>
+              </div>
+              <textarea class="textarea-control" id="bulk-emails-input" placeholder="akun1@gmail.com&#10;akun2@gmail.com&#10;akun3@gmail.com" style="min-height:84px;"></textarea>
+            </div>
+
+            <div class="field-group">
+              <div class="field-top">
+                <label class="field-label" for="bulk-links-input">2. Daftar Pasangan Email &amp; Magic Link (Format: email | link)</label>
+              </div>
+              <textarea class="textarea-control" id="bulk-links-input" placeholder="akun1@gmail.com | https://alightcreative.com/am/?link=...&#10;akun2@gmail.com | https://alightcreative.com/am/?link=..." style="min-height:96px;"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-full" id="btn-bulk-verify">
+              <span>Aktifkan Semua Akun Sekaligus</span>
+            </button>
+
+            <div class="feedback-box" id="msg-bulk" role="status"></div>
+            <div class="bulk-results-list" id="bulk-results-list"></div>
+          </div>
+        </div>
+
       </section>
 
       <!-- Compact Telemetry Bar -->
@@ -1816,27 +2131,27 @@
       <section class="faq-section" aria-label="Pertanyaan Umum">
         <div class="faq-head">
           <h2>Pertanyaan Umum</h2>
-          <span>Panduan singkat kendala aktivasi</span>
+          <span>Kuota, Voucher &amp; Aktivasi</span>
         </div>
 
         <div class="faq-stack">
           <details class="faq-tile" name="dkaimono-faq" open>
             <summary>
-              <span>Mengapa link pertama di email tidak bisa diklik lagi untuk login di HP?</span>
+              <span>Apa perbedaan Mode Gratis (Free) dan Kode Voucher Premium?</span>
               <span class="faq-plus" aria-hidden="true"></span>
             </summary>
             <div class="faq-answer">
-              Tautan dari Google Firebase hanya berlaku untuk 1 kali pakai. Link pertama yang Anda tempel di Langkah 2 sudah terpakai oleh server untuk mengaktifkan status Pro. Untuk login ke aplikasi HP, tekan tombol <b>"Kirim Magic Link HP"</b> di Langkah 3 lalu ketuk link baru yang masuk ke Gmail Anda.
+              Pengguna <b>Gratis</b> mendapat kuota <b>3x aktivasi/hari</b> per perangkat &amp; jaringan (subnet /24) dengan jeda cooldown 10 menit antar aktivasi. Pengguna <b>Kode Voucher Premium / Reseller</b> mendapat kuota <b>10–25 akun/hari tanpa jeda waktu</b> serta akses fitur <b>Bulk Activation (Grosir)</b>.
             </div>
           </details>
 
           <details class="faq-tile" name="dkaimono-faq">
             <summary>
-              <span>Apakah wajib memakai Alight Motion resmi dari Play Store / App Store?</span>
+              <span>Mengapa link pertama di email tidak bisa diklik lagi untuk login di HP?</span>
               <span class="faq-plus" aria-hidden="true"></span>
             </summary>
             <div class="faq-answer">
-              Ya. Gunakan aplikasi resmi dari Google Play Store atau App Store agar fitur login Firebase berjalan normal dan bebas dari risiko aplikasi modifikasi.
+              Tautan dari Google Firebase hanya berlaku 1 kali pakai. Link pertama yang ditempel di Langkah 2 sudah digunakan server untuk mengaktifkan Pro. Untuk masuk di aplikasi HP, tekan tombol <b>"Kirim Magic Link HP"</b> di Langkah 3 lalu ketuk link baru yang masuk ke Gmail Anda.
             </div>
           </details>
 
@@ -1846,7 +2161,7 @@
               <span class="faq-plus" aria-hidden="true"></span>
             </summary>
             <div class="faq-answer">
-              Semua akun yang Anda aktifkan otomatis tersimpan di menu <b>Sesi Akun</b> (kanan atas). Anda bisa memperpanjang masa aktif dalam sekali klik kapan saja tanpa perlu verifikasi ulang.
+              Semua akun yang Anda aktifkan otomatis tersimpan di menu <b>Sesi Akun</b> (kanan atas). Anda dapat memperpanjang masa aktif dalam 1 klik kapan saja menggunakan refresh token tanpa perlu verifikasi ulang.
             </div>
           </details>
         </div>
@@ -1856,7 +2171,7 @@
   </main>
 
   <!-- =================================================================
-       MODAL PANDUAN SALIN MAGIC LINK
+       MODAL 1: PANDUAN SALIN MAGIC LINK
        ================================================================= -->
   <div class="modal-backdrop" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
     <div class="modal-dialog">
@@ -1892,6 +2207,46 @@
     </div>
   </div>
 
+  <!-- =================================================================
+       MODAL 2: BELI VOUCHER PREMIUM / BULK (QRIS INSTANT CHECKOUT)
+       ================================================================= -->
+  <div class="modal-backdrop" id="upgrade-modal" role="dialog" aria-modal="true" aria-labelledby="upgrade-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="upgrade-modal-title">Beli Kode Voucher Akses</h2>
+        <button type="button" class="icon-close-btn" id="btn-close-upgrade" aria-label="Tutup modal">&times;</button>
+      </div>
+
+      <p style="font-size:13px;color:var(--txt-70);margin-bottom:14px;">
+        Tanpa perlu daftar akun atau password. Pilih paket voucher untuk membuka kuota harian besar, bebas cooldown 10 menit, dan fitur Bulk Activation:
+      </p>
+
+      <div class="plan-grid">
+        <div class="plan-card selected" data-plan="premium" id="plan-card-premium">
+          <div class="plan-name">Premium Pass</div>
+          <div class="plan-price">Rp 15.000</div>
+          <div class="plan-desc">10 Akun / Hari &bull; Tanpa Cooldown &bull; Aktif 30 Hari</div>
+        </div>
+        <div class="plan-card" data-plan="reseller" id="plan-card-reseller">
+          <div class="plan-name">Reseller / Grosir</div>
+          <div class="plan-price">Rp 35.000</div>
+          <div class="plan-desc">25 Akun / Hari &bull; Mode Bulk Grosir &bull; Aktif 30 Hari</div>
+        </div>
+      </div>
+
+      <div id="qris-checkout-stage" class="hide">
+        <div class="qris-box">
+          <div style="font-size:11.5px;color:var(--txt-70);margin-bottom:4px;">Invoice QRIS (<span id="qris-inv-code" class="tabular">-</span>)</div>
+          <div style="font-size:16px;font-weight:800;color:var(--c10-cyan);margin-bottom:8px;" id="qris-inv-amount">Rp 15.000</div>
+          <div style="font-family:var(--font-mono);font-size:10.5px;color:var(--txt-50);word-break:break-all;background:var(--c60-void);padding:8px;border-radius:6px;margin-bottom:10px;" id="qris-payload-preview">QRIS</div>
+          <button type="button" class="btn btn-sm btn-full" id="btn-confirm-qris">Simulasi / Konfirmasi Pembayaran QRIS</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-full" id="btn-create-qris">Buat QRIS Pembayaran</button>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast-msg" id="toast" role="status" aria-live="polite">
     <span id="toast-text">Tersalin ke clipboard!</span>
@@ -1902,7 +2257,7 @@
        ================================================================= -->
   <footer class="quiet-footer">
     <div class="topbar-shell footer-grid">
-      <div>&copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--ink-primary);text-decoration:none;font-weight:700;">dkaimono.web.id</a> &middot; DKaimono-AM Studio</div>
+      <div>&copy; <span id="year">2026</span> <a href="https://dkaimono.web.id" style="color:var(--txt-100);text-decoration:none;font-weight:700;">dkaimono.web.id</a> &middot; DKaimono-AM Studio</div>
       <div class="footer-links">
         <button type="button" id="footer-btn-guide">Panduan Salin</button>
         <button type="button" id="footer-btn-vault">Sesi Tersimpan</button>
@@ -1917,7 +2272,375 @@
 
     let currentActiveEmail = '';
     let toastTimer = null;
+    let cooldownInterval = null;
+    let deviceFingerprint = localStorage.getItem('dkaimono_fp') || '';
+    let activeVoucherCode = localStorage.getItem('dkaimono_voucher') || '';
+    let currentQuotaState = { tier: 'free', isPremium: false, canBulk: false, remaining: 3, limit: 3, cooldownSeconds: 0 };
 
+    // =================================================================
+    // 1. DEVICE FINGERPRINT GENERATOR (Canvas + WebGL + Audio/UA Hash)
+    // =================================================================
+    async function computeDeviceFingerprint() {
+      if (deviceFingerprint && deviceFingerprint.startsWith('fp_')) {
+        return deviceFingerprint;
+      }
+      try {
+        const parts = [
+          navigator.userAgent || '',
+          navigator.language || '',
+          screen.width + 'x' + screen.height + 'x' + (screen.colorDepth || 24),
+          Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+          String(navigator.hardwareConcurrency || 4)
+        ];
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = 160;
+          canvas.height = 36;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.textBaseline = 'top';
+            ctx.font = '13px monospace';
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillRect(10, 4, 60, 18);
+            ctx.fillStyle = '#f1f5f9';
+            ctx.fillText('DKaimono-AM-FP', 6, 8);
+            parts.push(canvas.toDataURL().slice(-64));
+          }
+        } catch (e) {}
+
+        const raw = parts.join('|');
+        let hash = 2166136261;
+        for (let i = 0; i < raw.length; i++) {
+          hash ^= raw.charCodeAt(i);
+          hash = Math.imul(hash, 16777619);
+        }
+        const hex = (hash >>> 0).toString(16).padStart(8, '0');
+        deviceFingerprint = `fp_${hex}_${ raw.length.toString(16) }`;
+        localStorage.setItem('dkaimono_fp', deviceFingerprint);
+      } catch (e) {
+        deviceFingerprint = 'fp_fallback_' + Math.random().toString(36).slice(2, 10);
+      }
+      return deviceFingerprint;
+    }
+
+    function apiHeaders() {
+      const h = {
+        'Content-Type': 'application/json',
+        'x-device-fingerprint': deviceFingerprint
+      };
+      if (activeVoucherCode) {
+        h['x-voucher-code'] = activeVoucherCode;
+      }
+      return h;
+    }
+
+    // =================================================================
+    // 2. QUOTA, COOLDOWN & VOUCHER MANAGEMENT
+    // =================================================================
+    function formatMMSS(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function startCooldownTicker(seconds) {
+      if (cooldownInterval) clearInterval(cooldownInterval);
+      const pill = $('cooldown-pill');
+      let rem = Math.max(0, Math.floor(seconds));
+      if (rem <= 0) {
+        pill.classList.add('hide');
+        return;
+      }
+      pill.classList.remove('hide');
+      pill.textContent = `Cooldown ${formatMMSS(rem)}`;
+      cooldownInterval = setInterval(() => {
+        rem -= 1;
+        if (rem <= 0) {
+          clearInterval(cooldownInterval);
+          pill.classList.add('hide');
+          syncQuotaStatus();
+        } else {
+          pill.textContent = `Cooldown ${formatMMSS(rem)}`;
+        }
+      }, 1000);
+    }
+
+    function renderQuotaBar(q) {
+      if (!q) return;
+      currentQuotaState = q;
+      const bar = $('quota-bar');
+      const badge = $('quota-tier-badge');
+      const summary = $('quota-summary-txt');
+      const voucherLbl = $('active-voucher-label');
+      const fpLabel = $('fp-device-label');
+      const clearBtn = $('btn-clear-voucher');
+      const bulkLock = $('bulk-lock-chip');
+
+      if (q.fingerprint) {
+        fpLabel.textContent = `Shield: ${q.fingerprint.slice(0, 11)} · Subnet ${q.ipSubnet || '/24'}`;
+      }
+
+      if (q.isPremium) {
+        bar.classList.add('premium-active');
+        badge.className = 'tier-badge pro';
+        badge.textContent = q.tier === 'reseller' ? 'RESELLER BULK' : 'PREMIUM PASS';
+        summary.textContent = `Sisa Kuota Hari Ini: ${q.remaining}/${q.limit} · Tanpa Cooldown`;
+        voucherLbl.textContent = `Voucher: ${q.voucherCode}`;
+        clearBtn.classList.remove('hide');
+        bulkLock.textContent = 'AKTIF';
+        startCooldownTicker(0);
+      } else {
+        bar.classList.remove('premium-active');
+        badge.className = 'tier-badge';
+        badge.textContent = 'FREE TIER';
+        summary.textContent = `Kuota Gratis: ${q.remaining}/${q.limit} Hari Ini · Jeda 10m`;
+        voucherLbl.textContent = 'Mode Gratis (3x/Hari)';
+        clearBtn.classList.add('hide');
+        bulkLock.textContent = 'VOUCHER';
+        startCooldownTicker(q.cooldownSeconds || 0);
+      }
+    }
+
+    async function syncQuotaStatus() {
+      await computeDeviceFingerprint();
+      try {
+        const res = await fetch('/api/quota', { headers: apiHeaders() });
+        const data = await res.json();
+        if (data.success && data.quota) {
+          if (activeVoucherCode && data.quota.voucherValid === false) {
+            activeVoucherCode = '';
+            localStorage.removeItem('dkaimono_voucher');
+          }
+          renderQuotaBar(data.quota);
+        }
+      } catch (e) {}
+    }
+    syncQuotaStatus();
+
+    $('btn-toggle-voucher-input').onclick = () => {
+      const row = $('voucher-input-row');
+      row.classList.toggle('hide');
+      if (!row.classList.contains('hide')) {
+        $('input-voucher-code').value = activeVoucherCode || '';
+        $('input-voucher-code').focus();
+      }
+    };
+
+    $('btn-apply-voucher').onclick = async () => {
+      const code = $('input-voucher-code').value.trim().toUpperCase();
+      if (!code) return showToast('Masukkan kode voucher terlebih dahulu.');
+      setBusy($('btn-apply-voucher'), true, 'Mengecek...');
+      try {
+        const res = await fetch('/api/quota/voucher', {
+          method: 'POST',
+          headers: { ...apiHeaders(), 'x-voucher-code': code },
+          body: JSON.stringify({ voucherCode: code, fingerprint: deviceFingerprint })
+        });
+        const data = await res.json();
+        if (data.success && data.quota) {
+          activeVoucherCode = data.quota.voucherCode;
+          localStorage.setItem('dkaimono_voucher', activeVoucherCode);
+          renderQuotaBar(data.quota);
+          $('voucher-input-row').classList.add('hide');
+          showToast(data.message || 'Kode Voucher diaktifkan!');
+        } else {
+          showToast(data.message || 'Kode Voucher tidak valid.');
+        }
+      } catch (e) {
+        showToast('Gagal memvalidasi voucher.');
+      } finally {
+        setBusy($('btn-apply-voucher'), false);
+      }
+    };
+
+    $('btn-clear-voucher').onclick = () => {
+      activeVoucherCode = '';
+      localStorage.removeItem('dkaimono_voucher');
+      $('input-voucher-code').value = '';
+      syncQuotaStatus();
+      switchMode('single');
+      showToast('Kembali ke Mode Gratis.');
+    };
+
+    // =================================================================
+    // 3. MODE SWITCHER: SINGLE vs BULK ACTIVATION (GROSIR)
+    // =================================================================
+    function switchMode(mode) {
+      const isBulk = mode === 'bulk';
+      if (isBulk && !currentQuotaState.isPremium) {
+        $('voucher-input-row').classList.remove('hide');
+        $('input-voucher-code').focus();
+        showToast('Masukkan Kode Voucher Premium/Reseller untuk membuka fitur Bulk Activation!');
+        return;
+      }
+      $('tab-mode-single').classList.toggle('active', !isBulk);
+      $('tab-mode-bulk').classList.toggle('active', isBulk);
+      $('view-single-mode').classList.toggle('hide', isBulk);
+      $('view-bulk-mode').classList.toggle('hide', !isBulk);
+    }
+
+    $('tab-mode-single').onclick = () => switchMode('single');
+    $('tab-mode-bulk').onclick = () => switchMode('bulk');
+
+    // Bulk Send Magic Links
+    $('btn-bulk-send').onclick = async () => {
+      clearMsg('msg-bulk');
+      const raw = $('bulk-emails-input').value.trim();
+      const emails = raw.split(/[\r\n,;]+/).map(s => s.trim()).filter(s => s.includes('@'));
+      if (emails.length === 0) {
+        return showMsg('msg-bulk', 'Masukkan minimal 1 alamat email yang valid.', 'err');
+      }
+      setBusy($('btn-bulk-send'), true, 'Mengirim Massal...');
+      try {
+        const res = await fetch('/api/bulk', {
+          method: 'POST',
+          headers: apiHeaders(),
+          body: JSON.stringify({ action: 'send-links', emails, fingerprint: deviceFingerprint, voucherCode: activeVoucherCode })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showMsg('msg-bulk', `Berhasil mengirim ${data.sentCount}/${data.totalCount} magic link! Silakan salin URL dari masing-masing inbox lalu tempel di kolom ke-2.`, 'ok');
+        } else {
+          showMsg('msg-bulk', data.message || 'Gagal mengirim magic link massal.', 'err');
+        }
+      } catch (e) {
+        showMsg('msg-bulk', 'Kesalahan jaringan.', 'err');
+      } finally {
+        setBusy($('btn-bulk-send'), false);
+      }
+    };
+
+    // Bulk Verify & Activate
+    $('btn-bulk-verify').onclick = async () => {
+      clearMsg('msg-bulk');
+      const lines = $('bulk-links-input').value.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const fallbackEmails = $('bulk-emails-input').value.split(/[\r\n,;]+/).map(s => s.trim()).filter(s => s.includes('@'));
+      const items = [];
+
+      lines.forEach((line, idx) => {
+        if (line.includes('|')) {
+          const [em, lnk] = line.split('|').map(s => s.trim());
+          if (em && lnk) items.push({ email: em, magicLink: lnk });
+        } else if (line.startsWith('http')) {
+          const em = fallbackEmails[idx] || '';
+          if (em) items.push({ email: em, magicLink: line });
+        }
+      });
+
+      if (items.length === 0) {
+        return showMsg('msg-bulk', 'Masukkan pasangan dengan format: email@gmail.com | https://alightcreative.com/...', 'err');
+      }
+
+      setBusy($('btn-bulk-verify'), true, `Mengaktifkan ${items.length} Akun...`);
+      try {
+        const res = await fetch('/api/bulk', {
+          method: 'POST',
+          headers: apiHeaders(),
+          body: JSON.stringify({ action: 'verify-links', items, fingerprint: deviceFingerprint, voucherCode: activeVoucherCode })
+        });
+        const data = await res.json();
+        if (data.success) {
+          if (data.quota) renderQuotaBar(data.quota);
+          loadStats();
+          showMsg('msg-bulk', `Selesai! ${data.activatedCount} dari ${data.totalCount} akun berhasil diaktifkan Pro dan disimpan ke Sesi Akun.`, 'ok');
+          const resList = $('bulk-results-list');
+          resList.innerHTML = (data.results || []).map(r => {
+            if (r.success) {
+              saveAccount({ email: r.email, refreshToken: r.refreshToken || '', idToken: r.idToken || '', validUntil: r.validUntil });
+            }
+            return `
+              <div class="bulk-res-item">
+                <span style="font-weight:600;color:var(--txt-100);">${r.email}</span>
+                <span style="color:${r.success ? 'var(--ok)' : 'var(--danger)'};font-weight:700;">${r.message}</span>
+              </div>
+            `;
+          }).join('');
+        } else {
+          showMsg('msg-bulk', data.message || 'Bulk aktivasi gagal.', 'err');
+        }
+      } catch (e) {
+        showMsg('msg-bulk', 'Kesalahan jaringan.', 'err');
+      } finally {
+        setBusy($('btn-bulk-verify'), false);
+      }
+    };
+
+    // =================================================================
+    // 4. QRIS VOUCHER CHECKOUT MODAL
+    // =================================================================
+    const upgradeModal = $('upgrade-modal');
+    let selectedPlan = 'premium';
+    let activeInvoiceCode = '';
+
+    $('btn-open-upgrade-modal').onclick = () => {
+      $('qris-checkout-stage').classList.add('hide');
+      $('btn-create-qris').classList.remove('hide');
+      upgradeModal.classList.add('open');
+    };
+    $('btn-close-upgrade').onclick = () => upgradeModal.classList.remove('open');
+    upgradeModal.onclick = e => { if (e.target === upgradeModal) upgradeModal.classList.remove('open'); };
+
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.onclick = () => {
+        document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedPlan = card.getAttribute('data-plan');
+      };
+    });
+
+    $('btn-create-qris').onclick = async () => {
+      setBusy($('btn-create-qris'), true, 'Membuat Invoice QRIS...');
+      try {
+        const res = await fetch('/api/quota/checkout', {
+          method: 'POST',
+          headers: apiHeaders(),
+          body: JSON.stringify({ plan: selectedPlan })
+        });
+        const data = await res.json();
+        if (data.success && data.invoice) {
+          activeInvoiceCode = data.invoice.invoiceCode;
+          $('qris-inv-code').textContent = data.invoice.invoiceCode;
+          $('qris-inv-amount').textContent = 'Rp ' + Number(data.invoice.amount).toLocaleString('id-ID');
+          $('qris-payload-preview').textContent = data.invoice.qrisPayload;
+          $('qris-checkout-stage').classList.remove('hide');
+          $('btn-create-qris').classList.add('hide');
+        }
+      } catch (e) {
+        showToast('Gagal membuat invoice QRIS.');
+      } finally {
+        setBusy($('btn-create-qris'), false);
+      }
+    };
+
+    $('btn-confirm-qris').onclick = async () => {
+      if (!activeInvoiceCode) return;
+      setBusy($('btn-confirm-qris'), true, 'Memverifikasi Pembayaran...');
+      try {
+        const res = await fetch('/api/quota/confirm', {
+          method: 'POST',
+          headers: apiHeaders(),
+          body: JSON.stringify({ invoiceCode: activeInvoiceCode, fingerprint: deviceFingerprint })
+        });
+        const data = await res.json();
+        if (data.success && data.voucherCode) {
+          activeVoucherCode = data.voucherCode;
+          localStorage.setItem('dkaimono_voucher', activeVoucherCode);
+          if (data.quota) renderQuotaBar(data.quota);
+          upgradeModal.classList.remove('open');
+          showToast(`Voucher ${data.voucherCode} aktif otomatis!`);
+        } else {
+          showToast(data.message || 'Gagal konfirmasi pembayaran.');
+        }
+      } catch (e) {
+        showToast('Kesalahan jaringan.');
+      } finally {
+        setBusy($('btn-confirm-qris'), false);
+      }
+    };
+
+    // =================================================================
+    // 5. CORE SINGLE WORKBENCH & VAULT LOGIC
+    // =================================================================
     function showToast(text) {
       const toast = $('toast');
       $('toast-text').textContent = text;
@@ -2034,7 +2757,7 @@
         $('topbar-ping').textContent = '\u00B7 ' + ping + 'ms';
         if (data.status === 'online') {
           $('status-label').textContent = 'Online';
-          $('status-dot-el').style.backgroundColor = 'var(--ok)';
+          $('status-dot-el').style.backgroundColor = 'var(--c10-cyan)';
         }
       } catch (err) {
         $('status-label').textContent = 'Offline';
@@ -2053,8 +2776,8 @@
           $('st-today').textContent = Number(data.today || 0).toLocaleString('id-ID');
         }
       } catch (e) {
-        $('st-total').textContent = '12.850';
-        $('st-today').textContent = '142';
+        $('st-total').textContent = '1.558';
+        $('st-today').textContent = '12';
       }
     }
     loadStats();
@@ -2108,6 +2831,7 @@
 
     function openAccountInDashboard(acc) {
       if (!acc || !acc.email) return;
+      switchMode('single');
       currentActiveEmail = acc.email;
       const validDate = acc.validUntil || '3 Juli 2027';
       $('res-email').textContent = acc.email;
@@ -2144,7 +2868,7 @@
 
       if (list.length === 0) {
         container.innerHTML = `
-          <div style="font-size:12.5px;color:var(--ink-secondary);background:var(--bg-canvas);border:1px solid var(--border-hairline);border-radius:var(--r-sm);padding:14px;line-height:1.5;">
+          <div style="font-size:12.5px;color:var(--txt-70);background:var(--c60-well);border:1px solid var(--c30-border);border-radius:var(--r-sm);padding:14px;line-height:1.5;">
             Belum ada sesi tersimpan. Setiap akun yang berhasil diaktifkan akan tercatat otomatis di sini.
           </div>
         `;
@@ -2190,7 +2914,7 @@
           try {
             const res = await fetch('/api/renew', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: apiHeaders(),
               body: JSON.stringify({ refreshToken: token })
             });
             const data = await res.json();
@@ -2220,7 +2944,7 @@
           try {
             const res = await fetch('/api/send-link', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+              headers: apiHeaders(),
               body: JSON.stringify({ email })
             });
             const data = await res.json();
@@ -2314,7 +3038,7 @@
       try {
         const res = await fetch('/api/renew', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: apiHeaders(),
           body: JSON.stringify({ refreshToken: latest.refreshToken })
         });
         const data = await res.json();
@@ -2384,7 +3108,7 @@
       try {
         const res = await fetch('/api/send-link', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: apiHeaders(),
           body: JSON.stringify({ email })
         });
         const data = await res.json();
@@ -2396,7 +3120,7 @@
             $('input-link').focus();
           }, 550);
         } else {
-          showMsg('msg-1', data.error || 'Gagal mengirim email verifikasi.', 'err');
+          showMsg('msg-1', data.error || data.message || 'Gagal mengirim email verifikasi.', 'err');
         }
       } catch (err) {
         showMsg('msg-1', 'Kesalahan koneksi ke server.', 'err');
@@ -2489,10 +3213,16 @@
       try {
         const res = await fetch('/api/verify-link', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, magicLink })
+          headers: apiHeaders(),
+          body: JSON.stringify({
+            email,
+            magicLink,
+            fingerprint: deviceFingerprint,
+            voucherCode: activeVoucherCode
+          })
         });
         const data = await res.json();
+        if (data.quota) renderQuotaBar(data.quota);
         if (data.success) {
           const confirmedEmail = data.email || email;
           const validDate = data.validUntil || '3 Juli 2027';
@@ -2509,7 +3239,7 @@
           loadStats();
           showToast('Lisensi VIP Pro berhasil diaktifkan!');
         } else {
-          showMsg('msg-2', data.error || 'Verifikasi gagal. Pastikan tautan belum pernah diklik sebelumnya.', 'err');
+          showMsg('msg-2', data.error || data.message || 'Verifikasi gagal. Pastikan tautan belum pernah diklik sebelumnya.', 'err');
         }
       } catch (err) {
         showMsg('msg-2', 'Kesalahan jaringan saat menghubungi server verifikasi.', 'err');
@@ -2529,7 +3259,7 @@
       try {
         const res = await fetch('/api/send-link', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: apiHeaders(),
           body: JSON.stringify({ email })
         });
         const data = await res.json();
@@ -2537,7 +3267,7 @@
           showMsg('msg-login-send', 'Tautan login baru telah dikirim ke ' + email + '. Buka Gmail di HP Anda lalu ketuk tombol di dalam email untuk masuk sebagai Pro.', 'ok');
           showToast('Magic link HP terkirim!');
         } else {
-          showMsg('msg-login-send', data.error || 'Gagal mengirim tautan login.', 'err');
+          showMsg('msg-login-send', data.error || data.message || 'Gagal mengirim tautan login.', 'err');
         }
       } catch (e) {
         showMsg('msg-login-send', 'Gagal terhubung ke server.', 'err');
@@ -2560,7 +3290,7 @@
       try {
         const res = await fetch('/api/renew', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: apiHeaders(),
           body: JSON.stringify({ refreshToken: current.refreshToken })
         });
         const data = await res.json();
@@ -2631,6 +3361,7 @@
       if (e.key === 'Escape') {
         closeDrawer();
         closeModal();
+        upgradeModal.classList.remove('open');
       } else if (e.key === 'Enter') {
         if ($('panel-1').classList.contains('active') && document.activeElement === emailInput) {
           e.preventDefault();

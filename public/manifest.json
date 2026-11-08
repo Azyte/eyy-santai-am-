@@ -4,8 +4,8 @@
   "description": "Aktivasi lisensi resmi Alight Motion Pro tahunan. Tanpa password dan terverifikasi tanda terima Google Play.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F5F4F0",
-  "theme_color": "#141413",
+  "background_color": "#060913",
+  "theme_color": "#060913",
   "orientation": "portrait-primary",
   "icons": [
     {

@@ -1,5 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <rect width="512" height="512" rx="116" fill="#141413"/>
-  <rect x="32" y="32" width="448" height="448" rx="88" fill="none" stroke="#2A2927" stroke-width="8"/>
-  <path d="M286 84L132 276H246L218 428L380 236H266L286 84Z" fill="#FF4F18"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1021"/>
+      <stop offset="100%" stop-color="#05070F"/>
+    </linearGradient>
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#bgGrad)"/>
+  <rect x="28" y="28" width="456" height="456" rx="92" fill="none" stroke="#1E294B" stroke-width="8"/>
+  <path d="M286 84L132 276H246L218 428L380 236H266L286 84Z" fill="url(#boltGrad)"/>
 </svg>

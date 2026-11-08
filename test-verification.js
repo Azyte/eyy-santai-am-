@@ -28,6 +28,8 @@ async function runTests() {
     console.assert(homeHtml.includes('id="btn-toggle-drawer"'), 'Index HTML contains btn-toggle-drawer');
     console.assert(homeHtml.includes('id="menu-drawer"'), 'Index HTML contains menu-drawer');
     console.assert(homeHtml.includes('id="drawer-accounts-list"'), 'Index HTML contains drawer-accounts-list');
+    console.assert(homeHtml.includes('id="quota-bar"'), 'Index HTML contains quota-bar');
+    console.assert(homeHtml.includes('id="tab-mode-bulk"'), 'Index HTML contains tab-mode-bulk');
     console.log('✓ Test 1: Static HTML serving passed');
 
     // 2. Test /api/status
@@ -92,7 +94,35 @@ async function runTests() {
     console.assert(fnBody.status === 'online', 'Netlify handler body has status online');
     console.log('✓ Test 7: Netlify function handler execution passed');
 
-    console.log('\nALL 7 VERIFICATION CHECKS PASSED SUCCESSFULLY!');
+    // 8. Test /api/quota (Free tier + Seeded Neon Voucher DK-PRO-2026)
+    const resQuotaFree = await fetch(`${baseUrl}/api/quota`, {
+      headers: { 'x-device-fingerprint': 'fp_test_verification_01' }
+    });
+    const dataQuotaFree = await resQuotaFree.json();
+    console.assert(resQuotaFree.status === 200, 'Quota endpoint returns 200');
+    console.assert(dataQuotaFree.success === true, 'Quota response success is true');
+    console.assert(dataQuotaFree.quota.tier === 'free', 'Default quota tier is free');
+
+    const resVoucher = await fetch(`${baseUrl}/api/quota/voucher`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ voucherCode: 'DK-PRO-2026', fingerprint: 'fp_test_verification_01' })
+    });
+    const dataVoucher = await resVoucher.json();
+    console.assert(resVoucher.status === 200, 'Valid voucher returns 200');
+    console.assert(dataVoucher.quota.isPremium === true, 'Voucher activates premium tier');
+    console.log('✓ Test 8: /api/quota & Neon PostgreSQL voucher validation passed');
+
+    // 9. Test /api/bulk protection (Free tier blocked 403)
+    const resBulkFree = await fetch(`${baseUrl}/api/bulk`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'send-links', emails: ['a@b.com'] })
+    });
+    console.assert(resBulkFree.status === 403, 'Free user blocked from /api/bulk with 403');
+    console.log('✓ Test 9: /api/bulk tier protection passed');
+
+    console.log('\nALL 9 VERIFICATION CHECKS PASSED SUCCESSFULLY!');
   } finally {
     server.close();
   }

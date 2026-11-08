@@ -1,10 +1,10 @@
 const express = require('express');
-const { getStats } = require('../../../lib/stats');
+const { getStatsAsync } = require('../../../lib/stats');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  const stats = getStats();
+router.get('/', async (req, res) => {
+  const stats = await getStatsAsync();
   res.json({
     success: true,
     total: stats.total,

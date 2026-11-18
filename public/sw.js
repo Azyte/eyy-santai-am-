@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dkaimono-v3';
+const CACHE_NAME = 'dkaimono-v4';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',

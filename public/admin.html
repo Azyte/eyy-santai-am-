@@ -1,44 +1,81 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Panel Admin &middot; DKaimono-AM</title>
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#0b0e11">
+  <meta name="theme-color" content="#0e1016" id="meta-theme-color">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('dkaimono_theme');
+        var useDark = saved ? saved === 'dark' : true;
+        document.documentElement.classList.toggle('dark', useDark);
+        var meta = document.getElementById('meta-theme-color');
+        if (meta) meta.setAttribute('content', useDark ? '#0e1016' : '#f9fafb');
+      } catch (e) {}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --c60-canvas: #0b0e11;
-      --c60-well: #0f1419;
-      --c30-surface: #161d25;
-      --c30-raised: #1f2934;
-      --c30-hover: #293644;
-
-      --ink-100: #f1f5f9;
-      --ink-80: #a8b8c8;
-      --ink-60: #94a6b8;
-
-      --c10-accent: #22e58a;
-      --c10-accent-hover: #19cc78;
-      --c10-accent-tint: #0d2b1e;
-      --c10-accent-ink: #042112;
-
-      --danger: #ff6b78;
-      --danger-tint: #2b1216;
-      --warn: #f4b740;
-      --warn-tint: #2b210d;
-
-      --r-sm: 8px;
-      --r-md: 12px;
-      --r-lg: 16px;
+      --background: 210 20% 98%;
+      --foreground: 222 47% 11%;
+      --card: 0 0% 100%;
+      --card-foreground: 222 47% 11%;
+      --primary: 152 78% 28%;
+      --primary-hover: 152 78% 23%;
+      --primary-foreground: 0 0% 100%;
+      --primary-soft: 152 60% 93%;
+      --secondary: 214 20% 92%;
+      --secondary-hover: 214 20% 86%;
+      --secondary-foreground: 222 47% 11%;
+      --muted: 214 20% 93%;
+      --muted-foreground: 215 20% 38%;
+      --accent: 214 20% 93%;
+      --accent-foreground: 222 47% 11%;
+      --destructive: 0 74% 38%;
+      --destructive-soft: 0 85% 96%;
+      --destructive-foreground: 0 74% 32%;
+      --border: 214 20% 85%;
+      --input: 214 20% 82%;
+      --ring: 152 78% 28%;
+      --radius: 0.625rem;
+      --radius-lg: 0.9rem;
       --font: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .dark {
+      --background: 222 22% 7%;
+      --foreground: 210 40% 98%;
+      --card: 220 20% 11%;
+      --card-foreground: 210 40% 98%;
+      --primary: 152 78% 52%;
+      --primary-hover: 152 74% 44%;
+      --primary-foreground: 152 80% 7%;
+      --primary-soft: 152 52% 13%;
+      --secondary: 217 19% 17%;
+      --secondary-hover: 217 19% 22%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217 19% 16%;
+      --muted-foreground: 215 20% 68%;
+      --accent: 217 19% 18%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 354 100% 71%;
+      --destructive-soft: 350 42% 13%;
+      --destructive-foreground: 353 96% 90%;
+      --border: 217 18% 21%;
+      --input: 217 18% 23%;
+      --ring: 152 78% 52%;
     }
 
     *, *::before, *::after {
@@ -48,8 +85,8 @@
     }
 
     body {
-      background-color: var(--c60-canvas);
-      color: var(--ink-100);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
       font-family: var(--font);
       font-size: 0.94rem;
       line-height: 1.5;
@@ -71,10 +108,11 @@
     select:disabled,
     textarea:disabled {
       cursor: not-allowed;
+      opacity: 0.52;
     }
 
     :focus-visible {
-      outline: 2px solid var(--c10-accent);
+      outline: 2px solid hsl(var(--ring));
       outline-offset: 2px;
     }
 
@@ -82,12 +120,11 @@
       font-family: Consolas, 'Courier New', monospace;
     }
 
-    .hide {
-      display: none !important;
-    }
-
-    .tabular {
-      font-variant-numeric: tabular-nums;
+    .hide { display: none !important; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
 
     .shell {
@@ -97,12 +134,12 @@
       padding: 0 24px;
     }
 
-    header.topbar {
+    header.ui-navbar {
       position: sticky;
       top: 0;
       z-index: 40;
-      background-color: var(--c60-canvas);
-      border-bottom: 1px solid rgba(241, 245, 249, 0.08); /* taste-skill-ignore */
+      background-color: hsl(var(--background));
+      border-bottom: 1px solid hsl(var(--border)); /* taste-skill-ignore */
     }
 
     .topbar-inner {
@@ -118,76 +155,71 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: var(--ink-100);
+      color: hsl(var(--foreground));
       font-weight: 700;
       font-size: 1rem;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .brand-link svg {
       width: 30px;
       height: 30px;
+      flex-shrink: 0;
     }
 
     .topbar-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
-    .btn {
+    .ui-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
       min-height: 44px;
       padding: 0 16px;
-      background-color: var(--c10-accent);
-      color: var(--c10-accent-ink);
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
       font-family: var(--font);
       font-size: 0.875rem;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
-      border-radius: var(--r-sm);
+      border-radius: var(--radius);
       text-decoration: none;
       white-space: nowrap;
-      transition: background-color 0.16s var(--ease-out);
+      transition: background-color 0.16s var(--ease);
     }
 
-    .btn:hover {
-      background-color: var(--c10-accent-hover);
+    .ui-btn:hover { background-color: hsl(var(--primary-hover)); }
+    .ui-btn-secondary {
+      background-color: hsl(var(--secondary));
+      color: hsl(var(--secondary-foreground));
     }
-
-    .btn.sec {
-      background-color: var(--c30-raised);
-      color: var(--ink-100);
-      font-weight: 600;
+    .ui-btn-secondary:hover { background-color: hsl(var(--secondary-hover)); }
+    .ui-btn-outline {
+      background-color: hsl(var(--card));
+      color: hsl(var(--foreground));
+      border: 1px solid hsl(var(--border)); /* taste-skill-ignore */
     }
-
-    .btn.sec:hover {
-      background-color: var(--c30-hover);
+    .ui-btn-outline:hover { background-color: hsl(var(--accent)); }
+    .ui-btn-danger {
+      background-color: hsl(var(--destructive-soft));
+      color: hsl(var(--destructive-foreground));
     }
+    .ui-btn-sm { min-height: 38px; padding: 0 12px; font-size: 0.8rem; }
+    .ui-btn-icon { width: 44px; min-height: 44px; padding: 0; flex-shrink: 0; }
+    .ui-btn-full { width: 100%; }
+    .ui-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-    .btn.danger-btn {
-      background-color: var(--danger-tint);
-      color: var(--danger);
-      font-weight: 600;
-    }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    .dark .icon-sun { display: block; }
+    .dark .icon-moon { display: none; }
 
-    .btn.btn-sm {
-      min-height: 38px;
-      padding: 0 12px;
-      font-size: 0.8rem;
-    }
-
-    .btn.btn-full {
-      width: 100%;
-    }
-
-    .btn:disabled {
-      opacity: 0.5;
-    }
-
-    /* Login Box */
     .login-stage {
       min-height: calc(100dvh - 64px);
       display: flex;
@@ -199,89 +231,62 @@
     [data-ui="admin-console"].login-card {
       width: 100%;
       max-width: 420px;
-      background-color: var(--c30-surface);
-      border: 1px solid rgba(241, 245, 249, 0.09);
-      border-radius: var(--r-lg);
+      background-color: hsl(var(--card));
+      border: 1px solid hsl(var(--border));
+      border-radius: var(--radius-lg);
       padding: 28px 24px;
     }
 
-    .login-card h1 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
+    .login-card h1 { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; }
+    .login-card p { font-size: 0.86rem; color: hsl(var(--muted-foreground)); margin-bottom: 20px; }
 
-    .login-card p {
-      font-size: 0.86rem;
-      color: var(--ink-80);
-      margin-bottom: 20px;
-    }
-
-    /* Main Admin Console */
-    .admin-main {
-      padding: 28px 0 64px;
-    }
-
-    [data-ui="admin-console"] .nav-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      background-color: var(--c30-surface);
-      padding: 8px;
-      border-radius: var(--r-md);
-      margin-bottom: 24px;
-    }
-
-    [data-ui="admin-console"] .nav-tab {
-      min-height: 42px;
-      padding: 0 16px;
-      border: none;
-      border-radius: var(--r-sm);
-      background-color: transparent;
-      color: var(--ink-80);
-      font-family: var(--font);
-      font-size: 0.88rem;
-      font-weight: 600;
-      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
-    }
-
-    [data-ui="admin-console"] .nav-tab:hover {
-      color: var(--ink-100);
-    }
-
-    [data-ui="admin-console"] .nav-tab.active {
-      background-color: var(--c10-accent);
-      color: var(--c10-accent-ink);
-      font-weight: 700;
-    }
+    .admin-main { padding: 28px 0 64px; }
 
     .kpi-strip {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .kpi-tile {
-      background-color: var(--c30-surface);
-      border-radius: var(--r-md);
+      background-color: hsl(var(--card));
+      border-radius: var(--radius);
       padding: 14px 16px;
     }
 
-    .kpi-label {
-      font-size: 0.76rem;
-      color: var(--ink-60);
-      margin-bottom: 4px;
+    .kpi-label { font-size: 0.76rem; color: hsl(var(--muted-foreground)); margin-bottom: 4px; }
+    .kpi-val { font-size: 1.25rem; font-weight: 700; }
+    .kpi-val.accent { color: hsl(var(--primary)); }
+
+    [data-ui="admin-console"] .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background-color: hsl(var(--muted));
+      padding: 6px;
+      border-radius: var(--radius);
+      margin-bottom: 22px;
     }
 
-    .kpi-val {
-      font-size: 1.25rem;
+    [data-ui="admin-console"] .nav-tab {
+      min-height: 40px;
+      padding: 0 16px;
+      border: none;
+      border-radius: calc(var(--radius) - 2px);
+      background-color: transparent;
+      color: hsl(var(--muted-foreground));
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background-color 0.16s var(--ease), color 0.16s var(--ease);
+    }
+
+    [data-ui="admin-console"] .nav-tab:hover { color: hsl(var(--foreground)); }
+    [data-ui="admin-console"] .nav-tab.active {
+      background-color: hsl(var(--card));
+      color: hsl(var(--foreground));
       font-weight: 700;
-      color: var(--ink-100);
-    }
-
-    .kpi-val.accent {
-      color: var(--c10-accent);
     }
 
     .split-workspace {
@@ -292,102 +297,66 @@
     }
 
     [data-ui="admin-console"] .panel-box {
-      background-color: var(--c30-surface);
-      border: 1px solid rgba(241, 245, 249, 0.08);
-      border-radius: var(--r-lg);
+      background-color: hsl(var(--card));
+      border: 1px solid hsl(var(--border));
+      border-radius: var(--radius-lg);
       padding: 22px;
     }
 
-    .panel-box h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
+    .panel-box h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .panel-desc { font-size: 0.84rem; color: hsl(var(--muted-foreground)); margin-bottom: 18px; }
 
-    .panel-desc {
-      font-size: 0.84rem;
-      color: var(--ink-80);
-      margin-bottom: 18px;
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    .field label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--ink-100);
-      margin-bottom: 6px;
-    }
-
-    .field-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; }
+    .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
     [data-ui="admin-console"] .control {
       width: 100%;
       min-height: 44px;
-      background-color: var(--c60-well);
-      border: 1px solid rgba(241, 245, 249, 0.15);
-      border-radius: var(--r-sm);
+      background-color: hsl(var(--background));
+      border: 1px solid hsl(var(--input));
+      border-radius: var(--radius);
       padding: 10px 12px;
       font-family: var(--font);
       font-size: 0.9rem;
-      color: var(--ink-100);
+      color: hsl(var(--foreground));
     }
 
-    .control:focus {
-      border-color: var(--c10-accent);
-      background-color: var(--c60-canvas);
+    [data-ui="admin-console"] .control:focus {
+      border-color: hsl(var(--ring));
     }
 
-    textarea.control {
-      min-height: 84px;
-      resize: vertical;
-    }
+    textarea.control { min-height: 84px; resize: vertical; }
 
-    /* Minted Plaintext Codes Box */
     .minted-box {
       margin-top: 16px;
-      background-color: var(--c10-accent-tint);
-      border-radius: var(--r-md);
+      background-color: hsl(var(--primary-soft));
+      border-radius: var(--radius);
       padding: 16px;
     }
 
     .minted-title {
       font-size: 0.84rem;
       font-weight: 700;
-      color: var(--c10-accent);
+      color: hsl(var(--primary));
       margin-bottom: 8px;
     }
 
     .minted-pre {
-      background-color: var(--c60-canvas);
-      border-radius: var(--r-sm);
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      border-radius: calc(var(--radius) - 2px);
       padding: 12px;
       font-size: 0.9rem;
-      color: var(--ink-100);
       overflow-x: auto;
       margin-bottom: 10px;
       white-space: pre-wrap;
       word-break: break-all;
     }
 
-    .minted-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .minted-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 
-    /* Data Rows / Tables */
-    .table-wrap {
-      width: 100%;
-      overflow-x: auto;
-    }
+    .table-wrap { width: 100%; overflow-x: auto; }
 
     table {
       width: 100%;
@@ -398,78 +367,64 @@
 
     th {
       padding: 10px 12px;
-      color: var(--ink-60);
+      color: hsl(var(--muted-foreground));
       font-weight: 600;
-      border-bottom: 1px solid rgba(241, 245, 249, 0.1);
+      border-bottom: 1px solid hsl(var(--border));
       white-space: nowrap;
     }
 
     td {
       padding: 12px;
-      border-bottom: 1px solid rgba(241, 245, 249, 0.06);
+      border-bottom: 1px solid hsl(var(--border));
       vertical-align: top;
     }
 
     .status-tag {
       display: inline-block;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 999px;
-      background-color: var(--c30-raised);
-      color: var(--ink-80);
+      background-color: hsl(var(--secondary));
+      color: hsl(var(--secondary-foreground));
     }
 
     .status-tag.ok {
-      background-color: var(--c10-accent-tint);
-      color: var(--c10-accent);
+      background-color: hsl(var(--primary-soft));
+      color: hsl(var(--primary));
     }
 
     .status-tag.off {
-      background-color: var(--danger-tint);
-      color: var(--danger);
+      background-color: hsl(var(--destructive-soft));
+      color: hsl(var(--destructive-foreground));
     }
 
-    .row-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+    .row-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 
     .empty-msg {
       padding: 28px 16px;
       text-align: center;
-      color: var(--ink-80);
+      color: hsl(var(--muted-foreground));
       font-size: 0.88rem;
-      background-color: var(--c60-well);
-      border-radius: var(--r-md);
+      background-color: hsl(var(--background));
+      border-radius: var(--radius);
     }
 
     .feedback {
       margin-top: 12px;
       padding: 11px 14px;
-      border-radius: var(--r-sm);
+      border-radius: var(--radius);
       font-size: 0.85rem;
       display: none;
     }
 
-    .feedback.show {
-      display: block;
-    }
-
-    .feedback.err {
-      background-color: var(--danger-tint);
-      color: #fecdd3;
-    }
-
-    .feedback.ok {
-      background-color: var(--c10-accent-tint);
-      color: #bbf7d0;
-    }
+    .feedback.show { display: block; }
+    .feedback.err { background-color: hsl(var(--destructive-soft)); color: hsl(var(--destructive-foreground)); }
+    .feedback.ok { background-color: hsl(var(--primary-soft)); color: hsl(var(--primary)); }
 
     .plan-editor-card {
-      background-color: var(--c60-well);
-      border-radius: var(--r-md);
+      background-color: hsl(var(--background));
+      border-radius: var(--radius);
       padding: 16px;
       margin-bottom: 12px;
     }
@@ -479,51 +434,77 @@
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(20px);
-      background-color: var(--c30-raised);
-      color: var(--ink-100);
+      background-color: hsl(var(--foreground));
+      color: hsl(var(--background));
       padding: 10px 18px;
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55); /* taste-skill-ignore */
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35); /* taste-skill-ignore */
       z-index: 100;
       opacity: 0;
       visibility: hidden;
-      transition: transform 0.18s var(--ease-out), opacity 0.18s var(--ease-out), visibility 0.18s var(--ease-out);
+      transition: transform 0.18s var(--ease), opacity 0.18s var(--ease), visibility 0.18s var(--ease);
     }
 
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
+    /* Responsive Reflow + Card-Stacked Mobile Tables (Fixes internal horizontal table overflow on <= 768px) */
     @media (max-width: 960px) {
-      .kpi-strip {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      .kpi-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .split-workspace { grid-template-columns: minmax(0, 1fr); }
+    }
 
-      .split-workspace {
-        grid-template-columns: minmax(0, 1fr);
+    @media (max-width: 768px) {
+      table.mobile-cards thead { display: none; }
+      table.mobile-cards,
+      table.mobile-cards tbody,
+      table.mobile-cards tr,
+      table.mobile-cards td {
+        display: block;
+        width: 100%;
+      }
+      table.mobile-cards tr {
+        background-color: hsl(var(--background));
+        border-radius: var(--radius);
+        padding: 12px 14px;
+        margin-bottom: 10px;
+      }
+      table.mobile-cards td {
+        padding: 6px 0;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        text-align: right;
+      }
+      table.mobile-cards td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        font-size: 0.78rem;
+        color: hsl(var(--muted-foreground));
+        text-align: left;
+      }
+      table.mobile-cards td.td-actions {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: left;
+        padding-top: 10px;
+      }
+      table.mobile-cards td.td-actions::before {
+        margin-bottom: 4px;
       }
     }
 
     @media (max-width: 640px) {
-      .shell {
-        padding: 0 14px;
-      }
-
-      .kpi-strip {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .field-grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .control {
-        font-size: 16px;
-      }
+      .shell { padding: 0 14px; }
+      .brand-link { font-size: 0.9rem; gap: 7px; }
+      .brand-link svg { width: 26px; height: 26px; }
+      .ui-btn, .ui-btn-sm { min-height: 44px; }
+      .kpi-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .field-grid-2 { grid-template-columns: 1fr; }
+      [data-ui="admin-console"] .control { font-size: 16px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -536,24 +517,32 @@
 </head>
 <body>
 
-  <header class="topbar">
+  <header class="ui-navbar">
     <div class="shell topbar-inner">
       <a href="/" class="brand-link">
         <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <rect width="32" height="32" rx="8" fill="#161d25"/>
-          <path d="M17.5 5L7.5 17.5H15.5L14 27L24.5 14.5H16.5L17.5 5Z" fill="#22e58a"/>
+          <rect width="32" height="32" rx="8" fill="#161a22"/>
+          <path d="M17.5 5L7.5 17.5H15.5L14 27L24.5 14.5H16.5L17.5 5Z" fill="#25e48b"/>
         </svg>
         <span>DKaimono-AM Admin</span>
       </a>
 
       <div class="topbar-actions">
-        <a href="/" class="btn sec btn-sm">Lihat Website</a>
-        <button type="button" class="btn sec btn-sm hide" id="btn-admin-logout">Keluar</button>
+        <button type="button" class="ui-btn ui-btn-outline ui-btn-icon" id="btn-theme-toggle" aria-label="Ubah tema gelap atau terang">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+          </svg>
+        </button>
+        <a href="/" class="ui-btn ui-btn-secondary ui-btn-sm">Lihat Website</a>
+        <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm hide" id="btn-admin-logout">Keluar</button>
       </div>
     </div>
   </header>
 
-  <!-- Login Screen -->
   <main id="admin-login-screen" class="login-stage">
     <div class="login-card" data-ui="admin-console">
       <h1>Masuk Panel Admin</h1>
@@ -564,13 +553,12 @@
           <label for="admin-password-input">Password Admin</label>
           <input type="password" id="admin-password-input" class="control" placeholder="Masukkan password Admin" autocomplete="current-password" required>
         </div>
-        <button type="submit" class="btn btn-full" id="btn-admin-login">Buka Dashboard</button>
+        <button type="submit" class="ui-btn ui-btn-full" id="btn-admin-login">Buka Dashboard</button>
         <div class="feedback" id="msg-admin-login" role="status"></div>
       </form>
     </div>
   </main>
 
-  <!-- Authenticated Admin Workspace -->
   <div id="admin-app" class="admin-main hide" data-ui="admin-console">
     <div class="shell">
 
@@ -604,12 +592,11 @@
         <button type="button" class="nav-tab" data-tab="logs" role="tab" aria-selected="false">Log Aktivasi</button>
       </div>
 
-      <!-- TAB 1: VOUCHERS -->
       <section id="tab-vouchers">
         <div class="split-workspace">
           <div class="panel-box">
             <h2>Buat Kode Voucher Baru</h2>
-            <p class="panel-desc">Kode disimpan dalam bentuk hash satu arah. Salin kode asli sesaat setelah dibuat untuk dikirim ke pembeli WhatsApp.</p>
+            <p class="panel-desc">Kode disimpan sebagai hash satu arah. Salin kode asli sesaat setelah dibuat untuk dikirim ke pembeli WhatsApp.</p>
 
             <form id="form-mint-voucher">
               <div class="field">
@@ -658,7 +645,7 @@
                 <input type="text" id="vc-note" class="control" placeholder="Contoh: Order WA Budi 18 Nov">
               </div>
 
-              <button type="submit" class="btn btn-full" id="btn-mint-submit">Buat Kode Voucher</button>
+              <button type="submit" class="ui-btn ui-btn-full" id="btn-mint-submit">Buat Kode Voucher</button>
               <div class="feedback" id="msg-mint" role="status"></div>
             </form>
 
@@ -666,8 +653,8 @@
               <div class="minted-title">Kode Baru Berhasil Dibuat (Simpan Sekarang):</div>
               <pre class="minted-pre" id="minted-codes-output"></pre>
               <div class="minted-actions">
-                <button type="button" class="btn btn-sm" id="btn-copy-codes">Salin Kode</button>
-                <button type="button" class="btn sec btn-sm" id="btn-copy-wa-template">Salin Format Chat WA</button>
+                <button type="button" class="ui-btn ui-btn-sm" id="btn-copy-codes">Salin Kode</button>
+                <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm" id="btn-copy-wa-template">Salin Format Chat WA</button>
               </div>
             </div>
           </div>
@@ -678,7 +665,7 @@
                 <h2>Daftar Voucher Terdaftar</h2>
                 <p class="panel-desc" style="margin-bottom:0;">Pantau sisa pemakaian, lihat pengklaim, atau matikan voucher.</p>
               </div>
-              <button type="button" class="btn sec btn-sm" id="btn-refresh-vouchers">Muat Ulang</button>
+              <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm" id="btn-refresh-vouchers">Muat Ulang</button>
             </div>
 
             <div id="vouchers-list-container">
@@ -688,7 +675,6 @@
         </div>
       </section>
 
-      <!-- TAB 2: USERS -->
       <section id="tab-users" class="hide">
         <div class="panel-box">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
@@ -697,9 +683,9 @@
               <p class="panel-desc" style="margin-bottom:0;">Reset kunci perangkat jika pembeli ganti HP, perpanjang paket manual, atau atur ulang password.</p>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <label for="user-search-input" class="hide">Cari Email Pengguna</label>
+              <label for="user-search-input" class="sr-only">Cari Email Pengguna</label>
               <input type="search" id="user-search-input" class="control" placeholder="Cari email pengguna..." style="width:240px;min-height:38px;">
-              <button type="button" class="btn sec btn-sm" id="btn-search-users">Cari</button>
+              <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm" id="btn-search-users">Cari</button>
             </div>
           </div>
 
@@ -709,7 +695,6 @@
         </div>
       </section>
 
-      <!-- TAB 3: WHATSAPP & STORE SETTINGS -->
       <section id="tab-settings" class="hide">
         <div class="split-workspace">
           <div class="panel-box">
@@ -736,7 +721,7 @@
               <input type="password" id="set-new-admin-pw" class="control" placeholder="Minimal 8 karakter baru" autocomplete="new-password">
             </div>
 
-            <button type="button" class="btn btn-full" id="btn-save-settings">Simpan Semua Pengaturan</button>
+            <button type="button" class="ui-btn ui-btn-full" id="btn-save-settings">Simpan Semua Pengaturan</button>
             <div class="feedback" id="msg-settings" role="status"></div>
           </div>
 
@@ -746,7 +731,7 @@
                 <h2>Daftar Paket &amp; Harga Katalog</h2>
                 <p class="panel-desc" style="margin-bottom:0;">Atur nama paket, label harga (misal Rp 15.000), dan rincian fitur yang tampil ke pembeli.</p>
               </div>
-              <button type="button" class="btn sec btn-sm" id="btn-add-plan">+ Tambah Paket</button>
+              <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm" id="btn-add-plan">+ Tambah Paket</button>
             </div>
 
             <div id="plans-editor-container"></div>
@@ -754,7 +739,6 @@
         </div>
       </section>
 
-      <!-- TAB 4: RECENT LOGS -->
       <section id="tab-logs" class="hide">
         <div class="panel-box">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;">
@@ -762,7 +746,7 @@
               <h2>25 Aktivasi &amp; Perpanjangan Terakhir</h2>
               <p class="panel-desc" style="margin-bottom:0;">Catatan aktivitas langsung dari database Neon PostgreSQL.</p>
             </div>
-            <button type="button" class="btn sec btn-sm" id="btn-refresh-logs">Muat Ulang</button>
+            <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm" id="btn-refresh-logs">Muat Ulang</button>
           </div>
 
           <div id="logs-list-container">
@@ -782,6 +766,17 @@
     let lastMintedItems = [];
     let editablePlans = [];
     let toastTimer = null;
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle('dark', isDark);
+      try { localStorage.setItem('dkaimono_theme', isDark ? 'dark' : 'light'); } catch {}
+      const meta = $('meta-theme-color');
+      if (meta) meta.setAttribute('content', isDark ? '#0e1016' : '#f9fafb');
+    }
+
+    $('btn-theme-toggle').onclick = () => {
+      applyTheme(!document.documentElement.classList.contains('dark'));
+    };
 
     function escapeHtml(str) {
       return String(str ?? '')
@@ -829,7 +824,6 @@
       $('btn-admin-logout').classList.toggle('hide', !isLogged);
     }
 
-    // Login Handler
     $('form-admin-login').onsubmit = async e => {
       e.preventDefault();
       const pw = $('admin-password-input').value;
@@ -868,7 +862,6 @@
       toggleAuthView(false);
     };
 
-    // Tab Navigation
     document.querySelectorAll('.nav-tab').forEach(btn => {
       btn.onclick = () => {
         const target = btn.getAttribute('data-tab');
@@ -883,7 +876,6 @@
       };
     });
 
-    // Voucher Preset Selector
     $('vc-preset').onchange = () => {
       const val = $('vc-preset').value;
       if (val === 'premium') {
@@ -901,7 +893,6 @@
       }
     };
 
-    // Mint Voucher
     $('form-mint-voucher').onsubmit = async e => {
       e.preventDefault();
       const btn = $('btn-mint-submit');
@@ -994,7 +985,7 @@
         } else {
           logsEl.innerHTML = `
             <div class="table-wrap">
-              <table>
+              <table class="mobile-cards">
                 <thead>
                   <tr>
                     <th>Waktu</th>
@@ -1007,11 +998,11 @@
                 <tbody>
                   ${logs.map(l => `
                     <tr>
-                      <td class="tabular">${escapeHtml(new Date(l.created_at).toLocaleString('id-ID'))}</td>
-                      <td><b>${escapeHtml(l.am_email)}</b></td>
-                      <td>${escapeHtml(l.action_type || 'activate')}</td>
-                      <td>${escapeHtml(l.owner_email || 'Tamu Gratis')}</td>
-                      <td><span class="status-tag ${l.tier_at_time !== 'free' ? 'ok' : ''}">${escapeHtml((l.tier_at_time || 'free').toUpperCase())}</span></td>
+                      <td data-label="Waktu" class="tabular">${escapeHtml(new Date(l.created_at).toLocaleString('id-ID'))}</td>
+                      <td data-label="Email AM"><b>${escapeHtml(l.am_email)}</b></td>
+                      <td data-label="Tipe">${escapeHtml(l.action_type || 'activate')}</td>
+                      <td data-label="Akun Web">${escapeHtml(l.owner_email || 'Tamu Gratis')}</td>
+                      <td data-label="Tier"><span class="status-tag ${l.tier_at_time !== 'free' ? 'ok' : ''}">${escapeHtml((l.tier_at_time || 'free').toUpperCase())}</span></td>
                     </tr>
                   `).join('')}
                 </tbody>
@@ -1041,7 +1032,7 @@
 
         box.innerHTML = `
           <div class="table-wrap">
-            <table>
+            <table class="mobile-cards">
               <thead>
                 <tr>
                   <th>Kode (Mask)</th>
@@ -1060,19 +1051,19 @@
                     : '-';
                   return `
                     <tr>
-                      <td><code>${escapeHtml(v.code_hint)}</code></td>
-                      <td>
+                      <td data-label="Kode"><code>${escapeHtml(v.code_hint)}</code></td>
+                      <td data-label="Paket">
                         <div><b>${escapeHtml(v.plan_label)}</b> (${v.duration_days}h · ${v.daily_limit}/hr)</div>
-                        <div style="font-size:0.78rem;color:var(--ink-60);">Catatan: ${escapeHtml(v.note || '-')} · Klaim: ${claimers}</div>
+                        <div style="font-size:0.78rem;color:hsl(var(--muted-foreground));">Catatan: ${escapeHtml(v.note || '-')} · Klaim: ${claimers}</div>
                       </td>
-                      <td class="tabular">${v.used_count} / ${v.max_uses}</td>
-                      <td>
+                      <td data-label="Terpakai" class="tabular">${v.used_count} / ${v.max_uses}</td>
+                      <td data-label="Status">
                         <span class="status-tag ${active ? 'ok' : 'off'}">${active ? 'AKTIF' : (exhausted ? 'HABIS' : 'NONAKTIF')}</span>
                       </td>
-                      <td>
+                      <td data-label="Aksi" class="td-actions">
                         <div class="row-actions">
-                          <button type="button" class="btn sec btn-sm btn-toggle-vc" data-id="${v.id}" data-active="${v.is_active ? '1' : '0'}">${v.is_active ? 'Matikan' : 'Aktifkan'}</button>
-                          <button type="button" class="btn danger-btn btn-sm btn-del-vc" data-id="${v.id}">Hapus</button>
+                          <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm btn-toggle-vc" data-id="${v.id}" data-active="${v.is_active ? '1' : '0'}">${v.is_active ? 'Matikan' : 'Aktifkan'}</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm btn-del-vc" data-id="${v.id}">Hapus</button>
                         </div>
                       </td>
                     </tr>
@@ -1129,7 +1120,7 @@
 
         box.innerHTML = `
           <div class="table-wrap">
-            <table>
+            <table class="mobile-cards">
               <thead>
                 <tr>
                   <th>Email Akun</th>
@@ -1145,27 +1136,27 @@
                   const expStr = u.premium_until ? new Date(u.premium_until).toLocaleDateString('id-ID') : '-';
                   return `
                     <tr>
-                      <td>
+                      <td data-label="Email Akun">
                         <b>${escapeHtml(u.email)}</b>
-                        <div style="font-size:0.76rem;color:var(--ink-60);">Total aktivasi: ${u.total_activations || 0}</div>
+                        <div style="font-size:0.76rem;color:hsl(var(--muted-foreground));">Total aktivasi: ${u.total_activations || 0}</div>
                       </td>
-                      <td>
+                      <td data-label="Tier">
                         <span class="status-tag ${isPrem ? 'ok' : ''}">${escapeHtml((isPrem ? u.tier : 'free').toUpperCase())}</span>
-                        <div style="font-size:0.76rem;color:var(--ink-60);">s/d: ${escapeHtml(expStr)}</div>
+                        <div style="font-size:0.76rem;color:hsl(var(--muted-foreground));">s/d: ${escapeHtml(expStr)}</div>
                       </td>
-                      <td class="tabular">${u.used_today || 0} / ${u.daily_limit || 3}</td>
-                      <td>
+                      <td data-label="Kuota Hari Ini" class="tabular">${u.used_today || 0} / ${u.daily_limit || 3}</td>
+                      <td data-label="Perangkat">
                         ${u.device_fingerprint
                           ? `<code>${escapeHtml(u.device_fingerprint.slice(0, 12))}...</code>`
-                          : '<span style="color:var(--ink-60);">Belum terikat</span>'}
+                          : '<span style="color:hsl(var(--muted-foreground));">Belum terikat</span>'}
                       </td>
-                      <td>
+                      <td data-label="Aksi" class="td-actions">
                         <div class="row-actions">
-                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-device">Reset HP</button>
-                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="grant-premium">+30h Prem</button>
-                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-bulk">Reset Bulk</button>
-                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-pw">Password</button>
-                          <button type="button" class="btn danger-btn btn-sm btn-u-act" data-id="${u.id}" data-act="delete">Hapus</button>
+                          <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm btn-u-act" data-id="${u.id}" data-act="reset-device">Reset HP</button>
+                          <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm btn-u-act" data-id="${u.id}" data-act="grant-premium">+30h Prem</button>
+                          <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm btn-u-act" data-id="${u.id}" data-act="reset-bulk">Reset Bulk</button>
+                          <button type="button" class="ui-btn ui-btn-secondary ui-btn-sm btn-u-act" data-id="${u.id}" data-act="reset-pw">Password</button>
+                          <button type="button" class="ui-btn ui-btn-danger ui-btn-sm btn-u-act" data-id="${u.id}" data-act="delete">Hapus</button>
                         </div>
                       </td>
                     </tr>
@@ -1220,7 +1211,7 @@
         <div class="plan-editor-card" data-idx="${idx}">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
             <b>Paket #${idx + 1}</b>
-            ${editablePlans.length > 1 ? `<button type="button" class="btn danger-btn btn-sm btn-rem-plan" data-idx="${idx}">Hapus Paket</button>` : ''}
+            ${editablePlans.length > 1 ? `<button type="button" class="ui-btn ui-btn-danger ui-btn-sm btn-rem-plan" data-idx="${idx}">Hapus Paket</button>` : ''}
           </div>
           <div class="field-grid-2">
             <div class="field">

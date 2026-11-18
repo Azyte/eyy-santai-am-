@@ -144,7 +144,7 @@ async function re(ref) {
   try {
     const r = await axios.post(`${cfg.stk}?key=${cfg.key}`, {
       grant_type: 'refresh_token', refresh_token: ref
-    })
+    }, { headers: sp(h1) })
     return { ok: true, id: r.data.id_token, ref: r.data.refresh_token }
   } catch (e) { return { ok: false, why: bad(e) } }
 }

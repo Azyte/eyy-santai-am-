@@ -6,6 +6,7 @@ const statsRoute = require('./stats/route');
 const renewRoute = require('./renew/route');
 const quotaRoute = require('./quota/route');
 const bulkRoute = require('./bulk/route');
+const adminRoute = require('./admin/route');
 
 const router = express.Router();
 
@@ -16,5 +17,6 @@ router.use('/stats', statsRoute);
 router.use('/renew', renewRoute);
 router.use('/quota', quotaRoute);
 router.use('/bulk', bulkRoute);
+router.use('/admin', adminRoute);
 
 module.exports = router;

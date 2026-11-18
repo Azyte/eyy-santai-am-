@@ -6,15 +6,28 @@ const {
   loginAppUser,
   redeemVoucherForUser
 } = require('../../../lib/quota');
+const { getStoreConfig } = require('../../../lib/settings');
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   const ctx = extractClientContext(req);
-  const status = await getQuotaStatus(ctx);
+  const [status, store] = await Promise.all([
+    getQuotaStatus(ctx),
+    getStoreConfig()
+  ]);
   return res.json({
     success: true,
-    quota: status
+    quota: status,
+    store
+  });
+});
+
+router.get('/store', async (req, res) => {
+  const store = await getStoreConfig();
+  return res.json({
+    success: true,
+    store
   });
 });
 

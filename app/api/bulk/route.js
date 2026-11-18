@@ -3,6 +3,7 @@ const auth = require('../../../lib/auth');
 const { friendlyFirebaseError } = require('../../../lib/errors');
 const { incrementStats } = require('../../../lib/stats');
 const {
+  BULK_MAX_ITEMS,
   extractClientContext,
   checkQuotaAllowed,
   recordActivation,
@@ -10,6 +11,17 @@ const {
 } = require('../../../lib/quota');
 
 const router = express.Router();
+
+// Process external Firebase + verifyPurchase requests in bounded parallel chunks to stay under Netlify's 10s limit.
+async function mapChunks(items, chunkSize, worker) {
+  const out = [];
+  for (let i = 0; i < items.length; i += chunkSize) {
+    const slice = items.slice(i, i + chunkSize);
+    const batchRes = await Promise.all(slice.map(worker));
+    out.push(...batchRes);
+  }
+  return out;
+}
 
 router.post('/', async (req, res) => {
   const ctx = extractClientContext(req);
@@ -19,18 +31,17 @@ router.post('/', async (req, res) => {
   if (!status.isPremium || !status.canBulk) {
     return res.status(403).json({
       success: false,
-      message: 'Fitur Bulk Activation khusus untuk pengguna Kode Voucher Premium / Reseller.',
+      message: 'Fitur Bulk Grosir khusus pengguna Voucher Premium Pass atau Reseller Pass.',
       quota: status
     });
   }
 
-  // Action 1: Bulk Send Magic Links
   if (action === 'send-links') {
     const emailList = Array.isArray(emails)
       ? emails.map(e => String(e || '').trim().toLowerCase()).filter(e => e.includes('@') && e.includes('.'))
       : [];
 
-    const uniqueEmails = Array.from(new Set(emailList)).slice(0, 10);
+    const uniqueEmails = Array.from(new Set(emailList)).slice(0, BULK_MAX_ITEMS);
     if (uniqueEmails.length === 0) {
       return res.status(400).json({
         success: false,
@@ -38,24 +49,23 @@ router.post('/', async (req, res) => {
       });
     }
 
-    if (status.remaining < uniqueEmails.length) {
+    const quotaCheck = await checkQuotaAllowed(ctx, uniqueEmails.length, { isBulk: true });
+    if (!quotaCheck.allowed) {
       return res.status(429).json({
         success: false,
-        message: `Sisa kuota voucher hari ini (${status.remaining}) tidak cukup untuk ${uniqueEmails.length} akun.`,
-        quota: status
+        message: quotaCheck.message,
+        quota: quotaCheck.status
       });
     }
 
-    const results = await Promise.all(
-      uniqueEmails.map(async em => {
-        const r = await auth.link(em);
-        return {
-          email: em,
-          success: r.ok,
-          message: r.ok ? 'Magic link terkirim' : friendlyFirebaseError(r.why)
-        };
-      })
-    );
+    const results = await mapChunks(uniqueEmails, 5, async em => {
+      const r = await auth.link(em);
+      return {
+        email: em,
+        success: r.ok,
+        message: r.ok ? 'Tautan terkirim' : friendlyFirebaseError(r.why)
+      };
+    });
 
     return res.json({
       success: true,
@@ -66,17 +76,16 @@ router.post('/', async (req, res) => {
     });
   }
 
-  // Action 2: Bulk Verify & Activate Pro
   if (action === 'verify-links') {
-    const pairList = Array.isArray(items) ? items.slice(0, 10) : [];
+    const pairList = Array.isArray(items) ? items.slice(0, BULK_MAX_ITEMS) : [];
     if (pairList.length === 0) {
       return res.status(400).json({
         success: false,
-        message: 'Masukkan daftar magic link untuk diaktifkan.'
+        message: 'Masukkan daftar pasangan email dan magic link terlebih dahulu.'
       });
     }
 
-    const quotaCheck = await checkQuotaAllowed(ctx, pairList.length);
+    const quotaCheck = await checkQuotaAllowed(ctx, pairList.length, { isBulk: true });
     if (!quotaCheck.allowed) {
       return res.status(429).json({
         success: false,
@@ -85,32 +94,37 @@ router.post('/', async (req, res) => {
       });
     }
 
-    const results = [];
     const now = new Date();
     const defaultValidStr = '3 Juli ' + (now.getMonth() >= 6 ? now.getFullYear() + 1 : now.getFullYear());
+    let firstBulkRecorded = false;
 
-    for (const item of pairList) {
+    const results = await mapChunks(pairList, 4, async item => {
       const em = String(item.email || '').trim().toLowerCase();
       const linkStr = String(item.magicLink || '').trim();
       if (!em || !linkStr) {
-        results.push({ email: em || '-', success: false, message: 'Email atau magic link kosong' });
-        continue;
+        return { email: em || '-', success: false, message: 'Email atau tautan kosong' };
       }
 
       const v = await auth.auth(em, linkStr);
       if (!v.ok) {
-        results.push({
+        return {
           email: em,
           success: false,
           message: friendlyFirebaseError(v.why)
-        });
-        continue;
+        };
       }
 
       const premium = await auth.pro(v.id);
       if (premium.ok) {
         incrementStats();
-        await recordActivation({ ...ctx, amEmail: v.user?.email || em });
+        const markBulk = !firstBulkRecorded;
+        firstBulkRecorded = true;
+        await recordActivation({
+          ...ctx,
+          amEmail: v.user?.email || em,
+          actionType: 'bulk',
+          markBulkUsed: markBulk
+        });
       }
 
       let validUntilStr = defaultValidStr;
@@ -121,15 +135,15 @@ router.post('/', async (req, res) => {
         validUntilStr = premium.r.expiryDate;
       }
 
-      results.push({
+      return {
         email: v.user?.email || em,
         success: premium.ok,
         validUntil: validUntilStr,
         refreshToken: v.ref,
         idToken: v.id,
-        message: premium.ok ? 'PRO Aktif' : (premium.why || 'Gagal inject struk')
-      });
-    }
+        message: premium.ok ? 'PRO Aktif' : (premium.why || 'Gagal sinkron struk')
+      };
+    });
 
     const updatedQuota = await getQuotaStatus(ctx);
     return res.json({
@@ -143,7 +157,7 @@ router.post('/', async (req, res) => {
 
   return res.status(400).json({
     success: false,
-    message: 'Action bulk tidak dikenali.'
+    message: 'Aksi bulk tidak dikenali.'
   });
 });
 

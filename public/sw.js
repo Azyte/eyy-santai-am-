@@ -1,5 +1,4 @@
-// DKaimono-AM Service Worker
-const CACHE_NAME = 'dkaimono-v1';
+const CACHE_NAME = 'dkaimono-v3';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
@@ -18,11 +17,9 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
-      );
-    })
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+    )
   );
   self.clients.claim();
 });
@@ -30,12 +27,10 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
-  // Bypass cache completely for API calls
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/admin')) {
     return;
   }
 
-  // Network-first strategy for static assets
   event.respondWith(
     fetch(event.request)
       .then(response => {

@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel Admin &middot; DKaimono-AM</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0e11">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --c60-canvas: #0b0e11;
+      --c60-well: #0f1419;
+      --c30-surface: #161d25;
+      --c30-raised: #1f2934;
+      --c30-hover: #293644;
+
+      --ink-100: #f1f5f9;
+      --ink-80: #a8b8c8;
+      --ink-60: #94a6b8;
+
+      --c10-accent: #22e58a;
+      --c10-accent-hover: #19cc78;
+      --c10-accent-tint: #0d2b1e;
+      --c10-accent-ink: #042112;
+
+      --danger: #ff6b78;
+      --danger-tint: #2b1216;
+      --warn: #f4b740;
+      --warn-tint: #2b210d;
+
+      --r-sm: 8px;
+      --r-md: 12px;
+      --r-lg: 16px;
+      --font: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--c60-canvas);
+      color: var(--ink-100);
+      font-family: var(--font);
+      font-size: 0.94rem;
+      line-height: 1.5;
+      min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a[href],
+    button,
+    select,
+    label[for],
+    [role="tab"] {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    input:disabled,
+    select:disabled,
+    textarea:disabled {
+      cursor: not-allowed;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--c10-accent);
+      outline-offset: 2px;
+    }
+
+    code, pre {
+      font-family: Consolas, 'Courier New', monospace;
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header.topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: var(--c60-canvas);
+      border-bottom: 1px solid rgba(241, 245, 249, 0.08); /* taste-skill-ignore */
+    }
+
+    .topbar-inner {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink-100);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .brand-link svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 16px;
+      background-color: var(--c10-accent);
+      color: var(--c10-accent-ink);
+      font-family: var(--font);
+      font-size: 0.875rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--r-sm);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 0.16s var(--ease-out);
+    }
+
+    .btn:hover {
+      background-color: var(--c10-accent-hover);
+    }
+
+    .btn.sec {
+      background-color: var(--c30-raised);
+      color: var(--ink-100);
+      font-weight: 600;
+    }
+
+    .btn.sec:hover {
+      background-color: var(--c30-hover);
+    }
+
+    .btn.danger-btn {
+      background-color: var(--danger-tint);
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    .btn.btn-sm {
+      min-height: 38px;
+      padding: 0 12px;
+      font-size: 0.8rem;
+    }
+
+    .btn.btn-full {
+      width: 100%;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+    }
+
+    /* Login Box */
+    .login-stage {
+      min-height: calc(100dvh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    [data-ui="admin-console"].login-card {
+      width: 100%;
+      max-width: 420px;
+      background-color: var(--c30-surface);
+      border: 1px solid rgba(241, 245, 249, 0.09);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+    }
+
+    .login-card h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .login-card p {
+      font-size: 0.86rem;
+      color: var(--ink-80);
+      margin-bottom: 20px;
+    }
+
+    /* Main Admin Console */
+    .admin-main {
+      padding: 28px 0 64px;
+    }
+
+    [data-ui="admin-console"] .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background-color: var(--c30-surface);
+      padding: 8px;
+      border-radius: var(--r-md);
+      margin-bottom: 24px;
+    }
+
+    [data-ui="admin-console"] .nav-tab {
+      min-height: 42px;
+      padding: 0 16px;
+      border: none;
+      border-radius: var(--r-sm);
+      background-color: transparent;
+      color: var(--ink-80);
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background-color 0.16s var(--ease-out), color 0.16s var(--ease-out);
+    }
+
+    [data-ui="admin-console"] .nav-tab:hover {
+      color: var(--ink-100);
+    }
+
+    [data-ui="admin-console"] .nav-tab.active {
+      background-color: var(--c10-accent);
+      color: var(--c10-accent-ink);
+      font-weight: 700;
+    }
+
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .kpi-tile {
+      background-color: var(--c30-surface);
+      border-radius: var(--r-md);
+      padding: 14px 16px;
+    }
+
+    .kpi-label {
+      font-size: 0.76rem;
+      color: var(--ink-60);
+      margin-bottom: 4px;
+    }
+
+    .kpi-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink-100);
+    }
+
+    .kpi-val.accent {
+      color: var(--c10-accent);
+    }
+
+    .split-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 4.2fr) minmax(0, 7.8fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    [data-ui="admin-console"] .panel-box {
+      background-color: var(--c30-surface);
+      border: 1px solid rgba(241, 245, 249, 0.08);
+      border-radius: var(--r-lg);
+      padding: 22px;
+    }
+
+    .panel-box h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .panel-desc {
+      font-size: 0.84rem;
+      color: var(--ink-80);
+      margin-bottom: 18px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink-100);
+      margin-bottom: 6px;
+    }
+
+    .field-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    [data-ui="admin-console"] .control {
+      width: 100%;
+      min-height: 44px;
+      background-color: var(--c60-well);
+      border: 1px solid rgba(241, 245, 249, 0.15);
+      border-radius: var(--r-sm);
+      padding: 10px 12px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: var(--ink-100);
+    }
+
+    .control:focus {
+      border-color: var(--c10-accent);
+      background-color: var(--c60-canvas);
+    }
+
+    textarea.control {
+      min-height: 84px;
+      resize: vertical;
+    }
+
+    /* Minted Plaintext Codes Box */
+    .minted-box {
+      margin-top: 16px;
+      background-color: var(--c10-accent-tint);
+      border-radius: var(--r-md);
+      padding: 16px;
+    }
+
+    .minted-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--c10-accent);
+      margin-bottom: 8px;
+    }
+
+    .minted-pre {
+      background-color: var(--c60-canvas);
+      border-radius: var(--r-sm);
+      padding: 12px;
+      font-size: 0.9rem;
+      color: var(--ink-100);
+      overflow-x: auto;
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .minted-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Data Rows / Tables */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    th {
+      padding: 10px 12px;
+      color: var(--ink-60);
+      font-weight: 600;
+      border-bottom: 1px solid rgba(241, 245, 249, 0.1);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(241, 245, 249, 0.06);
+      vertical-align: top;
+    }
+
+    .status-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background-color: var(--c30-raised);
+      color: var(--ink-80);
+    }
+
+    .status-tag.ok {
+      background-color: var(--c10-accent-tint);
+      color: var(--c10-accent);
+    }
+
+    .status-tag.off {
+      background-color: var(--danger-tint);
+      color: var(--danger);
+    }
+
+    .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .empty-msg {
+      padding: 28px 16px;
+      text-align: center;
+      color: var(--ink-80);
+      font-size: 0.88rem;
+      background-color: var(--c60-well);
+      border-radius: var(--r-md);
+    }
+
+    .feedback {
+      margin-top: 12px;
+      padding: 11px 14px;
+      border-radius: var(--r-sm);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.err {
+      background-color: var(--danger-tint);
+      color: #fecdd3;
+    }
+
+    .feedback.ok {
+      background-color: var(--c10-accent-tint);
+      color: #bbf7d0;
+    }
+
+    .plan-editor-card {
+      background-color: var(--c60-well);
+      border-radius: var(--r-md);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background-color: var(--c30-raised);
+      color: var(--ink-100);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55); /* taste-skill-ignore */
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.18s var(--ease-out), opacity 0.18s var(--ease-out), visibility 0.18s var(--ease-out);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 960px) {
+      .kpi-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .split-workspace {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        padding: 0 14px;
+      }
+
+      .kpi-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .field-grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .control {
+        font-size: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a href="/" class="brand-link">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#161d25"/>
+          <path d="M17.5 5L7.5 17.5H15.5L14 27L24.5 14.5H16.5L17.5 5Z" fill="#22e58a"/>
+        </svg>
+        <span>DKaimono-AM Admin</span>
+      </a>
+
+      <div class="topbar-actions">
+        <a href="/" class="btn sec btn-sm">Lihat Website</a>
+        <button type="button" class="btn sec btn-sm hide" id="btn-admin-logout">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Screen -->
+  <main id="admin-login-screen" class="login-stage">
+    <div class="login-card" data-ui="admin-console">
+      <h1>Masuk Panel Admin</h1>
+      <p>Kelola pembuatan kode voucher sekali pakai, kunci perangkat pengguna, dan pengaturan order WhatsApp.</p>
+
+      <form id="form-admin-login">
+        <div class="field">
+          <label for="admin-password-input">Password Admin</label>
+          <input type="password" id="admin-password-input" class="control" placeholder="Masukkan password Admin" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-full" id="btn-admin-login">Buka Dashboard</button>
+        <div class="feedback" id="msg-admin-login" role="status"></div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Authenticated Admin Workspace -->
+  <div id="admin-app" class="admin-main hide" data-ui="admin-console">
+    <div class="shell">
+
+      <div class="kpi-strip" aria-label="Ringkasan Sistem">
+        <div class="kpi-tile">
+          <div class="kpi-label">Voucher Siap Pakai</div>
+          <div class="kpi-val accent tabular" id="kpi-vouchers">...</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Member Premium Aktif</div>
+          <div class="kpi-val tabular" id="kpi-premium">...</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Total Akun Terdaftar</div>
+          <div class="kpi-val tabular" id="kpi-users">...</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Aktivasi Hari Ini (WIB)</div>
+          <div class="kpi-val tabular" id="kpi-today">...</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-label">Total Aktivasi</div>
+          <div class="kpi-val tabular" id="kpi-total">...</div>
+        </div>
+      </div>
+
+      <div class="nav-tabs" role="tablist" aria-label="Menu Admin">
+        <button type="button" class="nav-tab active" data-tab="vouchers" role="tab" aria-selected="true">Kode Voucher</button>
+        <button type="button" class="nav-tab" data-tab="users" role="tab" aria-selected="false">Pengguna &amp; Kunci HP</button>
+        <button type="button" class="nav-tab" data-tab="settings" role="tab" aria-selected="false">Order WhatsApp &amp; Harga</button>
+        <button type="button" class="nav-tab" data-tab="logs" role="tab" aria-selected="false">Log Aktivasi</button>
+      </div>
+
+      <!-- TAB 1: VOUCHERS -->
+      <section id="tab-vouchers">
+        <div class="split-workspace">
+          <div class="panel-box">
+            <h2>Buat Kode Voucher Baru</h2>
+            <p class="panel-desc">Kode disimpan dalam bentuk hash satu arah. Salin kode asli sesaat setelah dibuat untuk dikirim ke pembeli WhatsApp.</p>
+
+            <form id="form-mint-voucher">
+              <div class="field">
+                <label for="vc-preset">Pilih Template Paket</label>
+                <select id="vc-preset" class="control">
+                  <option value="premium">Premium Pass (30 Hari · 10 akun/hari)</option>
+                  <option value="reseller">Reseller Pass (30 Hari · 25 akun/hari)</option>
+                  <option value="weekly">Trial Mingguan (7 Hari · 5 akun/hari)</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="vc-label">Nama Paket pada Akun</label>
+                <input type="text" id="vc-label" class="control" value="Premium Pass (30 Hari)" required>
+              </div>
+
+              <div class="field-grid-2">
+                <div class="field">
+                  <label for="vc-days">Durasi Aktif (Hari)</label>
+                  <input type="number" id="vc-days" class="control" min="1" max="365" value="30" required>
+                </div>
+                <div class="field">
+                  <label for="vc-limit">Batas Akun / Hari</label>
+                  <input type="number" id="vc-limit" class="control" min="1" max="200" value="10" required>
+                </div>
+              </div>
+
+              <div class="field-grid-2">
+                <div class="field">
+                  <label for="vc-count">Jumlah Kode Dibuat</label>
+                  <input type="number" id="vc-count" class="control" min="1" max="50" value="1" required>
+                </div>
+                <div class="field">
+                  <label for="vc-max-uses">Kuota Klaim / Kode</label>
+                  <input type="number" id="vc-max-uses" class="control" min="1" max="1000" value="1" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="vc-custom">Kode Kustom (Kosongkan untuk Acak Otomatis)</label>
+                <input type="text" id="vc-custom" class="control" placeholder="Contoh: DKPRO-VIP99 (opsional)">
+              </div>
+
+              <div class="field">
+                <label for="vc-note">Catatan Pembeli (Opsional)</label>
+                <input type="text" id="vc-note" class="control" placeholder="Contoh: Order WA Budi 18 Nov">
+              </div>
+
+              <button type="submit" class="btn btn-full" id="btn-mint-submit">Buat Kode Voucher</button>
+              <div class="feedback" id="msg-mint" role="status"></div>
+            </form>
+
+            <div class="minted-box hide" id="minted-result-box">
+              <div class="minted-title">Kode Baru Berhasil Dibuat (Simpan Sekarang):</div>
+              <pre class="minted-pre" id="minted-codes-output"></pre>
+              <div class="minted-actions">
+                <button type="button" class="btn btn-sm" id="btn-copy-codes">Salin Kode</button>
+                <button type="button" class="btn sec btn-sm" id="btn-copy-wa-template">Salin Format Chat WA</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-box">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;">
+              <div>
+                <h2>Daftar Voucher Terdaftar</h2>
+                <p class="panel-desc" style="margin-bottom:0;">Pantau sisa pemakaian, lihat pengklaim, atau matikan voucher.</p>
+              </div>
+              <button type="button" class="btn sec btn-sm" id="btn-refresh-vouchers">Muat Ulang</button>
+            </div>
+
+            <div id="vouchers-list-container">
+              <div class="empty-msg">Memuat daftar voucher...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: USERS -->
+      <section id="tab-users" class="hide">
+        <div class="panel-box">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+            <div>
+              <h2>Manajemen Pengguna &amp; Kunci Perangkat</h2>
+              <p class="panel-desc" style="margin-bottom:0;">Reset kunci perangkat jika pembeli ganti HP, perpanjang paket manual, atau atur ulang password.</p>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <label for="user-search-input" class="hide">Cari Email Pengguna</label>
+              <input type="search" id="user-search-input" class="control" placeholder="Cari email pengguna..." style="width:240px;min-height:38px;">
+              <button type="button" class="btn sec btn-sm" id="btn-search-users">Cari</button>
+            </div>
+          </div>
+
+          <div id="users-list-container">
+            <div class="empty-msg">Memuat data pengguna...</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: WHATSAPP & STORE SETTINGS -->
+      <section id="tab-settings" class="hide">
+        <div class="split-workspace">
+          <div class="panel-box">
+            <h2>Pengaturan Order WhatsApp</h2>
+            <p class="panel-desc">Nomor dan pesan ini digunakan saat pengunjung menekan tombol Beli Voucher di halaman utama.</p>
+
+            <div class="field">
+              <label for="set-wa-number">Nomor WhatsApp Admin (Awali 628...)</label>
+              <input type="tel" id="set-wa-number" class="control" placeholder="6281234567890">
+            </div>
+
+            <div class="field">
+              <label for="set-wa-greeting">Kalimat Pembuka Chat Order WA</label>
+              <input type="text" id="set-wa-greeting" class="control" placeholder="Halo Admin DKaimono-AM, saya ingin membeli Kode Voucher:">
+            </div>
+
+            <div class="field">
+              <label for="set-store-notice">Keterangan di Atas Katalog Paket</label>
+              <textarea id="set-store-notice" class="control"></textarea>
+            </div>
+
+            <div class="field" style="padding-top:10px;">
+              <label for="set-new-admin-pw">Ganti Password Admin (Kosongkan jika tidak diubah)</label>
+              <input type="password" id="set-new-admin-pw" class="control" placeholder="Minimal 8 karakter baru" autocomplete="new-password">
+            </div>
+
+            <button type="button" class="btn btn-full" id="btn-save-settings">Simpan Semua Pengaturan</button>
+            <div class="feedback" id="msg-settings" role="status"></div>
+          </div>
+
+          <div class="panel-box">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;">
+              <div>
+                <h2>Daftar Paket &amp; Harga Katalog</h2>
+                <p class="panel-desc" style="margin-bottom:0;">Atur nama paket, label harga (misal Rp 15.000), dan rincian fitur yang tampil ke pembeli.</p>
+              </div>
+              <button type="button" class="btn sec btn-sm" id="btn-add-plan">+ Tambah Paket</button>
+            </div>
+
+            <div id="plans-editor-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: RECENT LOGS -->
+      <section id="tab-logs" class="hide">
+        <div class="panel-box">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;">
+            <div>
+              <h2>25 Aktivasi &amp; Perpanjangan Terakhir</h2>
+              <p class="panel-desc" style="margin-bottom:0;">Catatan aktivitas langsung dari database Neon PostgreSQL.</p>
+            </div>
+            <button type="button" class="btn sec btn-sm" id="btn-refresh-logs">Muat Ulang</button>
+          </div>
+
+          <div id="logs-list-container">
+            <div class="empty-msg">Memuat riwayat aktivasi...</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let adminToken = sessionStorage.getItem('dkaimono_admin_token') || '';
+    let lastMintedItems = [];
+    let editablePlans = [];
+    let toastTimer = null;
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function showToast(msg) {
+      const el = $('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+
+    function showMsg(id, text, type) {
+      const el = $(id);
+      if (!el) return;
+      el.textContent = text;
+      el.className = `feedback show ${type === 'ok' ? 'ok' : 'err'}`;
+    }
+
+    async function adminFetch(url, options = {}) {
+      const headers = {
+        'Content-Type': 'application/json',
+        'x-admin-token': adminToken,
+        ...(options.headers || {})
+      };
+      const res = await fetch(url, { ...options, headers });
+      if (res.status === 401 && adminToken) {
+        adminToken = '';
+        sessionStorage.removeItem('dkaimono_admin_token');
+        toggleAuthView(false);
+        showToast('Sesi Admin berakhir, silakan login kembali.');
+      }
+      return res;
+    }
+
+    function toggleAuthView(isLogged) {
+      $('admin-login-screen').classList.toggle('hide', isLogged);
+      $('admin-app').classList.toggle('hide', !isLogged);
+      $('btn-admin-logout').classList.toggle('hide', !isLogged);
+    }
+
+    // Login Handler
+    $('form-admin-login').onsubmit = async e => {
+      e.preventDefault();
+      const pw = $('admin-password-input').value;
+      const btn = $('btn-admin-login');
+      btn.disabled = true;
+      btn.textContent = 'Memeriksa...';
+      $('msg-admin-login').className = 'feedback';
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pw })
+        });
+        const data = await res.json();
+        if (data.success && data.token) {
+          adminToken = data.token;
+          sessionStorage.setItem('dkaimono_admin_token', adminToken);
+          $('admin-password-input').value = '';
+          toggleAuthView(true);
+          loadAllAdminData();
+        } else {
+          showMsg('msg-admin-login', data.message || 'Login gagal.', 'err');
+        }
+      } catch {
+        showMsg('msg-admin-login', 'Gagal menghubungi server.', 'err');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Buka Dashboard';
+      }
+    };
+
+    $('btn-admin-logout').onclick = () => {
+      adminToken = '';
+      sessionStorage.removeItem('dkaimono_admin_token');
+      toggleAuthView(false);
+    };
+
+    // Tab Navigation
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.onclick = () => {
+        const target = btn.getAttribute('data-tab');
+        document.querySelectorAll('.nav-tab').forEach(b => {
+          const active = b === btn;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        ['vouchers', 'users', 'settings', 'logs'].forEach(id => {
+          $('tab-' + id).classList.toggle('hide', id !== target);
+        });
+      };
+    });
+
+    // Voucher Preset Selector
+    $('vc-preset').onchange = () => {
+      const val = $('vc-preset').value;
+      if (val === 'premium') {
+        $('vc-label').value = 'Premium Pass (30 Hari)';
+        $('vc-days').value = '30';
+        $('vc-limit').value = '10';
+      } else if (val === 'reseller') {
+        $('vc-label').value = 'Reseller Pass (30 Hari)';
+        $('vc-days').value = '30';
+        $('vc-limit').value = '25';
+      } else if (val === 'weekly') {
+        $('vc-label').value = 'Paket Mingguan (7 Hari)';
+        $('vc-days').value = '7';
+        $('vc-limit').value = '5';
+      }
+    };
+
+    // Mint Voucher
+    $('form-mint-voucher').onsubmit = async e => {
+      e.preventDefault();
+      const btn = $('btn-mint-submit');
+      btn.disabled = true;
+      btn.textContent = 'Membuat Kode...';
+      $('msg-mint').className = 'feedback';
+
+      const preset = $('vc-preset').value;
+      const tier = preset === 'reseller' ? 'reseller' : 'premium';
+      const prefix = tier === 'reseller' ? 'DKRSL' : 'DKPRO';
+
+      try {
+        const res = await adminFetch('/api/admin/vouchers', {
+          method: 'POST',
+          body: JSON.stringify({
+            tier,
+            prefix,
+            planLabel: $('vc-label').value.trim(),
+            durationDays: Number($('vc-days').value),
+            dailyLimit: Number($('vc-limit').value),
+            count: Number($('vc-count').value),
+            maxUses: Number($('vc-max-uses').value),
+            customCode: $('vc-custom').value.trim(),
+            note: $('vc-note').value.trim()
+          })
+        });
+        const data = await res.json();
+        if (data.success && Array.isArray(data.created)) {
+          lastMintedItems = data.created;
+          $('vc-custom').value = '';
+          $('minted-codes-output').textContent = data.created.map(c => c.plainCode).join('\n');
+          $('minted-result-box').classList.remove('hide');
+          showMsg('msg-mint', data.message, 'ok');
+          loadVouchers();
+          loadOverview();
+        } else {
+          showMsg('msg-mint', data.message || 'Gagal membuat voucher.', 'err');
+        }
+      } catch {
+        showMsg('msg-mint', 'Kesalahan koneksi server.', 'err');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Buat Kode Voucher';
+      }
+    };
+
+    $('btn-copy-codes').onclick = () => {
+      const txt = lastMintedItems.map(c => c.plainCode).join('\n');
+      if (txt && navigator.clipboard) {
+        navigator.clipboard.writeText(txt).then(() => showToast('Kode voucher disalin.'));
+      }
+    };
+
+    $('btn-copy-wa-template').onclick = () => {
+      if (!lastMintedItems.length) return;
+      const first = lastMintedItems[0];
+      const codes = lastMintedItems.map(c => c.plainCode).join('\n');
+      const msg = [
+        `Terima kasih telah memesan *${first.plan_label}* di DKaimono-AM.`,
+        '',
+        'Kode Voucher Anda:',
+        codes,
+        '',
+        'Cara Aktifkan:',
+        '1. Buka https://dkaimono.web.id',
+        '2. Klik *Login Akun* (daftar dulu jika belum punya akun)',
+        '3. Klik *Klaim Kode*, tempel kode di atas, lalu klik *Aktifkan*.'
+      ].join('\n');
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(msg).then(() => showToast('Format pesan WA disalin.'));
+      }
+    };
+
+    async function loadOverview() {
+      try {
+        const res = await adminFetch('/api/admin/overview');
+        const data = await res.json();
+        if (!data.success) return;
+        const m = data.metrics || {};
+        $('kpi-vouchers').textContent = Number(m.activeVouchers || 0).toLocaleString('id-ID');
+        $('kpi-premium').textContent = Number(m.premiumUsers || 0).toLocaleString('id-ID');
+        $('kpi-users').textContent = Number(m.totalUsers || 0).toLocaleString('id-ID');
+        $('kpi-today').textContent = Number(m.todayActivations || 0).toLocaleString('id-ID');
+        $('kpi-total').textContent = Number(m.totalActivations || 0).toLocaleString('id-ID');
+
+        const logsEl = $('logs-list-container');
+        const logs = data.recentLogs || [];
+        if (logs.length === 0) {
+          logsEl.innerHTML = '<div class="empty-msg">Belum ada riwayat aktivasi di database.</div>';
+        } else {
+          logsEl.innerHTML = `
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>Email Alight Motion</th>
+                    <th>Tipe</th>
+                    <th>Akun Pengklaim</th>
+                    <th>Tier</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${logs.map(l => `
+                    <tr>
+                      <td class="tabular">${escapeHtml(new Date(l.created_at).toLocaleString('id-ID'))}</td>
+                      <td><b>${escapeHtml(l.am_email)}</b></td>
+                      <td>${escapeHtml(l.action_type || 'activate')}</td>
+                      <td>${escapeHtml(l.owner_email || 'Tamu Gratis')}</td>
+                      <td><span class="status-tag ${l.tier_at_time !== 'free' ? 'ok' : ''}">${escapeHtml((l.tier_at_time || 'free').toUpperCase())}</span></td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          `;
+        }
+      } catch {
+        $('logs-list-container').innerHTML = '<div class="empty-msg">Gagal memuat log aktivasi.</div>';
+      }
+    }
+
+    async function loadVouchers() {
+      const box = $('vouchers-list-container');
+      try {
+        const res = await adminFetch('/api/admin/vouchers');
+        const data = await res.json();
+        if (!data.success) {
+          box.innerHTML = `<div class="empty-msg">${escapeHtml(data.message || 'Gagal memuat voucher.')}</div>`;
+          return;
+        }
+        const list = data.vouchers || [];
+        if (list.length === 0) {
+          box.innerHTML = '<div class="empty-msg">Belum ada kode voucher. Gunakan formulir di samping untuk membuat kode pertama Anda.</div>';
+          return;
+        }
+
+        box.innerHTML = `
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kode (Mask)</th>
+                  <th>Paket &amp; Catatan</th>
+                  <th>Terpakai</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${list.map(v => {
+                  const exhausted = Number(v.used_count) >= Number(v.max_uses);
+                  const active = v.is_active && !exhausted;
+                  const claimers = Array.isArray(v.redemptions) && v.redemptions.length
+                    ? v.redemptions.map(r => escapeHtml(r.email)).join(', ')
+                    : '-';
+                  return `
+                    <tr>
+                      <td><code>${escapeHtml(v.code_hint)}</code></td>
+                      <td>
+                        <div><b>${escapeHtml(v.plan_label)}</b> (${v.duration_days}h · ${v.daily_limit}/hr)</div>
+                        <div style="font-size:0.78rem;color:var(--ink-60);">Catatan: ${escapeHtml(v.note || '-')} · Klaim: ${claimers}</div>
+                      </td>
+                      <td class="tabular">${v.used_count} / ${v.max_uses}</td>
+                      <td>
+                        <span class="status-tag ${active ? 'ok' : 'off'}">${active ? 'AKTIF' : (exhausted ? 'HABIS' : 'NONAKTIF')}</span>
+                      </td>
+                      <td>
+                        <div class="row-actions">
+                          <button type="button" class="btn sec btn-sm btn-toggle-vc" data-id="${v.id}" data-active="${v.is_active ? '1' : '0'}">${v.is_active ? 'Matikan' : 'Aktifkan'}</button>
+                          <button type="button" class="btn danger-btn btn-sm btn-del-vc" data-id="${v.id}">Hapus</button>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+
+        box.querySelectorAll('.btn-toggle-vc').forEach(btn => {
+          btn.onclick = async () => {
+            const id = btn.getAttribute('data-id');
+            const cur = btn.getAttribute('data-active') === '1';
+            await adminFetch(`/api/admin/vouchers/${id}`, {
+              method: 'PATCH',
+              body: JSON.stringify({ isActive: !cur })
+            });
+            showToast('Status voucher diperbarui.');
+            loadVouchers();
+            loadOverview();
+          };
+        });
+
+        box.querySelectorAll('.btn-del-vc').forEach(btn => {
+          btn.onclick = async () => {
+            const id = btn.getAttribute('data-id');
+            if (!confirm('Hapus kode voucher ini secara permanen?')) return;
+            await adminFetch(`/api/admin/vouchers/${id}`, { method: 'DELETE' });
+            showToast('Voucher dihapus.');
+            loadVouchers();
+            loadOverview();
+          };
+        });
+      } catch {
+        box.innerHTML = '<div class="empty-msg">Kesalahan jaringan saat memuat voucher.</div>';
+      }
+    }
+
+    async function loadUsers(query = '') {
+      const box = $('users-list-container');
+      try {
+        const res = await adminFetch('/api/admin/users?q=' + encodeURIComponent(query));
+        const data = await res.json();
+        if (!data.success) {
+          box.innerHTML = `<div class="empty-msg">${escapeHtml(data.message || 'Gagal memuat pengguna.')}</div>`;
+          return;
+        }
+        const users = data.users || [];
+        if (users.length === 0) {
+          box.innerHTML = '<div class="empty-msg">Tidak ada akun pengguna yang cocok.</div>';
+          return;
+        }
+
+        box.innerHTML = `
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Email Akun</th>
+                  <th>Tier &amp; Masa Aktif</th>
+                  <th>Kuota Hari Ini</th>
+                  <th>Kunci Perangkat</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${users.map(u => {
+                  const isPrem = (u.tier === 'premium' || u.tier === 'reseller') && u.premium_until && new Date(u.premium_until) > new Date();
+                  const expStr = u.premium_until ? new Date(u.premium_until).toLocaleDateString('id-ID') : '-';
+                  return `
+                    <tr>
+                      <td>
+                        <b>${escapeHtml(u.email)}</b>
+                        <div style="font-size:0.76rem;color:var(--ink-60);">Total aktivasi: ${u.total_activations || 0}</div>
+                      </td>
+                      <td>
+                        <span class="status-tag ${isPrem ? 'ok' : ''}">${escapeHtml((isPrem ? u.tier : 'free').toUpperCase())}</span>
+                        <div style="font-size:0.76rem;color:var(--ink-60);">s/d: ${escapeHtml(expStr)}</div>
+                      </td>
+                      <td class="tabular">${u.used_today || 0} / ${u.daily_limit || 3}</td>
+                      <td>
+                        ${u.device_fingerprint
+                          ? `<code>${escapeHtml(u.device_fingerprint.slice(0, 12))}...</code>`
+                          : '<span style="color:var(--ink-60);">Belum terikat</span>'}
+                      </td>
+                      <td>
+                        <div class="row-actions">
+                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-device">Reset HP</button>
+                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="grant-premium">+30h Prem</button>
+                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-bulk">Reset Bulk</button>
+                          <button type="button" class="btn sec btn-sm btn-u-act" data-id="${u.id}" data-act="reset-pw">Password</button>
+                          <button type="button" class="btn danger-btn btn-sm btn-u-act" data-id="${u.id}" data-act="delete">Hapus</button>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+
+        box.querySelectorAll('.btn-u-act').forEach(btn => {
+          btn.onclick = async () => {
+            const id = btn.getAttribute('data-id');
+            const act = btn.getAttribute('data-act');
+            let payload = null;
+
+            if (act === 'reset-device') {
+              payload = { action: 'reset-device' };
+            } else if (act === 'reset-bulk') {
+              payload = { action: 'reset-bulk' };
+            } else if (act === 'grant-premium') {
+              if (!confirm('Tambahkan 30 hari Premium Pass (10 akun/hari) ke akun ini?')) return;
+              payload = { action: 'grant-plan', tier: 'premium', durationDays: 30, dailyLimit: 10 };
+            } else if (act === 'reset-pw') {
+              const newPassword = prompt('Masukkan password baru untuk akun ini (minimal 6 karakter):');
+              if (!newPassword) return;
+              payload = { action: 'reset-password', newPassword };
+            } else if (act === 'delete') {
+              if (!confirm('Hapus akun pengguna ini secara permanen?')) return;
+              payload = { action: 'delete-user' };
+            }
+
+            if (!payload) return;
+            const r = await adminFetch(`/api/admin/users/${id}/action`, {
+              method: 'POST',
+              body: JSON.stringify(payload)
+            });
+            const d = await r.json();
+            showToast(d.message || 'Selesai.');
+            loadUsers($('user-search-input').value.trim());
+            loadOverview();
+          };
+        });
+      } catch {
+        box.innerHTML = '<div class="empty-msg">Gagal memuat daftar pengguna.</div>';
+      }
+    }
+
+    function renderPlansEditor() {
+      const container = $('plans-editor-container');
+      container.innerHTML = editablePlans.map((p, idx) => `
+        <div class="plan-editor-card" data-idx="${idx}">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <b>Paket #${idx + 1}</b>
+            ${editablePlans.length > 1 ? `<button type="button" class="btn danger-btn btn-sm btn-rem-plan" data-idx="${idx}">Hapus Paket</button>` : ''}
+          </div>
+          <div class="field-grid-2">
+            <div class="field">
+              <label>Nama Paket</label>
+              <input type="text" class="control pl-name" value="${escapeHtml(p.name)}">
+            </div>
+            <div class="field">
+              <label>Label Harga (Contoh: Rp 15.000)</label>
+              <input type="text" class="control pl-price" value="${escapeHtml(p.priceLabel)}">
+            </div>
+          </div>
+          <div class="field-grid-2">
+            <div class="field">
+              <label>Tier</label>
+              <select class="control pl-tier">
+                <option value="premium" ${p.tier !== 'reseller' ? 'selected' : ''}>Premium</option>
+                <option value="reseller" ${p.tier === 'reseller' ? 'selected' : ''}>Reseller</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Lencana Singkat (Opsional)</label>
+              <input type="text" class="control pl-badge" value="${escapeHtml(p.badge || '')}">
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:0;">
+            <label>Daftar Fitur (1 baris 1 poin)</label>
+            <textarea class="control pl-feats" style="min-height:70px;">${escapeHtml((p.features || []).join('\n'))}</textarea>
+          </div>
+        </div>
+      `).join('');
+
+      container.querySelectorAll('.btn-rem-plan').forEach(btn => {
+        btn.onclick = () => {
+          syncPlansFromDom();
+          editablePlans.splice(Number(btn.getAttribute('data-idx')), 1);
+          renderPlansEditor();
+        };
+      });
+    }
+
+    function syncPlansFromDom() {
+      const cards = document.querySelectorAll('.plan-editor-card');
+      editablePlans = Array.from(cards).map((card, i) => ({
+        id: editablePlans[i]?.id || `plan-${i + 1}`,
+        name: card.querySelector('.pl-name').value.trim(),
+        priceLabel: card.querySelector('.pl-price').value.trim(),
+        tier: card.querySelector('.pl-tier').value,
+        badge: card.querySelector('.pl-badge').value.trim(),
+        durationDays: editablePlans[i]?.durationDays || 30,
+        dailyLimit: card.querySelector('.pl-tier').value === 'reseller' ? 25 : 10,
+        features: card.querySelector('.pl-feats').value.split(/\r?\n/).map(s => s.trim()).filter(Boolean)
+      }));
+    }
+
+    $('btn-add-plan').onclick = () => {
+      syncPlansFromDom();
+      editablePlans.push({
+        id: 'plan-' + Date.now(),
+        name: 'Paket Baru',
+        priceLabel: 'Hubungi Admin',
+        tier: 'premium',
+        badge: '',
+        durationDays: 30,
+        dailyLimit: 10,
+        features: ['Kuota harian tanpa jeda']
+      });
+      renderPlansEditor();
+    };
+
+    async function loadSettings() {
+      try {
+        const res = await adminFetch('/api/admin/settings');
+        const data = await res.json();
+        if (!data.success || !data.store) return;
+        $('set-wa-number').value = data.store.whatsappNumber || '';
+        $('set-wa-greeting').value = data.store.whatsappGreeting || '';
+        $('set-store-notice').value = data.store.storeNotice || '';
+        editablePlans = Array.isArray(data.store.plans) ? data.store.plans : [];
+        renderPlansEditor();
+      } catch {}
+    }
+
+    $('btn-save-settings').onclick = async () => {
+      syncPlansFromDom();
+      const btn = $('btn-save-settings');
+      btn.disabled = true;
+      btn.textContent = 'Menyimpan...';
+      $('msg-settings').className = 'feedback';
+
+      try {
+        const res = await adminFetch('/api/admin/settings', {
+          method: 'PUT',
+          body: JSON.stringify({
+            store: {
+              whatsappNumber: $('set-wa-number').value.trim(),
+              whatsappGreeting: $('set-wa-greeting').value.trim(),
+              storeNotice: $('set-store-notice').value.trim(),
+              plans: editablePlans
+            },
+            newAdminPassword: $('set-new-admin-pw').value.trim()
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          $('set-new-admin-pw').value = '';
+          if (data.store) {
+            $('set-wa-number').value = data.store.whatsappNumber || '';
+            editablePlans = data.store.plans || editablePlans;
+            renderPlansEditor();
+          }
+          showMsg('msg-settings', data.message, 'ok');
+          showToast('Pengaturan disimpan.');
+        } else {
+          showMsg('msg-settings', data.message || 'Gagal menyimpan pengaturan.', 'err');
+        }
+      } catch {
+        showMsg('msg-settings', 'Kesalahan jaringan.', 'err');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Simpan Semua Pengaturan';
+      }
+    };
+
+    $('btn-refresh-vouchers').onclick = loadVouchers;
+    $('btn-refresh-logs').onclick = loadOverview;
+    $('btn-search-users').onclick = () => loadUsers($('user-search-input').value.trim());
+    $('user-search-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        loadUsers($('user-search-input').value.trim());
+      }
+    });
+
+    function loadAllAdminData() {
+      loadOverview();
+      loadVouchers();
+      loadUsers();
+      loadSettings();
+    }
+
+    if (adminToken) {
+      toggleAuthView(true);
+      loadAllAdminData();
+    }
+  </script>
+</body>
+</html>

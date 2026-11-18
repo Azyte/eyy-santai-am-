@@ -1,127 +1,52 @@
-<div align="center">
+# DKaimono-AM
 
-<img src="public/favicon.svg" alt="DKaimono-AM Logo" width="96" height="96" style="border-radius:24px; margin-bottom:12px;">
+Studio aktivasi lisensi tahunan Alight Motion Pro berbasis web dan Netlify Serverless, dilengkapi sistem kuota harian, kode voucher satu arah (one-way hashed), pemesanan via WhatsApp Admin, dan Panel Admin terpadu.
 
-# ⚡ DKaimono-AM
-
-**Modern & Professional Alight Motion Premium Activation Suite**
-
-*Reverse engineered • No password • No ads • Hosted on Netlify Serverless*
-
-🌐 **Live Website:** [dkaimono.web.id](https://dkaimono.web.id)
-
-[![Status](https://img.shields.io/badge/status-active-success?style=flat-square)](https://dkaimono.web.id)
-[![Domain](https://img.shields.io/badge/domain-dkaimono.web.id-10b981?style=flat-square)](https://dkaimono.web.id)
-[![Host](https://img.shields.io/badge/hosting-Netlify_Serverless-00C7B7?style=flat-square&logo=netlify)](https://dkaimono.web.id)
-[![Node](https://img.shields.io/badge/node-18%2B-green?style=flat-square&logo=node.js)](https://nodejs.org)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-
-**Improvised & Maintained by DKaimono**
-
-</div>
+- **Website Utama:** https://dkaimono.web.id
+- **Panel Admin:** https://dkaimono.web.id/admin
 
 ---
 
-> ⚠️ **DISCLAIMER:**  
-> Proyek ini adalah riset edukasi dan reverse-engineering independen. Tidak berafiliasi, didukung, atau disponsori oleh Alight Creative, Inc. maupun Google LLC. Seluruh merek dagang adalah hak milik dari pemiliknya masing-masing. Gunakan dengan bijak atas risiko sendiri.
+## Fitur Utama
+
+1. **Aktivasi Tanpa Kata Sandi Akun Alight Motion**
+   Menggunakan alur autentikasi resmi Google Firebase Magic Link dan validasi struk tahunan dengan dukungan rotasi multi-token cadangan.
+2. **Sistem Kuota, Kunci Perangkat (1 Perangkat = 1 Akun), & Reset Pukul 00:00 WIB**
+   - **Mode Gratis:** 3 aktivasi/hari dengan jeda tunggu 10 menit per jaringan `/24` & perangkat.
+   - **Premium Pass:** 10 aktivasi/hari tanpa jeda + akses **Bulk Grosir** (maksimal 10 akun setiap 7 hari).
+   - **Reseller Pass:** 25 aktivasi/hari tanpa jeda + akses **Bulk Grosir** setiap hari.
+3. **Katalog & Order Voucher via WhatsApp**
+   Pengunjung dapat memilih paket langsung dari modal **Beli Voucher** yang terhubung ke WhatsApp Admin dengan format pesan otomatis.
+4. **Panel Admin (`/admin`)**
+   - Generator kode voucher sekali pakai maupun multi-pakai (satuan atau massal hingga 50 kode sekaligus) dengan salin format chat WhatsApp instan.
+   - Manajemen pengguna: reset kunci perangkat jika pembeli ganti HP, tambah masa aktif manual, reset jeda Bulk, atau ganti password.
+   - Pengaturan live nomor WhatsApp Admin, harga paket katalog, dan password Admin tanpa perlu mengubah kode sumber.
 
 ---
 
-## 🚀 Fitur & Improvisasi DKaimono-AM
+## Konfigurasi Environment Variables (`.env` / Netlify)
 
-- **✨ Sleek Modern SaaS UI** — Antarmuka web gelap elegan bergaya produk teknologi kelas dunia (*Inter* & *JetBrains Mono*).
-- **🎨 Custom Logo & High-Res Favicons** — Dilengkapi logo vektor SVG, PNG, ICO, dan Apple Touch Icon (tanpa logo globe default).
-- **🔒 Passwordless Magic Link** — Masuk hanya menggunakan alamat email tanpa perlu kata sandi atau akun Google.
-- **📅 Sinkronisasi Tanggal Asli** — Menampilkan masa aktif resmi (3 Juli) yang cocok persis dengan yang ada di profil aplikasi Alight Motion.
-- **📲 Quick App Sign-In** — Tombol sekali klik di Step 3 untuk mengirim link login instan ke email HP agar pengguna bisa langsung masuk ke aplikasi.
-- **🚀 Deep Link Buka Aplikasi** — Tombol pintasan untuk langsung membuka aplikasi Alight Motion di HP Android.
-- **⚡ Sesi Tersimpan & Auto-Renew** — Sesi token tersimpan di browser; perpanjang lisensi kapan saja secara instan tanpa perlu repot verifikasi email lagi.
-- **📋 Tempel Cepat (Clipboard Auto-Paste)** — Pengguna HP dapat menempelkan link verifikasi dengan 1x klik.
-- **💡 Modal Panduan Salin Link Gmail** — Petunjuk interaktif cara *long-press* dan *copy link URL* dari email.
-- **📢 WhatsApp Viral Sharing** — Tombol berbagi cepat ke sesama kreator video via WhatsApp atau Web Share API.
-- **🛡️ Anti-Spam Rate Limiter** — Perlindungan API backend dari spamming dan pembatasan kuota Firebase.
-- **☁️ Netlify Serverless Ready** — Dikonfigurasi penuh dengan `netlify.toml` dan serverless functions menggunakan `serverless-http`.
+Salin `.env.example` menjadi `.env` untuk server lokal, atau masukkan variabel berikut pada **Netlify Dashboard -> Site configuration -> Environment variables**:
+
+```ini
+DATABASE_URL=postgresql://user:password@ep-example.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+SESSION_SECRET=string_acak_minimal_32_karakter
+VOUCHER_PEPPER=string_acak_minimal_32_karakter
+ADMIN_PASSWORD=password_kuat_untuk_halaman_admin
+```
+
+Variabel opsional:
+- `ADMIN_WHATSAPP`: Nomor WhatsApp Admin default (format `628...`, dapat diubah kapan saja lewat `/admin`).
+- `AM_PURCHASE_TOKENS`: Daftar token struk Google Play dipisah koma untuk fallback otomatis.
 
 ---
 
-## 🛠️ Cara Menjalankan
-
-### 1. Menjalankan di Komputer Lokal
+## Menjalankan Secara Lokal
 
 ```bash
-# Clone repository
-git clone https://github.com/Azyte/eyy-santai-am-.git
-cd eyy-santai-am-
-
-# Install dependensi
 npm install
-
-# Jalankan server
+npm test
 npm start
 ```
 
-Buka peramban di `http://localhost:3300`.
-
-### 2. Menjalankan Uji Otomatis (Tests)
-
-```bash
-npm test
-```
-*Memverifikasi kontrak API `/api/status`, `/api/stats`, `/api/send-link`, `/api/verify-link`, `/api/renew`, dan serverless handler.*
-
-### 3. Deploy ke Netlify
-
-Proyek ini telah dilengkapi [`netlify.toml`](netlify.toml) dan serverless functions di [`netlify/functions/api.js`](netlify/functions/api.js).
-1. Hubungkan repository GitHub ini di dashboard [Netlify](https://app.netlify.com).
-2. Netlify akan otomatis melakukan build dan deploy saat ada `git push` ke branch `main`.
-3. Tambahkan custom domain **`dkaimono.web.id`** di menu *Domain Management* Netlify.
-
-### 4. Mengganti Token Pembelian (Jika Token Kadaluarsa)
-
-Jika token struk Google Play bawaan kedaluwarsa di masa depan, Anda tidak perlu mengubah kode. Cukup tambahkan Environment Variable di **Netlify Dashboard &rarr; Site configuration &rarr; Environment variables**:
-* `AM_PURCHASE_TOKEN`: Token pembelian Google Play yang baru.
-* `AM_PURCHASE_TOKENS`: Daftar beberapa token cadangan dipisah koma untuk rotasi otomatis jika token utama mati.
-* `AM_PRODUCT_ID`: ID produk (default: `am.full.sub.annual.19q4`).
-
-Lihat contoh di [`.env.example`](.env.example).
-
----
-
-## 📂 Struktur Proyek
-
-```text
-├── app/
-│   └── api/                # Endpoint backend API Express
-│       ├── renew/          # Perpanjang lisensi via refresh token
-│       ├── send-link/      # Pengiriman magic link email Firebase
-│       ├── stats/          # Statistik aktivasi real-time
-│       ├── status/         # Pemeriksaan kesehatan server (online/offline)
-│       └── verify-link/    # Verifikasi magic link & inject VIP Pro
-├── lib/
-│   ├── auth.js             # Protokol otentikasi Firebase & endpoint Alight Creative
-│   ├── errors.js           # Penanganan pesan error Firebase yang ramah pengguna
-│   ├── rate-limit.js       # Middleware pembatas laju request (anti-spam)
-│   └── stats.js            # Penyimpanan statistik aktivasi (aman serverless)
-├── netlify/
-│   └── functions/api.js    # Netlify serverless function wrapper
-├── public/
-│   ├── index.html          # Web UI responsif DKaimono-AM
-│   ├── favicon.svg         # Ikon vektor website
-│   ├── favicon.png         # Ikon 32x32
-│   ├── favicon.ico         # Ikon search engine
-│   └── apple-touch-icon.png# Ikon 192x192 untuk home screen & share preview
-├── app.js                  # Modul Express utama
-├── netlify.toml            # Konfigurasi build & routing Netlify
-├── server.js               # Server lokal Express (port 3300)
-├── test-verification.js    # Automated test suite
-└── README.md
-```
-
----
-
-<div align="center">
-
-**DKaimono-AM** &copy; 2026 &middot; Re-engineered with modern web standards.  
-Apresiasi riset awal: *Ansari &bull; Zenno*
-
-</div>
+Server berjalan di `http://localhost:3300` (halaman utama) dan `http://localhost:3300/admin` (panel admin).
